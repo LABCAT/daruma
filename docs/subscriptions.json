@@ -1,0 +1,11 @@
+[
+  {
+    "id": "google-ai-plus-promo",
+    "service": "Google AI Plus",
+    "started": "2026-06-26",
+    "downgradeBy": "2026-09-26",
+    "revertTo": "Google One 200 GB storage",
+    "remindDaysBefore": 7,
+    "notes": "3-month promo at NZ$4.99/mo. Downgrade before Sep 26 to avoid full Plus renewal."
+  }
+]
