@@ -16,6 +16,11 @@ PM reminders start **7 days before** (from 2026-09-19) via check-in workflow + d
 
 ---
 
-## Primary build tool (current)
+## AI access (current)
 
-**Antigravity** on Google AI Plus — Dojo repo (`dojo.daruma.nz`) until Cursor premium resets.
+| Tool | Via | Notes |
+|------|-----|-------|
+| Antigravity | Google AI Plus (see above) | Dojo repo while promo active |
+| Cursor | Premium quota | When resets |
+
+No primary — use best performance per dollar. See [`DARUMA.md`](DARUMA.md).

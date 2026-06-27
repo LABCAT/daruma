@@ -12,8 +12,8 @@ See also: [`VISION.md`](VISION.md) (business strategy), [`GOALS.md`](GOALS.md) (
 
 | Name | Role |
 |------|------|
-| **Founder** | CEO — creative direction, final decisions, review and approval |
-| **Daruma** | AI assistant — development, research, marketing grunt work, 24/7 when infra allows |
+| **Founder** | Creative Director — vision, taste, redirect when wrong |
+| **Daruma** | AI workforce — proposes defaults, executes, pushes the plan forward; escalates only irreversible actions |
 | **Keima** | Creative + dev workstation — video, audio, interactive coding at the desk |
 
 Keima and Daruma are separate machines long-term. Keima must stay responsive for creative work; Daruma runs heavy agent loops without competing for GPU/CPU.
@@ -66,37 +66,59 @@ Avoid Arm-based creative boxes (e.g. RTX Spark) for Keima — NI plugins and aud
 
 ### Vision
 
-A private Jarvis: running continuously, working on the business (code, research, marketing tasks), reachable from anywhere for questions and decisions. Founder approves anything irreversible (merges, spending, public-facing changes).
+A private AI assistant capable of becoming AGI: running continuously, working on the business (code, research, marketing tasks), reachable from anywhere for questions and decisions.
 
-### Remote access
+### Operating mode
 
-Prefer existing channels over building a custom web app:
+**Daruma pushes the plan forward.** Infer scope from docs and tracker; propose sensible defaults; execute tactical work without waiting for the founder.
 
-- **OpenClaw** (or **NemoClaw** for sandboxed execution) with Telegram, Slack, or similar
-- `daruma.nz` stays the parent brand site — a personal command-center web UI is optional and low priority vs paying for proven background-agent tools in the near term
+**Founder approves only irreversible actions:** spending, public-facing launches, brand/creative direction changes, **merges to main** (Daruma opens PRs only — founder merges).
+
+**Agents must not block on questions the docs already answer.** If ambiguous, pick the smallest shippable option and note it in `CURRENT.md` — founder can redirect.
+
+---
+
+### Stack layers
+
+Daruma is layered tools, not one product. Each layer does one job.
+
+| Layer | Tool | When |
+|-------|------|------|
+| **Coding** | Any IDE/cloud coding agent + **Graphify** (repo knowledge graph) | Phase 0 |
+| **Always-on** | **OpenClaw** or **Hermes** — Telegram, cron, messaging gateway | Phase 2 VPS |
+| **Security** | **NemoClaw** — sandbox wrapper for OpenClaw/Hermes when agents hold real creds | Phase 2+ |
+| **Deep research** | **DeerFlow** — multi-agent task factory (reports, long research jobs) | Later, optional |
+
+- **OpenClaw** — more channels, bigger skill ecosystem; audit community skills before installing.
+- **Hermes** — self-improving skill loop (disabled by default); alternative at Phase 2. Reliability claims vs OpenClaw are unverified — pick at setup time.
+- **NemoClaw** is not a runtime — it hardens OpenClaw or Hermes inside NVIDIA OpenShell sandboxes.
+- **DeerFlow** deferred, not rejected. No native messaging; heavy Docker setup. Add when multi-hour research deliverables are worth it; wire as a skill/MCP call from the always-on layer.
+
+`daruma.nz` stays the parent brand site — a personal command-center web UI is optional and low priority.
 
 ### Phased roadmap
 
 | Phase | When | What |
 |-------|------|------|
-| **0 — Now** | Current | Paid IDE background agents for dev grunt work; free/cheap cloud APIs for experimentation. Keep costs minimal until revenue covers them. |
+| **0 — Now** | Current | Scoped dev tasks via **whatever coding agent is best value** (Cursor, Antigravity, Copilot, etc.); **Graphify** in repos when context hurts; Groq / Google AI Studio for cheap research. Keep costs minimal until revenue covers them. |
 | **1 — Keima** | Next hardware purchase | Creative + desk-side dev on x86/NVIDIA tower |
-| **2 — Daruma lite** | After Keima or in parallel if cheap | Small Linux VPS (~$6–12/mo) running OpenClaw or NemoClaw; one narrow cron job (e.g. weekly idea research), not full autonomy |
-| **3 — Daruma full** | When revenue justifies ~$5–7k NZD | RTX Spark or DGX Spark (128GB unified memory) for local 70B+ models; OpenClaw + NemoClaw; no per-token API costs at scale |
+| **2 — Daruma lite** | After agent templates prove out | Linux VPS (~$6–12/mo) running **OpenClaw or Hermes**; one narrow cron job (e.g. weekly idea research), not full autonomy. Add **NemoClaw** if the agent gets GitHub or API creds. |
+| **3 — Daruma full** | When revenue justifies ~$5–7k NZD | RTX Spark or DGX Spark (128GB unified memory) for local 70B+ models; always-on layer + NemoClaw; no per-token API costs at scale |
 
 Do not rush Phase 2 before agent templates and test harnesses are solid — infra without good task scoping wastes time.
 
 ### Model and tool strategy
 
-**Principle:** use whatever background-agent + model combo is cheapest and good enough this quarter. Re-evaluate providers regularly — this space moves fast.
+**Principle:** 100% tool-agnostic — best performance per dollar each quarter, no single primary IDE or agent. Re-evaluate quarterly.
 
-Categories (no vendor lock-in):
+| Tier | Options | Use |
+|------|---------|-----|
+| **Free** | Groq, Google AI Studio | Experiments only — rate limits break 24/7 loops |
+| **Budget paid** | MiniMax M3, DeepSeek V4 Flash | API workhorse when free tiers hit limits |
+| **Critical coding** | Best model available via whichever tool hosts it | High-stakes work only |
+| **Local** | Keima GPU (small models); Spark (70B+) | Phase 1 / 3 |
 
-- **Paid background agents** — IDE-hosted async workers (prompt → PR while you sleep)
-- **Free/cheap API tiers** — Groq, Google AI Studio, NVIDIA NIM (rate limits, not credits), MiniMax trial credits, etc.; good for experiments, unreliable as sole 24/7 brain
-- **Local inference** — Keima GPU for small models; Spark for large models
-
-Hosted "frontier for free" claims (social media, blog posts) are usually trial credits, cherry-picked benchmarks, or self-host requirements that need Spark-tier hardware. Verify before committing.
+Hosted "frontier for free" claims are usually trial credits, cherry-picked benchmarks, or self-host requirements that need Spark-tier hardware. Verify before committing.
 
 ---
 
@@ -110,7 +132,7 @@ Lesson from the first Toolbox app: background agents still needed substantial ma
 - **CI from day one** — agent can run `pnpm test` and self-correct
 - **Browser/UI verification** where needed — Playwright or MCP, not founder-as-QA by default
 
-Multi-hour autonomous loops are an anti-pattern. Tight loops: read → edit → test → stop or one retry → escalate to founder.
+Multi-hour autonomous loops are an anti-pattern. Tight loops: read → edit → test → stop or one retry → escalate only if stuck or irreversible.
 
 ---
 
@@ -124,5 +146,6 @@ When DAWs and NLEs expose MCP endpoints (community servers exist for Resolve and
 
 - Keima GPU — final choice when NZ stock and pricing are clearer
 - RTX Spark vs DGX Spark — evaluate at purchase time (pricing, availability fall 2026+)
-- Phase 2 VPS timing — after agent templates prove out on paid bg agents
-- Provider evaluation — MiniMax, GLM, Groq, etc.; track in prompts or a quarterly check, not in this doc
+- Phase 2 VPS timing — after agent templates prove out on scoped coding agents
+- Phase 2 runtime — OpenClaw vs Hermes (decide at VPS setup)
+- DeerFlow timing — when long-horizon research deliverables justify the Docker overhead

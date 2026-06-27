@@ -9,30 +9,36 @@ The Mon + Thu check-in workflow reads this file and posts to GitHub Issues.
 
 **D01 — Multiplication Dojo:** Ship first Google Play release (pipeline proof, not revenue bet).
 
-Next concrete step: _define the smallest shippable v1 scope in the dojo repo._
+**Next action:** Write v1 scope doc in `dojo.daruma.nz` repo and start first micro-ticket (project scaffold + one screen).
+
+---
+
+## D01 v1 scope (Daruma default)
+
+Per [`tracker/APPS.md`](../tracker/APPS.md) — founder can redirect; do not block waiting for approval.
+
+- One game mode: timed multiplication drill
+- Tables 1–12
+- Offline only (AsyncStorage)
+- No ads, no IAP, no auth in v1
+- Goal: smallest build that passes Google Play review and proves the pipeline
 
 ---
 
 ## Blocker
 
-None — Google AI Plus (NZ$4.99/mo promo) active; Antigravity primary for D01.
+None — Google AI Plus (NZ$4.99/mo promo) active; Antigravity available for D01 via that subscription.
 
 **Subscription:** downgrade to Google One 200 GB before **2026-09-26** — see [`SUBSCRIPTIONS.md`](SUBSCRIPTIONS.md).
 
 ---
 
-## Decision needed from founder
-
-What is the minimum v1 for Multiplication Dojo? (e.g. one game mode, times tables 1–12, offline only, no ads in v1 if that speeds Play Store approval.)
-
----
-
 ## Operating mode
 
-**Pipeline learning** (apps 1–2). Revenue clock has not started.
+**Pipeline learning** (apps 1–2). Revenue clock has not started. Daruma drives execution; founder steers creative.
 
 ---
 
 ## Last updated
 
-2026-06-26
+2026-06-27
