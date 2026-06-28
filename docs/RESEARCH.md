@@ -12,7 +12,9 @@ Automated idea intake for Project Daruma. **Brainstorm** decides; Daruma schedul
 4. **Pick** — highest idea ≥ threshold (default **18/25** in [`research-queue.json`](research-queue.json)) becomes next app in [`tracker/APPS.md`](../tracker/APPS.md) and [`CURRENT.md`](CURRENT.md).
 5. **Close** — comment `done` on the research issue when ideas are in Brainstorm.
 
-Mon + Thu check-in ([`weekly-checkin.yml`](../.github/workflows/weekly-checkin.yml)) still tracks active build focus.
+Mon + Thu check-in · Tue research — single workflow: [`daruma-scheduled.yml`](../.github/workflows/daruma-scheduled.yml).
+
+**Notifications:** Issues = content (watch repo → Custom → Issues). Actions = run status. To avoid doubles, set [Actions notifications](https://github.com/settings/notifications) to **failed workflows only** — keep issue emails for the actual prompt/check-in.
 
 ---
 
@@ -26,7 +28,7 @@ Prompt templates live in [`PROMPTS.md`](PROMPTS.md). The workflow assembles cont
 
 ## Manual run
 
-Actions → **Daruma research** → **Run workflow**.
+Actions → **Daruma** → **Run workflow** (pick task or leave `auto`).
 
 ---
 

@@ -1,0 +1,323 @@
+name: Daruma
+
+on:
+  schedule:
+    # Mon + Thu 08:00 NZST ≈ Sun/Wed 20:00 UTC
+    - cron: "0 20 * * 0"
+    - cron: "0 20 * * 3"
+    # Tue 08:00 NZST ≈ Mon 20:00 UTC
+    - cron: "0 20 * * 1"
+    # Subscription: Sep 19 08:00 NZST ≈ Sep 18 20:00 UTC
+    - cron: "0 20 18 9 *"
+  workflow_dispatch:
+    inputs:
+      task:
+        description: Which job to run (auto = follow NZ calendar)
+        type: choice
+        options:
+          - auto
+          - check-in
+          - research
+          - subscription
+        default: auto
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run scheduled tasks
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            const nzNow = new Date(
+              new Date().toLocaleString('en-US', { timeZone: 'Pacific/Auckland' })
+            );
+            const nzDay = nzNow.getDay(); // 0 Sun … 6 Sat
+            const cron = context.payload.schedule || '';
+            const input = context.payload.inputs?.task || 'auto';
+
+            let runCheckin = false;
+            let runResearch = false;
+            let runSubscription = false;
+
+            if (context.eventName === 'workflow_dispatch') {
+              if (input === 'check-in') runCheckin = true;
+              else if (input === 'research') runResearch = true;
+              else if (input === 'subscription') runSubscription = true;
+              else {
+                runCheckin = nzDay === 1 || nzDay === 4;
+                runResearch = nzDay === 2;
+              }
+            } else {
+              runCheckin = cron === '0 20 * * 0' || cron === '0 20 * * 3';
+              runResearch = cron === '0 20 * * 1';
+              runSubscription = cron === '0 20 18 9 *';
+            }
+
+            const dayLabel = nzNow.toLocaleDateString('en-NZ', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              timeZone: 'Pacific/Auckland',
+            });
+            const nzDateKey = nzNow.toLocaleDateString('en-CA', {
+              timeZone: 'Pacific/Auckland',
+            }); // YYYY-MM-DD
+
+            async function postedCheckinToday(issueNumber) {
+              const { data: comments } = await github.rest.issues.listComments({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                per_page: 20,
+              });
+              return comments.some((c) => {
+                if (!c.body?.includes('Check-in reminder')) return false;
+                const created = new Date(c.created_at).toLocaleDateString('en-CA', {
+                  timeZone: 'Pacific/Auckland',
+                });
+                return created === nzDateKey;
+              });
+            }
+
+            if (runCheckin) {
+              const current = fs.readFileSync('docs/CURRENT.md', 'utf8');
+              let subscriptionAlerts = '';
+              try {
+                const subs = JSON.parse(fs.readFileSync('docs/subscriptions.json', 'utf8'));
+                const today = new Date(nzDateKey + 'T00:00:00');
+                for (const sub of subs) {
+                  const deadline = new Date(sub.downgradeBy + 'T00:00:00');
+                  const remindFrom = new Date(deadline);
+                  remindFrom.setDate(remindFrom.getDate() - (sub.remindDaysBefore || 7));
+                  if (today >= remindFrom && today <= deadline) {
+                    const daysLeft = Math.ceil((deadline - today) / 86400000);
+                    subscriptionAlerts += [
+                      `### Subscription reminder: ${sub.service}`,
+                      '',
+                      `**${daysLeft} day(s)** until downgrade deadline (**${sub.downgradeBy}**).`,
+                      `Revert to: **${sub.revertTo}**`,
+                      sub.notes ? `\n${sub.notes}` : '',
+                      '',
+                    ].join('\n');
+                  }
+                }
+              } catch (e) {
+                core.warning(`Subscription alerts: ${e.message}`);
+              }
+
+              const titlePrefix = '[Check-in]';
+              const { data: issues } = await github.rest.issues.listForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+              });
+              const existing = issues.find((i) => i.title.startsWith(titlePrefix));
+
+              const body = [
+                `## Daruma check-in — ${dayLabel}`,
+                '',
+                subscriptionAlerts,
+                current,
+                '',
+                '---',
+                '**Reply:** `done` · `blocked: …` · `need help`',
+                '',
+                '_Sources: [`docs/CURRENT.md`](docs/CURRENT.md) · [`docs/SUBSCRIPTIONS.md`](docs/SUBSCRIPTIONS.md)_',
+              ].join('\n');
+
+              if (existing) {
+                if (await postedCheckinToday(existing.number)) {
+                  core.info('Check-in already posted today — skipping');
+                } else {
+                  await github.rest.issues.createComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: existing.number,
+                    body: `### Check-in reminder\n\n${body}`,
+                  });
+                  core.info(`Check-in comment on #${existing.number}`);
+                }
+              } else {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: `${titlePrefix} Current focus`,
+                  body,
+                });
+                core.info('Created check-in issue');
+              }
+            }
+
+            if (runResearch) {
+              const queue = JSON.parse(fs.readFileSync('docs/research-queue.json', 'utf8'));
+              const { items, pickThreshold, brainstormUrl } = queue;
+              const startOfYear = new Date(nzNow.getFullYear(), 0, 1);
+              const weekNum = Math.ceil(
+                ((nzNow - startOfYear) / 86400000 + startOfYear.getDay() + 1) / 7
+              );
+              const item = items[weekNum % items.length];
+
+              const templates = {
+                'app-store-gap': (topic) =>
+                  `Search for the top apps in ${topic} on the iOS and Google Play App Store.\n` +
+                  `Find their ratings, number of reviews, last update date, and common complaints on Reddit or review sites.\n` +
+                  `I am looking for gaps — old, poorly rated, or bloated apps where a simpler, more beautiful alternative could win.\n` +
+                  `Summarise the top 3 opportunities.`,
+                'reddit-complaint': (topic) =>
+                  `Search Reddit for complaints about ${topic}.\n` +
+                  `What are users frustrated about? What features are they asking for that do not exist?\n` +
+                  `What would make them switch to an alternative? Summarise the top 5 pain points and 3 micro-app or micro-game angles.`,
+                'keyword-research': (topic) =>
+                  `Search for App Store keyword data for ${topic}.\n` +
+                  `What are people searching for? Which keywords have decent volume but weak competition (top apps old, low rated, or generic)?\n` +
+                  `Suggest 5 keyword opportunities ranked by opportunity score, with a one-line app concept for each.`,
+                'small-business-pain': (topic) =>
+                  `Search Reddit, forums, and review sites for complaints from ${topic} about admin software or tools.\n` +
+                  `What tasks are painful, time-consuming, or poorly served? I am looking for micro problems solvable with a single-purpose web app.\n` +
+                  `Summarise the top 5 pain points and 3 single-purpose tool ideas.`,
+                'micro-game-concept': (topic) =>
+                  `Suggest 5 micro game concepts for ${topic}. Each concept should:\n` +
+                  `- Target a clear Google Play keyword\n` +
+                  `- Be visually distinctive (Skia-friendly, not a generic reskin)\n` +
+                  `- Have a one-sentence hook\n` +
+                  `- Be monetisable with ads + remove-ads IAP\n` +
+                  `- Be buildable in under one week`,
+              };
+
+              const researchTask = templates[item.template](item.topic);
+              const pastePrompt = [
+                'I am working on Project Daruma — a mission to build 100 micro apps and games.',
+                '',
+                'Two sub-brands:',
+                '- Daruma Toolbox (tools.daruma.nz): micro tools for small businesses. Stack: SvelteKit + Neon + Upstash + Cloudflare Pages. Revenue: subscriptions.',
+                '- Daruma Dojo (dojo.daruma.nz): micro learning apps and games. Stack: React + Expo. Revenue: ads + IAP. Google Play first.',
+                '',
+                'Command center: github.com/LABCAT/daruma',
+                'Founder: full-stack developer, New Zealand, Windows-heavy.',
+                '',
+                '---',
+                '',
+                'RESEARCH TASK',
+                '',
+                researchTask,
+                '',
+                '---',
+                '',
+                'OUTPUT FORMAT (copy this structure exactly — I will paste into our Brainstorm app):',
+                '',
+                'For each opportunity (3–5 total):',
+                '',
+                '### [Opportunity name]',
+                '- Brand: Toolbox | Dojo',
+                '- One-line hook:',
+                '- Target keyword or audience:',
+                '- Pain (1-5):',
+                '- Willingness to pay (1-5):',
+                '- Reachability (1-5):',
+                '- Build speed (1-5):',
+                '- Passion (1-5):',
+                '- Total /25:',
+                '- Recommendation (build | research more | skip):',
+                '',
+                'End with: **Top pick:** [name] — [one sentence why]',
+              ].join('\n');
+
+              const weekLabel = `W${String(weekNum).padStart(2, '0')}`;
+              const titlePrefix = '[Research]';
+              const shortTopic =
+                item.topic.length > 60 ? `${item.topic.slice(0, 57)}…` : item.topic;
+              const title = `${titlePrefix} ${weekLabel} · ${item.brand} — ${shortTopic}`;
+
+              const { data: openIssues } = await github.rest.issues.listForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+              });
+              if (openIssues.find((i) => i.title === title)) {
+                core.info('Research issue already exists — skipping');
+              } else {
+                const body = [
+                  `<!-- research-id: ${item.id} -->`,
+                  `## Weekly research — ${dayLabel}`,
+                  '',
+                  `**Brand focus:** ${item.brand}`,
+                  `**Source:** ${item.source}`,
+                  `**Pick threshold:** ${pickThreshold}/25 in Brainstorm before starting a new build`,
+                  '',
+                  '### 1. Copy prompt below → paste into any AI chat',
+                  '',
+                  '```',
+                  pastePrompt,
+                  '```',
+                  '',
+                  '### 2. Paste AI output into Brainstorm',
+                  '',
+                  `[brainstorm.daruma.nz](${brainstormUrl}) — score, rank, and compare with existing ideas.`,
+                  '',
+                  '### 3. Promote winner',
+                  '',
+                  `If an idea scores **≥ ${pickThreshold}/25**, add it to [\`tracker/APPS.md\`](tracker/APPS.md) and set [\`docs/CURRENT.md\`](docs/CURRENT.md) next action.`,
+                  '',
+                  '---',
+                  '**Reply:** `done` when ideas are in Brainstorm · `skip: reason` to defer',
+                  '',
+                  '_Queue: [`docs/research-queue.json`](docs/research-queue.json) · Process: [`docs/RESEARCH.md`](docs/RESEARCH.md)_',
+                ].join('\n');
+
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  body,
+                });
+                core.info('Created research issue');
+              }
+            }
+
+            if (runSubscription) {
+              const subs = JSON.parse(fs.readFileSync('docs/subscriptions.json', 'utf8'));
+              const { data: openIssues } = await github.rest.issues.listForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+              });
+              for (const sub of subs) {
+                const title = `[Subscription] Downgrade ${sub.service} by ${sub.downgradeBy}`;
+                if (openIssues.find((i) => i.title === title)) continue;
+                const body = [
+                  `## Downgrade reminder`,
+                  '',
+                  `**${sub.service}** promo ends **${sub.downgradeBy}**.`,
+                  '',
+                  `**Action:** Downgrade to **${sub.revertTo}** before the renewal date.`,
+                  '',
+                  sub.notes || '',
+                  '',
+                  '---',
+                  'Reply `done` when downgraded.',
+                  '',
+                  '_Source: [`docs/SUBSCRIPTIONS.md`](docs/SUBSCRIPTIONS.md)_',
+                ].join('\n');
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  body,
+                });
+                core.info(`Created subscription issue for ${sub.service}`);
+              }
+            }
+
+            if (!runCheckin && !runResearch && !runSubscription) {
+              core.info('No tasks scheduled for this run');
+            }
