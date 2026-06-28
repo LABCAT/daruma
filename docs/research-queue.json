@@ -1,0 +1,62 @@
+{
+  "pickThreshold": 18,
+  "brainstormUrl": "https://brainstorm.daruma.nz",
+  "items": [
+    {
+      "id": "dojo-math-games-gap",
+      "brand": "Dojo",
+      "template": "app-store-gap",
+      "topic": "kids math and number games on Google Play (exclude basic times tables drills)",
+      "source": "Post-D01 pipeline — next keyword gap"
+    },
+    {
+      "id": "toolbox-adventure-tourism",
+      "brand": "Toolbox",
+      "template": "small-business-pain",
+      "topic": "adventure tourism operators in New Zealand",
+      "source": "Brother connection · tracker pipeline"
+    },
+    {
+      "id": "dojo-educational-keywords",
+      "brand": "Dojo",
+      "template": "keyword-research",
+      "topic": "casual educational mobile games for ages 8–14",
+      "source": "BRANDS.md Dojo pipeline"
+    },
+    {
+      "id": "toolbox-tradie-admin",
+      "brand": "Toolbox",
+      "template": "small-business-pain",
+      "topic": "sole traders and tradies (plumbers, electricians, builders)",
+      "source": "BRANDS.md Toolbox pipeline"
+    },
+    {
+      "id": "dojo-puzzle-games-gap",
+      "brand": "Dojo",
+      "template": "app-store-gap",
+      "topic": "minimalist puzzle games on Google Play",
+      "source": "BRANDS.md — visually distinctive games"
+    },
+    {
+      "id": "toolbox-reddit-admin",
+      "brand": "Toolbox",
+      "template": "reddit-complaint",
+      "topic": "small business invoicing, quoting, and job tracking software",
+      "source": "Toolbox recurring admin theme"
+    },
+    {
+      "id": "pipeline-plotter-community",
+      "brand": "Toolbox",
+      "template": "reddit-complaint",
+      "topic": "pen plotter and generative SVG pattern tools",
+      "source": "tracker/APPS.md pipeline row"
+    },
+    {
+      "id": "dojo-micro-game-ideas",
+      "brand": "Dojo",
+      "template": "micro-game-concept",
+      "topic": "React Native + Expo micro games with Skia visuals",
+      "source": "Rotation — open ideation when gaps are thin"
+    }
+  ]
+}

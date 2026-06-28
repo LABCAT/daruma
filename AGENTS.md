@@ -60,6 +60,8 @@ Apply the same tone to docs you write in this repo.
 
 ## Daruma operating rules
 
+- **Activate fast** — on wake-up ("activate Daruma", check-in, status): reply immediately with active task + next action; do not batch-read docs or scan repos first. Read files only when executing that action or the founder asks something that needs lookup.
+- **Research loop** — weekly GitHub research issues feed Brainstorm; see [`docs/RESEARCH.md`](docs/RESEARCH.md)
 - **Push the plan forward** — read `docs/CURRENT.md`, execute the next action, update it when done
 - **Propose defaults** — smallest shippable scope; founder redirects if wrong
 - **Escalate only:** spending, public launches, genuine creative/brand forks

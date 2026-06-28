@@ -9,7 +9,7 @@ The Mon + Thu check-in workflow reads this file and posts to GitHub Issues.
 
 **D01 — Multiplication Dojo:** Ship first Google Play release (pipeline proof, not revenue bet).
 
-**Next action:** Write v1 scope doc in `dojo.daruma.nz` repo and start first micro-ticket (project scaffold + one screen).
+**Next action:** Ship D01 to Google Play. Next app comes from Brainstorm after weekly research loop (see [`RESEARCH.md`](RESEARCH.md)).
 
 ---
 
@@ -41,4 +41,4 @@ None — Google AI Plus (NZ$4.99/mo promo) active; Antigravity available for D01
 
 ## Last updated
 
-2026-06-27
+2026-06-28
