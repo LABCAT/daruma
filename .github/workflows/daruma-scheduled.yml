@@ -167,76 +167,130 @@ jobs:
               );
               const item = items[weekNum % items.length];
 
-              const templates = {
-                'app-store-gap': (topic) =>
-                  `Search for the top apps in ${topic} on the iOS and Google Play App Store.\n` +
-                  `Find their ratings, number of reviews, last update date, and common complaints on Reddit or review sites.\n` +
-                  `I am looking for gaps — old, poorly rated, or bloated apps where a simpler, more beautiful alternative could win.\n` +
-                  `Summarise the top 3 opportunities.`,
-                'reddit-complaint': (topic) =>
-                  `Search Reddit for complaints about ${topic}.\n` +
-                  `What are users frustrated about? What features are they asking for that do not exist?\n` +
-                  `What would make them switch to an alternative? Summarise the top 5 pain points and 3 micro-app or micro-game angles.`,
-                'keyword-research': (topic) =>
-                  `Search for App Store keyword data for ${topic}.\n` +
-                  `What are people searching for? Which keywords have decent volume but weak competition (top apps old, low rated, or generic)?\n` +
-                  `Suggest 5 keyword opportunities ranked by opportunity score, with a one-line app concept for each.`,
-                'small-business-pain': (topic) =>
-                  `Search Reddit, forums, and review sites for complaints from ${topic} about admin software or tools.\n` +
-                  `What tasks are painful, time-consuming, or poorly served? I am looking for micro problems solvable with a single-purpose web app.\n` +
-                  `Summarise the top 5 pain points and 3 single-purpose tool ideas.`,
-                'micro-game-concept': (topic) =>
-                  `Suggest 5 micro game concepts for ${topic}. Each concept should:\n` +
-                  `- Target a clear Google Play keyword\n` +
-                  `- Be visually distinctive (Skia-friendly, not a generic reskin)\n` +
-                  `- Have a one-sentence hook\n` +
-                  `- Be monetisable with ads + remove-ads IAP\n` +
-                  `- Be buildable in under one week`,
-              };
-
-              const researchTask = templates[item.template](item.topic);
-              const pastePrompt = [
-                'I am working on Project Daruma — a mission to build 100 micro apps and games.',
+              const focus = item.focus || {};
+              const toolboxPrompt = [
+                'North star: ideas must plausibly contribute to portfolio revenue that funds',
+                'always-on Daruma — bias toward audiences that already spend on tools.',
                 '',
-                'Two sub-brands:',
-                '- Daruma Toolbox (tools.daruma.nz): micro tools for small businesses. Stack: SvelteKit + Neon + Upstash + Cloudflare Pages. Revenue: subscriptions.',
-                '- Daruma Dojo (dojo.daruma.nz): micro learning apps and games. Stack: React + Expo. Revenue: ads + IAP. Google Play first.',
+                'Each time this prompt is run, independently select a fresh combination of:',
+                '- Audience: a specific small business type or trade (never repeat a previous one)',
+                '- Source: App Store reviews, Play Store reviews, Reddit, Twitter/X, G2/Capterra',
+                '- Angle: painful admin tasks | tools they hate but pay for | things still done',
+                '  on paper | features missing from popular tools',
                 '',
-                'Command center: github.com/LABCAT/daruma',
-                'Founder: full-stack developer, New Zealand, Windows-heavy.',
+                'State your chosen combination at the top of your response before researching.',
+                'Do not repeat an audience or angle combination from earlier in this conversation.',
+                'Use live web search and cite sources.',
+                '',
+                'I am looking for micro problems solvable with a single-purpose app (mobile, web,',
+                'or both) shippable as a working v1 in under a week. Discovery is ASO-first —',
+                'identify the exact store keyword or SEO term a user would search. Secondary',
+                'channels (Reddit, niche forums, direct outreach) are in scope when they add reach.',
+                'Revenue models in scope: subscription, one-time purchase, or freemium with a',
+                'paid tier. Minimum screens, immediate value, no onboarding required. Not a',
+                'platform. Not a suite. A tiny sharp tool that does one thing better than anything else.',
+                '',
+                'When scoring Build Speed — be strict. Anything requiring complex integrations,',
+                'third-party APIs, or more than 3 screens scores 1-2. A smart form, calculator,',
+                'or generator with immediate output scores 4-5. Favour the latter.',
+                '',
+                'When scoring Willingness to pay — be strict. Score whether this audience already',
+                'spends money on the problem (existing subscriptions, SaaS, or paid apps). Free-only',
+                'niches with no spend signal score 1-2.',
                 '',
                 '---',
                 '',
-                'RESEARCH TASK',
-                '',
-                researchTask,
-                '',
-                '---',
-                '',
-                'OUTPUT FORMAT (copy this structure exactly — I will paste into our Brainstorm app):',
+                "This week's research focus:",
+                `- Audience: ${focus.audience || ''}`,
+                `- Source: ${focus.source || ''}`,
+                `- Angle: ${focus.angle || ''}`,
                 '',
                 'For each opportunity (3–5 total):',
                 '',
                 '### [Opportunity name]',
-                '- Brand: Toolbox | Dojo',
+                '- Brand: Toolbox',
                 '- One-line hook:',
-                '- Target keyword or audience:',
-                '- Pain (1-5):',
-                '- Willingness to pay (1-5):',
-                '- Reachability (1-5):',
-                '- Build speed (1-5):',
-                '- Passion (1-5):',
+                '- Target keyword (ASO or SEO):',
+                '- Primary discovery channel: [store | search | community | outreach]',
+                '- Revenue model: [subscription | one-time | freemium]',
+                '- Pain (1–5):',
+                '- Willingness to pay (1–5): [existing spend in category]',
+                '- Discovery (1–5): [ASO/SEO volume vs competition; secondary channels if any]',
+                '- Build speed (1–5): [v1 in under a week = 4-5, anything longer = 1-2]',
+                '- Passion (1–5):',
                 '- Total /25:',
-                '- Recommendation (build | research more | skip):',
+                '- MVP scope: [one sentence — what is the absolute minimum to ship v1]',
+                '- Recommendation: build | research more | skip',
                 '',
                 'End with: **Top pick:** [name] — [one sentence why]',
               ].join('\n');
 
+              const dojoPrompt = [
+                'North star: ideas must plausibly contribute to portfolio revenue that funds',
+                'always-on Daruma — bias toward categories with proven IAP, ad, or subscription spend.',
+                '',
+                'Each time this prompt is run, independently select a fresh combination of:',
+                '- Genre: puzzle | arcade | reflex | trivia | word | math | memory | creative',
+                '- Platform focus: iOS App Store | Google Play Store | web | cross-platform',
+                '- Research source: App Store keyword tools | Play Store categories |',
+                '  Reddit (r/iosgaming, r/androidgaming) | AppMagic revenue estimates',
+                '',
+                'State your chosen combination at the top of your response before researching.',
+                'Do not repeat a genre or platform combination from earlier in this conversation.',
+                'Use live web search and cite sources.',
+                '',
+                'I am looking for keyword gaps — search terms with real volume where the top',
+                'ranking apps are old, ugly, poorly rated, or bloated. Discovery is ASO-first;',
+                'a beautiful, focused alternative could rank quickly with good ASO. Also in scope:',
+                'web playable, cross-platform, Product Hunt, Reddit launches.',
+                '',
+                'The app must be:',
+                '- Describable in one sentence',
+                '- Completable in under 2 minutes per session',
+                '- Shippable as a working v1 in under a week',
+                '- Monetisable — default: ads + remove-ads IAP; subscription or premium IAP',
+                '  if the category already supports it',
+                '',
+                'When scoring Build Speed — be strict. A simple game loop with one mechanic',
+                'scores 4-5. Anything requiring levels, unlocks, or complex state scores 1-2.',
+                '',
+                'When scoring Willingness to pay — be strict. Score whether users already spend',
+                'in this category (IAP, remove-ads, premium unlocks, subscriptions) and whether',
+                'ad revenue density is realistic. Categories with no spend signal score 1-2.',
+                '',
+                '---',
+                '',
+                "This week's research focus:",
+                `- Genre: ${focus.genre || ''}`,
+                `- Platform: ${focus.platform || ''}`,
+                `- Source: ${focus.source || ''}`,
+                '',
+                'For each opportunity (3–5 total):',
+                '',
+                '### [Opportunity name]',
+                '- Brand: Dojo',
+                '- One-line hook:',
+                '- Target keyword (ASO or web):',
+                '- Primary discovery channel: [store | web | community | launch]',
+                '- Revenue model: [ads + IAP | subscription | hybrid]',
+                '- Competitor weakness: [why the current top app is beatable]',
+                '- Pain (1–5):',
+                '- Willingness to pay (1–5): [existing spend + ad/IAP potential]',
+                '- Discovery (1–5): [keyword volume vs competition; secondary channels if any]',
+                '- Build speed (1–5): [v1 in under a week = 4-5, anything longer = 1-2]',
+                '- Passion (1–5):',
+                '- Total /25:',
+                '- MVP scope: [one sentence — what is the absolute minimum to ship v1]',
+                '- Recommendation: build | research more | skip',
+                '',
+                'End with: **Top pick:** [name] — [one sentence why]',
+              ].join('\n');
+
+              const pastePrompt = item.brand === 'Toolbox' ? toolboxPrompt : dojoPrompt;
+
               const weekLabel = `W${String(weekNum).padStart(2, '0')}`;
               const titlePrefix = '[Research]';
-              const shortTopic =
-                item.topic.length > 60 ? `${item.topic.slice(0, 57)}…` : item.topic;
-              const title = `${titlePrefix} ${weekLabel} · ${item.brand} — ${shortTopic}`;
+              const title = `${titlePrefix} ${weekLabel} · ${item.brand}`;
 
               const { data: openIssues } = await github.rest.issues.listForRepo({
                 owner: context.repo.owner,
