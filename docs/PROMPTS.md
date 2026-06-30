@@ -23,9 +23,9 @@ State your chosen combination at the top of your response before researching.
 Do not repeat an audience or angle combination from earlier in this conversation.
 Use live web search and cite sources.
 
-I am looking for micro problems solvable with a single-purpose app (mobile, web,
-or both) shippable as a working v1 in under a week. Discovery is ASO-first —
-identify the exact store keyword or SEO term a user would search. Secondary
+I am looking for micro problems solvable with a single-purpose mobile app
+shippable as a working v1 in under a week. Discovery is ASO-first —
+identify the exact App Store/Play Store keyword a user would search. Secondary
 channels (Reddit, niche forums, direct outreach) are in scope when they add reach.
 Revenue models in scope: subscription, one-time purchase, or freemium with a
 paid tier. Minimum screens, immediate value, no onboarding required. Not a
@@ -51,12 +51,12 @@ For each opportunity (3–5 total):
 ### [Opportunity name]
 - Brand: Toolbox
 - One-line hook:
-- Target keyword (ASO or SEO):
-- Primary discovery channel: [store | search | community | outreach]
+- Target keyword (ASO):
+- Primary discovery channel: [store | community | outreach]
 - Revenue model: [subscription | one-time | freemium]
 - Pain (1–5):
 - Willingness to pay (1–5): [existing spend in category]
-- Discovery (1–5): [ASO/SEO volume vs competition; secondary channels if any]
+- Discovery (1–5): [ASO volume vs competition; secondary channels if any]
 - Build speed (1–5): [v1 in under a week = 4-5, anything longer = 1-2]
 - Passion (1–5):
 - Total /25:
