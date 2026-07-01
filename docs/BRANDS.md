@@ -10,7 +10,7 @@
 **Positioning:** Beautifully simple, single-purpose tools that do one thing perfectly
 
 **Revenue model:** Small monthly subscription ($5–$20/mo per tool)
-**Distribution:** SEO, Reddit niche communities, direct outreach, word of mouth
+**Distribution:** Google Play first (ASO), iOS later; web when marketing budget allows. Secondary: Reddit, niche communities
 
 **Current apps:**
 - `brainstorm.daruma.nz` — brainstorm and prioritisation tool ✅ live
@@ -32,7 +32,7 @@
 **Positioning:** Micro games and learning tools that are visually delightful and genuinely satisfying
 
 **Revenue model:** Free + ads, optional IAP (remove ads, cosmetics, level packs)
-**Distribution:** App Store (Google Play first, iOS via Expo EAS), ASO-driven discovery, Product Hunt, Reddit
+**Distribution:** Google Play first (ASO), iOS via Expo EAS once Play proves the category; Product Hunt and Reddit secondary
 
 **Current apps:**
 - None yet — monorepo scaffolded

@@ -9,7 +9,7 @@ Automated idea intake for Project Daruma. **Brainstorm** decides; Daruma schedul
 1. **Tuesday 08:00 NZST** — GitHub Action opens a `[Research]` issue (notification on your phone if Issues are watched).
 2. **Paste** the prompt block from the issue into any AI chat (Gemini, Groq, Claude, etc.). ~10 minutes.
 3. **Brainstorm** — copy structured output into [brainstorm.daruma.nz](https://brainstorm.daruma.nz). Score and rank.
-4. **Pick** — highest idea ≥ threshold (default **18/25** in [`research-queue.json`](research-queue.json)) becomes next app in [`tracker/APPS.md`](../tracker/APPS.md) and [`CURRENT.md`](CURRENT.md).
+4. **Pick** — highest idea ≥ threshold in Brainstorm (default **18/25** in [`research-queue.json`](research-queue.json); research output is **evidence subtotal /20**, add Passion in Brainstorm) becomes next app in [`tracker/APPS.md`](../tracker/APPS.md) and [`CURRENT.md`](CURRENT.md).
 5. **Close** — comment `done` on the research issue when ideas are in Brainstorm.
 
 Mon + Thu check-in · Tue research — single workflow: [`daruma-scheduled.yml`](../.github/workflows/daruma-scheduled.yml).
