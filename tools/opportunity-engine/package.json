@@ -1,0 +1,19 @@
+{
+  "name": "opportunity-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "research": "tsx src/index.ts",
+    "research:no-serp": "tsx src/index.ts --no-serp"
+  },
+  "dependencies": {
+    "google-play-scraper": "^9.1.1",
+    "playwright": "^1.52.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}

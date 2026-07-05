@@ -6,9 +6,9 @@ Rules for all AI tools working in this repository (Claude, Cursor, Copilot, Gemi
 
 ## What This Repo Is
 
-This is the Project Daruma command center. It contains strategy, documentation, prompts, and the master app tracker. There is no app code here.
+This is the Project Daruma command center. It contains strategy, documentation, prompts, the master app tracker, and internal pipeline tooling (under `tools/`).
 
-Do not scaffold apps, create package.json files, or write application code in this repo.
+Do not scaffold shipped apps or write application code in this repo. The `tools/` directory is for internal scripts and pipelines (e.g. `tools/opportunity-engine/`) that support the command center — not for shipped products.
 
 ---
 
