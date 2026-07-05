@@ -34,4 +34,4 @@ Actions → **Daruma** → **Run workflow** (pick task or leave `auto`).
 
 ## Later (Phase 2)
 
-Always-on agent runs the same prompt, posts results to the issue. You still prioritize in Brainstorm until scoring automation is trusted.
+**Daruma Opportunity Engine** — see [`OPPORTUNITY_ENGINE.md`](OPPORTUNITY_ENGINE.md). Batch pipeline (Collect → Score → Synthesise) replaces the paste step; posts to the issue or Brainstorm. Founder still scores Passion and picks in Brainstorm until automation is trusted.

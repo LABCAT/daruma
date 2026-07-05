@@ -1,6 +1,6 @@
 # ASO Agent Loop Research System
 
-Concept specification for a future automated research agent. Not implementation — design only.
+Concept specification for validation rules and loop behaviour. Implementation architecture: [`OPPORTUNITY_ENGINE.md`](OPPORTUNITY_ENGINE.md).
 
 Related: [`PROMPTS.md`](PROMPTS.md) (manual prompt), [`RESEARCH.md`](RESEARCH.md) (current weekly loop).
 
