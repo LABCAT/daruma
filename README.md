@@ -10,14 +10,12 @@ Build 100 micro apps and games. Learn product, distribution, monetisation, and A
 
 ## The Two Sub-Brands
 
-**Daruma Toolbox** — micro tools and apps for small businesses
-- Domain: `tools.daruma.nz`
-- Revenue: small monthly subscriptions
-- Stack: SvelteKit + Neon DB + Cloudflare Pages
+**Daruma Toolbox** — micro tools for small businesses (future: Tanuki Toolbox)
+- Web: `web.daruma.nz` — subs where backend needed
+- ASO: `tools.daruma.nz` — free + one-off IAP unlock
 
-**Daruma Dojo** — micro learning apps and games
-- Domain: `dojo.daruma.nz`
-- Revenue: ads + optional IAP
+**Daruma Dojo** — micro learning games (future: Challenge Club, `darumadojo.cc`)
+- Repo: `dojo.daruma.nz` — monetisation TBD
 - Stack: React + Expo (web and mobile)
 
 ## Repos
@@ -25,7 +23,9 @@ Build 100 micro apps and games. Learn product, distribution, monetisation, and A
 | Repo | Purpose | Status |
 |------|---------|--------|
 | `daruma` | Command center (this repo) | Active |
-| `tools.daruma.nz` | Toolbox monorepo | Active |
+| `web.daruma.nz` | Toolbox web monorepo | Active |
+| `tools.daruma.nz` | Toolbox ASO monorepo | Active |
+| `tanuki-toolbox-design-system` | Toolbox design system (visual source) | Active |
 | `dojo.daruma.nz` | Dojo monorepo | In progress |
 
 ## Key Docs

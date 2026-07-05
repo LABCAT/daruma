@@ -13,7 +13,7 @@ Not a single big bet. Many small bets. Ship fast, find signal, double down on wi
 ## The Four Things Being Learned in Parallel
 
 1. **Product** — what do people actually want and use
-2. **Distribution** — ASO, SEO, Reddit launches, Product Hunt
+2. **Distribution** — ASO, SEO (founder builds; Reddit/PH deferred to Daruma automation)
 3. **Monetisation** — ads, IAP, subscriptions, one-time purchases
 4. **AI Leverage** — using AI to build faster and faster each iteration
 

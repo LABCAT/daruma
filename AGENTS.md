@@ -16,7 +16,7 @@ Do not scaffold apps, create package.json files, or write application code in th
 
 - Keep all files in this repo **short and concise**
 - **This repo:** strategy, stack decisions, prompts, tracker (one row per app in `tracker/APPS.md`)
-- **App repos** (`tools.daruma.nz`, `dojo.daruma.nz`): product design, screen specs, game mechanics, build/scaffold rules — each repo has its own `AGENTS.md` for agents working there
+- **App repos** (`web.daruma.nz`, `tools.daruma.nz`, `dojo.daruma.nz`, `tanuki-toolbox-design-system`): product design, screen specs, game mechanics, build/scaffold rules — each repo has its own `AGENTS.md` for agents working there
 
 ---
 
@@ -30,15 +30,15 @@ Do not scaffold apps, create package.json files, or write application code in th
 
 ## Sub-Brands
 
-**Daruma Toolbox** (`tools.daruma.nz`)
-- Micro tools for small businesses
-- Stack: SvelteKit + Neon DB + Upstash Redis + Cloudflare Pages + Stripe
-- Revenue: monthly subscriptions
+**Daruma Toolbox** — future brand: Tanuki Toolbox (`tanukitoolbox.sbs`)
+- Web (`web.daruma.nz`): SvelteKit + Neon + Cloudflare Pages + Stripe — revenue: monthly subs
+- ASO (`tools.daruma.nz`): React Native + Expo + **Shopify Restyle** — revenue: free + one-off IAP unlock (primary)
+- Revenue priority over Dojo
 
-**Daruma Dojo** (`dojo.daruma.nz`)
+**Daruma Dojo** (`dojo.daruma.nz`) — future brand: Challenge Club (`darumadojo.cc`)
 - Micro learning apps and games
 - Stack: React + Expo (React Native)
-- Revenue: ads + IAP
+- Revenue: TBD (ads + IAP candidate)
 - Platform: Google Play first, iOS via Expo EAS Build
 
 ---
@@ -90,8 +90,10 @@ Apply the same tone to docs you write in this repo.
 | File storage | Cloudflare R2 |
 | Edge functions | Cloudflare Workers |
 | Mobile builds | Expo EAS |
+| E2E (web) | Playwright |
+| E2E (mobile) | Maestro |
 | Payments | Stripe |
-| Auth | Auth.js v5 (Toolbox), Supabase Auth (Dojo) |
+| Auth | Auth.js v5 (Toolbox web), Supabase Auth (Dojo) |
 
 ---
 

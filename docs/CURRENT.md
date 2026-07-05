@@ -5,17 +5,23 @@ The Mon + Thu check-in workflow reads this file and posts to GitHub Issues.
 
 ---
 
-## Active task
+## Status
 
-**D01 — Multiplication Dojo:** Ship first Google Play release (pipeline proof, not revenue bet).
+| # | Workstream | Status | Next action |
+|---|------------|--------|-------------|
+| 1 | **D01 — Multiplication Dojo** | Ready for Play ship | Complete Play Console steps — closed test → production (see Blockers) |
+| 2 | **Tanuki Toolbox** (`tools.daruma.nz`) — design system | PR awaiting human review | Review + merge `feat/design-system-integration` |
+| 3 | **Opportunity Engine** | Not started | Begin implementation — see [`OPPORTUNITY_ENGINE.md`](OPPORTUNITY_ENGINE.md) |
+| 4 | **Tanuki Toolbox — Maestro E2E** | Blocked on #2 | Integrate after design-system PR merges |
+| 5 | **Play Console account** | Decided — see below | D01 on personal now; investigate D-U-N-S for org in parallel |
 
-**Next action:** Ship D01 to Google Play. Next app comes from Brainstorm after weekly research loop (see [`RESEARCH.md`](RESEARCH.md)).
+**Primary focus:** Ship D01 (#1) in parallel with Opportunity Engine kickoff (#3). Toolbox design-system review (#2) is founder-gated.
 
 ---
 
-## D01 v1 scope (Daruma default)
+## D01 v1 scope
 
-Per [`tracker/APPS.md`](../tracker/APPS.md) — founder can redirect; do not block waiting for approval.
+Per [`tracker/APPS.md`](../tracker/APPS.md) — founder can redirect.
 
 - One game mode: timed multiplication drill
 - Tables 1–12
@@ -25,11 +31,43 @@ Per [`tracker/APPS.md`](../tracker/APPS.md) — founder can redirect; do not blo
 
 ---
 
+## Play Console & domains
+
+### Account strategy (decided)
+
+| Phase | Account | Apps |
+|-------|---------|------|
+| **Now** | Personal (existing) | D01 — 12 testers × 14 days closed test, then production |
+| **Parallel** | Investigate D-U-N-S | NZ sole trader can apply — no company registration required; free via Dun & Bradstreet (up to ~30 days) |
+| **Later** | One **organisation** account | All Dojo + Toolbox apps — exempt from per-app tester gate |
+
+**One account, both brands.** Unlimited apps per account. Developer name is account-wide (small line under app title) — users search by **app name**, not publisher. Brand lives in app titles (Coke/Fanta model). Two accounts only if you need different publisher names — not worth it for micro-app ASO.
+
+**Default publisher name:** Daruma NZ or trading name on one org account.
+
+Do not create a fake business entity to skip testing.
+
+Official policy: [Play Console testing requirements](https://support.google.com/googleplay/android-developer/answer/14151465)
+
+### Domains (decided)
+
+| Domain | Role | Required now? |
+|--------|------|---------------|
+| `daruma.nz` | Optional parent brand hub | No |
+| `tanukitoolbox.sbs` | Org Play verification + Toolbox landing when org account ready | No (D01 on personal needs no website) |
+| `darumadojo.cc` | Dojo landing when needed | No |
+
+Org account requires **any owned domain** + DNS TXT verification (Search Console). Site is **not shown on Play** — verification and org contact email only (e.g. `hello@tanukitoolbox.sbs`). `.sbs` is fine.
+
+OpenClaw/Hermes (Phase 2 Daruma) needs **no custom domain** — Telegram + cron is outbound-only. See [`DARUMA.md`](DARUMA.md).
+
+---
+
 ## Blocker
 
-None — Google AI Plus (NZ$4.99/mo promo) active; Antigravity available for D01 via that subscription.
+None on build/code — D01 ready; Play closed test is the gate (#1).
 
-**Subscription:** downgrade to Google One 200 GB before **2026-09-26** — see [`SUBSCRIPTIONS.md`](SUBSCRIPTIONS.md).
+**Subscription:** downgrade Google One 200 GB before **2026-09-26** — see [`SUBSCRIPTIONS.md`](SUBSCRIPTIONS.md).
 
 ---
 
@@ -41,4 +79,4 @@ None — Google AI Plus (NZ$4.99/mo promo) active; Antigravity available for D01
 
 ## Last updated
 
-2026-06-28
+2026-07-05

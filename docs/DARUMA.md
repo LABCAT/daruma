@@ -130,7 +130,7 @@ Lesson from the first Toolbox app: background agents still needed substantial ma
 - **Definition of done** — tests pass, linter clean, specific acceptance criteria
 - **`AGENTS.md` per repo** — stack rules, test commands, boundaries
 - **CI from day one** — agent can run `pnpm test` and self-correct
-- **Browser/UI verification** where needed — Playwright or MCP, not founder-as-QA by default
+- **UI verification** — Playwright (web monorepos), Maestro (mobile monorepos), or MCP; not founder-as-QA by default. Integration status: [`STACK.md`](STACK.md)
 
 Multi-hour autonomous loops are an anti-pattern. Tight loops: read → edit → test → stop or one retry → escalate only if stuck or irreversible.
 

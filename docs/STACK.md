@@ -1,6 +1,10 @@
 # Stack — Project Daruma
 
-## Daruma Toolbox (`tools.daruma.nz`)
+## Daruma Toolbox
+
+Two monorepos under the Toolbox brand.
+
+### Web (`web.daruma.nz`)
 
 **Framework:** SvelteKit
 **Monorepo:** pnpm workspaces — `apps/*` + shared packages. Build rules in that repo's `AGENTS.md`.
@@ -18,6 +22,18 @@ SvelteKit app → Cloudflare Pages
              → Upstash Redis (REST API)
              → R2 (S3-compatible, presigned URLs)
 ```
+
+### ASO (`tools.daruma.nz`)
+
+**Framework:** React Native + Expo
+**UI:** Shopify Restyle — tokens → themes → shared components in `packages/design-system`. No NativeWind, no Tailwind.
+**Design source:** `tanuki-toolbox-design-system` (sibling repo — visual spec; translated into Restyle in the monorepo)
+**Monetisation:** Free download + one-off IAP unlock (see [`REVENUE.md`](REVENUE.md))
+**Distribution:** Play Store ASO-first
+
+**Theme architecture:** Base theme + light/dark; future vertical themes (e.g. gardening, finance) override tokens only — components stay shared.
+
+**Capacitor:** fast-track option for wrapping web apps as mobile without a full RN build.
 
 ---
 
@@ -45,8 +61,6 @@ Note: when an app uses a backend, mobile never connects directly to the database
 
 **Platform order:** Google Play first (Windows-friendly, cheaper, faster review), iOS later via Expo EAS cloud builds — no Mac required locally.
 
-**Capacitor:** noted as a fast-track option for wrapping Toolbox web apps as mobile apps without a full React Native build.
-
 ---
 
 ## Shared Infrastructure
@@ -72,11 +86,26 @@ Note: when an app uses a backend, mobile never connects directly to the database
 
 ---
 
+## E2E Testing (monorepo integration)
+
+Planned for all three app monorepos — not in D01 v1. YAML flows (Maestro) suit mobile; Playwright suits web. Both are LLM-friendly for agent-authored tests.
+
+| Monorepo | Purpose | E2E tool | Status |
+|----------|---------|----------|--------|
+| `web.daruma.nz` | Web apps | Playwright | ☐ Not integrated |
+| `tools.daruma.nz` | ASO / Play Store apps | Maestro | ☐ Not integrated |
+| `dojo.daruma.nz` | Games / learning apps | Maestro | ☐ Not integrated |
+
+**When:** Dojo after D01 ships; Toolbox when next template/scaffold work lands.
+
+---
+
 ## Template Strategy
 
 Before App 1, build reusable starter templates:
 
-**Toolbox template:** SvelteKit + Neon + Upstash + Cloudflare Pages + Stripe + basic auth
-**Dojo template:** React Native + Expo + AdMob + basic navigation + IAP setup
+**Toolbox web template (`web.daruma.nz`):** SvelteKit + Neon + Upstash + Cloudflare Pages + Stripe + basic auth + E2E (Playwright)
+**Toolbox ASO template (`tools.daruma.nz`):** React Native + Expo + Restyle + `packages/design-system` + IAP billing + E2E (Maestro)
+**Dojo template (`dojo.daruma.nz`):** React Native + Expo + AdMob + basic navigation + IAP setup + E2E (Maestro)
 
 Every new app clones the relevant template. Never start from zero.

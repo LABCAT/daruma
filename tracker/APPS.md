@@ -4,11 +4,11 @@ Master pipeline across both brands. Target: 100 apps.
 
 ---
 
-## Daruma Toolbox (`tools.daruma.nz`)
+## Daruma Toolbox — Web (`web.daruma.nz`)
 
 | # | App | Domain | Status | Revenue/mo | Notes |
 |---|-----|--------|--------|------------|-------|
-| T01 | Brainstorm | brainstorm.daruma.nz | ✅ Live | $0 | First Toolbox app, built and deployed |
+| T01 | Brainstorm | brainstorm.daruma.nz | ✅ Live | $0 | First Toolbox app; lives in `web.daruma.nz` monorepo |
 
 ---
 

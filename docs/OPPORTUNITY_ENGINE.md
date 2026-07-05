@@ -28,12 +28,13 @@ Every idea is tagged **Toolbox** or **Dojo**. Discovery rotates via [`research-q
 
 | Brand | Product | Monetisation | Discovery |
 |-------|---------|--------------|-------------|
-| **Toolbox** | Single-purpose business utilities | Subscription $5–20/mo | Play ASO + long-tail SEO |
-| **Dojo** | Micro games / learn-by-playing | Ads + remove-ads IAP | Play ASO |
+| **Toolbox (Play)** | Single-purpose business utilities | Free + one-off IAP unlock | Play ASO (medium-tail) |
+| **Toolbox (web)** | Web utilities with backend | Subscription $5–20/mo | Long-tail SEO |
+| **Dojo** | Micro games / learn-by-playing | TBD (ads + IAP candidate) | Play ASO |
 
-GPT-style “lifetime impulse purchase only” is **out of scope** as a default — use the brand model above. One-time paid utilities are allowed only when Play evidence shows paid-app traction in the niche.
+**Packaging:** Ship micro first. Verticals with traction may **graduate to mini** — 3–4 related gated features in one listing (e.g. food truck toolkit). Not catch-all SaaS or mega container apps.
 
-**Not in scope:** multi-tenant platforms, suites, marketing-dependent launches, backend-heavy products.
+**Not in scope:** multi-tenant platforms, “do everything” suites, marketing-dependent launches, backend-heavy products.
 
 ---
 
@@ -281,7 +282,7 @@ Each `BUILD` candidate must include:
 - Gap / differentiation:
 - ASO: title, short description, keyword list
 - MVP spec: ≤1 week, ≤3 screens, offline scope
-- Monetisation: [Toolbox subscription | Dojo ads+IAP | exception + evidence]
+- Monetisation: [Toolbox Play IAP | Toolbox web sub | Dojo TBD]
 - Evidence scores: Pain / WTP / Discovery / Build Speed → /20
 - Recommendation: BUILD | SKIP | RESEARCH_MORE
 ```
