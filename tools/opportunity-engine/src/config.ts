@@ -127,7 +127,7 @@ export const MIN_SCORE_THRESHOLD = 12;
 export const TOP_PERCENT = 20;
 
 /** Maximum number of Play Store apps to fetch per keyword search */
-export const PLAY_SEARCH_LIMIT = 10;
+export const PLAY_SEARCH_LIMIT = 20;
 
 /** Maximum reviews to fetch per competitor app for pain analysis */
 export const REVIEWS_PER_APP = 100;

@@ -118,12 +118,18 @@ export function scoreDiscovery(record: RawKeywordRecord): number {
   );
 
   if (hasUnbeatableIncumbent) return 1;
-  if (appCount >= 20 || (avgRating >= 4.2 && totalReviews >= 50_000)) return 2;
-  if (appCount >= 10 && avgRating < 4.2) return 3;
-  if (appCount >= 5 && avgRating < 4.0 && totalReviews < 50_000) return 4;
-  if (appCount < 5 && avgRating < 3.5) return 5;
 
-  // Default middle ground
+  // Note: Play Store search limit is 10, so appCount > 10 is impossible.
+  // Extreme lack of competition: fewer than 5 apps, or very low ratings + few reviews
+  if (appCount < 5 || (avgRating < 3.5 && totalReviews < 500)) return 5;
+
+  // Weak competition: overall quality is low, or they have very little traction
+  if (avgRating < 4.0 || totalReviews < 1_000) return 4;
+
+  // High competition: good ratings AND significant traction
+  if (avgRating >= 4.2 && totalReviews >= 10_000) return 2;
+
+  // Default moderate competition (e.g., avgRating 4.0-4.2, or >= 4.2 with fewer reviews)
   return 3;
 }
 

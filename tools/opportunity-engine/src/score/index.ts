@@ -68,11 +68,24 @@ export async function score(
   // Sort by subtotal descending
   surviving.sort((a, b) => b.scores.subtotal - a.scores.subtotal);
 
-  // Keep top N%
-  const keepCount = Math.max(1, Math.ceil(surviving.length * (TOP_PERCENT / 100)));
-  const ranked = surviving.slice(0, keepCount);
+  // Keep top N% (but include all records tied at the cutoff score)
+  let keepCount = Math.ceil(surviving.length * (TOP_PERCENT / 100));
+  if (keepCount === 0 && surviving.length > 0) keepCount = 1;
+  
+  let actualKeepCount = keepCount;
+  if (keepCount > 0 && keepCount < surviving.length) {
+    const cutoffScore = surviving[keepCount - 1].scores.subtotal;
+    while (
+      actualKeepCount < surviving.length &&
+      surviving[actualKeepCount].scores.subtotal === cutoffScore
+    ) {
+      actualKeepCount++;
+    }
+  }
 
-  log.info('SCORE', `Ranked shortlist (top ${TOP_PERCENT}%): ${ranked.length} records`);
+  const ranked = surviving.slice(0, actualKeepCount);
+
+  log.info('SCORE', `Ranked shortlist (top ${TOP_PERCENT}% + ties): ${ranked.length} records`);
 
   // Write ranked shortlist
   const rankedPath = `${outputDir}/03-ranked.json`;
