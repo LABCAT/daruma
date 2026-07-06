@@ -1,12 +1,12 @@
 {
-  "id": "run-1783236522693",
-  "startedAt": "2026-07-05T07:15:10.562Z",
-  "completedAt": "2026-07-05T07:28:42.693Z",
+  "id": "run-1783292554893",
+  "startedAt": "2026-07-05T23:00:58.751Z",
+  "completedAt": "2026-07-05T23:02:34.893Z",
   "seedCategories": [
-    "retail"
+    "test"
   ],
-  "keywordsCollected": 8,
-  "keywordsScored": 8,
-  "keywordsRanked": 2,
-  "keywordsSkipped": 6
+  "keywordsCollected": 1,
+  "keywordsScored": 1,
+  "keywordsRanked": 0,
+  "keywordsSkipped": 1
 }

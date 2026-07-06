@@ -54,14 +54,21 @@ export async function searchApps(keyword: string): Promise<PlayStoreApp[]> {
           try {
             await randomDelay(PLAY_DELAY.min, PLAY_DELAY.max);
             return await gplay.app({ appId: app.appId });
-          } catch (err) {
+          } catch (err: any) {
+            const msg = err?.message || String(err);
+            if (msg.includes("reading 'length'") || msg.includes("reading 'map'")) {
+              log.warn('COLLECT', `Skipping app ${app.appId}: missing critical data in scraper (${msg})`);
+              return null;
+            }
             log.warn('COLLECT', `Failed to get app details for ${app.appId}: ${err}`);
             return app; // Fall back to basic search result
           }
         })
       );
 
-      return detailedApps.map((app: any) => ({
+      const validApps = detailedApps.filter((app: any) => app !== null);
+
+      return validApps.map((app: any) => ({
         name: app.title ?? '',
         appId: app.appId ?? '',
         rating: app.score ?? 0,
@@ -142,10 +149,38 @@ export async function getCompetitorReviews(
 export async function suggestKeywords(term: string): Promise<string[]> {
   return withRetry(
     async () => {
-      const results = await gplay.suggest({ term });
-      // suggest may return null if no suggestions found
-      if (!results || !Array.isArray(results)) return [];
-      return results.map((r: any) => (typeof r === 'string' ? r : r.term ?? String(r)));
+      const url = `https://play.google.com/_/PlayStoreUi/data/batchexecute?rpcids=IJ4APc&f.sid=-697906427155521722&bl=boq_playuiserver_20190903.08_p0&hl=en&gl=us&authuser&soc-app=121&soc-platform=1&soc-device=1&_reqid=1065213`;
+      const body = `f.req=%5B%5B%5B%22IJ4APc%22%2C%22%5B%5Bnull%2C%5B%5C%22${encodeURIComponent(term)}%5C%22%5D%2C%5B10%5D%2C%5B2%5D%2C4%5D%5D%22%5D%5D%5D`;
+
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body,
+      });
+
+      if (!res.ok) throw new Error(`Play suggest HTTP ${res.status}`);
+
+      const text = await res.text();
+      try {
+        const input = JSON.parse(text.substring(5));
+        const data = JSON.parse(input[0][2]);
+
+        if (data === null) {
+          log.warn('COLLECT', `Play suggest returned null for "${term}". Raw body: ${text}`);
+          return [];
+        }
+
+        const suggestionsArray = data[0]?.[0];
+        if (!Array.isArray(suggestionsArray)) {
+          log.warn('COLLECT', `Play suggest unexpected shape for "${term}". Raw body: ${text}`);
+          return [];
+        }
+
+        return suggestionsArray.map((s: any) => s[0]);
+      } catch (parseErr: any) {
+        log.warn('COLLECT', `Play suggest parse error for "${term}": ${parseErr.message}. Raw body: ${text}`);
+        return [];
+      }
     },
     {
       onRetry: (err, attempt) =>

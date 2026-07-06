@@ -1,0 +1,19 @@
+{
+  "id": "run-1783290378653",
+  "startedAt": "2026-07-05T20:29:39.600Z",
+  "completedAt": "2026-07-05T22:26:18.653Z",
+  "seedCategories": [
+    "tradies",
+    "hair beauty",
+    "hospitality",
+    "fitness",
+    "pet care",
+    "home organization",
+    "retail",
+    "professional services"
+  ],
+  "keywordsCollected": 65,
+  "keywordsScored": 65,
+  "keywordsRanked": 12,
+  "keywordsSkipped": 53
+}
