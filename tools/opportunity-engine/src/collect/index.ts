@@ -2,7 +2,7 @@
 // Runs all collectors for each keyword across all seed categories.
 // Output: array of RawKeywordRecord written to output/01-raw.json
 
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import type { RawKeywordRecord } from '../types.js';
 import { log } from '../utils/logger.js';
@@ -18,6 +18,8 @@ interface CollectOptions {
   categories?: Record<string, string[]>;
   /** Skip Playwright SERP scraping */
   noSerp?: boolean;
+  /** Force run even if recently seen */
+  force?: boolean;
   /** Output directory */
   outputDir?: string;
 }
@@ -37,9 +39,29 @@ export async function collect(opts: CollectOptions = {}): Promise<RawKeywordReco
     await mkdir(outputDir, { recursive: true });
   }
 
+  // Load discovered keywords
+  let discoveredCategories: Record<string, string[]> = {};
+  const DISCOVERED_FILE = new URL('../../discovered_keywords.json', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
+  try {
+    const raw = await readFile(DISCOVERED_FILE, 'utf-8');
+    discoveredCategories = JSON.parse(raw);
+  } catch {
+    discoveredCategories = {};
+  }
+
+  // Combine statically configured categories and discovered ones
+  const allCategories = { ...categories };
+  for (const [cat, kws] of Object.entries(discoveredCategories)) {
+    if (!allCategories[cat]) {
+      allCategories[cat] = [...kws];
+    } else {
+      allCategories[cat] = [...new Set([...allCategories[cat], ...kws])];
+    }
+  }
+
   // Build flat list of all keywords to process
   const keywordQueue: Array<{ keyword: string; category: string }> = [];
-  for (const [category, keywords] of Object.entries(categories)) {
+  for (const [category, keywords] of Object.entries(allCategories)) {
     for (const kw of keywords) {
       keywordQueue.push({ keyword: kw, category });
     }
@@ -48,11 +70,13 @@ export async function collect(opts: CollectOptions = {}): Promise<RawKeywordReco
   log.info('COLLECT', `${keywordQueue.length} keywords across ${Object.keys(categories).length} categories`);
 
   // Filter out recently seen keywords
+  const force = opts.force ?? false;
   const freshKeywords: typeof keywordQueue = [];
   for (const item of keywordQueue) {
-    if (await isRecentlySeen(item.keyword)) {
+    if (!force && await isRecentlySeen(item.keyword)) {
       log.info('COLLECT', `Skipping "${item.keyword}" — seen within 90 days`);
     } else {
+      if (force) log.info('COLLECT', `Forcing collection for "${item.keyword}" (ignoring dedupe)`);
       freshKeywords.push(item);
     }
   }
@@ -140,6 +164,28 @@ export async function collect(opts: CollectOptions = {}): Promise<RawKeywordReco
   await markSeenBatch(
     records.map((r) => ({ keyword: r.keyword })),
   );
+
+  // Save newly discovered keywords
+  let newDiscoveriesCount = 0;
+  for (const record of records) {
+    const newKws = [...record.playSuggestKeywords, ...record.googleAutocompletions];
+    if (newKws.length > 0) {
+      if (!discoveredCategories[record.category]) {
+        discoveredCategories[record.category] = [];
+      }
+      discoveredCategories[record.category].push(...newKws);
+      newDiscoveriesCount += newKws.length;
+    }
+  }
+
+  if (newDiscoveriesCount > 0) {
+    // Deduplicate and limit per category to prevent exponential explosion
+    for (const cat of Object.keys(discoveredCategories)) {
+      discoveredCategories[cat] = [...new Set(discoveredCategories[cat])].slice(0, 100);
+    }
+    await writeFile(DISCOVERED_FILE, JSON.stringify(discoveredCategories, null, 2), 'utf-8');
+    log.info('COLLECT', `Saved new discovered keywords to ${DISCOVERED_FILE}`);
+  }
 
   // Write output
   const outputPath = `${outputDir}/01-raw.json`;

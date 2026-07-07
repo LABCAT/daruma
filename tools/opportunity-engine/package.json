@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "research": "tsx src/index.ts",
-    "research:no-serp": "tsx src/index.ts --no-serp"
+    "research:no-serp": "tsx src/index.ts --no-serp",
+    "research:force": "tsx src/index.ts --force"
   },
   "dependencies": {
     "google-play-scraper": "^9.1.1",

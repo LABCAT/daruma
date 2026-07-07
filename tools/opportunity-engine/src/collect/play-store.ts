@@ -103,7 +103,7 @@ export async function getAppReviews(appId: string): Promise<ReviewSnippet[]> {
         lang: 'en',
         country: 'us',
         num: REVIEWS_PER_APP,
-        sort: gplay.sort.RELEVANCE,
+        sort: gplay.sort.HELPFULNESS,
       });
 
       // result is { data: Review[] } or Review[] depending on version
