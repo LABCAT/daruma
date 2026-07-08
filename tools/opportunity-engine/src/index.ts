@@ -22,6 +22,9 @@ async function main() {
   const noSerp = args.includes('--no-serp');
   const force = args.includes('--force');
   const categoryFlag = args.find((_, i) => args[i - 1] === '--categories');
+  const limitIndex = args.indexOf('--limit');
+  const limitArg = limitIndex !== -1 ? parseInt(args[limitIndex + 1], 10) : undefined;
+  const limit = limitArg && !isNaN(limitArg) ? limitArg : undefined;
 
   // Resolve categories
   let categories = SEED_CATEGORIES;
@@ -48,6 +51,7 @@ async function main() {
   log.info('INIT', `Categories: ${Object.keys(categories).join(', ')}`);
   log.info('INIT', `SERP scraping: ${noSerp ? 'DISABLED' : 'ENABLED'}`);
   log.info('INIT', `Force run (ignore dedupe): ${force ? 'YES' : 'NO'}`);
+  log.info('INIT', `Limit: ${limit ? limit : 'DEFAULT'}`);
   log.info('INIT', '');
 
   // Output to research-runs/YYYY-MM-DD/
@@ -56,7 +60,7 @@ async function main() {
 
   // ── Stage 1: Collect ──
   log.info('COLLECT', '── Stage 1: Collect ──────────────────────');
-  const rawRecords = await collect({ categories, noSerp, outputDir, force });
+  const rawRecords = await collect({ categories, noSerp, outputDir, force, limit });
 
   if (rawRecords.length === 0) {
     log.warn('COLLECT', 'No records collected — nothing to score. Exiting.');

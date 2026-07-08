@@ -135,6 +135,9 @@ export const REVIEWS_PER_APP = 100;
 /** Number of top competitor apps to analyse reviews for */
 export const TOP_APPS_FOR_REVIEWS = 3;
 
+/** Maximum number of keywords to process per run to prevent rate limiting */
+export const MAX_KEYWORDS_PER_RUN = 100;
+
 // ── Rate limiting ──
 
 /** Delay between Google Autocomplete requests (ms) */

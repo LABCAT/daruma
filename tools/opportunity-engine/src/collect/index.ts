@@ -7,7 +7,7 @@ import { existsSync } from 'node:fs';
 import type { RawKeywordRecord } from '../types.js';
 import { log } from '../utils/logger.js';
 import { randomDelay } from '../utils/delay.js';
-import { SEED_CATEGORIES, PLAY_DELAY } from '../config.js';
+import { SEED_CATEGORIES, PLAY_DELAY, MAX_KEYWORDS_PER_RUN } from '../config.js';
 import { normalizeKeyword, isRecentlySeen, markSeenBatch } from './dedupe.js';
 import { searchApps, getCompetitorReviews, suggestKeywords } from './play-store.js';
 import { expandKeywordViaGoogle } from './google-autocomplete.js';
@@ -22,6 +22,8 @@ interface CollectOptions {
   force?: boolean;
   /** Output directory */
   outputDir?: string;
+  /** Maximum number of keywords to process */
+  limit?: number;
 }
 
 /**
@@ -83,6 +85,14 @@ export async function collect(opts: CollectOptions = {}): Promise<RawKeywordReco
 
   log.info('COLLECT', `${freshKeywords.length} fresh keywords to process (${keywordQueue.length - freshKeywords.length} skipped by dedupe)`);
 
+  const limit = opts.limit ?? MAX_KEYWORDS_PER_RUN;
+  let targetKeywords = freshKeywords;
+  
+  if (limit > 0 && targetKeywords.length > limit) {
+    targetKeywords = targetKeywords.slice(0, limit);
+    log.info('COLLECT', `Limiting run to ${limit} keywords to prevent rate limiting (${freshKeywords.length - limit} deferred)`);
+  }
+
   // Init SERP scraper if enabled
   const serp = new SerpScraper();
   if (!noSerp) {
@@ -91,9 +101,9 @@ export async function collect(opts: CollectOptions = {}): Promise<RawKeywordReco
 
   const records: RawKeywordRecord[] = [];
 
-  for (let i = 0; i < freshKeywords.length; i++) {
-    const { keyword, category } = freshKeywords[i];
-    log.progress('COLLECT', i + 1, freshKeywords.length, `"${keyword}" [${category}]`);
+  for (let i = 0; i < targetKeywords.length; i++) {
+    const { keyword, category } = targetKeywords[i];
+    log.progress('COLLECT', i + 1, targetKeywords.length, `"${keyword}" [${category}]`);
 
     try {
       // 1. Play Store search
