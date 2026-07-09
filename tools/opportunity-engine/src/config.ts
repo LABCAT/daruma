@@ -115,6 +115,22 @@ export const AUTOCOMPLETE_SUFFIXES: string[] = [
   'checklist', 'organizer', 'log', 'free',
 ];
 
+/** Genres that are explicitly non-B2B/utility (games, entertainment, etc.) */
+export const EXCLUDED_GENRES = [
+  'action', 'adventure', 'arcade', 'board', 'card', 'casino', 'casual', 
+  'educational', 'music', 'puzzle', 'racing', 'role playing', 'simulation', 
+  'sports', 'strategy', 'trivia', 'word', 'entertainment', 'music & audio',
+  'comics', 'dating', 'events', 'beauty'
+];
+
+/** Core utility nouns representing the intent of our micro-apps */
+export const UTILITY_INTENT_TERMS = [
+  'invoice', 'schedule', 'booking', 'tracker', 'inventory', 'calculator',
+  'planner', 'diary', 'quote', 'estimate', 'timesheet', 'manager',
+  'form', 'receipt', 'reminder', 'billing', 'pos', 'accounting',
+  'client', 'appointment', 'roster', 'checklist', 'log'
+];
+
 /** Letters a–z for autocomplete letter-appending strategy */
 export const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('');
 

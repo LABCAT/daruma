@@ -4,6 +4,8 @@
 export interface PlayStoreApp {
   name: string;
   appId: string;
+  description: string;
+  genre: string;
   rating: number;
   reviewCount: number;
   price: number;
@@ -15,6 +17,7 @@ export interface PlayStoreApp {
   lastUpdated: string | null;
   /** Install range string if available, e.g. "1,000,000+" */
   installs: string | null;
+  relevanceScore?: number;
 }
 
 /** A single review snippet relevant to pain analysis */
@@ -46,6 +49,7 @@ export interface Scores {
   discovery: number;  // 1–5
   buildSpeed: number; // 1–5
   subtotal: number;   // /20
+  relevanceConfidence: number; // 0-1
 }
 
 /** Stage 2 output — scored record */

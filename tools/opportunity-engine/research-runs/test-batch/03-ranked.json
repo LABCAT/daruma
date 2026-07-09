@@ -1,0 +1,1326 @@
+[
+  {
+    "keyword": "tradie invoice odt",
+    "normalizedKeyword": "tradie invoice odt",
+    "category": "test",
+    "playStoreApps": [
+      {
+        "name": "Invoice Maker by Invoice Home",
+        "appId": "com.invoicehome.invoicehome",
+        "description": "Create, send, and get paid in seconds with professional PDF invoice templates.",
+        "genre": "Business",
+        "rating": 4.069307,
+        "reviewCount": 536,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Invoice Home Inc.",
+        "lastUpdated": "1782820741000",
+        "installs": "1,000,000+"
+      },
+      {
+        "name": "ODT Document Editor ODT Reader",
+        "appId": "odt.document.reader.odt.document.editor.libreoffice",
+        "description": "Support edit and read ODT File, ODT document editor - ODT document reader",
+        "genre": "Productivity",
+        "rating": 0,
+        "reviewCount": 0,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Firewall Network",
+        "lastUpdated": "1783506360000",
+        "installs": "50,000+"
+      },
+      {
+        "name": "Invoice Simple: Invoice Maker",
+        "appId": "com.aadhk.woinvoice",
+        "description": "Create invoices, bills, receipts, &amp; estimates with Invoice Generator &amp; Creator.",
+        "genre": "Business",
+        "rating": 4.8166466,
+        "reviewCount": 21996,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Invoice Simple",
+        "lastUpdated": "1782849504000",
+        "installs": "5,000,000+"
+      },
+      {
+        "name": "ODT Document Viewer",
+        "appId": "com.document.viewer.office",
+        "description": "ODT Document Viewer - Book reader - Office Reader - ODT, EPUB, PDF",
+        "genre": "Tools",
+        "rating": 2.2666667,
+        "reviewCount": 30,
+        "price": 0,
+        "free": true,
+        "hasIAP": false,
+        "monetisationType": "free",
+        "developer": "Document Viewer",
+        "lastUpdated": "1783559828000",
+        "installs": "500,000+"
+      },
+      {
+        "name": "OpenDocument Reader - view ODT",
+        "appId": "at.tomtasche.reader",
+        "description": "Read and edit ODF (ODT, ODS, ODP), DOCX, DOC, CSV, PDF documents and other files",
+        "genre": "Productivity",
+        "rating": 4.3453236,
+        "reviewCount": 1639,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Stefl und Taschauer OG",
+        "lastUpdated": "1780257107000",
+        "installs": "5,000,000+"
+      },
+      {
+        "name": "Square Invoices: Invoice Maker",
+        "appId": "com.squareup.invoicesapp",
+        "description": "Manage your business invoicing, bills &amp; estimates. Track expenses &amp; payments.",
+        "genre": "Business",
+        "rating": 4.6908045,
+        "reviewCount": 3898,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Block, Inc.",
+        "lastUpdated": "1783383983000",
+        "installs": "1,000,000+"
+      },
+      {
+        "name": "Easy Invoice & Estimate Maker",
+        "appId": "com.easyinvoice",
+        "description": "Get Paid Faster with Professional Invoices",
+        "genre": "Business",
+        "rating": 4.8340807,
+        "reviewCount": 830,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Easy Expense Tracker",
+        "lastUpdated": "1783460466000",
+        "installs": "100,000+"
+      },
+      {
+        "name": "Invoice2go: Easy Invoice Maker",
+        "appId": "com.invoice2go.invoice2goplus",
+        "description": "All-in-one tool to run your business: invoicing, payments, reporting and more.",
+        "genre": "Business",
+        "rating": 4.554422,
+        "reviewCount": 5655,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Invoice2Go",
+        "lastUpdated": "1760994698000",
+        "installs": "1,000,000+"
+      },
+      {
+        "name": "Invoice Maker - InvoiceBase",
+        "appId": "invoice.invoicemaker.estimatemaker.billingapp",
+        "description": "Invoice Maker &amp; Estimate Maker - Save Your Time &amp; Grow Your Business",
+        "genre": "Business",
+        "rating": 4.8390803,
+        "reviewCount": 646,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Gulooloo Tech Co., Ltd.",
+        "lastUpdated": "1783173981000",
+        "installs": "1,000,000+"
+      },
+      {
+        "name": "Invoice Maker & Estimate App",
+        "appId": "bookipi.invoice.maker.estimate.billing",
+        "description": "Invoice &amp; bill generator. Create invoices, estimates &amp; receipts in minutes.",
+        "genre": "Business",
+        "rating": 4.5970993,
+        "reviewCount": 5048,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Bookipi - Billing Estimate",
+        "lastUpdated": "1782372271000",
+        "installs": "1,000,000+"
+      },
+      {
+        "name": "Invoice Maker - Invoice Fly",
+        "appId": "io.labhouse.invoicesapp",
+        "description": "Make invoices, bills, receipts &amp; estimates on the go with Invoice Generator.",
+        "genre": "Business",
+        "rating": 4.679166,
+        "reviewCount": 3002,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Labhouse Mobile",
+        "lastUpdated": "1783514762000",
+        "installs": "1,000,000+"
+      },
+      {
+        "name": "ODT Document Reader",
+        "appId": "document.viewer.odt.reader.openoffice",
+        "description": "The ODT Reader app allows you to read ODT files",
+        "genre": "Tools",
+        "rating": 2.7586207,
+        "reviewCount": 16,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Document Converter",
+        "lastUpdated": "1783397846000",
+        "installs": "1,000,000+"
+      },
+      {
+        "name": "Invoice Maker & Estimate Maker",
+        "appId": "com.wow.invoice",
+        "description": "Estimate Invoice Maker and Generator. Use the Invoice Generator to send invoices",
+        "genre": "Business",
+        "rating": 4.5841584,
+        "reviewCount": 19,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Wow Invoice LLC",
+        "lastUpdated": "1783080732000",
+        "installs": "100,000+"
+      },
+      {
+        "name": "Quick Invoice Maker Web & App",
+        "appId": "com.paleblueapps.billin",
+        "description": "Create unlimited invoices and bills, add taxes and discounts. Simple and quick!",
+        "genre": "Business",
+        "rating": 4.1,
+        "reviewCount": 3,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Pale Blue Software Ltd",
+        "lastUpdated": "1783342641000",
+        "installs": "50,000+"
+      },
+      {
+        "name": "Receipt & Invoice",
+        "appId": "com.recibospronto",
+        "description": "Receipt - Create and send receipts and invoices of services and products.",
+        "genre": "Business",
+        "rating": 3.83,
+        "reviewCount": 182,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "NF-Solutions",
+        "lastUpdated": "1744812820000",
+        "installs": "500,000+"
+      },
+      {
+        "name": "Simple Invoice Manager",
+        "appId": "com.invoiceapp",
+        "description": "Invoice your Clients Professionally. Billing with Payments &amp; Receipts.",
+        "genre": "Business",
+        "rating": 4.664,
+        "reviewCount": 730,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Tacktile Systems Private Limited",
+        "lastUpdated": "1783498311000",
+        "installs": "5,000,000+"
+      },
+      {
+        "name": "Invoice Maker: Atom Invoice",
+        "appId": "com.atominvoice.app",
+        "description": "Create invoices &amp; estimates and get paid faster with a simple invoice maker.",
+        "genre": "Business",
+        "rating": 4.62,
+        "reviewCount": 52,
+        "price": 0,
+        "free": true,
+        "hasIAP": true,
+        "monetisationType": "freemium_iap",
+        "developer": "Atom Invoice",
+        "lastUpdated": "1779632078000",
+        "installs": "500,000+"
+      }
+    ],
+    "playStoreReviews": [
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Very simple, would be great to save items to use over and over again. Then adding aditional information like part number, code, serial number, but having a list of items to add. Over all my first day using it, i like the simplicity. The additional features like accepting payments haven't used it yet (like to see a demo first before I input my info).",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "It's very misleading. I wasn't able to bill one invoice unless I paid a $9.99 mo they fee. Wasted time using advanced features and itemizing line by line to only find out I couldn't send my one free invoice as advertised. And it's sad because I love the layout and ease of use, but if you mislead me right out of the gate, why wouldn't you do it again in the future??? 2 stars for a good layout and easy to use, minus 3 for misleading",
+        "score": 2
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "This is a good application lots of different invoice layouts, you can link it to your paypal, it has the option to mark paid and it will also send you reminders that you have unpaid invoices. but after you have sent out $1,000 in invoices they want you to pay a 6.99 upgrade fee. My business is just now up and running and I can't afford to be paying a fee until I start turning profit. I will be uninstalling 😔...",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "LOVE this app!! Started with the free version and ended up getting the paid (super cheap)!!! I wish they would throw in a couple features like being able to search for a certain type of template (not just color), also maybe a few more options for style template with your own logo. Also would like option kn some templates to remove the ship to kf its not needed",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "The app is fine, invoices look great. They are very customizable. However, when you subscribe through Google Play, you pay $7/mo. You have the option of including a PayPal link on your invoices. It's really convenient for the customer to just click & pay. However, they take 3% of that payment for doing nothing but providing a link! The representative I spoke to said that if I let my membership through Google expire, I could rejoin for $5/mo I would not be charged that fee. That was a lie.",
+        "score": 2
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "New update is awful! No longer user friendly. Typing/spacing issues. Especially when typing numbers, they constantly double. Issues with trying to add more than 1 email address at a time to send invoices. Had this platform for a year with no issues until this update. It is now taking over 3 times longer to do invoices. Currently looking for new apps/software now.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "WHAT?!! I had this app exactly TWO DAYS!!!??? THIS ONE IS THE WORST EVER!! reached FREE LIMIT IN LAST 30 DAYS??? WOW!! yep!t two day trial at most! Avoid this Invoice maker it's a waist of time! I had no warning! There is no clear description so definitely not paying for this type of app. I didn't have it (but two days) and wrote three two total invoices and reused one. STAY AWAY DO NOT DOWN LOAD ANY OF YOUR BUSINESS INFO. ESPECIALLY FINANCIAL! I'm so glad I didn't.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "So far not bad. But it works for now. Just need a wider array parts menu option specified for certain industry related businesses instead of us naming it on invoice it could have work (type of business)categorized parts or supplies by area of work for the customer is being done and so on. im a faithfulcustomer and individuals at invoice maker are good caring people. And me being a 30 yr mechanic, it seems im a decent existing product info improvement Dr. but a bigger Dr. Dreamer. Hahaha. 😁.",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "UODATE (Even their reply is a lie. II've been charged $9.54 for months by \"HOME INVOICE\". Im not viewing a different app.) Company policy is a scam. There are far better apps to use for a small business. They will not issue a refund ($10/mo) if you haven't used the app for a year. There is no customer service and the app does not have features you'll receive with other invoice apps. Stay away. Save your money. THIS PRODUCT IS TRASH!",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I have used many different invoices apps. I found this one and signed up in Feb. Our business is small and low key. I went to make yet another I voice and was blocked. Since I have only made 5 Invoices in total I have not even made enough for their \"free trial\" in 30 days. I was immediately blocked and had to find out why. My bank was charged in Feb. I was then told I had another account but this is the only one from this company. Please do not use, they are scamming you.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I'm an intern and a freelancer in marketing. This app makes invoices so simple and easy to keep track of. Anyone who gives this a low score probably doesn't know how to use it or is too lazy to simply create a new invoice number. This app IS THE BEST!!! I love the web version even more!!! Wish I could give this 12/5 because it saves me so much time and is so simple.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Very disappointing experience. I paid for this app, but I am unable to use it. Every time I try to create an invoice, I receive an \"Access Forbidden\" error and cannot proceed. I have already paid for the service, but the app is not delivering what I paid for. Please fix this issue or provide a refund.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I have used this app for a few years now. But today the app stopped working for no reason. I have tried to email the support team, but no one has answered back. Can any body help me get it back. I need to finish sending the invoices to my customers. Just wanted to up date on my review. They have fixed my problem and wanted to say thank you. I love thus app...❤️",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "This app has made paperwork so much easier. I don't have to travel with my laptop or come home to do paperwork anymore. I finish a job a I can send my invoice immediately",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Been using invoice maker for years, easy to use, great outlines. Just works, and does the job I need it to do. simple as",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Deceiving!!! When you download the app it shows as a free invoicing app. However as soon as you send 5 invoices it will only let you continue if you are willing to pay for a plan. I wish this would have been disclosed BEFORE using the app. As 5 free invoices isnt a free app",
+        "score": 2
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Wonderfull app easy to work with lf you do a quote if they accept l just change it to invoice l really recommend this app to any business thank you for this wonderful app 10 stars",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "WORST APP I'VE EVER USED, they ask you to pay after creating ONE invoice, why??? I find this VERY irritating and unnecessary, I hope they fix this nonsense, if I could give zero stars I would have done that, absolute DISGRACE!",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I had just downloaded the app and was filling in the info and I'm being asked to upgrade the app. Definately no.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I didn't even finish one invoice it's now telling me to up grade. No I won't subscribe to something that I don't even know how it works.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "A perfect and user friendly platform to invoice customers.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I am not able to download any invoice because it requires me to upgrade my plan and pay R120 at which is my first time using it",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "It has been very helpful I must say. Although an upgrade to include certain features will be needed.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I've tried different invoice apps and got disappointed until I found invoice maker &billing. It has all options i need, easy to use. I like it a lot!",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Very good app, perfect for making unique, quick invoices and keeping track of payments. They also have it on PC as well, which makes it more universal as well. After I using the free plan I found it is ideal for small businesses with a very small customer base, while the paid plan is very good for the price when a small business starts to get more customers. For only close to $10 AUD a month I think it's worth buying it but if you can't afford it the free is still just as good. Thank you.",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Our free plan you can invoice up to £1000 a month without any fees. If you are a larger company or established freelancer you can invoice as much as you like, for just £6.99 GBP a month. 1. User will think this is a free app and when most company hit the £1000 mark, they cannot sent any more invoice. They will be stuck and forced to buy. 2. Also under your agreement, you can use the personal data of company and customers to your discretion. Why do you need the info! I do not trust this app!",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Good app for easy and on the go invoicing. My only issue is that it doesn't allow a decimal input in the quantity field. A unit of measurement field would also be useful.",
+        "score": 3
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I love using this on my phone but would prefer it if I could use on my computer as the phone technology is getting a little too small as I get older. Can we have one on computer or online that I can write into and download the invoice?",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I am a tech dinosaur. My daughter had to assist me through every invoice. Then I discovered Invoice Home. Fantastic product, easy to use, intuitive. Love that I can just send from my phone. So can invoice anywhere and anytime. Thank you.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "To be honest, it's a bit pricey for what it is. It is easy to use and I don't have too many issues with the app itself, but there is no option to add discounts, coupon codes etc for my clients. Sometimes I have promotions and it ends up making the invoice look messy because I can't subtract anything from the total ... I have to make notes on the side about the calculations and such. This app should be maybe $5 a month. Not $10. Needs more features to be charging that much a month.",
+        "score": 3
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Usually when I review an app I give four stars and describe what I wish was different or better. This time I'm pretty happy. This is exactly what I need it to be. A simple cross platform web/app that lets me check who hasn't paid me and send an email or a statement. It invoices automatically based on my recurring schedule. Most of my clients pay on time so I really do nothing each month and can web modify things as needed from the Bahamas if I wanted. It's simple but for me, it's the best of all",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Simple and Straightforward so happy to send invoices and quotes to customers",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "works well when paid for. only about $10 a month 👍 easy to use",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "very friendly app , and make it super easy to use",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "i dont often write review but this one is deserving of it. do not download, one free invoice thereafter its £££.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "don't waste your time! they're so concerned with their monthly fee they make you go through the process of signing up every time and even then you get caught in a loop.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Super easy to use, great price that the business barely feels and I just found even more helpful features today.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Absolutely fantastic app. Easy to use. Create your own receipt or invoice using template and just copy. Next receipt done in a second, once you copied the number automatically next one, and today's day appears on the receipt automatically. You just change the name and amount if needed. Done. With one click you sharing it with receiver by email or other app. It will take you less time than to read my review. Total income shown automatically on top. I am having please to use this app.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I loved this app because of the simplicity and easy to use. I was going to give it a 5 stars. But then all of a sudden if says I've reached my limit for the last 30 days... even if I reach limit at least let us still see the invoice itself but no I have to pay a monthly fee to do something to it. The only thing that I can do is see the total n the sample of the invoice... I just want to see where did I left off but no I can't and this is where I only recorded my numbers.",
+        "score": 2
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I love the app,its easy,to track your monthlies, the overdue invoices. I wish under documents you also had a delivery note with a space for client to sign and date it. I also wish to be able to delete invoices generated in error,so the sequence can improve.. Its nice to have many documents at your fingertips. Otherwise i love the app,its seamless and has many most of docs i need.",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Great app ruined by pricing policy. Firstly, as a small business this app is great. Its easy to set up a company template and generate an invoice on the go from a mobile phone. The only downside is the pricing policy is based on the value on the invoices rather than the number. So as a business that writes a few invoices a month but these exceed the $1000 monthly limit the cost per invoice is very high. For the No. I create it's not cost effective. Under $5/mo or $2/invoice & I'd subscribe.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Was working fine as advertised was free, until I made too many invoices and now trying to charge me a subscription fee. Not on Don't pay for something could easily do with a template from Google and my own email address. Will be looking for another free app that stays free. So much work went into inputting my clients profiles now I have to start again. Not to mention have to keep the app on my phone now for bookwork purposes. Save your time get an actual free app or do it your self by templates",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I'm impressed with this app. It would be nice for the app to include a column for qty and another for unit price. Also, if the app could assist in creating individual statements for invoices and other documents generated as opposed to reports of all transactions generated over a period of time, it would prove to be more useful. Thanks",
+        "score": 2
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I using this app for more and 5 years, I upgrade when my free trial end. just for $ 9.99 a month ist affordable. thanks",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "This is the best mobile invoicing app, and it's faster than using a laptop. You can also make a quote to a client while talking to him/her, and send it to the client at the same time. very fast and reliable. I recommend this app to all small, medium, and large businesses. Coz with this app, you don't need to sit or plug a laptop. You just do it with your phone and send it to the client at the same time. Even brushing your teeth, you can make a quote.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "No pricing on the website (even though in response to other reviews, they say there is), no pricing in the app either so there's absolutely no idea how much this app/website is going to cost once you've sent invoice/s that reach the £1,000 a month limit. I'll stick with the totally free \"invoice2pdf\" instead and suggest you all do the same",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "It was great, then I thought hold on, that's not right, it's misleading, im a sole business owner, I certainly do not send 1000 invoices a mth, be lucky if I send 30-50. So I queried it got this reply. [ The system counts any edits or changes as a new document and calculates it into the new monthly balance, which is why some of the account features are deactivated. It also counts all of the created and deleted documents into the total balance if you send them or not🤬 ] cmon, Be upfront honest",
+        "score": 2
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I like the app. But misleading. Not Free!!!! $9 a month. If I had several invoices a month to print it would be worth it. I have 1 invoice a month. I'm not spending $9 a month for 1 invoice. Bummer. I now have to start over with a new app, try to get all my info entered and printed, by tomorrow.",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Great app! I was able to produce quality invoices for my clients. The background options are amazing. I like how you can enter the quantity and price per item and the app calculates and addes taxes to you invoice. The only suggestion I can give would be, to create a \"Description\" box above the material section. This way you could include the job description of the work going to be preformed.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Hi Guys at Invoice Maker I rated it 4stars because it good to use but I need an option to add discount % or amount and banking details where the customer needs to pay the invoice. Can you also of possible get the app to work even if one is offline because in some instances a person goes to areas where network coverage is not good. If you guys can just update that it will be great.",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "item qty cannot select it was not save it needed to type every time it wasting time . if with cost p&l added will be better, in fact due of yr cap 1000usd free and not so convenient to use some more it is much much more expensive compared to other so I had stopped using it sorry",
+        "score": 3
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Yes 5 Star indeed, I am a freelancer and very satisfied with this app so far. I been using it for several years now. I would like to pay, as it was very convenient for me but the only problem was if there an option to choose one time payment only instead of annually I will definitely paid. That the only thing keeping me stay with the free version. 😅",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "This app has made invoicing and estimates so easy. I love that it calculates taxes automatically if you need it to, and it makes keeping track of paid, partially paid and unpaid invoices a breeze at a very reasonable monthly cost. It's ease of use is just a bonus. Highly recommend.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "This app is great! Simple enough, but does what I need EXCEPT for one thing. I want the ability to collect customer signatures and put them on the invoice the app generates. This would make this app worth 5 stars for me. Unfortunately I need to start looking for another app that can do that because my workplace requires it; however, other apps aren't as easy to use as this one overall that I've tried. Please add this feature! I'd pay for it!",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I have used this app for over a year and it works just fine for me. Can't wait to see the updates. I'm able to send invoices, write receipts, use my logo and print everything out. It has a a log as well to track all yournckiebts activity with you,even repeat clients have a file if desired.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "It's a really great app but customer service does not help a lot, because these days something went wrong with my subscription it says : Free plan limited reached. But I've subscribed and i really need it to send an invoice ASAP but couldn't, so e-mailed the support and I've no answer.....I am forced to use a different app",
+        "score": 2
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I like this app. It helped me in my online business. My only concern is that you can only input discount through percentage and no option if I want to put a specific discount price. It would have been better also if there's a shipping and downpayment option 😊 Nonetheless, it's a pretty good app!",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "After paying a monthly subscription I cannot access the app. It keeps showing me the hand emoji that says access forbidden... that the problem arises when you have entered a forbidden symbol in one of the fields within the documents which are @^#();,=. I dont know what this means at all. Why should I have this problem now after subscription and less than 3days later this problem arises.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Love it! Super detailed and easy to use after you've used it a few times. I wish it would save my \"bill to\" information instead of making me type it in every time but I suppose it saves me from billing to the wrong place. Haha The new update is a little bit glitchy when typing in numbers (it double types some numbers) but other than that its great!",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Really fantastic. This app is great for small or big business and timely delivery of invoice without printing as it serves a solid record over time. But I think it can be improved with addition of 2 columns labelled as quantity and unit cost and all multiplied link to total amount. Some products may be purchased in more than one quantity and for seemless calculation by the user. Thanks for the creativity.",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I Really enjoy the app esp being free as long as you under the $1000 threshold but three points I would like them to consider to make it that much better (unless I'm using it wrong) 1) option to organise invoices in date order instead of just alphabetical 2) allow one to add attachment ie: copy of parts invoice to generated invoice to keep reference. 3) to have a option to view profits collectively instead of total costing parts and labour as one.",
+        "score": 3
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "So far so good. I'm paying this at 9 per month so it needs to have good options. I don't want it to be perfect because it's only 9$ per month. I love being able to make changes on the fly if a customer needs something updated. It has good options like date, Invoice number, small photos, signature, tax. The layouts are great. Good options and clear. Good app. 👍",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "It's awesome, but I need one that has \"balance due\" at the bottom tally, that can say $0.00. The massive red paid stamp is very unsuitable for my business. Invoice simple seems to be only one that can provide that.. If you can provide it, I'll definitely use again. Thank you",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "The Best Invoice App out there , By just a click of options you can write out Invoice, Quotes and various options to choose from . Different money units including choice of ZAR . Can display total monthly Income of jobs you have done and money earned . Can download and mail Invoice/Quotes in PDF format and email to your clients. The monthly subscription after 30 days is best value for money .",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Great app for writing up estimates and invoicing. It's simple yet has everything my business needs to write up professional-looking estimates for my contractor business. They even sent me an email letting me know an email address I used for a customer didn't go through when sent through the app. That kind of communication is so important for me and my business. I sometimes make mistakes typing and knowing that I have someone watching my back like that is 'huge! Thank you, Invoice Maker!",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "This app is quite easy to use and cover wide range of uses... but i can give 5 star yet because of a few i face while using it. 1. If i need to edit an invoice, the invoice number on the current invoice i just edit will somehow edit it self to the previouce invoice number for other invoice, even though i didnt edit the invoice number myself, so when it happen i need to edit it again and again which is annoying because it happen everytime.",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Wow it's amazing - well done guys! Simple to setup & upload your logo,fill in your business details and you've got a professional invoice. You can now send an invoice in seconds after completing the job. Keeps records of paid/unpaid invoices. Plenty of design layouts to choose from. With or without VAT. Set your own terms etc. Only one suggestion you are missing an invoice with:- REFERENCE DESCRIPTION PRICE. As a commercial printer it was a popular layout where quantity wasn't a factor.ll",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I've been using this app for a while it's very useful at keeping track of all your customer's invoices. The only thing that I wish it had was the ability to add pictures to certain invoices for completed work to submit to your customers. That way, they have the submitted work and the invoice, all in one place.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I've been using this for years, but last night when i opened it. It won't let me. I don't know why it says forbidden because of special characters used like .,\";\" etc. This is the first time that I have had a problem with this. I tried contacting them, but there no response. Sending invoices to my clients is very important for my job. I do hope someone could help",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Shared invoicing is NOT working. I've used this system for several years. The Invoice Home App's last update caused issues with invoice sharing and your clients won't receive their invoice, quotes, or credits from the APP. The technical support team do nothing but send generic responses. The problem is definitely in the APP and the update from November 2021. Technical team need to get onto this now! This APP use to be a valuable business tool but that ship has sailed!",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Not happy at all, bought a gift card 5 hours ago to redeem for upgrading my invoice plan. It keeps saying I must give them more details when there is only the Code Column and the Scan Code Colmn to fill. Sent information for help and nothing has been done! It's so frustrating, am very disappointed It's my first time to use this app, I already have bad experience!",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Was great till it told me I'd sent 1000s of invoices now pay I have not sent over a 100 invoices yet thats a bit over the top and a tad bit of a story I've not even sent 50 invoices, also says 7 a month but they say 11 a month when I go to pay, this app is good but those things mentioned above are a let down, also that you can't save ur clients information is another let down for this app",
+        "score": 3
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "The app needs better navigation tools. Like being able to consolidate customers into one group. Also after you search for a customer and need to go back to the search bar it takes you all the way back to the beginning and not to the last search you did. It's very frustrating.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "spent over an hour inputting data for a large invoice only for it to tell me after I was done that my $1000 free invoicing limit had been reached and I have to pay monthly for it now. and can't even get the one I just made! was advertised as a free invoice app!",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Seemed to be easy to use and quick to make invoices, but you can't change the Terms and conditions at the bottom. Maybe have it let us edit what it says there to something other than \"Terms and conditions\" to what I need, just a note without text above it. Will check back on app later.",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "The apps is good. just need some improvement. 1. In the purchase order template. There is no unit in the quantity section, only numbers. It is better if we can put like quantity and unit like Kilograms, Pieces, or anything. 2. It is better if there is a section that we can add like signature of approval from us.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "In today's technological age where things are supposd to be easier it is extremely hard to find peace of mind, because of the trickery and deceit which is all over the internet. It's so hard to do business without internet now,because everyone demands efficiency online. no wonder that some seek to profit from this. This application tricks you into creating the invoice but refuses to email the document and keeps asking email verification. it does not allow the download either.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Worked fine until I hit the $1000 limit, only actually I hadn't. Following their tip to save time, I copied a previous invoice to edit which immediately took me over the limit before I could edit with the new value. How does a copy of an existing invoice increase the total value!?. Worse was to follow. I tried in vain to delete go back. Declined the upgrade price €7.49 for such light usage. Then ACCESS DENIED lost everything. The lesson for me, think twice before handing control to an app",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I like this app. It has made managing my many accounts very easy and the auto save of information is a life saver! I have \"subscribed\" (is that the correct term?) to this app because I liked it so much and my free trial ran out, but I was curious; can I use this app on my phone and on my laptop? It would be nice to be able to look things up in either place you know. Please let me know if I just missed something and this is a feature.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Simple & easy to use, no ads jumping out at you while your in the middle of something, on top of that it's free, I've tried many invoicing apps (both paid and free) and this is the app I have settled for as they also have a desktop version 👍☕",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I'm new on this App and it's good so far except I don't know why you guys don't have back and forward buttons like opera mini. The only reason why I left opera mini is because of the unsafe Google search engine/browser other than that it makes surfing the net so simple and enjoyable. PLEASE add those buttons and data saver and I'll surely give you more than 5 stars.",
+        "score": 3
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "App isn't showing up on screen can't send an email to customer an error issues or there's something wrong that lm not happy with. having issues with the app I'm much more prefer using my desktop computer but unfortunately Optus is having technical difficulties with the internet is down must be because of all weather is we are experiencing technical with access internet the computer to do invoices",
+        "score": 2
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I love invoice home they take the difficult out of everything! It is so user friendly and dummie proof lol The subscription is so reasonable right under 10 bucks WOW! They have a great variety of templates, they send you a monthly invoice report without even having to request it and they are always so helpful and readily available to answer all your questions and assist you with your needs and I mean like right away not next week!! This app pays for itself what are you waiting for!??! 💯👈☝️",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "This app works great but it would be nice if they told you that they were going to charge you & not let you make any invoices after $1000 of invoicing. So now all the effort & time putting customers into in is now unable to use unless I pay. Unfortunate because I liked the app.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Amazing invoice maker ...love you get a free test drive thats not limited or says sample etc also covers Tax Invoice's, Proforma Invoice's ,Receipt's, Sales Receipt's, Quote, Estimate's, Credit Memo's, Credit Note's & Purchase Orders. Designs templates are very professional i opted for the faded union jack which looks really good. Very easy to use and brilliant everything is saved as makes chasing a lot easier. Didn't hesitate to subscribe to the unlimited $5 or £4.22 great price in these testing times ......well done to the creators :)",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "For myself who like many other men (spoken broadly - no offense) I would assume do not like any association to paperwork, I find this so man friendly 😁. Really a useful platform to make paperwork fun and easy to do anywhere and at anytime........ Highly recommend ainnvoice home to anyone. Thank you very much!!",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I like it, a lot. Very clear and nice choices of template. With a bit if practice I can now send professional looking invoices to my business clients. I've taken out a subscription which is reasonable. Writing out invoices has almost become enjoyable. Nice work!",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I like this app. However, it would be nice if, like other countries, there was an invoice with my country's flag (Jamaica) on it in various colours and designs. I would recommend this app to anyone. I've been using it for a short while now and find it very helpful. So far I have not found any glitches in it apart from when I delete an invoice, etc and it goes to the trash I am unable to completely delete it. it only shows \"restore\".",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I have paid my subscription but its seem not re activated yet. Fyi, Im using this app almost 7months, its so helpful and the renewal subscription very easy. unfortunately, for this month renewal has a slightly problem. its almost 48hours after my payment done, I have receipt from gpay. please fix this problem as soon as possible. I put my trust in your professionalism.",
+        "score": 3
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "As a small business operator I often provide receipts, estimates and end of month billing for many clients. I like the way the program works. After learning the program the process start to finish is easy to perform. Like anything else it takes a little time. And, there are many functions I have yet to use. I love the program. Appreciate the free option. Today, I upgraded to the pay version. I'm anxious to see how it performs. Allan J Compassion Transport Services Gettysburg, Pa",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I initially gave this app a bad review. However full disclosure, it was user error and not the apps fault. I thought it would be unfair to punish the app due to my own faults. It was a moment of frustration when I needed an invoice out urgently and was frustrated the app wouldn't let me do what I wanted. I have used this app for over a year and I wouldn't use anything else.",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I have enjoyed invoced app for a while now and have bewn recommending it to others but currently so disappointed ,i have been paying monthly subscriptions but now out of thr blue its telling me i have used monthly free chances and i have to subcribe . All my stuff is locked up but they're deducting my money for the subs. Apart from this it has been a wonderfull app.",
+        "score": 3
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Really like the ease of use and it has pretty much everything you need. Giving 4-Stars because documents such as \"Change Orders\" are not available. Also it doesn't have a field for you to seperate the \"Attention To\" and the \"Bill To\" sections",
+        "score": 4
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Paying 7£ a month. Now you have wiped all my invoices and its now saying my free plan is up. Whats going on you just taken £7 for this month. Contact me asap. Its my only account you have deleted my invoices. Iv had to another subscribe. Been using app over a year one account one log in same details same bank account. Emailed you want matter resolved please",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "I love it at first but today message poped up that my free limit is gone(come on guys i only do 1 invoice a month) and i need to subscribe for 6.99/month. Be realistic guys its way to much for one invoice. I would pay one off payment to support but thats it. Lots of apps out there. Good luck",
+        "score": 2
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "overall great experience, would be awesome if they added a signature section for the customer to sign with their finger if they accept the estimate/contract when given the said estimate/contract on the spot. if it stays free i will continue to use the app. otherwise i will go back to invoice simple with all the features of this app and more for only a fee of $65 annually!",
+        "score": 3
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Its a great app for making qnd sending invoices to your customers.its very user friendly and free from bugs. However I was sadden by the subscription payment. I wish there was a one time payment option that gave you like a 50 customers, unlimited emails and documents. They could limit amount invoice templates you have access to as well, snce I only really use one.",
+        "score": 3
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "The software isn't even that good, it's super basic and then they charge THREE different prices depending on where you sign up and just hope you don't realize it. NOT WORTH IT. Save your money and get a free app or anything else, this one's just a headache waiting to happen.",
+        "score": 1
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "Have been using this app for some time it is so easy, you can invoice or quote when with customers, i would say of all the apps this is a good one by far. Just need a change so i can keep customers on file apart from that great keep it up",
+        "score": 5
+      },
+      {
+        "appId": "com.invoicehome.invoicehome",
+        "text": "It's a very good app. it needs more options . A change to the invoice it's self to be able to have a customer sign it on the fly would be great. I deal with out side sales, and emailing a signed invoice to the accounts payable is better. may be it's coming soon . have to wait and see",
+        "score": 3
+      },
+      {
+        "appId": "odt.document.reader.odt.document.editor.libreoffice",
+        "text": "This is a brilliant app. but since yesterday it keeps saying \"unable to save this document\" and it is also unable to open docements I created an saved. I hope you can get this fixed, because it is the best app of it's kind.",
+        "score": 4
+      },
+      {
+        "appId": "odt.document.reader.odt.document.editor.libreoffice",
+        "text": "Runs very smoothly, what we expect. many types of file format are fully supported. but its editing tool should be adjust according to tablet. and not to cover more area of screen.",
+        "score": 4
+      },
+      {
+        "appId": "odt.document.reader.odt.document.editor.libreoffice",
+        "text": "I needed an app to open, read, write and save where I want (not on some cloud) ODT format files. This app has everything I need and is very simple to use. The only thing I couldn't work out was how to start a new document without opening an existing odt file, only then I can start a new document. Maybe the developer could add \"new document\" icon to the first page when app just open. Thank you for the app :)",
+        "score": 5
+      },
+      {
+        "appId": "odt.document.reader.odt.document.editor.libreoffice",
+        "text": "First file I tried to edit, I wanted to make changes near the end. Positioned the cursor and the Android on-screen keyboard covered the bottom of the file so I couldn't see what I was editing, making it impossible to edit.",
+        "score": 3
+      },
+      {
+        "appId": "odt.document.reader.odt.document.editor.libreoffice",
+        "text": "This really is the simplest and fastest app for writing, editing ODTs. It's faster than OnlyOffice and saves ODTs directly without changing existing styles/formatting. With OnlyOffice I've to export as ODT, and styles/formatting is changed. WPS Lite, Google Docs, Collabora don't work well with ODT... I'm on Boox e-ink reader Go 10.3, Android 12. Reason it's 4 stars not 5: Gboard swipe and suggestion strip doesn't work with it. Still definitely recommended this app for editing ODTs directly.",
+        "score": 4
+      },
+      {
+        "appId": "odt.document.reader.odt.document.editor.libreoffice",
+        "text": "works as expected. Faster than most Word editing apps.",
+        "score": 5
+      },
+      {
+        "appId": "odt.document.reader.odt.document.editor.libreoffice",
+        "text": "it can't do its single purpose on chromebook, i could not view any odt file i opened.",
+        "score": 1
+      },
+      {
+        "appId": "odt.document.reader.odt.document.editor.libreoffice",
+        "text": "Was infinite times better than this new update, how do I down-grade it to previous version?",
+        "score": 1
+      },
+      {
+        "appId": "odt.document.reader.odt.document.editor.libreoffice",
+        "text": "good",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Two huge price increases in 2 years. App is good. But not great. They keep adding things to justify their price increases, but refuse to offer a lite version for those of us (like me) that don't need all the bells and whistles. I swear they are worse than the cable company. Charging you for things you didn't need or want! Will be cancelling after my subscription year is up!",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "they keep raising there subscription prices every single year. it's ridiculous. Every time I have an issue there AI comes into play and it's costing me time because I have to tell it I want a live agent like 20 times before it will actually transfer me to real person. Also I pay for premium tier and some features stopped working properly. I have contacted support many times about it and it's still not resolved. I cancelled my renewal for this year and currently looking into something cheaper.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Seems good so far. Real easy. Edit: Price has gone up multiple times in less than a year because I guess the owner thinks we all need it for keeping track of our business. Well we don't, and I started at 6.99 or 7.99 and now its charging me 20 a month and does nothing different from when it started and got slower if anything. Took it down from 5 to 3 stars for greed and slowdowns.",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "the thought is there but the follow through is not. price keeps going up. I report issues and they repeat them back to me. today it says I have no more documents left yet I paid for the year. so in the middle of our busiest season I'm left with no I voice app, for the second year in a row because last spring they started showing as read Instantly and no one was receiving them (still not completely fixed). there's no update available so what now? what did I pay for?!",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "It's not bad simple easy to use for customer and myself only downfalls are you can't make an invoice reoccurring or set them to auto deliver. So hassle for reoccurring customers. And no tipping options they can't pick to pay more if they want to tip for services. One or both of these added would make it a 5 star *update they fixed reoccurring invoice inconvenience which is great.",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "After being a long time customer and paying for a yearly subscription of $59, they are forcing you to a $199 yearly subscription. it used to be you get unlimited invoices with your plan. Now they limit the amount of invoices per month. To get unlimited, I need to pay more than triple I was paying before. I am not giving this greedy company 1 more cent of my business. Who is to say they won't triple their price at a later date? Can you really trust a company that would do that?",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "This app is getting worse not better. Not only is it not fully customizable, it's no longer saving estimates and invoices that I sometimes spend an hour writing! Last week a paid invoice disappeared completely before I could send it to the customer. BTW, that was a three page description of the work we performed, yeah I had to rewrite the whole damn thing. I don't even reply to support since nothing they suggest will retrieve these. Look elsewhere unless you enjoy wasting your time writing.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "this app was charging me for 2 subscriptions but was only allowing me to use the lower subscription. 3 invoices a month was all i was allowed to create. The other subscription prices continue to go up. they don't notify you of price hikes; just charge your account. The other subscription was unlimited for $150; but I was never allowed to use it. canceling. No refund was given",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "great app, normally I don't ever leave reviews for anything. but honestly this app is pretty straight forward, easily allows you to add items or services for sale to customers or clients and has a variety of ways to receive payment, including sending invoices, taking cash payments, checks, charging cc in person or through invoice via stripe or PayPal integration. there are a few bugs here or there which is why I wouldn't give it 5 stars but very (simple) to use!",
+        "score": 4
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "tried to pay to reactivate my account (expired cc). saw no way to do it. AI assistant was no help. Am currently pushing an hour waiting for an actual human to talk with me so I can tell them that I downloaded and looked at 3 free apps and sent out the invoice with the one I liked. I was willing to pay a monthly fee to keep using their app, but if they care so little, then I won't waste my time with them.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I used to suggest this app to all small business owners. It was incredibly easy to use but anytime now that I need help I get stuck talking to an AI that eventually transfers me to a person. but the person takes about 10 minutes between messages. and I can tell that they didn't read my prior conversation with the AI, so they just keep asking the same questions it is incredibly frustrating. They're going to ask to see the payment center which is its own separate thing outside of the google play.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Had the app for about a year now kind of wish there was an option to pay annually instead of monthly. Other than that app is simple and easy to use. Easily worth $15 a month or whatever it is. 5 stars. edit after 6years : Well now it's $20 a month and the app won't even let me past this subscription error. $20 a month for an app that doesn't even work? 2 stars.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "decided mid subscription to change my plan from unlimited invoices to limited invoices, I paid 95 dollars in July and its now February and they are demanding to upgrade to 199 dollars to unlimited. not only that I've been with them since 2020 and they increased prices almost every year! I will be canceling my subscription soon and move to a more reliant app maker that appreciates their clients and business.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've been using this for a couple of years now, and it works. I would love to use the \"pay online\" feature for my customers; however, I don't like the customer experience it gives. If you activate the \"accept online payments\" option, your customer will be greeted with a page that just says the total amount and a button that says \"pay now\" or something like that. Then they have to click a very small link that says \"see full invoice\" for them to actually see what I'm charging for.",
+        "score": 4
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've used this app for about 1.5 years, and yes it work ok, it's makes sending invoices simple, but that's about it. I run a plumbing business, i have clients with over 100 invoices in a single year, but there's no way for me to type in an address and pull up all those invoices. Or pull up a clients name, have there all their invoices come up, and be able to click on it. The if invoice Simple had the ability to look invoices up with an address that would be. I am a premium member. Not for long!",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Used to be good, but now his is just to get you to pay a subscription. If you read the fine print, it tells you that you only have a limited number of invoices to make before you have to begin paying a subscription. They don't tell you what that number is, but after getting setup with the app and trying to send out your 2nd invoice you find out it's only ONE invoice I understand having a simple free version with ads, and having to pay for more features, but this really just a trial.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Keep away, keep away , keep away! I pay for one year $99 and there was nothing in that app that you can not create using Microsoft Office. Wait, It get worse! after that year they notify an increase in the subscription of 20% extra. Yes 20%!, from $100 to $120. Could you adventure a reason for that? Wait, it gets worse again!!! the same day I cancel my subscription using the option in the same app, but they charge me anyway for another period because \" I didn't use Google to cancel. Keep away!",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Downloaded this app with the understanding that it's free. Went through the entire process of setting up payment, customers, etc. Created a test invoice and sent it to myself with no problems. Created first customer invoice and get to the end of the process and hit send and it brings you to a plan to subscribe to their services on monthly or yearly plan. Very misleading! Just tell me up from so I know what I'm getting into! Will be using PayPal instead, it's free.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The Subscription keeps getting more expensive and they're adding features that I don't want or need. I can't add the CC Processing company I use either (Square). Can't edit Payment dates if you forgot to mark the invoice paid same day. I went from 59.99 to 74.99, to 94.99 and now they want $149.99 for 1 year and $199.99 every year after. That's a ridiculous price jump! Its More than a 100% markup for the same basic features I need. Unfortunate I'll be shopping for alternative at this point.",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Inaccurate/Deceptive description regarding the \"Free\" version. I only create 2-3 invoices/month. Based on the desc of this app saying that you can create a limited number of invoices for free or upgrade to create unlimited invoices. Well, yes, you can create them, but you have to subscribe to be able to send or print them. So, if you are looking for a functional free invoice maker, keep looking. Also, I have a client who asks that the invoices go to 2 email addresses, which this does not allow.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "This invoice app used to be exactly what the name says: Simple. Now, not so much. In short, it sucks. A perfect example of killing the goose to get the golden eggs. Some private equity must have bought them out, now they are busy making \"improvements\" they can charge for and increasing their pricing structure. Meanwhile, nothing is better, you can't manually mark the date that an invoice was paid without an 8-step process. Don't waste money on this, go find a product that is actually SIMPLE.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've lost 15 minutes of progress at a time on this app. I've written notes at the bottom of an invoice. Next, I just switched apps for 3 seconds. When I came back to the invoices app, all my work was lost, and I had to start over. Time is money, and I can't afford to run a business having to redo work. Also, It'd be nice to be able to scroll left or right amongst the opened view of the actual invoices, especially for the invoices that pop up when you use the search bar.",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I initially had a strong appreciation for Invoice Simple, utilizing it for both of my businesses, which led me to give it a five-star review. However, my satisfaction has diminished to two stars due to the frequent price increases every two months and the loss of features unless I upgrade. Consequently, I plan to transition to a different invoicing application, as there are numerous more affordable or free alternatives available.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've been using this app for years. Since it was beta. The past several months, they've made changes like increasing the price while limiting the invoices you send. I tried to upgrade, and all that did was make sure I was charged for 2 subscriptions every month while still having a strict limit on the number of invoices I can send. I tried contacting the company but didn't have any luck.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Been using this service for 8 years now, had 0 complaints in the past. It USED TO BE exactly what we needed. The last year they have more than doubled the price while at the same time they are minimizing the features. Forcing you to pay even more for a \"higher tier\" to get what you had in the past. STAY AWAY. Used to be a great service at a great price until GREED took over. Look elsewhere.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The same features offered to me 4 years ago for $19.95/ year are now $195/ year, and the app is still as glitchy as ever. I will not be returning after 5 years because of another massive yearly price increase and now a limit on invoices of 3 a month? The entire function of the subscription has been rendered useless, and I'm assuming it will lead to the demise of this company very soon. Best of luck and good riddance, Invoice Simple.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Use to be a great app. Trash now. Reminds me of a pay to win game. Started my company with this app, 5 years. Recently, in the past couple years they have increased price 30-40%. Was 50 a year. Now it's 100 basically. wait if you want access to photos add another 14 dollars to your monthly payment. They have literally done nothing in regards to making this app any better, only increased the price, and locked every option unless you pay. Also, i got locked out of my old photos. Use another app.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Simple to use with great looking invoices and estimates. I'm a one man mobile business, the end product looks like I have a staffed office. Update: 2025. Please work on this! It has been great for years and didn't mind you going up in price every year. but now the program takes forever to load! I don't want to change apps so please speed up the loading time",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "This has been my go-to invoicing app for 4 years, but I'm more and more unhappy with it. Invoices are now sent with a \"pay now\" button with no way to deactivate it. Clients try to use it which means either paying fees for a service I don't want or asking clients to submit payment again. This is sneaky and poor form. They have slow updates for Android (but not iPhone). The Android version has a bug that does not allow photos to be attached. $3/month for the browser app is just too much.",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I remember a time when this app cost me $2.99/month, and although it has gotten incredibly expensive, I'd be lost without it! it's gotten pretty great over the years. it's easy to use, on my range and the receiving end as well, accepts all forms of payment ( except cash, obviously), looks professional, can be downloaded by your customers as a printable PDF from text messages, and keeps track of all your income for you. it's come a long way since it's early days and is an overall great app!",
+        "score": 4
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've been using this app since 2016. It was fast at first, but have gotten slower over the years with all the payment pop-ups. The other downside is you can not search for anything other than customer's name or phone #. The final straw was when the annual plan went from 29.99 to 59.99. After hrs of searching and reading reviews, I will be using zoho invoice which is completely FREE. The upgrade annual plan is $25 which I will use if my business grows.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Makes it easy enough for me to write my estimates, send invoices, etc.etc. If only they would make it to where my customers knew they could pay with Zelle. I don't like taking credit card payments because it goes through PayPal. When a customer pays with credit or debit, PayPal ends up with 80$ on a 1000$ invoice. OUCH ! I don't think that's right, just because they do an electronic transfer? it's not like somebody is earning it by working..... Wait , I earned it.",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Update: 3/21/23. Would be nice if spell check would work again in the app. I've been using the subscription version for a while and it's worked good for me. It would be nice if there was a \"keyword\" search bar to find invoices quickly. If you do a lot work for a client and need to find that particular invoice you have to search through them all unless you know the exact invoice number",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The app Makes nice invoices But when it comes time to send the invoice if you're not subscribed the customer does not receive it. You can't even take a clear screenshot to forward a copy of the invoice in another way. Screenshots end up blurry and not legible. If you're downloading this just to do a couple of quick invoices find something else. You will have to subscribe. Then, I got a new phone and they couldn't even locate my account all of my work was lost. I found another app w/ no issues.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The app is (or at least it was) great at creating estimates and invoices. The update to allow the option to get paid by credit card is not an option. YOU WILL BE GIVING YOUR CUSTOMERS THE OPPORTUNITY TO PAY BY CREDIT CARD!! Even if you turn the option off, the email that is sent has the pay by credit card button. This just frustrates my customers and delays payment. I am having to search for an alternative app.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Need to be able to add photos via desktop version. Desktop version NEEDS to be able to create reporting, mobile has the option but limited detail. Often times the mobile vs desktop invoice/estimates are not accurate with each other. QB integration would be sweet! Would be awesome if you could save sales tax codes. Many times the invoice and estimate numbers are duplicated?? This was supposedly resolved multiple times but still having the same issues for over a year. 5 stars if fixed!!!",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I used to like this app and use it for my business until updates changed everything. It shifted from a simple, user-friendly app to an app that wastes your time on entering payments for each invoice. You should take multiple steps to enter a payment. It used to be a single MARK PAID feature, and we could change the date or notes of the payment. Now, if you mark it as PAID, you can't modify the payment unless you enter everything manually, including the invoice or payment total, date, etc...",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "2 free documents and 1 free send is the best for anyone wanting to try this app out first before buying. However, I have yet to see the price of what it costs yet. other than that, this app had everything I would want in an invoice service! and they accept payments and help with tax, and you can text a link or email it to anyone. You can even choose to mark an invoice paid before sending it or ask for payment, even partial payments up front all through the app!",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've been using this app for about 8 years now and it has been a great tool to use. I don't need much just a basic invoice and this was perfect! the price has gone up every now and then but the latest price increase tripled and the benefits were cut by ⅔ if I remember correctly I was allowed 10 invoices a month and was paying $4.99/mo. not bad considering I sent maybe 7 invoices a month. now it's $15/mo. eith only 3 invoices! absolutely ridiculous. will actively start looking for a new service",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I like this app so far, but I have one issue in that for some odd reason when I add a new customer I shows the invoices with another customer associated with that one. Additionally, it would be great if it were possible to make notes on the invoice that did not have to be shared with the customer. Also, since the app uses online payments through PayPal, and PayPal charges a fee, as the business owner I should be able to pass that fee on to the customer is I so choose.",
+        "score": 4
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Has totally changed my business., now runs smooth and I can track who owes or how much and when it was pd. The invoices are clean and customers are able to read them with ease. The text part is the best part and I always have the bill and all notes in hand , no hunting or digging it's all in the palm of ur hand or tablet. \"Which I like best\" this app is a game changer and the name says it all \"Simple\" trust me, if it wasn't I would not be able to use it. The price is unbelievable! 5 stars!!!",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Good app. I wish there was some expese stuff, but its fast and clean. It's not worth $100 a year though. And especially not when the competition is the Wave app which is slower by a smidge, but will integrate with H&R block that I have do my business taxes. And is free. I'd rather pay for this one, but not by subscription, and not that much. I pay 120-130s for my tax software every year and that is COMPLEX.",
+        "score": 4
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "My first invoice that was I put, went very smooth, and came out nicely. There were multiple options for sending the invoice out. The only thing I would like the app to fix, is for the email to be sent with my email, rather than the apps own email address. I say this because I found the emails sent directly from the app, were sent to my customers \"spam\" folders. Outside of that, satisfied thus far.",
+        "score": 4
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "If somebody disputes something even after paying on their app with a credit card they auto draft the money right out of your linked bank account. The client even contacted them to say it was an accident. You pay monthly, then 3% per transaction. They also charge your account for declined credit card transactions. Horrible app. No phone number to contact them. Probably the worst out there. Ive now switched to square. Its cheaper and actually have customer service. Invoice simple is a rip off!!",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "This app is awesome! Very easy to use and quick for making up invoices. Unfortunately since the latest update, the app won't even open up anymore, it's just stuck on the logo when it first opens, It won't go past it for some reason. Even Uninstalled and reinstalled, no luck. Very very unfortunate as I have all my billing info amd everything on it. Not sure what the deal is. A quick fix would be greatly appreciated!",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "PLEASE DON'T WASTE YOUR TIME OR MONEY ON THIS APP. Used the app for almost 1 year and at first it was good, but then issues started to happen. Invoices start to duplicate, you can't close invoices, if you delete an invoice you have issues with the next invoices created. You can't even speak with customer service because they either don't have the correct solution or show they don't care. Now to top it off they will start charging way more in October for the same features. Not worth it",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I am furious! I created and deleted (without sending) 2 estimates while trying to learn the components of this app and now I have to pay a minimum $5 per month for ONE INVOICE! I took the time to add multiple Items to my list and I have yet to send one estimate using this app! I have no idea if it even works as far as emailing my client! Your trial period should be based on items SENT! Upfront cost is vague, and monthly rates are overpriced for the number of invoices/estimates that can be sent.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Hate it!! It is advertised as a free invoice making app. NOT TRUE! Everything was great until the third invoice when the app star to try to charge me for a subscription. I don't appreciate that a little bit. If it is a \"free\" app that doesn't let you send the invoices for free to your clients it is NOT free at all! Deleting now. BYE!!!!",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Good app, but it's annoying when you click the 'mark paid' button and it brings you to a screen that promotes for adding PayPal and payment systems to your app. I don't want to be bombarded everytime I am making a client a receipt. It should be an add on option in the settings, not a pop up every time I click 'mark paid'. Don't want any form of ads especially when I am paying money to use this app.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Set up an account. Filled out an invoice sheet. Hit complete and it asked for a subscription. You get no love for trying to pull an oke doke after I went through all the trouble. I'll find a free one that's just as effective! 0 *s Thanks for the quick response. I don't have a problem paying if I knew that's what I was required to do from the onset. The fact that I went through the whole process and then you spring it when I try to send it. It's underhanded and sneaky. Pay your people well!",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've been using this Invoice Maker for over 3 years now. Went paperless for my lawn service business. No more reams of paper, boxes of envelopes or postage costs. Paid for itself in less than a month. This app is very simple to use. You can upload your logo, create an invoice in minutes, then send it by text or e-mail, receive confirmation it's been sent, received & read and receive payments. Adding pictures to invoices is nice. Very professional. Great for small business at an affordable price. The recent updates have been making the app better and better. Simple & amazing!",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've used this app for nearly 10 years. It was rough in the beginning but has ever so slowly improved into a decent program. Unfortunately, it seems greed is taking over. They keep taking away features that have been included for years, forcing you to buy the next tier sub to get them back. It's now 20 bucks a month to send more than 10 invoices a month. I suppose if you do 200 invoices a month, it doesn't seem bad. For the little guy that does 11-15, probably best to look elsewhere sadly.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Seemed like it might work, but hardwalled a subscription demand before I could use it enough to decide if it's going to work for us. Not willing to spend money on a subscription just to find out if it's what we need. Also nagged me to rate the app after creating an account. The amount you get to use the app before the hard wall is not enough to rate the app.",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "EDIT: The developer has responded to this comment about using the share option. This option DOES NOT CURRENTLY EXIST. I contacted support and they confirmed this. Developer not being honest. Apparently they updated the app and now you can only send as an email directly through their server unless you go to the print menu, save it as pdf (can't change the file name), close the app, open your email, find where it was saved, and attach it. They have no timeline to fix this issue.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Mobile VS Desktop For some reason the mobile version does not appear to update what has been entered on the desktop version. Very inconvenient and we pay more to have both versions. One thing of the top of my head is that a deposit invoice was sent out on the desktop version and when I went to send the invoice out for the balance from my mobile because I didn't have my laptop with me. It showed the invoice with the full amount due. My app was up to date on play store.",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Had been using this app for over a year. It was simple , easy, and convenient to use and reasonably priced for features . Moving forward, they want you to pay YEARLY almost doubled in price and LIMITED the invoices you can send, unless you pay TRIPLE what you were paying for unlimited. Tisk tisk, not renewing and moving to another invoice maker.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "BEWARE: The sign up page has a small box where you consent to text messages and phone calls. The amount of personal information required in order to create an invoice is just ridiculous: number employees I have, how much my business makes annually, etc. These are required fields in order to even use the app. The categories for your type of business are in a drop down menu of which none applied to my line of work. There is no option to enter \"other\" and you can't continue until you select one.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "No support ads after paying a year subscription I have years of Invoices i cant see. Just a total of each. I do deliveries. I add prices for different things and no way can I add them all to a list. The fees are just added to the invoice. I have no way to see them for deduction. I was just told by support to feel free to delete the cr-app. What trash. It will be deleted. And this is what you get from a foreign app provider. You are supplying some unknown with your personal information.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Not Free!! Not even cheap. I will probably end up using a paid service, but not from these liars. *the entire app is unusable without purchase. Other services have add ons but offer a base service which can be tailored to fit the individuals needs. Your app is misleading and wastes people time, and what did you do with my business info after I set up the app and found I only got 1 free invoice after I created a sample invoice?",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The app works great, and it is definitely what I was looking for as a handyman, the only thing I wish they can do, is to make items sortable or arrangable on the invoices and estimates. For example, if I add an item on the invoice, I want to be able to move it up or down the list depending where I want my customers to see it. Other than that, I love it.",
+        "score": 4
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Generic app with greedy billing. You pay monthly for invoice credits, but if you don’t renew, they erase the unused ones you already paid for — no rollover, no warning. I paused during a slow period, not canceled, and still lost them. Customer service? Useless. They don’t care or try to understand. There are way better apps out there. If I could give 0 stars, I would. This is a scam for part-time users. Do NOT recommend.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "absolutely incredible. I've used it for my business for 3 years now. it makes your business look very professional to your customers. it can keep up with your receipts pictures taxes everything. you can set up direct payment your processing company so when you send it to your customers through text or email they can pay with a card straight through it. only thing is they have increased their monthly subscription every month the past 3 or 4 months. hopefully they don't continue to do so",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The worst in involving App! Mind you, after paying over $60 a year, customer service is poor, you cant even comput an excel spreadsheet for all invoices without losing information. Even with the new update you cant even have clients pay via credit, debit, paypal because it dosen't work! I've given them a year to get this right, yet no change. Just more bull via chat customer service. Update 08/14/21 app has went down three times in the last month leaving me without being able to invoice",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I needed a free invoice maker. This one is really nice but not free. If you have a small business on the side like I do, I wouldn't recommend it. It gives you a few free clients, and you are able to send one invoice. Hard work goes into our businesses and you should be up front that there are limits for your app. Not cool. Monthly subscription required!",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've had this app for about 10 years. I loved it. Recently, they forced me to upgrade if I wanted to send more than 10 invoices per month. So, I upgraded to an annual plan. Google play processed the payment and Invoice Simple says they did not get the money. $218 just gone, and Google will not refund me. I'm stuck with the monthly limited plan. Their app support is all AI now, it's TERRIBLE!!!. This is theft!!!",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I hate this invoice app! The amount they charge to process payments is disgusting! Especially considering that you already pay a monthly fee. They keep approximately $15 on a $400 dollar transaction, and STILL make you wait AT LEAST three days before getting it into your bank account! If other payment apps, such as Zelle, cashapp, Venmo, and PayPal can do it MUCH quicker and much cheaper, then this company has no excuse. I am currently looking for one more reasonably priced.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Ok I really love this app, and I love paying $5.99 per month for UNLIMITED invoices, what would make it even greater is if I could save my signiture. It would save me a bit of time to just create a signiture once and use that one for every invoice. If there is a way to do that, please let me know. Otherwise this app rocks! Seriously, i can save client info AND item info! Also maybe allow me to save the same photo and description to every invoice as well! this would save time too!",
+        "score": 4
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Really liked the app until I realized it wasn't free. Easy to create estimates, invoices, and import logos. Just starting a side business and can't justify the subscription at this time. Disappointed since I already added some information to the app and created a couple of estimates. I guess its back to pencil and paper.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The app navigates, very user-friendly.If I would change anything, it would be a portion of the add client, I often duplicate clients unknowingly until I notice them multiple times on the contact list-then it is too late, invoices are already constructed. I haven't found a way to merge account with exact names. I would love to see a selectable link to view invoices within a client summary list. The ease of the app is great, well worth the subscription. I only have suggestions, no complaints.",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Great software. I use it on an iPhone, iPad, and a Galaxy Note S20 Ultra. All work great. I love that I can use my paid subscription on all devices without having to buy multiple times. I can generate an invoice for a client in 30 seconds including emailing it to them, then I'm alerted when they look at it. I also love that this software is simple - it's not trying to do anything it doesn't need to. Its not bloated, it just does a few things extremely well. I really have no complaints!",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I was told in a reminder message my price was going up to $59.99 anaully. Now its telling me $199.99 annually for unlimited invoices. Which was a feature I already had for a cheaper price. Been using this program for 5 years. What a shame with the price hikes and little to no upgrades/changes on anything. When I first started using this app in 2020 is was $19.99.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The only issue is when i send the client the invoice via text, many clients have not received the bill. So i am going on with business as usual for a little over a month. I go to perchase orders for inventory and can't because my account was too low in funds. That can't be. So i do done research find out clients had not paid. I contacted clients, and they all responded with \"well we never was able to open the link you sent.\" This has to be fixed so i can we work. This is a nightmare.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "This app has been working well for almost a year and around October, 2021 it constantly glitches when trying to write the body of an email. I have used this extensively for almost a year and now I can't even write an email with the quote or invoice. Soooooo frustrating!!!! I even tried to install it on another phone thinking maybe my phone was the issue. But on that phone, the app will not even stay open!!! Just kicks me out and closes the app so now I am sure something has gone wrong !!!",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "This app is great for anyone with a small business or side business. It does have a small monthly fee to use, but well worth the money. This app allows you send bids and invoices. It keeps track of your paid and unpaid invoices, and keeps track of the total amount sent out in invoices and how much you have made. It is very easy to use and figure out. This app does more than i have said. A big 👍to the developer. I would absolutely recomend the app to others.",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "DISAPPOINTED you only get 3 free invoices. I just blew a whole days work. I don't mind paying for an app as long as it works and does everything that I need. Doesn't accurately calculate taxes or discounts No AutoFill. I was one of the first to use this app and it was awesome offered a free downgraded ver now you get 3 invoices then boots you FYI $6.99 a month $4.99 a month or $59.99 billed annually. Wish I would have known this up front. Was perfect for my small business",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've used Invoice Maker off and on for over 3-4 years now. I have a small business that doesn't need to invoice as often. It would be nice if you had a way for someone like me to use your services without having a monthly fee. I only tend to need to make an invoice 4 maybe 5 times for the whole year. Other than that I love your template and being able to add my logo and itemized statement. Keeping track of who's paid and who hasn't. An customer service is number 1! You really can't beat that!",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The (large) company I do contract work for loves this app... they wish every contractor would use this platform. However, they compress the photos to a point where they are too blurry and compleyely useless. I have tried to include my expense recieps and its a lost cause... I have to send them in a seprate e mail and is a pain for everyone. You guys are great but need to fix this!",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Recent changes made things worse. They've released a desktop browser interface for the app (good) but they've decided that use of it requires a subscription upgrade (bad). I've never seen an additional paywall just to use the browser app. Next, the app now supports PayPal integration (good) but you cannot dismiss the \"notification\" to enable it (bad). I do not want PayPal, stop nudging me to turn it on. That is an ad in a paid app. Last, I was told by support I would need to have multiple accounts and seperate subscriptions to have invoices in different currencies, something Invoicely just supports for free (last straw). I understand the need for revenue, but the app is now price compareable to solutions that are more feature rich and have more usable free editions (like Invoicely).",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "As it always goes, this started out to be a good app. Now they are pushing your customers to pay when they get their invoice which sounds like a good thing. But they are also pushing this payment system when you haven't even set it up. You and your customers will be truly confused. Even though they are selling this product to businesses they do not have a customer service phone number. Average response on text is 3 to 4 hours.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Do not do the basic package. it is a scam. It says you get 3 invoices per month but I have now had 3 different months where it would not let me send one until it resets. read the fine print! it is set up so you upgrade to the more expensive package. nobody can tell me why. they have no customer service! you are not a priority unless you pay $150/yr",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've been with this app several years, and all of a sudden, they say I'm on a legacy plan that now only gives me 3 invoices per month unless I upgrade. I'm already paying $94 a year plus extra fees. They waited until I renewed last November and didn't share this with me until now when I currently started having issues. As a refund, there is no early cancelation refund thru the google playstore.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The description of this app does say it only lets you make a limited number of invoices before you have to upgrade.. but what it doesn't say is that that limited number is 1. You can make a single invoice and then it requires you to pay money to keep using it. If you want to pay for the app it seems okay, though I couldn't possibly know since I could only make a single test invoice and couldn't do anything else.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "This app is super easy to use and very helpful in remembering all your important notes, clients, payment info, dates and more. Best invoice app I have used so far. Was able to make an invoice and send it in 2 mins , usually takes me a longtime to master these invoice apps or they want ridiculous amounts of money. This one isn't like that. Will use agian :)",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Don't appreciate that as a paying customer I need to upgrade from $5.99 plan to $9.99 plan in order to write invoices or estimates on my computer. Ridiculous how the $5.99 only covers mobile not pc. Should be the other way around but guess you guys figured that you could strong arm people to get the pc plan since it's more convenient being able to use a keyboard. I've been paying for quite a while now, but this makes me wanna go elsewhere. GL. (USED TO WORK ON PC). BTW. YOUR REPLY=WHAT I SAID.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I've just made the first invoice for my husband's business, and it was fun! He wanted me to type up a bill in an email, but this looks much more professional. It's very handy that I can email or text the invoice within the app. Also nice that my husband will be notified when the invoice is viewed, and I can indicate when it's paid. Unless something horrible pops up, like a $50.00 charge to send the invoice, I definitely recommend this app for anyone with a small business.",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Good software, easy to use, easy to convert an estimate to a invoice. Two things though, its actually $100 bucks a yr (they dont tell you that till you are a few invoices in) also, no way to pass on the credit card proccessing fee to a customer when billing them or even split the charge with them. This should be fixed. All in all its a good package. Cheaper than quickbooks but they dont do your taxes or keep your mileage. Customer support seems good, already reached out and welcomed me. 👍",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I didn't mind this app until they made me link my PayPal account to it in order to process card payments which turned into a dumpster fire! PayPal wasn't aware of what was going on so it took about 5 weeks to finally get paid. By that time they were holding over 10k and took 3.5%. Invoice simple used to have a button you could turn on so the customer would be paying the processing fee but it NEVER worked and they appear to have completely given up on it because now it's completely gone! RUN AWAY",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "although the function of this app is great. at the rate they are going I'll be unsubscribing and looking elsewhere. the price goes up considerably every year. on top of that I just got a message saying that some of the tools I have will no longer be available to me. they are moving them to the \"premium\" accounts and I have to upgrade to continue using them. I'm currently paying double what I signed on to pay originally, and I don't even get all the features that I purchased in the first place!!",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "This app saved the day for me. My computer crashed and I had no way to print an invoice. I found this app on play store and problem solved. It took 2 minutes for the tutorial to show me how. I already had a printer app on my phone. I was also able to email the invoices from the app and then it notified me when the emails were opened. Piece of mind. :) d Definitely 5 star rating in my book. Thx.",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Used to be good paying this app. For free, didn't allow you to send more than 3 invoices and estimates and you aren't able to see if was delivered or read. I started to pay $4.99 and I've got all the benefits. Now, even paying, I lost part of the benefits and if I want, I have to pay $34.99 This is ridiculous. If they want to charge more, I don't mind, since they charge $34 for new signers, not for who it was paying for all benefits already. I'm canceling right now and deleting",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I had to move on from this app only because of my issues below. I've sent out several invoices and they are very professional with my company logo on them. What became a major issue for my invoices--- My items are organized by dates/days of the month. Once the date is over I can't go back & add another item so they are in order. Now the date I missed is at the bottom of the page rather than in order. It'll end up below the latest date. Ex: Feb 1...Feb 2...Feb3...Feb 1... :(",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "This app was working great! However I have been running into problems this month. I was able to send a message to support via the app but now I can't. I had to send an email and I still have not received a response. Which is inconvenient when a client is trying to pay their invoice and the system is giving an error message. That's the whole reason I have this app, to accept payments! I'm definitely not happy right now.",
+        "score": 3
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "No better way to keep track of invoices new and old, keep track of paid and outstanding all in one app. The only downfall I've experienced is, if your needing to send to more than one email, you have to send the same invoice multiple times. The inv can only be assigned to one email at a time and I have a commercial account that has to be sent to multiple people so that makes my work double the time due to having to input manually another email address and send them to the other offices as well.",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I gave this app 5 stars a year ago. I only give it 2 stars now because of the constant harassment with setting up online payments and not being able to disable that feature on the invoices that go out. This causes confusion with my customers. I refuse to back charge them an extra 3.5% as suggested by Simple Invoice. I paid $200 for the premium account, my customers shouldn't have to pay them as well. I will not be renewing my subscription when it runs out.",
+        "score": 2
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Great app haven't used it long but is just what I was looking for. I love how I can save my items to reuse for future invoices and estimates. When a customer pays cash I can mark the invoice as paid and it automatically changes to a receipt on the customer end. I can now set items as coupons. This will save so much time. Thank you so much for this app!",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Exactly what I was looking for! We started a very small home based business and I needed something to keep track of the orders coming in, and since I wasn't sure how big we will grow to be, I didnt want to buy into a big fancy program. This let's me create an invoice, calculates everything, add notes, and print or email to the customer. I was seriously shocked at how much I can do on a free app.",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "I am asmall business owner and I've been using this app for a year with no issues at all. Just recently without me knowing my customers were given the option to pay online through my invoices that I'd sent out. They had given their credit card information and the money said it was deposited however I have yet to receive it in my bank account after 6 days. I've sent an email and tried sending several messages to invoice maker with no response back. The money has come out of my customers accounts.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "Used this invoice app for years! It used to live up to its name - simple, reliable, fair. Now, in their “upgrade,” they’ve removed features I paid for a year in advance and limited my invoices. Changing a paid plan mid-term? Ridiculous. It’s like buying a car and getting it downgraded halfway through. After years of loyalty, I’m done. “Simple”? More like simply greedy.",
+        "score": 1
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "It's a very simple and easy to manage app. I used it for the invoices and the estimate mostly. The customer love to recibe my invoices since they look profesional and clean. I think if they could add that we could put more than one email, since sometimes I need to send it to multiple people but I been able to manage. I haven't used the payment with card but I wish they have other options not PayPal maybe Venmo or others... Thanks for the app is great.",
+        "score": 5
+      },
+      {
+        "appId": "com.aadhk.woinvoice",
+        "text": "The app seems fine; however, I find their pricing and description of the limitations of the free version to be unnecessarily vague and lacking transparency. The app description says the free version \"can be used to create a limited number of invoices.\" How many? Per month? Total? (3 total). Website says core value: \"Be transparent. Nothing hidden. Be honest and open in everything you do.\" In app purchases from $2 - $324 and a *lack* of transparency is why I can't trust sub price of $5/mo.",
+        "score": 1
+      }
+    ],
+    "playSuggestKeywords": [],
+    "googleAutocompletions": [],
+    "serpPaaQuestions": [],
+    "serpRelatedSearches": [],
+    "serpAppCount": 0,
+    "collectedAt": "2026-07-09T02:00:01.070Z",
+    "scores": {
+      "pain": 2,
+      "wtp": 4,
+      "discovery": 4,
+      "buildSpeed": 4,
+      "subtotal": 14,
+      "relevanceConfidence": 0.7647058823529411
+    },
+    "autoSkipped": false
+  }
+]

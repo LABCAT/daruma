@@ -2,7 +2,7 @@
 // Each dimension scores 1–5 based on scraped data. No AI.
 
 import type { RawKeywordRecord, Scores } from '../types.js';
-import { PAIN_LEXICON, WTP_LEXICON, RED_FLAG_KEYWORDS } from '../config.js';
+import { PAIN_LEXICON, WTP_LEXICON, RED_FLAG_KEYWORDS, EXCLUDED_GENRES, UTILITY_INTENT_TERMS } from '../config.js';
 
 /**
  * Count pain-lexicon hits across all review texts.
@@ -34,11 +34,29 @@ function countPainHits(reviews: RawKeywordRecord['playStoreReviews']): number {
  * | 1     | 0 hits |
  */
 export function scorePain(record: RawKeywordRecord): number {
-  const hits = countPainHits(record.playStoreReviews);
-  if (hits >= 15) return 5;
-  if (hits >= 10) return 4;
-  if (hits >= 5) return 3;
-  if (hits >= 1) return 2;
+  if (record.playStoreReviews.length === 0) return 1;
+
+  const relevanceMap = new Map(record.playStoreApps.map(a => [a.appId, (a as any).relevanceScore ?? 1.0]));
+
+  let totalWeightedHits = 0;
+  for (const review of record.playStoreReviews) {
+    const rel = relevanceMap.get(review.appId) ?? 1.0;
+    if (rel === 0) continue;
+
+    let hits = 0;
+    const text = review.text.toLowerCase();
+    for (const phrase of PAIN_LEXICON) {
+      if (text.includes(phrase)) hits++;
+    }
+    totalWeightedHits += (hits * rel);
+  }
+
+  const rate = totalWeightedHits / record.playStoreReviews.length;
+  
+  if (rate >= 0.50) return 5;
+  if (rate >= 0.40) return 4;
+  if (rate >= 0.30) return 3;
+  if (rate >= 0.20) return 2;
   return 1;
 }
 
@@ -73,19 +91,21 @@ export function scoreWTP(record: RawKeywordRecord): number {
   const top5 = record.playStoreApps.slice(0, 5);
   
   // Measure review sentiment for WTP
+  const reviewsCount = record.playStoreReviews.length;
   const wtpReviewHits = countWTPHits(record.playStoreReviews);
+  const wtpRate = reviewsCount > 0 ? wtpReviewHits / reviewsCount : 0;
 
-  if (top5.length === 0) return wtpReviewHits >= 3 ? 5 : (wtpReviewHits >= 1 ? 4 : 1);
+  if (top5.length === 0) return wtpRate >= 0.30 ? 5 : (wtpRate >= 0.10 ? 4 : 1);
 
   const paidOrSub = top5.filter(
     (a) => a.monetisationType === 'paid' || a.monetisationType === 'subscription',
   );
   const withIAP = top5.filter((a) => a.hasIAP);
 
-  if (paidOrSub.length >= 2 || wtpReviewHits >= 3) return 5;
-  if ((paidOrSub.length >= 1 && withIAP.length >= 1) || wtpReviewHits >= 1) return 4;
-  if (withIAP.length >= 2) return 3;
-  if (withIAP.length >= 1) return 2;
+  if (paidOrSub.length >= 2 || wtpRate >= 0.30) return 5;
+  if ((paidOrSub.length >= 1 && withIAP.length >= 1) || wtpRate >= 0.25) return 4;
+  if (withIAP.length >= 2 || wtpRate >= 0.20) return 3;
+  if (withIAP.length >= 1 || wtpRate >= 0.10) return 2;
   return 1;
 }
 
@@ -101,7 +121,7 @@ export function scoreWTP(record: RawKeywordRecord): number {
  * | 2     | 20+ apps or avg rating ≥ 4.2 with high review counts |
  * | 1     | Major brand incumbents with 100K+ downloads and ≥ 4.5 stars |
  */
-export function scoreDiscovery(record: RawKeywordRecord): number {
+export function scoreDiscovery(record: RawKeywordRecord, relevanceConfidence: number): number {
   const apps = record.playStoreApps;
   const appCount = apps.length;
 
@@ -117,20 +137,26 @@ export function scoreDiscovery(record: RawKeywordRecord): number {
     (a) => a.rating >= 4.5 && a.reviewCount >= 100_000,
   );
 
-  if (hasUnbeatableIncumbent) return 1;
+  let score = 1;
 
-  // Note: Play Store search limit is 10, so appCount > 10 is impossible.
-  // Extreme lack of competition: fewer than 5 apps, or very low ratings + few reviews
-  if (appCount < 5 || (avgRating < 3.5 && totalReviews < 500)) return 5;
+  if (hasUnbeatableIncumbent) {
+    score = 1;
+  } else if (appCount < 5 || (avgRating < 3.5 && totalReviews < 500)) {
+    score = 5;
+  } else if (avgRating < 4.0 || totalReviews < 1_000) {
+    score = 4;
+  } else if (avgRating >= 4.2 && totalReviews >= 10_000) {
+    score = 2;
+  } else {
+    score = 3;
+  }
 
-  // Weak competition: overall quality is low, or they have very little traction
-  if (avgRating < 4.0 || totalReviews < 1_000) return 4;
+  // Relevance Penalty: A polluted SERP with irrelevant apps is not a genuine opportunity.
+  if (relevanceConfidence < 0.3) return 1;
+  if (relevanceConfidence < 0.5) return Math.min(score, 2);
+  if (relevanceConfidence < 0.7) return Math.min(score, 3);
 
-  // High competition: good ratings AND significant traction
-  if (avgRating >= 4.2 && totalReviews >= 10_000) return 2;
-
-  // Default moderate competition (e.g., avgRating 4.0-4.2, or >= 4.2 with fewer reviews)
-  return 3;
+  return score;
 }
 
 /**
@@ -184,10 +210,36 @@ export function scoreBuildSpeed(record: RawKeywordRecord): number {
 
 /** Score a single record on all 4 dimensions */
 export function scoreRecord(record: RawKeywordRecord): Scores {
-  const pain = scorePain(record);
-  const wtp = scoreWTP(record);
-  const discovery = scoreDiscovery(record);
-  const buildSpeed = scoreBuildSpeed(record);
+  const keywordTerms = record.normalizedKeyword.split(' ');
+  const keywordIntents = keywordTerms.filter(t => UTILITY_INTENT_TERMS.includes(t));
+  const intentsToCheck = keywordIntents.length > 0 ? keywordIntents : UTILITY_INTENT_TERMS;
+
+  const appsWithRelevance = record.playStoreApps.map(app => {
+    let relevanceScore = 0.0;
+    const genre = ((app as any).genre || '').toLowerCase();
+    
+    if (!EXCLUDED_GENRES.includes(genre)) {
+      const text = `${app.name} ${(app as any).description || ''} ${genre}`.toLowerCase();
+      const matched = intentsToCheck.filter(i => text.includes(i)).length;
+      relevanceScore = matched / intentsToCheck.length;
+    }
+    return { ...app, relevanceScore };
+  });
+
+  const totalRelevance = appsWithRelevance.reduce((sum, app) => sum + (app.relevanceScore ?? 0), 0);
+  const relevanceConfidence = appsWithRelevance.length > 0 
+    ? totalRelevance / appsWithRelevance.length 
+    : 1;
+
+  const weightedRecord = {
+    ...record,
+    playStoreApps: appsWithRelevance
+  };
+
+  const discovery = scoreDiscovery(weightedRecord, relevanceConfidence);
+  const pain = scorePain(weightedRecord);
+  const wtp = scoreWTP(weightedRecord);
+  const buildSpeed = scoreBuildSpeed(weightedRecord);
 
   return {
     pain,
@@ -195,5 +247,6 @@ export function scoreRecord(record: RawKeywordRecord): Scores {
     discovery,
     buildSpeed,
     subtotal: pain + wtp + discovery + buildSpeed,
+    relevanceConfidence,
   };
 }

@@ -71,6 +71,8 @@ export async function searchApps(keyword: string): Promise<PlayStoreApp[]> {
       return validApps.map((app: any) => ({
         name: app.title ?? '',
         appId: app.appId ?? '',
+        description: app.summary ?? app.description ?? '',
+        genre: app.genre ?? '',
         rating: app.score ?? 0,
         reviewCount: app.reviews ?? app.ratings ?? 0,
         price: app.price ?? 0,

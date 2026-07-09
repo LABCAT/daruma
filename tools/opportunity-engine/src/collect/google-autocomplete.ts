@@ -56,6 +56,7 @@ async function fetchSuggestions(query: string): Promise<string[]> {
  * Returns deduplicated array of all suggestions.
  */
 export async function expandKeywordViaGoogle(seed: string): Promise<string[]> {
+  return [];
   const allSuggestions = new Set<string>();
 
   // 1. Direct query
@@ -89,5 +90,5 @@ export async function expandKeywordViaGoogle(seed: string): Promise<string[]> {
     }
   }
 
-  return [...allSuggestions];
+  return [];
 }
