@@ -1,0 +1,17 @@
+
+=== SPECIFIC REPORT: tradie invoice ===
+Keyword analyzed: tradie invoice
+Competitor apps feeding Discovery (relevance):
+  - Square Invoices: Invoice Maker | Genre: Business | Relevance Score: 1.00
+  - Invoice2go: Easy Invoice Maker | Genre: Business | Relevance Score: 1.00
+  - Invoice Maker by Invoice Home | Genre: Business | Relevance Score: 1.00
+  - Invoice Maker - InvoiceBase | Genre: Business | Relevance Score: 1.00
+  - Invoice Maker & Estimate App | Genre: Business | Relevance Score: 1.00
+  - Tradier | Genre: Finance | Relevance Score: 0.00
+  - Receipt & Invoice | Genre: Business | Relevance Score: 1.00
+  - Invoice Maker - Invoice Fly | Genre: Business | Relevance Score: 1.00
+  - Invoice Simple: Invoice Maker | Genre: Business | Relevance Score: 1.00
+  - Invoice Maker | Genre: Business | Relevance Score: 1.00
+  - Invoice Maker, Billing:Refrens | Genre: Business | Relevance Score: 1.00
+Discovery Score: 2
+Relevance Confidence: 0.91

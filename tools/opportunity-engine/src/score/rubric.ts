@@ -5,33 +5,15 @@ import type { RawKeywordRecord, Scores } from '../types.js';
 import { PAIN_LEXICON, WTP_LEXICON, RED_FLAG_KEYWORDS, EXCLUDED_GENRES, UTILITY_INTENT_TERMS } from '../config.js';
 
 /**
- * Count pain-lexicon hits across all review texts.
- * Case-insensitive, counts each lexicon term occurrence.
- */
-function countPainHits(reviews: RawKeywordRecord['playStoreReviews']): number {
-  let hits = 0;
-  const allText = reviews.map((r) => r.text.toLowerCase()).join(' ');
-
-  for (const term of PAIN_LEXICON) {
-    // Use word boundary-ish matching: split on term, count occurrences
-    const regex = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-    const matches = allText.match(regex);
-    if (matches) hits += matches.length;
-  }
-
-  return hits;
-}
-
-/**
  * Pain (1–5): derived from review text pain-lexicon matching.
  *
  * | Score | Condition |
  * |-------|-----------|
- * | 5     | ≥15 pain-lexicon hits across top-3 app reviews |
- * | 4     | 10–14 hits |
- * | 3     | 5–9 hits |
- * | 2     | 1–4 hits |
- * | 1     | 0 hits |
+ * | 5     | Weighted hit rate >= 0.50 |
+ * | 4     | Weighted hit rate >= 0.40 |
+ * | 3     | Weighted hit rate >= 0.30 |
+ * | 2     | Weighted hit rate >= 0.20 |
+ * | 1     | Weighted hit rate < 0.20 |
  */
 export function scorePain(record: RawKeywordRecord): number {
   if (record.playStoreReviews.length === 0) return 1;
@@ -46,7 +28,9 @@ export function scorePain(record: RawKeywordRecord): number {
     let hits = 0;
     const text = review.text.toLowerCase();
     for (const phrase of PAIN_LEXICON) {
-      if (text.includes(phrase)) hits++;
+      const regex = new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+      const matches = text.match(regex);
+      if (matches) hits += matches.length;
     }
     totalWeightedHits += (hits * rel);
   }
@@ -60,47 +44,39 @@ export function scorePain(record: RawKeywordRecord): number {
   return 1;
 }
 
-/**
- * Count willingness-to-pay lexicon hits across all review texts.
- */
-function countWTPHits(reviews: RawKeywordRecord['playStoreReviews']): number {
-  let hits = 0;
-  const allText = reviews.map((r) => r.text.toLowerCase()).join(' ');
-
-  for (const term of WTP_LEXICON) {
-    const regex = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-    const matches = allText.match(regex);
-    if (matches) hits += matches.length;
-  }
-
-  return hits;
-}
-
-/**
- * WTP / Willingness to Pay (1–5): derived from competitor monetisation flags and review sentiment.
- *
- * | Score | Condition |
- * |-------|-----------|
- * | 5     | ≥2 of top-5 apps are paid/sub OR ≥3 WTP review hits |
- * | 4     | 1 paid/sub app + others have IAP OR ≥1 WTP review hit |
- * | 3     | Multiple apps with IAP, none paid/sub |
- * | 2     | Only free+ads competitors, but some IAP exists |
- * | 1     | All free, no monetisation signals |
- */
 export function scoreWTP(record: RawKeywordRecord): number {
   const top5 = record.playStoreApps.slice(0, 5);
   
-  // Measure review sentiment for WTP
+  const relevanceMap = new Map(record.playStoreApps.map(a => [a.appId, (a as any).relevanceScore ?? 1.0]));
+
+  let totalWeightedHits = 0;
+  for (const review of record.playStoreReviews) {
+    const rel = relevanceMap.get(review.appId) ?? 1.0;
+    if (rel === 0) continue;
+
+    let hits = 0;
+    const text = review.text.toLowerCase();
+    for (const phrase of WTP_LEXICON) {
+      const regex = new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+      const matches = text.match(regex);
+      if (matches) hits += matches.length;
+    }
+    totalWeightedHits += (hits * rel);
+  }
+  
   const reviewsCount = record.playStoreReviews.length;
-  const wtpReviewHits = countWTPHits(record.playStoreReviews);
-  const wtpRate = reviewsCount > 0 ? wtpReviewHits / reviewsCount : 0;
+  const wtpRate = reviewsCount > 0 ? totalWeightedHits / reviewsCount : 0;
 
   if (top5.length === 0) return wtpRate >= 0.30 ? 5 : (wtpRate >= 0.10 ? 4 : 1);
 
-  const paidOrSub = top5.filter(
+  // We only count IAP/Paid signals from apps that have at least SOME relevance.
+  // This prevents irrelevant apps (like games) from falsely inflating the WTP score via IAP.
+  const relevantTop5 = top5.filter(a => (relevanceMap.get(a.appId) ?? 1.0) > 0);
+
+  const paidOrSub = relevantTop5.filter(
     (a) => a.monetisationType === 'paid' || a.monetisationType === 'subscription',
   );
-  const withIAP = top5.filter((a) => a.hasIAP);
+  const withIAP = relevantTop5.filter((a) => a.hasIAP);
 
   if (paidOrSub.length >= 2 || wtpRate >= 0.30) return 5;
   if ((paidOrSub.length >= 1 && withIAP.length >= 1) || wtpRate >= 0.25) return 4;

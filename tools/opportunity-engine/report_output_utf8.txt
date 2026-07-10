@@ -1,0 +1,179 @@
+=== KEYWORD SOURCE ===
+Total Keywords Scored: 57
+Keywords found in discovered_keywords.json: 22
+
+=== FULL SCORE TABLE ===
+Keyword | Relevance Confidence | Pain | WTP | Discovery | Build Speed | Subtotal
+mileage tracker | 0.89 | 5 | 4 | 3 | 5 | 17
+site diary app | 0.94 | 5 | 5 | 2 | 4 | 16
+tradie timesheet | 0.82 | 4 | 4 | 3 | 4 | 15
+exercise log | 0.53 | 5 | 3 | 2 | 5 | 15
+expense receipt scanner | 0.93 | 5 | 3 | 3 | 4 | 15
+restaurant inventory | 0.89 | 3 | 3 | 4 | 4 | 14
+dog walker tracker | 0.47 | 5 | 3 | 2 | 4 | 14
+home inventory app | 1.00 | 3 | 3 | 4 | 4 | 14
+invoice generator | 1.00 | 3 | 4 | 2 | 5 | 14
+consultant time tracker | 0.93 | 4 | 3 | 3 | 4 | 14
+food cost calculator | 0.82 | 1 | 3 | 4 | 5 | 13
+pt session tracker | 0.63 | 5 | 1 | 3 | 4 | 13
+gym membership tracker | 0.60 | 2 | 3 | 3 | 5 | 13
+tradie invoice | 0.91 | 3 | 3 | 2 | 4 | 12
+tip calculator | 1.00 | 2 | 3 | 2 | 5 | 12
+menu planner restaurant | 0.77 | 2 | 3 | 3 | 4 | 12
+hospitality roster | 0.50 | 2 | 3 | 3 | 4 | 12
+workout planner | 0.65 | 2 | 3 | 2 | 5 | 12
+home maintenance schedule | 0.50 | 2 | 5 | 2 | 3 | 12
+moving checklist app | 0.47 | 1 | 4 | 2 | 5 | 12
+pantry tracker | 0.43 | 3 | 3 | 2 | 4 | 12
+tradie quote app | 0.41 | 2 | 3 | 2 | 4 | 11
+builder daily log | 0.43 | 1 | 3 | 2 | 5 | 11
+beauty inventory | 0.50 | 1 | 3 | 3 | 4 | 11
+declutter checklist | 0.50 | 1 | 5 | 2 | 3 | 11
+personal trainer client tracker | 0.28 | 1 | 3 | 1 | 5 | 10
+fitness client management | 0.00 | 1 | 4 | 1 | 4 | 10
+pet vaccination tracker | 0.56 | 1 | 3 | 3 | 3 | 10
+dog grooming checklist | 0.00 | 1 | 3 | 1 | 5 | 10
+kennel booking | 1.00 | 1 | 1 | 5 | 3 | 10
+home cleaning schedule | 0.33 | 2 | 3 | 2 | 3 | 10
+client intake form | 0.31 | 1 | 3 | 2 | 4 | 10
+appointment reminder | 0.47 | 1 | 4 | 2 | 3 | 10
+trade job estimator | 0.05 | 1 | 3 | 1 | 4 | 9
+beauty salon manager | 0.00 | 1 | 3 | 1 | 4 | 9
+salon client tracker | 0.11 | 1 | 3 | 1 | 4 | 9
+hair color formula | 0.02 | 1 | 3 | 1 | 4 | 9
+bar stock tracker | 0.29 | 1 | 3 | 1 | 4 | 9
+kitchen prep list | 0.03 | 1 | 3 | 1 | 4 | 9
+cafe order tracker | 0.25 | 1 | 3 | 1 | 4 | 9
+garage sale tracker | 0.00 | 1 | 3 | 1 | 4 | 9
+meeting notes app | 0.01 | 1 | 3 | 1 | 4 | 9
+freelance project tracker | 0.13 | 1 | 3 | 1 | 4 | 9
+tradie job tracker | 0.45 | 1 | 1 | 2 | 4 | 8
+plumber schedule | 0.07 | 1 | 3 | 1 | 3 | 8
+electrician job management | 0.01 | 1 | 3 | 1 | 3 | 8
+nail tech booking | 0.00 | 1 | 3 | 1 | 3 | 8
+gym class scheduler | 0.05 | 1 | 3 | 1 | 3 | 8
+pet grooming scheduler | 0.02 | 1 | 3 | 1 | 3 | 8
+pet sitting app | 0.00 | 1 | 2 | 1 | 4 | 8
+hairdresser appointment | 0.27 | 1 | 2 | 1 | 3 | 7
+salon price list | 0.02 | 1 | 2 | 1 | 3 | 7
+home warranty tracker | 0.00 | 1 | 1 | 1 | 4 | 7
+salon booking app | 0.27 | 1 | 1 | 1 | 3 | 6
+fitness class booking | 0.06 | 2 | 1 | 1 | 2 | 6
+vet visit tracker | 0.22 | 1 | 2 | 1 | 2 | 6
+pet business management | 0.01 | 1 | 3 | 1 | 1 | 6
+
+=== RAW SIGNAL DATA (5 KEYWORDS) ===
+
+--- Keyword: pet business management ---
+Subtotal Score: 6
+Competitor Apps Returned:
+  - Petme: Social & Pet Sitting (Genre: Travel & Local, Relevance: N/A)
+  - Pet Shop Manager Simulation (Genre: Simulation, Relevance: N/A)
+  - Pet Sitter Dashboard (Genre: Business, Relevance: N/A)
+  - Pet Shop Simulator: Pet Games (Genre: Simulation, Relevance: N/A)
+  - TapGroom Pet Grooming Salon (Genre: Business, Relevance: N/A)
+  - Pet Shop Journey Simulator (Genre: Simulation, Relevance: N/A)
+  - PetVitality Pet Health Tracker (Genre: Lifestyle, Relevance: N/A)
+  - MoeGo: Pet Business Suite (Genre: Productivity, Relevance: N/A)
+  - PetBacker-Dog Boarding, Sitter (Genre: Lifestyle, Relevance: N/A)
+  - Time To Pet - Pet Care App (Genre: Business, Relevance: N/A)
+  - Dog and cat care - PetnotePlus (Genre: Health & Fitness, Relevance: N/A)
+  - My Virtual Pet Shop: Animals (Genre: Strategy, Relevance: N/A)
+  - Groomit – On-Demand Grooming (Genre: Lifestyle, Relevance: N/A)
+  - Petfinder - Adopt a Pet (Genre: Lifestyle, Relevance: N/A)
+  - My Pet App for Health Tracking (Genre: Health & Fitness, Relevance: N/A)
+  - Pet Care Tracker For Dog & Cat (Genre: Tools, Relevance: N/A)
+Reviews Sampled: 196
+Raw Pain Hits: 67 (Rate: 0.34)
+Raw WTP Hits: 95 (Rate: 0.48)
+
+--- Keyword: freelance project tracker ---
+Subtotal Score: 9
+Competitor Apps Returned:
+  - Freelancer CRM (Genre: Business, Relevance: N/A)
+  - Upwork (Genre: Business, Relevance: N/A)
+  - Truelancer: Freelance Work App (Genre: Business, Relevance: N/A)
+  - WorkingHours Time Tracker (Genre: Business, Relevance: N/A)
+  - Progress – Project Tracker (Genre: Productivity, Relevance: N/A)
+  - Feedcoyote - Freelance Jobs (Genre: Social, Relevance: N/A)
+  - TERAWORK: Hire Freelancers (Genre: Business, Relevance: N/A)
+  - Hour Buddy: Work Time Tracking (Genre: Productivity, Relevance: N/A)
+  - Fiverr - Freelance Service (Genre: Business, Relevance: N/A)
+  - Kwork (Genre: Business, Relevance: N/A)
+  - monday.com - AI Work Platform (Genre: Productivity, Relevance: N/A)
+  - Plaky — Project Management (Genre: Productivity, Relevance: N/A)
+  - Projects.co.id Hire Freelancer (Genre: Business, Relevance: N/A)
+  - Jobbers: Jobbing and Freelance (Genre: Business, Relevance: N/A)
+  - Freelancer: Hire & Find Jobs (Genre: Business, Relevance: N/A)
+  - Zoho Projects (Genre: Productivity, Relevance: N/A)
+Reviews Sampled: 204
+Raw Pain Hits: 154 (Rate: 0.75)
+Raw WTP Hits: 328 (Rate: 1.61)
+
+--- Keyword: dog grooming checklist ---
+Subtotal Score: 10
+Competitor Apps Returned:
+  - TapGroom Pet Grooming Salon (Genre: Business, Relevance: N/A)
+  - GrooMore pet grooming software (Genre: Business, Relevance: N/A)
+  - Groomit – On-Demand Grooming (Genre: Lifestyle, Relevance: N/A)
+  - Petivity Dog Tracker (Genre: Lifestyle, Relevance: N/A)
+  - Dog and cat care - PetnotePlus (Genre: Health & Fitness, Relevance: N/A)
+  - DogNote - Pet journal (Genre: Productivity, Relevance: N/A)
+  - Pet Care Tracker For Dog & Cat (Genre: Tools, Relevance: N/A)
+  - PetBacker-Dog Boarding, Sitter (Genre: Lifestyle, Relevance: N/A)
+  - Pet Care Tracker - PetNoter (Genre: House & Home, Relevance: N/A)
+  - Pet Care Tracker - Dog Cat App (Genre: Medical, Relevance: N/A)
+  - DogLog - Track your Pet's Life (Genre: Lifestyle, Relevance: N/A)
+  - Doggy Time: Dog Training Log (Genre: Lifestyle, Relevance: N/A)
+  - DogUp: Dog & Puppy Tracker (Genre: Lifestyle, Relevance: N/A)
+  - Dog Care - Training Plans (Genre: Lifestyle, Relevance: N/A)
+  - Dog Training App — GoDog (Genre: Education, Relevance: N/A)
+Reviews Sampled: 206
+Raw Pain Hits: 47 (Rate: 0.23)
+Raw WTP Hits: 109 (Rate: 0.53)
+
+--- Keyword: tip calculator ---
+Subtotal Score: 12
+Competitor Apps Returned:
+  - Tip Calculator (Genre: Food & Drink, Relevance: N/A)
+  - Tip Calculator (Genre: Food & Drink, Relevance: N/A)
+  - Tip N Split Tip Calculator (Genre: Finance, Relevance: N/A)
+  - Tip Calculator (Genre: Food & Drink, Relevance: N/A)
+  - Tip Calculator (Genre: Tools, Relevance: N/A)
+  - Tip Calculator — Clean, Simple (Genre: Food & Drink, Relevance: N/A)
+  - Tip Calculator (Genre: Finance, Relevance: N/A)
+  - Tip Calculator (Genre: Tools, Relevance: N/A)
+Reviews Sampled: 224
+Raw Pain Hits: 51 (Rate: 0.23)
+Raw WTP Hits: 86 (Rate: 0.38)
+
+--- Keyword: mileage tracker ---
+Subtotal Score: 17
+Competitor Apps Returned:
+  - Everlance: Mileage Tracker (Genre: Finance, Relevance: N/A)
+  - Mileage Tracker by Driversnote (Genre: Finance, Relevance: N/A)
+  - Stride: Mileage & Tax Tracker (Genre: Finance, Relevance: N/A)
+  - Mileage Tracker by MileageWise (Genre: Finance, Relevance: N/A)
+  - Mileage Tracker & Log - MileIQ (Genre: Finance, Relevance: N/A)
+  - Mileage Tracker App by TripLog (Genre: Finance, Relevance: N/A)
+  - Mileage Log from Google Maps (Genre: Finance, Relevance: N/A)
+  - Mileage Tracker & Vehicle Log (Genre: Auto & Vehicles, Relevance: N/A)
+  - Mileage Tracker by MyCarTracks (Genre: Finance, Relevance: N/A)
+Reviews Sampled: 300
+Raw Pain Hits: 182 (Rate: 0.61)
+Raw WTP Hits: 279 (Rate: 0.93)
+
+=== SPECIFIC REPORT ===
+Keyword analyzed: mileage tracker
+Competitor apps feeding Discovery (relevance):
+  - Everlance: Mileage Tracker | Genre: Finance | Relevance Score: N/A
+  - Mileage Tracker by Driversnote | Genre: Finance | Relevance Score: N/A
+  - Stride: Mileage & Tax Tracker | Genre: Finance | Relevance Score: N/A
+  - Mileage Tracker by MileageWise | Genre: Finance | Relevance Score: N/A
+  - Mileage Tracker & Log - MileIQ | Genre: Finance | Relevance Score: N/A
+  - Mileage Tracker App by TripLog | Genre: Finance | Relevance Score: N/A
+  - Mileage Log from Google Maps | Genre: Finance | Relevance Score: N/A
+  - Mileage Tracker & Vehicle Log | Genre: Auto & Vehicles | Relevance Score: N/A
+  - Mileage Tracker by MyCarTracks | Genre: Finance | Relevance Score: N/A
+Discovery Score: 3
+Relevance Confidence: 0.89

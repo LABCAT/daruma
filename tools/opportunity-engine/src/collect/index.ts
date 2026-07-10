@@ -63,9 +63,19 @@ export async function collect(opts: CollectOptions = {}): Promise<RawKeywordReco
 
   // Build flat list of all keywords to process
   const keywordQueue: Array<{ keyword: string; category: string }> = [];
-  for (const [category, keywords] of Object.entries(allCategories)) {
+  // First, push discovered keywords
+  for (const [category, keywords] of Object.entries(discoveredCategories)) {
     for (const kw of keywords) {
       keywordQueue.push({ keyword: kw, category });
+    }
+  }
+  // Then, push static seeds
+  for (const [category, keywords] of Object.entries(categories)) {
+    for (const kw of keywords) {
+      // Don't duplicate if already added from discovered
+      if (!keywordQueue.some(item => item.keyword === kw)) {
+        keywordQueue.push({ keyword: kw, category });
+      }
     }
   }
 
