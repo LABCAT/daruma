@@ -34,3 +34,25 @@ To test the stubs and verify database structures:
    ```bash
    npx wrangler d1 execute daruma-opportunity-engine --local --config workers/orchestrator/wrangler.toml --command "SELECT name FROM sqlite_master WHERE type='table'"
    ```
+
+## Production Deployment
+
+1. **Create the Production D1 Database** (already completed):
+   ```bash
+   npx wrangler d1 create daruma-opportunity-engine
+   ```
+
+2. **Apply migrations to Production**:
+   Apply database migrations to the remote Cloudflare D1 instance:
+   ```bash
+   npx wrangler d1 migrations apply daruma-opportunity-engine --remote --config workers/orchestrator/wrangler.toml
+   ```
+
+3. **Deploy Workers**:
+   Deploy each stub worker to Cloudflare (make sure you are authenticated via `npx wrangler login`):
+   ```bash
+   npx wrangler deploy --config workers/orchestrator/wrangler.toml
+   npx wrangler deploy --config workers/collect/wrangler.toml
+   npx wrangler deploy --config workers/score/wrangler.toml
+   npx wrangler deploy --config workers/dashboard/wrangler.toml
+   ```
