@@ -1,0 +1,17 @@
+name = "daruma-opportunity-engine-collect"
+main = "src/index.ts"
+compatibility_date = "2024-11-12"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "daruma-opportunity-engine"
+database_id = "d88e075e-97cc-4543-adb5-b279099fe7ef"
+migrations_dir = "../../db/migrations"
+
+[[queues.consumers]]
+queue = "daruma-opportunity-engine-raw-ideas"
+max_concurrency = 3
+
+[[queues.producers]]
+queue = "daruma-opportunity-engine-collected-ideas"
+binding = "COLLECTED_IDEAS_QUEUE"

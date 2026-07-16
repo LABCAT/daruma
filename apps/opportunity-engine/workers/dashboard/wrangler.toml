@@ -1,0 +1,12 @@
+name = "daruma-opportunity-engine-dashboard"
+main = "src/index.ts"
+compatibility_date = "2024-11-12"
+
+[assets]
+directory = "./dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "daruma-opportunity-engine"
+database_id = "d88e075e-97cc-4543-adb5-b279099fe7ef"
+migrations_dir = "../../db/migrations"

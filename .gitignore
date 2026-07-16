@@ -1,3 +1,7 @@
 dojo.daruma.nz
 tools.daruma.nz
 web.daruma.nz
+node_modules/
+.wrangler/
+dist/
+.DS_Store
