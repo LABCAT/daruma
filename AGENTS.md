@@ -65,7 +65,7 @@ Apply the same tone to docs you write in this repo.
 - **Push the plan forward** — read `docs/CURRENT.md`, execute the next action, update it when done
 - **Propose defaults** — smallest shippable scope; founder redirects if wrong
 - **Escalate only:** spending, public launches, genuine creative/brand forks
-- **Never merge to main** — open PRs; founder merges when quality is verified
+- **Merges** — open PRs by default; founder merges today. Future gated auto-merge only per `docs/DARUMA.md` (CI/E2E/scopes). Never auto: spend, store submit, brand forks, prod secrets
 - **Never block** on tactical questions answerable from this repo or app `AGENTS.md`
 
 ---
@@ -103,3 +103,4 @@ Apply the same tone to docs you write in this repo.
 - Use code blocks for commands, config, and patterns
 - Use checkboxes for status tracking in APPS.md
 - Headings: H1 for file title, H2 for sections, H3 for subsections
+- Agent doc length / progressive disclosure: [`.agents/rules/agent-documentation.md`](.agents/rules/agent-documentation.md) — README ~50–150 lines; root `AGENTS.md` &lt;150 (soft max ~300); deep detail in `docs/` or skill `references/`, not root dumps

@@ -59,7 +59,7 @@ Official policy: [Play Console testing requirements](https://support.google.com/
 
 Org account requires **any owned domain** + DNS TXT verification (Search Console). Site is **not shown on Play** — verification and org contact email only (e.g. `hello@tanukitoolbox.sbs`). `.sbs` is fine.
 
-OpenClaw/Hermes (Phase 2 Daruma) needs **no custom domain** — Telegram + cron is outbound-only. See [`DARUMA.md`](DARUMA.md).
+OpenHands / design stack (Phase 2) needs a VPS when we get there — Workers cron does not need a custom domain. See [`DARUMA.md`](DARUMA.md).
 
 ---
 

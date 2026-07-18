@@ -4,8 +4,9 @@
 
 **Tagline:** Small tools. Real work.
 
-**Repos (current):** `web.daruma.nz` (web apps), `tools.daruma.nz` (Play Store / ASO)
-**Future branding:** **Tanuki Toolbox** — `tanukitoolbox.sbs` (small business services). Switch when domains registered; repos stay `*.daruma.nz` until then.
+**Repos (current):** `tools.daruma.nz` (Play / ASO — **primary**), `web.daruma.nz` (legacy/existing web apps)
+**Future branding:** **Tanuki Toolbox** — `tanukitoolbox.sbs`. Switch when domains registered; repos stay `*.daruma.nz` until then.
+**Web apps (new):** Prefer **Metal Monkey Apps** (`metalmonkey.cc`) as the web micro-app home — final split TBD.
 
 **Audience:** Small business owners, sole traders, tradespeople, adventure tourism operators
 **Problem:** Admin tasks are painful, generic software is overkill, and time is short
@@ -20,7 +21,7 @@
 **Packaging:** Start as single-feature **micro** apps. Verticals with traction (reviews, repeat opens, feature requests) **graduate to mini** — 3–4 related gated features in one listing (e.g. food truck toolkit). Not catch-all SaaS.
 
 **Current apps:**
-- `brainstorm.daruma.nz` — brainstorm and prioritisation tool ✅ live (`web.daruma.nz`)
+- `brainstorm.daruma.nz` — brainstorm and prioritisation tool ✅ live (`web.daruma.nz`). Stays for now; may move into Metal Monkey later.
 
 **Pipeline focus:**
 - Adventure tourism (brother connection)

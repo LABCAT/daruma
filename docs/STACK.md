@@ -6,16 +6,21 @@ Two monorepos under the Toolbox brand.
 
 ### Web (`web.daruma.nz`)
 
-**Framework:** SvelteKit
+**Status:** Existing apps (e.g. brainstorm) stay here until migrated. **New web product apps** lean toward **Metal Monkey** (`metalmonkey.cc`) — see Brands.
+
+**Framework (current):** SvelteKit  
+**Framework (lean, not locked):** TanStack Start + SolidJS for new Daruma internal UIs and Metal Monkey web — decide before next greenfield web app; do not churn live SvelteKit apps until migration is worth it.
+
 **Monorepo:** pnpm workspaces — `apps/*` + shared packages. Build rules in that repo's `AGENTS.md`.
 **Database:** Neon DB (Postgres serverless)
 **Cache / KV:** Upstash Redis
-**Hosting:** Cloudflare Pages
+**Local-first sync:** ElectricSQL + TanStack DB — **medium-term**, primarily for **Daruma ops** (e.g. live multi-agent dashboards), not required for v1 product micro-apps
+**Hosting:** Cloudflare Pages (current SvelteKit); Workers for TanStack Start / Solid SPAs when adopted
 **Storage:** Cloudflare R2
 **Auth:** Auth.js v5
 **Payments:** Stripe
 
-**Pattern:**
+**Pattern (current):**
 ```
 SvelteKit app → Cloudflare Pages
              → Neon DB (via serverless HTTP driver)
@@ -23,9 +28,10 @@ SvelteKit app → Cloudflare Pages
              → R2 (S3-compatible, presigned URLs)
 ```
 
-### ASO (`tools.daruma.nz`)
+### ASO (`tools.daruma.nz`) — primary Toolbox focus
 
-**Framework:** React Native + Expo
+**Framework:** React Native + Expo  
+Tanuki Toolbox is **Play / RN-first**. Web tools are not the growth priority for this brand.
 **UI:** Shopify Restyle — tokens → themes → shared components in `packages/design-system`. No NativeWind, no Tailwind.
 **Design source:** `tanuki-toolbox-design-system` (sibling repo — visual spec; translated into Restyle in the monorepo)
 **Monetisation:** Free download + one-off IAP unlock (see [`REVENUE.md`](REVENUE.md))
@@ -104,7 +110,7 @@ Planned for all three app monorepos — not in D01 v1. YAML flows (Maestro) suit
 
 Before App 1, build reusable starter templates:
 
-**Toolbox web template (`web.daruma.nz`):** SvelteKit + Neon + Upstash + Cloudflare Pages + Stripe + basic auth + E2E (Playwright)
+**Toolbox web template (`web.daruma.nz`):** SvelteKit + Neon + Upstash + Cloudflare Pages + Stripe + basic auth + E2E (Playwright) — current. New web lean: Metal Monkey + TanStack Start/Solid (TBD).
 **Toolbox ASO template (`tools.daruma.nz`):** React Native + Expo + Restyle + `packages/design-system` + IAP billing + E2E (Maestro)
 **Dojo template (`dojo.daruma.nz`):** React Native + Expo + AdMob + basic navigation + IAP setup + E2E (Maestro)
 
