@@ -10,3 +10,4 @@ migrations_dir = "../../db/migrations"
 
 [[queues.consumers]]
 queue = "daruma-opportunity-engine-collected-ideas"
+max_concurrency = 3
