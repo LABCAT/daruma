@@ -1,0 +1,128 @@
+<script lang="ts">
+	import { Check } from '@lucide/svelte';
+
+	let {
+		label,
+		description,
+		class: className = '',
+		...rest
+	}: {
+		label?: string;
+		description?: string;
+		class?: string;
+		[key: string]: any;
+	} = $props();
+</script>
+
+<label class={`dm-checkbox-wrapper ${className}`}>
+	<div class="dm-checkbox">
+		<input type="checkbox" class="dm-checkbox__input" {...rest} />
+		<div class="dm-checkbox__box">
+			<Check class="dm-checkbox__icon" />
+		</div>
+	</div>
+	{#if label || description}
+		<div class="dm-checkbox__text">
+			{#if label}
+				<span class="dm-checkbox__label">{label}</span>
+			{/if}
+			{#if description}
+				<p class="dm-checkbox__description">{description}</p>
+			{/if}
+		</div>
+	{/if}
+</label>
+
+<style lang="scss">
+	.dm-checkbox-wrapper {
+		display: inline-flex;
+		align-items: flex-start;
+		gap: var(--dm-space-3);
+		cursor: pointer;
+	}
+
+	.dm-checkbox {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 2px; // Align with text
+
+		&__input {
+			position: absolute;
+			opacity: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			cursor: pointer;
+			z-index: 2;
+
+			&:checked + .dm-checkbox__box {
+				background-color: var(--dm-color-primary);
+				border-color: var(--dm-color-primary);
+			}
+
+			&:checked + .dm-checkbox__box .dm-checkbox__icon {
+				opacity: 1;
+				transform: scale(1);
+			}
+
+			&:focus-visible + .dm-checkbox__box {
+				box-shadow:
+					0 0 0 2px var(--dm-color-bg),
+					0 0 0 4px var(--dm-color-ring);
+			}
+
+			&:disabled {
+				cursor: not-allowed;
+				& + .dm-checkbox__box {
+					opacity: 0.5;
+				}
+			}
+		}
+
+		&__box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 20px;
+			height: 20px;
+			border: var(--dm-border-width-base) solid var(--dm-color-border);
+			border-radius: var(--dm-radius-sm);
+			background-color: transparent;
+			transition: all var(--dm-transition-fast);
+		}
+
+		&__icon {
+			width: 14px;
+			height: 14px;
+			color: var(--dm-color-primary-foreground);
+			opacity: 0;
+			transform: scale(0.5);
+			transition: all var(--dm-transition-fast);
+			pointer-events: none;
+		}
+	}
+
+	.dm-checkbox__text {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.dm-checkbox__label {
+		font-family: var(--dm-font-family);
+		font-size: var(--dm-font-size-sm);
+		font-weight: var(--dm-font-weight-medium);
+		color: var(--dm-color-text);
+		line-height: 1.4;
+	}
+
+	.dm-checkbox__description {
+		font-family: var(--dm-font-family);
+		font-size: var(--dm-font-size-xs);
+		color: var(--dm-color-muted-foreground);
+		margin: 0;
+		line-height: 1.4;
+	}
+</style>
