@@ -1,12 +1,8 @@
-# Stack — Project Daruma
+# Stack — Metal Monkey Apps
 
-## Daruma Toolbox
+## Web — Metal Monkey Apps (`metalmonkey.cc`)
 
-Two monorepos under the Toolbox brand.
-
-### Web (`web.daruma.nz`)
-
-**Status:** Existing apps (e.g. brainstorm) stay here until migrated. **New web product apps** lean toward **Metal Monkey** (`metalmonkey.cc`) — see Brands.
+**Rule:** New web product apps → `*.metalmonkey.cc` (custom domain only if earned). Legacy: `web.daruma.nz` until migrated.
 
 **Framework (current):** SvelteKit  
 **Framework (lean, not locked):** TanStack Start + SolidJS for new Daruma internal UIs and Metal Monkey web — decide before next greenfield web app; do not churn live SvelteKit apps until migration is worth it.
@@ -28,10 +24,12 @@ SvelteKit app → Cloudflare Pages
              → R2 (S3-compatible, presigned URLs)
 ```
 
-### ASO (`tools.daruma.nz`) — primary Toolbox focus
+---
+
+## Tanuki Toolbox — Play (`tools.daruma.nz`)
 
 **Framework:** React Native + Expo  
-Tanuki Toolbox is **Play / RN-first**. Web tools are not the growth priority for this brand.
+Tanuki Toolbox is **Play / RN-first**. Web product apps belong under Metal Monkey, not this brand.
 **UI:** Shopify Restyle — tokens → themes → shared components in `packages/design-system`. No NativeWind, no Tailwind.
 **Design source:** `tanuki-toolbox-design-system` (sibling repo — visual spec; translated into Restyle in the monorepo)
 **Monetisation:** Free download + one-off IAP unlock (see [`REVENUE.md`](REVENUE.md))
@@ -39,7 +37,7 @@ Tanuki Toolbox is **Play / RN-first**. Web tools are not the growth priority for
 
 **Theme architecture:** Base theme + light/dark; future vertical themes (e.g. gardening, finance) override tokens only — components stay shared.
 
-**Capacitor:** fast-track option for wrapping web apps as mobile without a full RN build.
+**Capacitor:** fast-track option for wrapping Metal Monkey web apps as mobile without a full RN build.
 
 ---
 
@@ -110,8 +108,8 @@ Planned for all three app monorepos — not in D01 v1. YAML flows (Maestro) suit
 
 Before App 1, build reusable starter templates:
 
-**Toolbox web template (`web.daruma.nz`):** SvelteKit + Neon + Upstash + Cloudflare Pages + Stripe + basic auth + E2E (Playwright) — current. New web lean: Metal Monkey + TanStack Start/Solid (TBD).
-**Toolbox ASO template (`tools.daruma.nz`):** React Native + Expo + Restyle + `packages/design-system` + IAP billing + E2E (Maestro)
+**Toolbox web template (legacy `web.daruma.nz`):** SvelteKit + Neon + Upstash + Cloudflare Pages + Stripe + basic auth + E2E (Playwright) — current. New web: Metal Monkey `*.metalmonkey.cc` + TanStack Start/Solid (TBD).
+**Tanuki Toolbox ASO template (`tools.daruma.nz`):** React Native + Expo + Restyle + `packages/design-system` + IAP billing + E2E (Maestro)
 **Dojo template (`dojo.daruma.nz`):** React Native + Expo + AdMob + basic navigation + IAP setup + E2E (Maestro)
 
 Every new app clones the relevant template. Never start from zero.

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "cursor-pro-annual",
+    "service": "Cursor Pro",
+    "started": null,
+    "downgradeBy": "2026-09-15",
+    "revertTo": "Cursor free / Hobby (or cancel)",
+    "remindDaysBefore": 7,
+    "notes": "Annual billed ~$16/mo. Auto-renews 2026-09-15. Do not renew for BYOK Agent magic — coding default is Claude Code + MiniMax (see DARUMA.md)."
+  },
+  {
+    "id": "google-ai-plus-promo",
+    "service": "Google AI Plus",
+    "started": "2026-06-26",
+    "downgradeBy": "2026-09-26",
+    "revertTo": "Google One 200 GB storage",
+    "remindDaysBefore": 7,
+    "notes": "3-month promo at NZ$4.99/mo. Downgrade before Sep 26 to avoid full Plus renewal."
+  }
+]

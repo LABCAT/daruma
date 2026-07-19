@@ -2,7 +2,7 @@
 
 *Last updated: 2026-07-13*
 
-This doc is the source of truth for migrating the Opportunity Engine from Phase 0 (manual/local script in `tools/opportunity-engine/`) to Phase 2 (Cloudflare Workers + Queues + D1 + Solid dashboard). It supplements `OPPORTUNITY_ENGINE.md` and `Daruma_opportunity_engine_project_status` — read those first for pipeline purpose, rubric, and run history. This doc covers **only** the technical migration decisions.
+This doc is the source of truth for migrating the Opportunity Engine from Phase 0 (manual/local script in `tools/opportunity-engine/`) to Phase 2 (Cloudflare Workers + Queues + D1 + Solid dashboard). It supplements [`README.md`](README.md) — read that first for pipeline purpose, rubric, and run history. This doc covers **only** the technical migration decisions.
 
 Upload this file (and keep it updated) in the Claude Project so a fresh chat has full context without re-deriving these decisions.
 
@@ -159,6 +159,6 @@ Each phase gets its own AntiGravity prompt — not combined — consistent with 
 
 ## What's still beyond this migration
 
-- **Phase 3** (Search Console feedback loop) — real future work per `OPPORTUNITY_ENGINE.md`, not started, not urgent (apps need to get built first)
+- **Phase 3** (Search Console feedback loop) — real future work per [`README.md`](README.md), not started, not urgent (apps need to get built first)
 - **Brainstorm + founder Passion gate** — permanently human-only, unaffected by this migration
 - **Actually building/shipping apps** from validated candidates — the pipeline only ever produces a ranked shortlist of evidence; everything downstream (ASO, landing pages, build) remains manual, ongoing work indefinitely

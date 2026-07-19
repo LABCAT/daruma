@@ -1,14 +1,14 @@
 # ASO Agent Loop Research System
 
-Concept specification for validation rules and loop behaviour. Implementation architecture: [`OPPORTUNITY_ENGINE.md`](OPPORTUNITY_ENGINE.md).
+Concept specification for validation rules and loop behaviour. Implementation architecture: [`README.md`](README.md).
 
-Related: [`PROMPTS.md`](PROMPTS.md) (manual prompt), [`RESEARCH.md`](RESEARCH.md) (current weekly loop).
+Related: [`../../research/PROMPTS.md`](../../research/PROMPTS.md) (manual prompt), [`../../research/RESEARCH.md`](../../research/RESEARCH.md) (current weekly loop).
 
 ---
 
 ## 1. Overview
 
-An loop-based AI research process that continuously generates micro app ideas for **Daruma Toolbox** and validates each against **Google Play Store demand signals** before acceptance.
+An loop-based AI research process that continuously generates micro app ideas for **Tanuki Toolbox** and validates each against **Google Play Store demand signals** before acceptance.
 
 Principles:
 
@@ -78,7 +78,7 @@ Agent scores four evidence dimensions. Founder adds Passion in Brainstorm for fi
 
 - **Evidence subtotal:** /20 (agent output)
 - **Passion (1–5):** founder scores in Brainstorm
-- **Final total:** /25 — pick threshold default **18** ([`research-queue.json`](research-queue.json))
+- **Final total:** /25 — pick threshold default **18** ([`../../research/research-queue.json`](../../research/research-queue.json))
 
 Build Speed favours Toolbox v1 constraints: single-purpose, shippable in under a week, minimal or no backend.
 
@@ -104,10 +104,10 @@ Agent memory per run:
 
 ## 6. Intended Use
 
-- **Brand:** Daruma Toolbox micro-app pipeline
+- **Brand:** Tanuki Toolbox micro-app pipeline
 - **Goal:** Identify small, monetisable Android tools discoverable via Play Store ASO
 - **Platform:** Google Play first; iOS later once Play proves the category
-- **Not for:** Dojo games (separate prompt/rubric in [`PROMPTS.md`](PROMPTS.md)), web-only SaaS, platforms, or marketing-dependent launches
+- **Not for:** Dojo games (separate prompt/rubric in [`../../research/PROMPTS.md`](../../research/PROMPTS.md)), web-only SaaS, platforms, or marketing-dependent launches
 
 Outputs feed [brainstorm.daruma.nz](https://brainstorm.daruma.nz) → [`tracker/APPS.md`](../tracker/APPS.md) → [`CURRENT.md`](CURRENT.md).
 
@@ -122,7 +122,7 @@ Potential upgrades when automation is worth the infra cost:
 - Overnight batch runs on VPS / Cloudflare Worker
 - Integration with [`daruma-scheduled.yml`](../.github/workflows/daruma-scheduled.yml) — agent posts results to `[Research]` issue; founder reviews in Brainstorm
 - Cross-run memory (Redis/DB) so audiences and keywords don't repeat across weeks
-- Phase 2 per [`RESEARCH.md`](RESEARCH.md): always-on agent replaces paste-into-chat step
+- Phase 2 per [`../../research/RESEARCH.md`](../../research/RESEARCH.md): always-on agent replaces paste-into-chat step
 
 ---
 

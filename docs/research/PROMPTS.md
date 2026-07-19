@@ -1,4 +1,4 @@
-# Prompts — Project Daruma
+# Prompts — Metal Monkey Apps / Daruma
 
 Reusable AI prompts for research, ideation, and building. Use with Claude, Gemini, or Cursor.
 
@@ -70,7 +70,7 @@ This week's research focus:
 For each opportunity (3–5 total):
 
 ### [Opportunity name]
-- Brand: Toolbox
+- Brand: Tanuki Toolbox
 - One-line hook:
 - Target keyword (Play Store):
 - Primary discovery channel: store
@@ -213,7 +213,7 @@ React Native + Expo (Skia for native graphics; p5/canvas only on the web target)
 ### New Toolbox App
 
 ```
-I am starting a new Daruma Toolbox app. It is a [description] tool for
+I am starting a new Tanuki Toolbox app. It is a [description] tool for
 [audience]. The stack is SvelteKit + Neon DB + Upstash Redis + Cloudflare Pages
 + Stripe. Start by scaffolding the project from the Toolbox template.
 The app should do one thing: [core function]. Keep it simple and beautiful.
@@ -233,17 +233,16 @@ in under 2 minutes per session. Monetisation: ads + remove ads IAP.
 ## Context Prompt (paste into new Claude conversations)
 
 ```
-I am working on Project Daruma — a mission to build 100 micro apps and games.
+I am building Metal Monkey Apps (metalmonkey.cc) with Daruma as my AI co-founder.
+Mission: 100 micro apps and games.
 
-Two sub-brands:
-- Daruma Toolbox (tools.daruma.nz): micro tools for small businesses.
-  Stack: SvelteKit + Neon + Upstash + Cloudflare Pages. Revenue: subscriptions.
-- Daruma Dojo (dojo.daruma.nz): micro learning apps and games.
-  Stack: React + Expo. Revenue: ads + IAP. Google Play first, iOS via Expo EAS.
+Brands:
+- Metal Monkey Apps: overarching + web on *.metalmonkey.cc
+- Tanuki Toolbox (tools.daruma.nz): React Native tools for small businesses; free + IAP
+- Daruma Dojo (dojo.daruma.nz): React Native fun + learning apps/games; ads + IAP; Play first
 
-Command center repo: github.com/LABCAT/daruma
-I am a full-stack developer based in New Zealand, Windows-heavy.
-I use AI (Claude, Cursor, Copilot) as my primary workforce.
+Command center: github.com/LABCAT/daruma
+Full-stack, NZ, Windows-heavy. AI is the workforce.
 
 [Add your specific question or task here]
 ```

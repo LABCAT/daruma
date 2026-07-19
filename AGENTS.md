@@ -1,4 +1,4 @@
-# AGENTS.md — Project Daruma
+# AGENTS.md — Daruma (Metal Monkey Apps)
 
 Rules for all AI tools working in this repository (Claude, Cursor, Copilot, Gemini).
 
@@ -6,40 +6,37 @@ Rules for all AI tools working in this repository (Claude, Cursor, Copilot, Gemi
 
 ## What This Repo Is
 
-This is the Project Daruma command center. It contains strategy, documentation, prompts, the master app tracker, and internal pipeline tooling (under `tools/`).
+Daruma’s command center for **Metal Monkey Apps**. Strategy, docs, prompts, app tracker, internal pipelines (`tools/`).
 
-Do not scaffold shipped apps or write application code in this repo. The `tools/` directory is for internal scripts and pipelines (e.g. `tools/opportunity-engine/`) that support the command center — not for shipped products.
+Do not scaffold shipped apps or write application code here. `tools/` is internal only — not shipped products.
+
+Brand hierarchy: [`docs/BRANDS.md`](docs/BRANDS.md).
 
 ---
 
 ## Documentation Boundaries
 
 - Keep all files in this repo **short and concise**
-- **This repo:** strategy, stack decisions, prompts, tracker (one row per app in `tracker/APPS.md`)
-- **App repos** (`web.daruma.nz`, `tools.daruma.nz`, `dojo.daruma.nz`, `tanuki-toolbox-design-system`): product design, screen specs, game mechanics, build/scaffold rules — each repo has its own `AGENTS.md` for agents working there
+- **This repo:** strategy, stack decisions, prompts, tracker (one row per app in `tracker/APPS.md`). Docs map: [`docs/README.md`](docs/README.md). Work tracking: [`docs/PROJECTS.md`](docs/PROJECTS.md).
+- **App repos** (`web.daruma.nz` legacy, Metal Monkey web, `tools.daruma.nz`, `dojo.daruma.nz`, `tanuki-toolbox-design-system`): product design, screen specs, game mechanics, build/scaffold rules — each has its own `AGENTS.md`
 
 ---
 
 ## The Project
 
-**Mission:** Build 100 micro apps and games across web and mobile.
-**Founder role:** Creative Director — vision, taste, redirect when wrong.
-**AI role (Daruma):** Workforce — propose defaults, execute, push the plan forward. Escalate only irreversible actions. Infra and roadmap: [`docs/DARUMA.md`](docs/DARUMA.md).
+**Business:** Metal Monkey Apps (`metalmonkey.cc`) — 100 micro apps and games across web and mobile.
+**Founder:** Creative Director — vision, taste, redirect when wrong.
+**Daruma:** The AI assistant — propose defaults, execute, push the plan forward. Escalate only irreversible actions. Infra: [`docs/DARUMA.md`](docs/DARUMA.md).
 
 ---
 
-## Sub-Brands
+## Brands (public)
 
-**Daruma Toolbox** — future brand: Tanuki Toolbox (`tanukitoolbox.sbs`)
-- Web (`web.daruma.nz`): SvelteKit + Neon + Cloudflare Pages + Stripe — revenue: monthly subs
-- ASO (`tools.daruma.nz`): React Native + Expo + **Shopify Restyle** — revenue: free + one-off IAP unlock (primary)
-- Revenue priority over Dojo
+**Metal Monkey Apps** — overarching brand; new web apps on `*.metalmonkey.cc` (custom domain only if earned).
 
-**Daruma Dojo** (`dojo.daruma.nz`) — future brand: Challenge Club (`darumadojo.cc`)
-- Micro learning apps and games
-- Stack: React + Expo (React Native)
-- Revenue: TBD (ads + IAP candidate)
-- Platform: Google Play first, iOS via Expo EAS Build
+**Tanuki Toolbox** (`tools.daruma.nz`) — React Native + Expo for small businesses; free + one-off IAP; revenue priority.
+
+**Daruma Dojo** (`dojo.daruma.nz`) — React Native + Expo fun + learning apps/games; ads + IAP candidate; Play first, iOS via EAS.
 
 ---
 
@@ -61,7 +58,7 @@ Apply the same tone to docs you write in this repo.
 ## Daruma operating rules
 
 - **Activate fast** — on wake-up ("activate Daruma", check-in, status): reply immediately with active task + next action; do not batch-read docs or scan repos first. Read files only when executing that action or the founder asks something that needs lookup.
-- **Research loop** — weekly GitHub research issues feed Brainstorm; see [`docs/RESEARCH.md`](docs/RESEARCH.md)
+- **Research loop** — weekly GitHub research issues feed Brainstorm; see [`docs/research/RESEARCH.md`](docs/research/RESEARCH.md)
 - **Push the plan forward** — read `docs/CURRENT.md`, execute the next action, update it when done
 - **Propose defaults** — smallest shippable scope; founder redirects if wrong
 - **Escalate only:** spending, public launches, genuine creative/brand forks
@@ -73,7 +70,7 @@ Apply the same tone to docs you write in this repo.
 - Keep all documentation concise and technically specific
 - No fluff, no padding
 - When updating tracker/APPS.md, preserve existing rows and formatting
-- When suggesting new app ideas, score them using the rubric in docs/PROMPTS.md
+- When suggesting new app ideas, score them using the rubric in docs/research/PROMPTS.md
 - Always consider Windows dev environment constraints (no local Mac, use Expo EAS for iOS builds)
 - When an app uses a backend, never connect mobile clients directly to the database — always via an API layer
 

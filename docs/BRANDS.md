@@ -1,67 +1,83 @@
-# Brands — Project Daruma
+# Brands — Metal Monkey Apps
 
-## Daruma Toolbox
+## Hierarchy
+
+| Layer | What |
+|-------|------|
+| **Daruma** | The AI assistant (this command center). Not a product brand. Never shipped to customers. |
+| **Metal Monkey Apps** (`metalmonkey.cc`) | The business + overarching public brand |
+| **Tanuki Toolbox** | React Native apps for small businesses |
+| **Daruma Dojo** | React Native apps/games that are fun and involve learning |
+
+```
+Metal Monkey Apps (business + web)
+├── Web apps → *.metalmonkey.cc (custom domain only if an app earns it)
+├── Tanuki Toolbox → Play / RN small-business tools
+└── Daruma Dojo → Play / RN fun + learning
+         ↑
+      Daruma (AI) runs the operation
+```
+
+---
+
+## Metal Monkey Apps
+
+**Domain:** `metalmonkey.cc`  
+**Role:** Overarching brand for the business. All **new web** micro-apps live here.
+
+**Design system:** [Figma Make — Design System for Metal Monkey](https://www.figma.com/make/mqbG0tprnZ104p8gVpr5QK/Design-System-for-Metal-Monkey?t=66QIAfLwiLL8eiwg-0)
+
+**Web hosting rule:** Subdomains by default (`app.metalmonkey.cc`). Custom domain only when an app is popular enough to warrant it.
+
+**Legacy:** Existing web apps on `web.daruma.nz` (e.g. brainstorm) stay until migrated.
+
+**Revenue (web):** Monthly subs ($5–20/mo) where backend costs apply — per app, not required for every product.
+
+---
+
+## Tanuki Toolbox
 
 **Tagline:** Small tools. Real work.
 
-**Repos (current):** `tools.daruma.nz` (Play / ASO — **primary**), `web.daruma.nz` (legacy/existing web apps)
-**Future branding:** **Tanuki Toolbox** — `tanukitoolbox.sbs`. Switch when domains registered; repos stay `*.daruma.nz` until then.
-**Web apps (new):** Prefer **Metal Monkey Apps** (`metalmonkey.cc`) as the web micro-app home — final split TBD.
+**Platform:** React Native + Expo (Google Play first; iOS via EAS).  
+**Repo (current):** `tools.daruma.nz` — rename later; brand in store is **Tanuki Toolbox**.
 
-**Audience:** Small business owners, sole traders, tradespeople, adventure tourism operators
-**Problem:** Admin tasks are painful, generic software is overkill, and time is short
-**Positioning:** Beautifully simple tools that do one job perfectly — ship-and-forget, no support tail
+**Audience:** Small business owners, sole traders, tradespeople, adventure tourism operators  
+**Problem:** Admin is painful; generic software is overkill  
+**Positioning:** One job done perfectly — ship-and-forget
 
-**Revenue (primary plan):**
-- **Play (`tools.daruma.nz`):** Free download + one-off IAP unlock. No monthly sub required.
-- **Web (`web.daruma.nz`):** Monthly subscription ($5–20/mo) where Neon/backend costs apply. Subs allowed but not the default for every app.
+**Revenue:** Free download + one-off IAP unlock (primary). No monthly sub required on Play.
 
-**Distribution:** Play ASO + `tanukitoolbox.sbs` landing pages (long-tail → Play). Web tools via SEO on `web.daruma.nz`.
+**Packaging:** Micro apps first; verticals with traction may graduate to mini (3–4 related gated features). Not catch-all SaaS.
 
-**Packaging:** Start as single-feature **micro** apps. Verticals with traction (reviews, repeat opens, feature requests) **graduate to mini** — 3–4 related gated features in one listing (e.g. food truck toolkit). Not catch-all SaaS.
-
-**Current apps:**
-- `brainstorm.daruma.nz` — brainstorm and prioritisation tool ✅ live (`web.daruma.nz`). Stays for now; may move into Metal Monkey later.
-
-**Pipeline focus:**
-- Adventure tourism (brother connection)
-- Sole trader / tradie admin
-- Revenue priority over Dojo for now
+**Pipeline:** Adventure tourism · sole trader / tradie admin · revenue priority over Dojo
 
 ---
 
 ## Daruma Dojo
 
-**Tagline:** Learn by playing.
+**Tagline:** Learn by playing.  
+**Potential tagline / mode:** **Challenge Club** — competitive framing (leaderboards, challenges) when Dojo adds social/compete loops. Not a separate brand; stays under Daruma Dojo.
 
+**Platform:** React Native + Expo (Play first; iOS via EAS).  
 **Repo (current):** `dojo.daruma.nz`
-**Future branding:** **Daruma Dojo — Challenge Club** — `darumadojo.cc`. Switch when domain registered.
 
-**Audience:** Casual mobile and web users, learners, game players
-**Problem:** Learning is boring, games are mindless — Dojo sits in between
-**Positioning:** Micro games and learning tools that are visually delightful and genuinely satisfying
+**Audience:** Casual learners and game players  
+**Positioning:** Fun micro games/apps that also teach something
 
-**Revenue:** TBD — ads + IAP is the leading candidate; not locked. Lower revenue priority than Toolbox for now.
+**Revenue:** TBD — ads + IAP leading candidate. Lower priority than Toolbox for now.
 
-**Distribution:** Google Play ASO first; iOS via Expo EAS once Play proves the category. Landing pages on `darumadojo.cc` when needed.
+**Pipeline:** Play keyword gaps · Skia visuals · D01 (Multiplication Dojo) first · Scratch-style learn-by-play (not committed)
 
-**Current apps:**
-- None yet — monorepo scaffolded
+**Founder-play lane:** WebGL / GLSL / shapes / sacred geometry / colour theory / maths — games the founder will actually play to learn these concepts (visual + interactive, not worksheet clones).
 
-**Pipeline focus:**
-- Play Store keyword gaps via research
-- Visually distinctive games — Skia (mobile), p5/canvas (web)
-- D01 pipeline proof first (Multiplication Dojo)
-- **Future direction (not committed):** Scratch-style games — learn logic/coding/math through play, one concept per game
+**Wild vision (not near-term):** Align some apps to **NZ / Australian maths curriculum** and pursue school pickup. Speculative — prove consumer Play pipeline first; revisit when D01+ traction exists.
 
 ---
 
-## Brand Relationship
+## Shared ops
 
-Both brands are sub-brands of **Daruma NZ** (`daruma.nz`).
-They share infrastructure, templates, and AI tooling but are positioned independently.
-Toolbox = revenue floor (one-off IAP + web subs). Dojo = volume and discovery play.
-
-**Play Store:** One org account publishes both brands when ready. App titles carry brand identity; developer name is account-level. Details: [`CURRENT.md`](CURRENT.md#play-console--domains).
-
-**Domains:** `daruma.nz` optional parent hub. `tanukitoolbox.sbs` and `darumadojo.cc` for brand sites and org verification — not required for D01 or Daruma agent infra.
+- **Daruma** (AI + this repo) orchestrates strategy, research, and dispatch for Metal Monkey Apps.
+- Brands share infra/templates but stay positioned independently.
+- **Play Store:** One org account can publish Toolbox + Dojo. Brand in app titles; developer name account-level. See [`CURRENT.md`](CURRENT.md#play-console--domains).
+- Optional brand landing domains (`tanukitoolbox.sbs`, `darumadojo.cc`) — verification/landing only; not required for D01.

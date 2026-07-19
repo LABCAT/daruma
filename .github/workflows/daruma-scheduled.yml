@@ -93,7 +93,7 @@ jobs:
               const current = fs.readFileSync('docs/CURRENT.md', 'utf8');
               let subscriptionAlerts = '';
               try {
-                const subs = JSON.parse(fs.readFileSync('docs/subscriptions.json', 'utf8'));
+                const subs = JSON.parse(fs.readFileSync('docs/ops/subscriptions.json', 'utf8'));
                 const today = new Date(nzDateKey + 'T00:00:00');
                 for (const sub of subs) {
                   const deadline = new Date(sub.downgradeBy + 'T00:00:00');
@@ -132,7 +132,7 @@ jobs:
                 '---',
                 '**Reply:** `done` · `blocked: …` · `need help`',
                 '',
-                '_Sources: [`docs/CURRENT.md`](docs/CURRENT.md) · [`docs/SUBSCRIPTIONS.md`](docs/SUBSCRIPTIONS.md)_',
+                '_Sources: [`docs/CURRENT.md`](docs/CURRENT.md) · [`docs/ops/SUBSCRIPTIONS.md`](docs/ops/SUBSCRIPTIONS.md)_',
               ].join('\n');
 
               if (existing) {
@@ -159,7 +159,7 @@ jobs:
             }
 
             if (runResearch) {
-              const queue = JSON.parse(fs.readFileSync('docs/research-queue.json', 'utf8'));
+              const queue = JSON.parse(fs.readFileSync('docs/research/research-queue.json', 'utf8'));
               const { items, pickThreshold, brainstormUrl } = queue;
               const startOfYear = new Date(nzNow.getFullYear(), 0, 1);
               const weekNum = Math.ceil(
@@ -377,7 +377,7 @@ jobs:
                   '---',
                   '**Reply:** `done` when ideas are in Brainstorm · `skip: reason` to defer',
                   '',
-                  '_Queue: [`docs/research-queue.json`](docs/research-queue.json) · Process: [`docs/RESEARCH.md`](docs/RESEARCH.md)_',
+                  '_Queue: [`docs/research/research-queue.json`](docs/research/research-queue.json) · Process: [`docs/research/RESEARCH.md`](docs/research/RESEARCH.md)_',
                 ].join('\n');
 
                 await github.rest.issues.create({
@@ -391,7 +391,7 @@ jobs:
             }
 
             if (runSubscription) {
-              const subs = JSON.parse(fs.readFileSync('docs/subscriptions.json', 'utf8'));
+              const subs = JSON.parse(fs.readFileSync('docs/ops/subscriptions.json', 'utf8'));
               const { data: openIssues } = await github.rest.issues.listForRepo({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -412,7 +412,7 @@ jobs:
                   '---',
                   'Reply `done` when downgraded.',
                   '',
-                  '_Source: [`docs/SUBSCRIPTIONS.md`](docs/SUBSCRIPTIONS.md)_',
+                  '_Source: [`docs/ops/SUBSCRIPTIONS.md`](docs/ops/SUBSCRIPTIONS.md)_',
                 ].join('\n');
                 await github.rest.issues.create({
                   owner: context.repo.owner,

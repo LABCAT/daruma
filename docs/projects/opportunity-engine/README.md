@@ -2,7 +2,7 @@
 
 Batch pipeline that discovers, ranks, and deep-validates micro-app ideas for **Tanuki Toolbox** (primary focus). Not a chatbot — scheduled/manual jobs in, build candidates out.
 
-**Replaces:** manual paste step in [`RESEARCH.md`](RESEARCH.md) Phase 2.
+**Replaces:** manual paste step in [`../../research/RESEARCH.md`](../../research/RESEARCH.md) Phase 2.
 **Extends:** [`ASO_AGENT_LOOP.md`](ASO_AGENT_LOOP.md) with a concrete pipeline architecture.
 **Does not replace:** Brainstorm prioritisation or founder Passion gate.
 
@@ -76,7 +76,7 @@ All sources are unofficial/scrape-based — no SLA, so collect-worker needs retr
 
 ### 2. Score (no AI)
 
-Map scraped signals → evidence rubric in [`PROMPTS.md`](PROMPTS.md) (Pain, WTP, Discovery, Build Speed; each 1–5, **subtotal /20**). Passion stays human-only in Brainstorm.
+Map scraped signals → evidence rubric in [`../../research/PROMPTS.md`](../../research/PROMPTS.md) (Pain, WTP, Discovery, Build Speed; each 1–5, **subtotal /20**). Passion stays human-only in Brainstorm.
 
 | Signal (scraped) | Rubric dimension |
 |------------------|------------------|
@@ -300,8 +300,9 @@ The engine must **not**:
 
 ## Related docs
 
-- [`RESEARCH.md`](RESEARCH.md) — current weekly workflow
-- [`PROMPTS.md`](PROMPTS.md) — rubric + prompt templates (source of truth for scoring)
+- [`../../research/RESEARCH.md`](../../research/RESEARCH.md) — current weekly workflow
+- [`../../research/PROMPTS.md`](../../research/PROMPTS.md) — rubric + prompt templates (source of truth for scoring)
 - [`ASO_AGENT_LOOP.md`](ASO_AGENT_LOOP.md) — validation rules and loop behaviour
-- [`STACK.md`](STACK.md) — Cloudflare / edge stack
-- [`REVENUE.md`](REVENUE.md) — monetisation by brand
+- [`../../STACK.md`](../../STACK.md) — Cloudflare / edge stack
+- [`../../REVENUE.md`](../../REVENUE.md) — monetisation by brand
+- [`PHASE_2_MIGRATION_SPEC.md`](PHASE_2_MIGRATION_SPEC.md) — Workers migration

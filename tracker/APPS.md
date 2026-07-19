@@ -1,14 +1,22 @@
-# Apps Tracker — Project Daruma
+# Apps Tracker — Metal Monkey Apps
 
-Master pipeline across both brands. Target: 100 apps.
+Master pipeline. Target: 100 apps. Brands: [`docs/BRANDS.md`](../docs/BRANDS.md).
 
 ---
 
-## Daruma Toolbox — Web (`web.daruma.nz`)
+## Metal Monkey Apps — Web (`*.metalmonkey.cc`)
 
 | # | App | Domain | Status | Revenue/mo | Notes |
 |---|-----|--------|--------|------------|-------|
-| T01 | Brainstorm | brainstorm.daruma.nz | ✅ Live | $0 | First Toolbox app; lives in `web.daruma.nz` monorepo |
+| T01 | Brainstorm | brainstorm.daruma.nz | ✅ Live | $0 | Legacy host `web.daruma.nz`; migrate to Metal Monkey when worth it |
+
+---
+
+## Tanuki Toolbox — Play (`tools.daruma.nz`)
+
+| # | App | Platform | Status | Revenue/mo | Notes |
+|---|-----|----------|--------|------------|-------|
+| — | — | Android | — | — | Pipeline empty; design system in progress |
 
 ---
 
@@ -24,7 +32,7 @@ Master pipeline across both brands. Target: 100 apps.
 
 | Idea | Brand | Source | Score /25 | Next Action |
 |------|-------|--------|-----------|-------------|
-| Adventure tourism operator tool | Toolbox | Brother connection | TBD | Ask brother about pain points |
+| Adventure tourism operator tool | Tanuki Toolbox | Brother connection | TBD | Ask brother about pain points |
 | SVG pattern generator (pen plotter) | Toolbox or Dojo | Founder interest | TBD | Research plotter community |
 
 ---
@@ -32,6 +40,7 @@ Master pipeline across both brands. Target: 100 apps.
 ## Stats
 
 - Total live: 1
-- Toolbox live: 1
+- Metal Monkey web live: 1 (legacy domain)
+- Tanuki Toolbox live: 0
 - Dojo live: 0
 - Total revenue: $0/mo

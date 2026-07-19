@@ -1,6 +1,6 @@
-# Revenue — Project Daruma
+# Revenue — Metal Monkey Apps
 
-**Priority:** Toolbox revenue first. Dojo monetisation TBD.
+**Priority:** Tanuki Toolbox revenue first. Dojo monetisation TBD.
 
 **Discovery default:** ASO + SEO — founder builds, not markets. Reddit / Product Hunt / outreach **deferred** until Daruma can run them autonomously; not ruled out long-term.
 
@@ -8,18 +8,19 @@
 
 ## Models by Brand
 
-### Daruma Toolbox — Play (`tools.daruma.nz`)
+### Tanuki Toolbox — Play (`tools.daruma.nz`)
 
 - **Model:** Free download + **one-off IAP unlock** (primary plan)
 - **Philosophy:** Ship-and-forget — no subscription billing, no support system baked in
 - **Gate patterns:** Feature gate (lock export/save) or usage gate (daily cap) — not time-based trials
 - **Play Store cut:** ~15% on first $1M USD/year (opt-in tier); higher above that
 
-### Daruma Toolbox — Web (`web.daruma.nz`)
+### Metal Monkey Apps — Web (`*.metalmonkey.cc`)
 
 - **Model:** Monthly subscription ($5–20/mo) where backend/Neon costs apply
 - **Target:** 15–50 customers per app to hit $500/mo
-- **Discovery:** Long-tail SEO — the tool is the page (not a landing page to Play)
+- **Discovery:** Long-tail SEO — the tool is the page
+- **Legacy:** `web.daruma.nz` until migrated
 
 ### Daruma Dojo
 
@@ -46,7 +47,7 @@ Two channels, one funnel. Play is primary; web landing pages supplement over tim
 People type **2–3 words** into Play ("food truck calculator", "cleaning schedule app"). Hyper-specific long-tail phrases have near-zero Play volume.
 
 - **App title + subtitle** target the medium-tail keyword
-- Research keywords **before** naming or building ([`OPPORTUNITY_ENGINE.md`](OPPORTUNITY_ENGINE.md))
+- Research keywords **before** naming or building ([`projects/opportunity-engine/`](projects/opportunity-engine/))
 - Launch, gather ratings, iterate listing copy
 
 ### Web — long-tail landing pages (`tanukitoolbox.sbs`)
@@ -106,7 +107,7 @@ Same Play medium-tail ASO pattern. Long-tail landing pages on `darumadojo.cc` wh
 
 ---
 
-## SEO (Toolbox Web — `web.daruma.nz`)
+## SEO (Metal Monkey Web — `*.metalmonkey.cc`)
 
 - Long-tail queries rank on Google — the **web app is the page**, not a brochure
 - Target: "invoice generator for NZ sole traders", "shift roster calculator", etc.

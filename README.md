@@ -1,41 +1,50 @@
-# Project Daruma
+# Daruma — Metal Monkey Apps command center
 
-The command center for Daruma NZ — a portfolio of 100 micro apps and games built across web and mobile, using AI to accelerate development and iteration.
+Daruma’s command center for **Metal Monkey Apps** (`metalmonkey.cc`): strategy, docs, prompts, tracker, internal pipelines. No shipped app code here.
 
-This repo is the brain. It holds the vision, strategy, documentation, AI assistant rules, reusable prompts, and the master tracker. No app code lives here.
+## Hierarchy
 
-## The Mission
+- **Daruma** — AI assistant (this repo)
+- **Metal Monkey Apps** — the business + web (`*.metalmonkey.cc`)
+- **Tanuki Toolbox** — React Native tools for small businesses
+- **Daruma Dojo** — React Native fun + learning apps/games
 
-Build 100 micro apps and games. Learn product, distribution, monetisation, and AI leverage in parallel. Generate compounding passive revenue across two sub-brands.
+Full brand rules: [`docs/BRANDS.md`](docs/BRANDS.md).
 
-## The Two Sub-Brands
+## Mission
 
-**Daruma Toolbox** — micro tools for small businesses (future: Tanuki Toolbox)
-- Web: `web.daruma.nz` — subs where backend needed
-- ASO: `tools.daruma.nz` — free + one-off IAP unlock
-
-**Daruma Dojo** — micro learning games (future: Challenge Club, `darumadojo.cc`)
-- Repo: `dojo.daruma.nz` — monetisation TBD
-- Stack: React + Expo (web and mobile)
+100 micro apps and games. Learn product, distribution, monetisation, and AI leverage. Compounding passive revenue.
 
 ## Repos
 
 | Repo | Purpose | Status |
 |------|---------|--------|
 | `daruma` | Command center (this repo) | Active |
-| `web.daruma.nz` | Toolbox web monorepo | Active |
-| `tools.daruma.nz` | Toolbox ASO monorepo | Active |
-| `tanuki-toolbox-design-system` | Toolbox design system (visual source) | Active |
-| `dojo.daruma.nz` | Dojo monorepo | In progress |
+| `web.daruma.nz` | Legacy web monorepo → migrate to Metal Monkey | Active |
+| `tools.daruma.nz` | Tanuki Toolbox (Play / RN) | Active |
+| `tanuki-toolbox-design-system` | Toolbox design system | Active |
+| `dojo.daruma.nz` | Daruma Dojo monorepo | In progress |
 
 ## Key Docs
 
+- [`docs/README.md`](docs/README.md) — docs map
+- [`docs/PROJECTS.md`](docs/PROJECTS.md) — work tracking (Issues now → board later)
 - [`docs/VISION.md`](docs/VISION.md) — mission, strategy, phases
-- [`docs/DARUMA.md`](docs/DARUMA.md) — personal AI assistant (Daruma), Keima workstation, infra phases
-- [`docs/GOALS.md`](docs/GOALS.md) — founder learning goals
-- [`docs/BRANDS.md`](docs/BRANDS.md) — sub-brand positioning and audiences
-- [`docs/STACK.md`](docs/STACK.md) — tech decisions per brand
-- [`docs/REVENUE.md`](docs/REVENUE.md) — monetisation strategy
-- [`docs/PROMPTS.md`](docs/PROMPTS.md) — reusable AI research and build prompts
-- [`tracker/APPS.md`](tracker/APPS.md) — master pipeline across both brands
-- [`AGENTS.md`](AGENTS.md) — AI rules for all tools working in this repo
+- [`docs/DARUMA.md`](docs/DARUMA.md) — Daruma AI, Keima, infra
+- [`docs/BRANDS.md`](docs/BRANDS.md) — brand hierarchy
+- [`docs/MODEL_COSTS.md`](docs/MODEL_COSTS.md) — model price snapshot
+- [`docs/STACK.md`](docs/STACK.md) — tech per brand
+- [`docs/REVENUE.md`](docs/REVENUE.md) — monetisation
+- [`docs/research/PROMPTS.md`](docs/research/PROMPTS.md) — research/build prompts
+- [`docs/AI_EXPLORATION.md`](docs/AI_EXPLORATION.md) — bookmarks / tools to evaluate
+- [`docs/projects/`](docs/projects/) — Opportunity Engine + Daruma Assistant specs
+- [`tracker/APPS.md`](tracker/APPS.md) — master app pipeline
+- [`AGENTS.md`](AGENTS.md) — rules for AI tools
+
+## Skills
+
+In a Cursor Agent chat in this repo, say the command (or paste work that matches the skill).
+
+| Skill | What it does | Command |
+|-------|--------------|---------|
+| [research-intake](.agents/skills/research-intake/SKILL.md) | Intake external AI research → verify → docs | `use the research-intake skill` |

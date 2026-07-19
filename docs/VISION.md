@@ -1,10 +1,10 @@
-# Vision — Project Daruma
+# Vision — Metal Monkey Apps
 
 ## The Mission
 
-Build a portfolio of 100 micro apps and games across web and mobile, using AI to accelerate development and iteration. Generate compounding passive revenue through ads, IAP, and small monthly subscriptions.
+**Metal Monkey Apps** (`metalmonkey.cc`): build a portfolio of 100 micro apps and games across web and mobile, with **Daruma** as AI co-founder. Compounding passive revenue via ads, IAP, and small monthly subscriptions.
 
-The founder is the CEO — providing creative direction and ideas. AI is the workforce — building, researching, iterating.
+Founder = creative direction. Daruma = workforce — research, decisions, dispatch (coding agents build). Brands: [`BRANDS.md`](BRANDS.md).
 
 ## The 100 Apps Goal
 
@@ -68,7 +68,7 @@ Personal AI assistant vision, hardware, and phased infra: [`DARUMA.md`](DARUMA.m
 - Full-stack developer based in New Zealand, Windows-heavy
 - Strong in Next.js, SvelteKit, Payload CMS, Cloudflare ecosystem
 - Experience with p5js generative art and audio-reactive animations (LABCAT)
-- Interests feeding into the work: generative art, pen plotting, music, travel, stock market, strategy games, adventure tourism
+- Interests feeding into the work: generative art, WebGL/GLSL, shapes / sacred geometry, colour theory, maths, pen plotting, music, travel, stock market, strategy games, adventure tourism
 - Brother works in adventure tourism — first potential real-world Toolbox client
 
 ## Open Threads
@@ -76,3 +76,4 @@ Personal AI assistant vision, hardware, and phased infra: [`DARUMA.md`](DARUMA.m
 - Ask brother what he actually complains about running his adventure tourism business
 - Pen plotter physical + webcam + commerce idea — revisit in 12–18 months when space allows
 - SVG pattern generator for plotter community — seed of the bigger idea, could build sooner
+- Dojo: founder-play geometry/GLSL/colour games; NZ/AU curriculum + schools = wild vision after Play pipeline proves out
