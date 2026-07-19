@@ -8,6 +8,7 @@
 | **Ideas** | [`ideas/`](ideas/) | Parked ideas (not CURRENT focus) |
 | **Research** | [`research/`](research/) | Weekly ideation loop + prompts + queue JSON |
 | **Ops** | [`ops/`](ops/) | Subscriptions tracker + automation JSON |
+| **Tracker** | [`tracker/`](tracker/) | App pipeline (`APPS.md` — one row per app) |
 
 Project management: [`PROJECTS.md`](PROJECTS.md).
 

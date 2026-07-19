@@ -86,7 +86,7 @@ Daruma is layered tools, not one product. Each layer does one job.
 
 | Layer | Tool (vision default) | When |
 |-------|----------------------|------|
-| **Control plane (day-to-day)** | **Dashboard** (`daruma.labcat.nz`) — Start + Solid; OE first ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md)) | Next: **AG-00** |
+| **Control plane (day-to-day)** | **Dashboard** (`daruma.labcat.nz`) — Solid 1 SPA; OE first ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md)) | Next: **AG-02a** |
 | **Coding (local)** | Claude Code + MiniMax PAYG + **Graphify** | Phase 0 |
 | **Coding (remote sandbox)** | **OpenHands** (BYOK, Docker, issues→PR) — capability Daruma *dispatches*, not the chat UI | Phase 2 candidate |
 | **Design-from-prompt** | **Open Design** + `DESIGN.md` — for **product/site repos** (e.g. metalmonkey.cc), not this command-center repo. Dashboard UI: Solid + SCSS/BEM ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md)). | When building those products |
@@ -225,7 +225,7 @@ When DAWs and NLEs expose MCP endpoints (community servers exist for Resolve and
 - freellmapi — optional local Claude Code only; Assistant uses first-party free router
 - MODEL_COSTS.md — monthly refresh (BenchLM / AA); automate later
 - Auto-merge gates — define exact CI/E2E/review checklist before enabling — see [`projects/07-CI-AND-REGRESSION.md`](projects/07-CI-AND-REGRESSION.md)
-- Framework lean — Metal Monkey `apps.*` later (Tanuki first); Daruma dashboard = TanStack Start + Solid (locked)
+- Framework lean — Metal Monkey `apps.*` later (Tanuki first); Daruma dashboard = Solid 1 SPA + Worker API (locked)
 - Migrate legacy `web.daruma.nz` apps to `*.metalmonkey.cc` when worth it
 - ElectricSQL + TanStack DB — later for Daruma multi-agent live ops (state in Postgres), not AG-00–09 / not product default
 - DeerFlow timing — when long-horizon research deliverables justify the Docker overhead

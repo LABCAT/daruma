@@ -38,7 +38,7 @@ Full brand rules: [`docs/BRANDS.md`](docs/BRANDS.md).
 - [`docs/research/PROMPTS.md`](docs/research/PROMPTS.md) — research/build prompts
 - [`docs/AI_EXPLORATION.md`](docs/AI_EXPLORATION.md) — bookmarks / tools to evaluate
 - [`docs/projects/`](docs/projects/) — Opportunity Engine + Daruma Assistant specs
-- [`tracker/APPS.md`](tracker/APPS.md) — master app pipeline
+- [`docs/tracker/APPS.md`](docs/tracker/APPS.md) — master app pipeline
 - [`AGENTS.md`](AGENTS.md) — rules for AI tools
 
 ## Skills

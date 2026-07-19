@@ -3,5 +3,16 @@
   "private": true,
   "engines": {
     "node": ">=24"
+  },
+  "scripts": {
+    "dev": "pnpm --filter dashboard dev",
+    "build": "pnpm build:dashboard",
+    "build:dashboard": "pnpm --filter dashboard build",
+    "start": "pnpm --filter dashboard start",
+    "test": "pnpm test:oe && pnpm test:dashboard",
+    "test:oe": "pnpm --filter opportunity-engine test",
+    "test:dashboard": "pnpm --filter dashboard test",
+    "test:e2e": "pnpm --filter dashboard test:e2e",
+    "test:parity": "node scripts/ci/parity.mjs"
   }
 }

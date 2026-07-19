@@ -1,0 +1,20 @@
+.dm-theme-toggle {
+  background: transparent;
+  border: var(--dm-border-width-base) solid var(--dm-color-border);
+  color: var(--dm-color-text);
+  font-family: var(--dm-font-family);
+  font-size: var(--dm-font-size-sm);
+  font-weight: var(--dm-font-weight-bold);
+  padding: var(--dm-space-1) var(--dm-space-3);
+  border-radius: var(--dm-radius-lg); // pill shape
+  cursor: pointer;
+  transition: all var(--dm-transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--dm-space-2);
+
+  &:hover {
+    background: var(--dm-color-surface);
+    border-color: var(--dm-color-text);
+  }
+}

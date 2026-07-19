@@ -1,25 +1,21 @@
-# AG-00 — CI smoke (before layout move)
+# AG-00 — CI foundation
 
-Paste into Antigravity alone. Do this before AG-01 so later PRs can go green without founder re-testing by hand.
+*Law: the harness is complete here. Later AGs only fill test slots — they do not design CI.*
 
-## Context
+## Intent
 
-Read: `docs/projects/07-CI-AND-REGRESSION.md`, `docs/projects/01-ARCHITECTURE.md`
+Rock-solid, free merge gate for the whole AG-01→09 sequence: one workflow, fixed jobs/scripts/dirs, branch protection docs. Not a single stub that “we’ll grow somehow.”
 
-Current scaffold may still be under `apps/opportunity-engine/` until AG-01. Write CI so paths can be updated in AG-01 with minimal churn — or add CI against current paths and fix paths in AG-01 (either OK; document which).
+## Must exist when AG-00 (or 00b repair) is done
 
-## Goal
+1. Root scripts: `test`, `test:oe`, `test:dashboard`, `test:e2e`, `test:parity`, `build:dashboard`
+2. `.github/workflows/ci.yml` running **all** of those (skip allowed only with named reason until feature lands)
+3. Vitest + workerd for `workers/opportunity-engine`
+4. Playwright installed + config under `apps/dashboard` (or repo `e2e/`)
+5. `scripts/ci/parity.mjs` stub (exit 0 + “not implemented” until AG-07 replaces)
+6. Paths valid for **post–AG-01** layout (`workers/opportunity-engine`)
+7. Branch protection instructions for job **Build & Test**
 
-Minimal **free** merge gate:
+## Failure we hit
 
-1. **Vitest** + `@cloudflare/vitest-pool-workers` smoke (worker loads / D1 migrate / trivial assert)
-2. **GitHub Actions** on pull_request + push to `main`
-3. Document how to enable **branch protection** (required check) — founder may click the GitHub UI once
-
-No Playwright yet. No business logic. No dashboard UI.
-
-## Verification (raw evidence)
-
-1. Workflow YAML contents
-2. Local `pnpm test` (or filter) output passing
-3. Actions run URL or log paste from a PR/push
+Only one stub test + fragile path. That is **not** AG-00 done. Repair with **AG-00b**.

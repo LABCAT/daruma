@@ -18,7 +18,7 @@ Brand hierarchy: [`docs/BRANDS.md`](docs/BRANDS.md).
 
 - Keep all files in this repo **short and concise**
 - **No stub docs** — never leave a file that only says “Moved / see other path.” Delete the old file and fix links. Rule: [`.agents/rules/agent-documentation.md`](.agents/rules/agent-documentation.md)
-- **This repo:** strategy, stack decisions, prompts, tracker (one row per app in `tracker/APPS.md`). Docs map: [`docs/README.md`](docs/README.md). Work tracking: [`docs/PROJECTS.md`](docs/PROJECTS.md).
+- **This repo:** strategy, stack decisions, prompts, tracker (one row per app in `docs/tracker/APPS.md`). Docs map: [`docs/README.md`](docs/README.md). Work tracking: [`docs/PROJECTS.md`](docs/PROJECTS.md).
 - **App repos** (`web.daruma.nz` legacy, Metal Monkey web, `tools.daruma.nz`, `dojo.daruma.nz`, `tanuki-toolbox-design-system`): product design, screen specs, game mechanics, build/scaffold rules — each has its own `AGENTS.md`
 
 ---
@@ -71,10 +71,11 @@ Apply the same tone to docs you write in this repo.
 
 - Keep all documentation concise and technically specific
 - No fluff, no padding
-- When updating tracker/APPS.md, preserve existing rows and formatting
+- When updating docs/tracker/APPS.md, preserve existing rows and formatting
 - When suggesting new app ideas, score them using the rubric in docs/research/PROMPTS.md
 - Always consider Windows dev environment constraints (no local Mac, use Expo EAS for iOS builds)
 - When an app uses a backend, never connect mobile clients directly to the database — always via an API layer
+- **Package versions:** never `"latest"` / `"*"` in `package.json` — resolve current version and pin with semver (`^x.y.z`). See [`.agents/rules/package-versions.md`](.agents/rules/package-versions.md)
 
 ---
 

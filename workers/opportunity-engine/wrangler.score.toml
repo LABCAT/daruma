@@ -1,0 +1,13 @@
+name = "daruma-opportunity-engine-score"
+main = "src/score/index.ts"
+compatibility_date = "2024-11-12"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "daruma-opportunity-engine"
+database_id = "d88e075e-97cc-4543-adb5-b279099fe7ef"
+migrations_dir = "../../packages/db-opportunity-engine/migrations"
+
+[[queues.consumers]]
+queue = "daruma-opportunity-engine-collected-ideas"
+max_concurrency = 3

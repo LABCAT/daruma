@@ -1,29 +1,24 @@
 # AG-06 — Score port only
 
-Paste only after AG-05 verified.
+Paste after AG-05. Read `AGENT-RULES.md`, `05-PORT-AND-PARITY.md`, `06-ASO-AGENT-LOOP.md`, `docs/research/PROMPTS.md`.
 
-## Context
-
-Read: `docs/projects/opportunity-engine/05-PORT-AND-PARITY.md`, `06-ASO-AGENT-LOOP.md`, `../../research/PROMPTS.md` (rubric)
-
-Port score logic from `tools/opportunity-engine/` **unchanged**.
+Port score from `tools/opportunity-engine/` **unchanged**.
 
 ## Goal
 
-Implement **score** Worker consuming `collected-ideas`.
+**Score** Worker on `collected-ideas`.
 
 ## Build
 
-1. Read collected signals → compute Pain/WTP/Discovery/Build Speed
-2. Write `ideas_ranked` with breakdown JSON
-3. Set `status=pending` when shortlist threshold met (same rules as Phase 0)
-4. `pipeline_runs` stage=`score`
-5. No dashboard UI changes
+1. Pain / WTP / Discovery / Build Speed → `ideas_ranked` + breakdown JSON
+2. `status=pending` when shortlist threshold met (same as Phase 0)
+3. `pipeline_runs` stage=`score`
+4. No dashboard UI
 
-## Verification (raw evidence)
+## Tests (fill harness)
 
-1. Score source
-2. For 2–3 known keywords: `ideas_ranked` rows (SQL or JSON dump)
-3. Confirm status values match expected shortlist behaviour vs Phase 0 notes if available
+Score / shortlist cases under `pnpm test:oe`.
 
-Parity suite is **AG-07** — do not claim full parity here; this prompt only implements score.
+## Verification
+
+Dump + OE tests green. Parity = **AG-07**.

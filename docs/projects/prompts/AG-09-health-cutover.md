@@ -1,19 +1,37 @@
-# AG-09 — Health, seen-keywords, prod cutover
+# AG-09 — Health UI + cutover prep
 
-Paste only after AG-08 verified.
+Paste after AG-08. Read `AGENT-RULES.md`.
 
-## Goal
+## Part A — code (agent must finish)
 
-1. Pipeline health panel from `pipeline_runs`
-2. Seen-keywords tab (sort by `last_seen_at`)
-3. Production: remote D1 migrations, deploy three pipeline workers + dashboard, cron enabled
-4. One confirmed unattended orchestrator run in prod
-5. **Only with proof above:** delete `tools/opportunity-engine/` (confirm with founder if any doubt)
+1. Pipeline health UI/API from `pipeline_runs`
+2. Seen-keywords tab (sort `last_seen_at`)
+3. Dashboard + three OE workers build/deploy configs ready
+4. Document prod steps in `apps/dashboard/CUTOVER.md` (or `docs/projects/CUTOVER.md`):
+   - `wrangler secret put DASHBOARD_PASSWORD`
+   - DNS `daruma.labcat.nz`
+   - remote D1 migrate
+   - deploy workers + dashboard
+   - enable cron
+5. Local proof: health payload + seen-keywords query
+
+## Part B — prod cutover (only if wrangler/account already available)
+
+If agent can deploy: remote migrate, deploy all, one unattended orchestrator run, paste evidence.  
+If not: stop after Part A + `CUTOVER.md` — **do not block** or delete `tools/opportunity-engine/` yet.
+
+## Delete `tools/opportunity-engine/`
+
+Only after Part B prod run evidence exists. If cutover deferred, leave tools in place.
 
 ## Out of scope
 
-Search Console Phase 3, chat/assistant, extracting shared packages for other products.
+Search Console, chat, shared packages for other products.
 
-## Verification (raw evidence)
+## Tests (fill harness)
 
-Health API payload, seen-keywords query, deploy outputs, cron config, prod run evidence. No tool deletion without that paste.
+Extend `pnpm test:e2e` (or dashboard API tests) for health + seen-keywords.
+
+## Verification
+
+Part A + harness green. Part B + tools deletion only with prod proof.

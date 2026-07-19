@@ -20,7 +20,7 @@ The Mon + Thu check-in workflow reads this file and posts to GitHub Issues.
 
 | Priority | Action |
 |----------|--------|
-| **1. OE + Dashboard AG-00 → AG-09** | Run Antigravity prompts in order; PRs; CI from AG-00; founder visual gate at AG-02 |
+| **1. OE + Dashboard AG-02a → AG-09** | Agents run prompts end-to-end per `AGENT-RULES.md`; no visual gate |
 | **2. Don’t block on #1/#2** | Parallel to Play / Toolbox; escalate only spend / store / brand |
 | **3. Keep docs truthful** | Update this file when AG phase advances |
 
@@ -34,7 +34,7 @@ The Mon + Thu check-in workflow reads this file and posts to GitHub Issues.
 |---|------------|--------|--------|-------------|
 | 1 | **D01 — Multiplication Dojo** | Founder | Ready for Play ship | Closed test → production |
 | 2 | **Tanuki Toolbox** — design system | Founder | PR awaiting review | Review + merge `feat/design-system-integration` |
-| 3 | **OE + Dashboard** | **Daruma** | Docs locked; scaffold old layout | **AG-00** → AG-09 — [`projects/README.md`](projects/README.md). **You approve look/feel at AG-02** |
+| 3 | **OE + Dashboard** | **Daruma** | AG-01 done; SPA reset next | **AG-02a → AG-09** unattended — [`projects/README.md`](projects/README.md) |
 | 4 | **Toolbox — Maestro E2E** | Daruma (after #2) | Blocked on #2 | Integrate after design-system merges |
 | 5 | **Play Console org** | Founder | Parallel | D-U-N-S when ready |
 
@@ -48,23 +48,21 @@ Daruma/Antigravity **writes the code**. That is not the same as “zero effort f
 
 | Role | Does |
 |------|------|
-| **Antigravity (or Cursor agent)** | Implement each AG prompt; run local checks; paste **raw evidence** |
-| **You** | Skim evidence; **AG-02 visual approve** (required); Cloudflare secrets/DNS; merge/reject |
-| **CI (from AG-00)** | Automated Vitest (+ Playwright later) — [`07-CI-AND-REGRESSION.md`](projects/07-CI-AND-REGRESSION.md) |
+| **Antigravity (or Cursor agent)** | Implement each AG; raw evidence in PR; proceed to next AG without waiting |
+| **You** | Merge/reject PRs when convenient; Cloudflare only at AG-09 if agent lacks account |
+| **CI** | Full harness via **AG-00b** first ([`07-CI-AND-REGRESSION.md`](projects/07-CI-AND-REGRESSION.md)); later AGs only fill slots |
 
-**Without your skim where it matters, we do not “know it works.”** After AG-00, CI covers smoke; you still **must** approve AG-02 look/feel and skim AG-07 parity. Agent checklists alone are not enough.
+AG-00 under-delivered; **AG-00b before AG-02a**. No mid-sequence founder skim.
 
-**PRs:** Code changes should still land via PR (or at least a branch you can glance). Daruma/Antigravity opens the PR; you merge (or reject). Knowledge-only doc edits can stay direct.
+**PRs:** Agents open PRs; you merge when free (or enable auto-merge later). Knowledge-only doc edits can stay direct.
 
-**Cursor cloud PR / agent quota:** If monthly Cursor cloud runs are limited, **prefer Antigravity for AG-00–09** and save Cursor cloud for hard reviews.
-
-**Your unavoidable lifts:** Cloudflare auth, dashboard secret (AG-03), `daruma.labcat.nz` DNS, **AG-02 visual approve**, AG-07 parity skim, merge. Not writing Collect/Score yourself.
+**Your only likely lifts:** Cloudflare login / DNS / `wrangler secret` at AG-09 cutover if the agent cannot. Not Collect/Score coding or design approve.
 
 ---
 
 ## D01 v1 scope
 
-Per [`tracker/APPS.md`](../tracker/APPS.md) — founder can redirect.
+Per [`tracker/APPS.md`](tracker/APPS.md) — founder can redirect.
 
 - One game mode: timed multiplication drill
 - Tables 1–12
@@ -108,7 +106,7 @@ Org account requires **any owned domain** + DNS TXT verification (Search Console
 
 ## Blocker
 
-None on OE/dashboard code — Daruma can start **AG-00** now.
+None — **CI harness is in the repo** (AG-00b). Next agent: AG-02a polish if needed, then AG-02 → AG-09 filling test slots. You: D01 Play + merge when free.
 
 D01: Play closed test is the founder gate (#1).
 

@@ -1,30 +1,28 @@
 # AG-08 — OE pending UI
 
-Paste only after AG-07 parity passes.
-
-## Context
-
-Read: `docs/projects/02-DASHBOARD.md`
+Paste after AG-07 pass. Read `AGENT-RULES.md`, `02-DASHBOARD.md` § Styles, `apps/dashboard/DESIGN.md`.
 
 ## Goal
 
-Opportunity Engine **routes** inside `apps/dashboard` (Start shell from AG-03; visual language from AG-02).
+OE routes in the Solid SPA (auth from AG-03; tokens from AG-02).
 
 ## Build
 
-1. Authenticated server function(s) / loader: list `ideas_ranked` where `status=pending`, sort by score desc
-2. Route UI (Solid + SCSS/BEM) under e.g. `/opportunity`
-3. **Copy Top 5** — clipboard block from raw evidence; mark those rows `sent_to_synthesis`
-4. **Done** per row — `build` | `skip` | `research_more`
-5. Wire D1 via `packages/db-opportunity-engine`
+1. Authenticated `/api` for `ideas_ranked` where `status=pending`, score desc
+2. UI `/opportunity` — Solid + co-located SCSS/BEM `dm-`
+3. **Copy Top 5** → clipboard + set `sent_to_synthesis`
+4. **Done** per row → `build` | `skip` | `research_more`
+5. D1 only on Worker; browser → `/api`
+6. Seed local D1 with enough `pending` rows to demo if pipeline empty
 
 ## Out of scope
 
-Health panel, seen-keywords tab, chat/assistant, synthesise worker.
+Health panel, seen-keywords tab, chat, synthesise worker.
 
-## Verification (raw evidence)
+## Tests (fill harness)
 
-1. Pending list payload (loader/server fn output)
-2. Before/after showing Copy Top 5 status flips
-3. Done status update evidence
-4. Route path(s) + brief UI description or screenshot path
+Unskip/fill Playwright under `pnpm test:e2e`: login + pending list (seed D1 in setup).
+
+## Verification
+
+Feature evidence + e2e green in Actions.

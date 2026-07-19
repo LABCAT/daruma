@@ -1,0 +1,25 @@
+{
+  "name": "opportunity-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev:orchestrator": "wrangler dev --config wrangler.orchestrator.toml",
+    "dev:collect": "wrangler dev --config wrangler.collect.toml",
+    "dev:score": "wrangler dev --config wrangler.score.toml",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "db-opportunity-engine": "workspace:*"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.18.6",
+    "@cloudflare/workers-types": "^4.20241230.0",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.10",
+    "wrangler": "^3.101.0"
+  }
+}

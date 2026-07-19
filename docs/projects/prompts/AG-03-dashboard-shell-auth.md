@@ -1,34 +1,30 @@
-# AG-03 — Dashboard shell + auth (TanStack Start)
+# AG-03 — Dashboard shell + auth (Solid SPA)
 
-Paste only after **AG-02 design system founder-approved**.
+Paste after AG-02a + AG-02 check. Read `AGENT-RULES.md`.
 
-## Context
-
-Read: `docs/projects/02-DASHBOARD.md`, `docs/projects/01-ARCHITECTURE.md`
-
-Reuse tokens/BEM primitives from AG-02. Do not invent a parallel visual language.
+AG-02a did **not** add a Worker — **you add it here.**
 
 ## Goal
 
-Create / complete `apps/dashboard` with **`@tanstack/solid-start`** on Cloudflare Workers. Auth only. **No OE data routes yet.**
+Solid 1 SPA + Cloudflare Worker serving static assets + `/api/*`. Auth only. No OE data APIs.
 
 ## Build
 
-1. Scaffold TanStack Start (Solid) + `@cloudflare/vite-plugin` + Wrangler (`nodejs_compat` as required by current TanStack CF docs)
-2. File routes: at least login + a gated placeholder home (prove routing)
-3. Shared-secret password (`wrangler secret`); signed HttpOnly/Secure/SameSite=Strict cookie
-4. Server functions or server routes: login / logout / me (or equivalent)
-5. Unauthenticated users see login; gated routes redirect or 401 without cookie
-6. SCSS + BEM on the shell (no CSS Modules, no component library)
-7. Bind OE D1 in wrangler if convenient — do not expose OE loaders/APIs yet
+1. Wire Worker (plain `fetch` router is enough): serve Vite build assets; SPA fallback to `index.html`
+2. Client routes: `/login` + gated `/` (redirect if no session)
+3. API: `POST /api/login`, `POST /api/logout`, `GET /api/me`
+4. Cookie: signed HttpOnly / Secure / SameSite=Strict
+5. **Local:** `apps/dashboard/.dev.vars` with `DASHBOARD_PASSWORD=` (generate a random value; document in PR — do not commit the file). Prove login with that value via `wrangler dev` / vite+worker dev
+6. Unauthed `/api/*` (except login) → 401; gated UI redirects to `/login`
+7. Shell: existing PageShell + BEM. Optional: bind OE D1 in wrangler — **do not** expose OE routes yet
+## Tests (fill harness)
+
+Add auth cases under `pnpm test:dashboard` (login → me 200; no cookie → 401). Unskip stubs. Do not add a new workflow.
 
 ## Out of scope
 
-OE pending table, Copy Top 5, chat, OAuth/magic-link, Electric/TanStack DB.
+OE pending UI, chat, OAuth, prod `wrangler secret` (one-liner in CUTOVER for AG-09).
 
-## Verification (raw evidence)
+## Verification
 
-1. Tree under `apps/dashboard` (show route files)
-2. `wrangler` / vite config
-3. Login → cookie → me/session succeeds; without cookie → rejected (paste responses)
-4. `wrangler dev` / `vite dev` start output
+Auth tests green in existing Actions job.

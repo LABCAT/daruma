@@ -1,29 +1,28 @@
-# AG-07 — Parity gate (no new features)
+# AG-07 — Parity gate (agent-owned)
 
-Paste only after AG-06 verified. **Feature freeze** — fix mismatches only.
-
-## Context
-
-Read: `docs/projects/opportunity-engine/05-PORT-AND-PARITY.md`
+Paste after AG-06. Read `AGENT-RULES.md` + `05-PORT-AND-PARITY.md`. **Feature freeze** — fix mismatches only.
 
 ## Goal
 
-Prove new Workers match `tools/opportunity-engine/` on a fixed keyword set.
+Prove new Workers match `tools/opportunity-engine/` on a fixed keyword set. **You decide pass/fail** from the diff — do not wait for founder skim.
 
 ## Procedure
 
 1. Fixed 5–8 keywords including canaries `tradie invoice`, `pet business management`, plus score-range spread
-2. Run **old** tool on that list; save raw signals + scores
-3. Run **new** pipeline (`wrangler dev` + local D1) on the same list
-4. Diff **raw signals** (competitor apps, relevance, hit counts) and subtotals
-5. Any mismatch → fix port → re-run until clean
+2. Run **old** tool; save raw signals + scores
+3. Run **new** pipeline (local D1 + wrangler) on the same list
+4. Diff raw signals + subtotals; fix port until clean; re-run
 
-## Pass criteria
+## Tests (fill harness)
 
-Side-by-side diff with no material behaviour drift. Paste both full outputs + diff.
+Replace `scripts/ci/parity.mjs` stub with real diff; `pnpm test:parity` must fail on drift. Existing CI job only.
+
+## Pass
+
+No material drift + `test:parity` green in Actions.
 
 ## Fail
 
-“Looks close” / checklist-only / changed rubric to make tests pass.
+Checklist-only / rubric change / parity script still a no-op stub.
 
-**Do not start AG-08 until this passes.**
+Only after pass → AG-08.

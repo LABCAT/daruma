@@ -1,41 +1,51 @@
 # CI & regression gates (this repo)
 
-*Status: implement starting **AG-00**. Expand checks as AGs land.*
+*Locked: 2026-07-19 — harness owned by AG-00; later AGs only add tests into fixed slots.*
 
-Goal: a merge to `main` must not ship a broken Daruma dashboard or OE Workers.
+## Principle
 
-## Free stack (preferred)
+**CI infrastructure is built once (AG-00 / 00b), complete and boring.**  
+Later AGs do **not** invent jobs, workflows, or runners. They only add test files / fill stubs under paths the harness already runs.
 
-| Layer | Tool | Cost | Role |
-|-------|------|------|------|
-| CI runner | **GitHub Actions** | Free for public; private = monthly free minutes | Run tests on PR + protect `main` |
-| Unit / Worker integration | **Vitest** + **`@cloudflare/vitest-pool-workers`** | Free (OSS) | Auth, server fns, D1/queue handlers in workerd/Miniflare |
-| Browser E2E | **Playwright** | Free (OSS) | Login + OE UI (after AG-03 / AG-08) |
-| Merge gate | **Branch protection** | Free on GitHub | Require green CI before merge to `main` |
+If a check cannot assert real behaviour yet (feature not built), the harness still has the **script + job + empty/skip stub** so the slot exists from day one.
 
-## Reject / defer
+## Free stack
 
-| Tool | Why |
-|------|-----|
-| **Ghost Inspector** | No lasting free plan — skip |
-| **Storybook** | Not for v1 internal dash — tokens preview route in AG-02 instead |
-| Maestro | Mobile repos only |
+| Layer | Tool | Role |
+|-------|------|------|
+| CI runner | GitHub Actions — one workflow | PR + `main` |
+| Unit / Worker | Vitest + `@cloudflare/vitest-pool-workers` | OE + dashboard API |
+| Browser E2E | Playwright | Login + OE UI |
+| Parity | Script + CI job | Old tool vs new Workers |
+| Merge gate | Branch protection → **Build & Test** | Required on `main` |
 
-## Phased rollout
+## Harness layout (AG-00 owns this)
 
-| When | Add |
-|------|-----|
-| **AG-00** | Vitest smoke + Actions workflow; enable branch protection |
-| AG-03 | Vitest: auth routes |
-| AG-04–06 | Vitest: worker handlers (mock scrape) |
-| AG-07 | Parity job separate from merge CI |
-| AG-08 | Playwright: login + OE pending |
-| Before auto-merge | Required checks only; see [`DARUMA.md`](../DARUMA.md) |
+```
+.github/workflows/ci.yml          # all jobs below — always present
+workers/opportunity-engine/         # vitest: orchestrator / collect / score
+apps/dashboard/                   # vitest: auth API; playwright: e2e
+scripts/ci/
+  parity.mjs                      # exit 1 on material drift (AG-07 fills data)
+package.json                      # root scripts: test, test:oe, test:dashboard, test:e2e, test:parity, build:dashboard
+```
 
-## Automation ladder
+### Jobs in `ci.yml` (all defined from the start)
 
-1. AG-00 CI green required on PRs  
-2. Agents open PRs; auto-merge when checks green (scoped paths)  
-3. Chain AG-n merge → open AG-n+1 issue  
+| Job / step | From day one | Becomes real when |
+|------------|--------------|-------------------|
+| `pnpm test` (OE workers) | Smoke stub OK | AG-04–06 add cases |
+| `pnpm --filter dashboard build` | Must pass once SPA exists (AG-02a) | AG-02a |
+| `pnpm --filter dashboard test` | Placeholder / skip until AG-03 | AG-03 auth tests |
+| `pnpm test:e2e` | Playwright installed; one smoke or skip | AG-08 fills |
+| `pnpm test:parity` | Script exists; may skip until AG-07 | AG-07 |
 
-Founder still: Cloudflare secrets, DNS, AG-02 **visual approve**, AG-07 parity skim.
+Prefer **skip with explicit reason** over missing jobs. Never delete a job to go green.
+
+## Later AGs
+
+Only: add/update tests under the paths above. **No new workflow invention.** Update skip → real assert.
+
+## Branch protection
+
+Require status check **Build & Test** on `main`.

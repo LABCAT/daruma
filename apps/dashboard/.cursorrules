@@ -1,0 +1,7 @@
+# Daruma Dashboard Cursor Rules
+
+- **Framework**: Solid 1.x SPA + `@solidjs/router` + Worker `/api/*` on Cloudflare.
+- **Styling**: SCSS with BEM (`dm-`). NO Tailwind. NO CSS Modules.
+- **Organization**: Co-locate component SCSS next to TSX.
+- **Tokens**: CSS variables in `src/styles/variables.scss` (`--dm-*`).
+- **References**: Root `AGENTS.md`, `apps/dashboard/AGENTS.md`, `docs/projects/02-DASHBOARD.md`.

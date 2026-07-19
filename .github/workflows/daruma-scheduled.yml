@@ -372,7 +372,7 @@ jobs:
                   '',
                   '### 3. Promote winner',
                   '',
-                  `If an idea scores **≥ ${pickThreshold}/25**, add it to [\`tracker/APPS.md\`](tracker/APPS.md) and set [\`docs/CURRENT.md\`](docs/CURRENT.md) next action.`,
+                  `If an idea scores **≥ ${pickThreshold}/25**, add it to [\`docs/tracker/APPS.md\`](docs/tracker/APPS.md) and set [\`docs/CURRENT.md\`](docs/CURRENT.md) next action.`,
                   '',
                   '---',
                   '**Reply:** `done` when ideas are in Brainstorm · `skip: reason` to defer',

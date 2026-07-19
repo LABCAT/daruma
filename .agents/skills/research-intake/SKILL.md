@@ -25,7 +25,7 @@ Turn external AI research into durable Daruma documentation. Trust nothing by de
 2. **Triage** — Extract candidate claims (facts, recommendations, product ideas, stack choices). Mark each: verify | ask founder | discard
 3. **Interview** — Ask **one question at a time**. Goal: what they believe, what to keep, where it belongs in the repo
 4. **Verify** — Research suspicious or high-stakes claims before writing them down
-5. **Propose** — Short verdict: keep / rewrite / reject per claim; name the target doc (e.g. `docs/REVENUE.md`, `docs/DARUMA.md`, `tracker/APPS.md`)
+5. **Propose** — Short verdict: keep / rewrite / reject per claim; name the target doc (e.g. `docs/REVENUE.md`, `docs/DARUMA.md`, `docs/tracker/APPS.md`)
 6. **Document** — Only after founder confirms (or defaults are clear from existing docs). Keep docs short per `AGENTS.md`
 
 ## Interview rules

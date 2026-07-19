@@ -5,14 +5,13 @@
 **Rule:** New web product apps → `*.metalmonkey.cc` (custom domain only if earned). Legacy: `web.daruma.nz` until migrated.
 
 **Framework (current):** SvelteKit (legacy / existing apps)  
-**Daruma command center (`daruma.labcat.nz`):** **TanStack Start + Solid** on Cloudflare Workers — locked ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md))  
-**Metal Monkey web (`apps.metalmonkey.cc`):** decide later (Tanuki first); lean candidate TanStack Start + Solid — do not churn live SvelteKit until migration is worth it
-
+**Daruma command center (`daruma.labcat.nz`):** **Solid 1 SPA** + `@solidjs/router` + Worker API — locked ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md))  
+**Metal Monkey web (`apps.metalmonkey.cc`):** decide later (Tanuki first); lean candidate Solid SPA — do not churn live SvelteKit until migration is worth it
 **Monorepo:** pnpm workspaces — `apps/*` + shared packages. Build rules in that repo's `AGENTS.md`.
 **Database:** Neon DB (Postgres serverless) for product web; **D1** for Daruma OE (+ later chat memory)
 **Cache / KV:** Upstash Redis
 **Local-first sync:** ElectricSQL + TanStack DB — **later**, for Daruma multi-agent live ops feedback (state in Postgres) — not AG-00–09, not default for product micro-apps
-**Hosting:** Cloudflare Pages (current SvelteKit); Workers for TanStack Start / Daruma dashboard
+**Hosting:** Cloudflare Pages (current SvelteKit); Workers for Daruma dashboard (SPA assets + `/api`)
 **Storage:** Cloudflare R2
 **Auth:** Auth.js v5 (product web); Daruma dashboard = shared-secret cookie for now
 **Payments:** Stripe
@@ -109,7 +108,7 @@ Planned for all three app monorepos — not in D01 v1. YAML flows (Maestro) suit
 
 Before App 1, build reusable starter templates:
 
-**Toolbox web template (legacy `web.daruma.nz`):** SvelteKit + Neon + Upstash + Cloudflare Pages + Stripe + basic auth + E2E (Playwright) — current. New web: Metal Monkey `*.metalmonkey.cc` + TanStack Start/Solid (TBD).
+**Toolbox web template (legacy `web.daruma.nz`):** SvelteKit + Neon + Upstash + Cloudflare Pages + Stripe + basic auth + E2E (Playwright) — current. New web: Metal Monkey `*.metalmonkey.cc` + Solid SPA (TBD).
 **Tanuki Toolbox ASO template (`tools.daruma.nz`):** React Native + Expo + Restyle + `packages/design-system` + IAP billing + E2E (Maestro)
 **Dojo template (`dojo.daruma.nz`):** React Native + Expo + AdMob + basic navigation + IAP setup + E2E (Maestro)
 

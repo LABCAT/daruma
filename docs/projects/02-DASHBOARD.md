@@ -1,6 +1,6 @@
 # 02 — Dashboard (locked)
 
-*Updated: 2026-07-19*
+*Updated: 2026-07-19 — Solid 1 SPA + Worker API*
 
 ## What it is
 
@@ -12,21 +12,67 @@ Opportunity Engine results are **routes/sections** of this app, not a separate d
 
 | Decision | Value |
 |----------|-------|
-| Framework | **TanStack Start + Solid** from **AG-03** (design tokens from **AG-02**) |
-| Why Start now | Chat/agents/many routes are the destination; avoid SPA→Start migration. OE is Workers-only; Start is for the dashboard shell |
-| Hosting | Cloudflare Workers via `@cloudflare/vite-plugin` + Wrangler |
-| Data (OE) | D1 via `packages/db-opportunity-engine` + server functions / API routes |
-| Styles | SCSS + BEM — tokens/primitives in **AG-02** (founder-gated). No CSS Modules, no Storybook, no Tailwind |
-| Units | rem for font-size only; px elsewhere; unitless line-height |
+| Framework | **Solid 1.x SPA** + **`@solidjs/router`** + Vite (design tokens from **AG-02**) |
+| Why SPA | Internal tool; chat streaming wants `/api` anyway; avoid Start/Solid 2 agent tax |
+| Hosting | Vite SPA locally; Cloudflare Workers for prod (static assets + same-origin `/api` from **AG-03**) |
+| Data (OE / chat) | D1 via `packages/db-*` **only on the Worker** — browser calls `/api/*` (plain `fetch` handlers fine; Hono optional) |
+| Styles | SCSS + BEM — conventions below. Tokens/primitives in **AG-02** (founder-gated). No CSS Modules, no Storybook, no Tailwind |
+| Units | rem for font-size only (`to-rem($px)`); px elsewhere; unitless line-height |
 | UI libs | None for v1 |
+| Reset | **[modern-normalize](https://github.com/sindresorhus/modern-normalize)** then thin `common/base.scss` (token-backed body). Not `the-new-css-reset` |
 
-SSR is optional for this internal app — use Start for **file routes + typed server functions**, not SEO.
+SSR is optional. Chat (near-term) = SPA UI + streaming `/api/chat`. Design: obey [`DESIGN_BRIEF.md`](DESIGN_BRIEF.md); no founder approve gate between AGs.
+
+## Styles & Solid org (locked)
+
+Convention source: [LABCAT/rocketship `packages/base/src/styles`](https://github.com/LABCAT/rocketship/tree/main/packages/base/src/styles) + rocketship BEM rules — adapted for Solid (separate SCSS per component; Astro inlines styles, we do not).
+
+### Global styles (`apps/dashboard/src/styles/`)
+
+```
+styles/
+  index.scss          # entry: normalize → variables → mixins → common/*
+  variables.scss      # ONLY :root (+ prefers-color-scheme). No class selectors
+  mixins.scss         # @forward mixins/*
+  mixins/
+    functions.scss    # to-rem($px)
+    breakpoints.scss
+  common/
+    base.scss         # body uses --dm-* tokens; media defaults
+```
+
+- Design tokens = **CSS custom properties** on `:root` in `variables.scss` (public API). Prefix: `--dm-*` (e.g. `--dm-color-bg`, `--dm-font-size-md`, `--dm-space-4`).
+- Organised sections inside `variables.scss`: colour, type, space, radius/border, motion, layout/container, component scales (button, etc.).
+- SCSS `$` vars only for Sass-only needs (e.g. breakpoint maps). Do not put design tokens in `$` vars for theming.
+- Import global entry once from the app root layout.
+
+### Solid components
+
+```
+components/
+  button/
+    Button.tsx
+    button.scss       # BEM block; imported by Button.tsx
+  page-shell/
+    PageShell.tsx
+    page-shell.scss
+```
+
+- One folder per component; **one SCSS file per component**, imported by that Solid file (`import './button.scss'`). No mega `components.scss`.
+- BEM with `dm` prefix: `.dm-button`, `.dm-button__label`, `.dm-button--primary`. Nest `&__` / `&--` under the block.
+- Declaration order per rule: `--dm-*` locals first → reset if needed → other props.
+- No inline `style=` for design. Prefer classes + tokens.
+- Layout primitives (stack, cluster, page-shell) are BEM blocks under `components/` or `styles/common/` — not a component library kit.
+
+### Rejected
+
+CSS Modules, Tailwind, Storybook, Bits UI / Kobalte, v0→Solid conversion, TanStack Start, SolidStart, Solid 2 beta, TanStack Router.
 
 **Deferred:** ElectricSQL + TanStack DB (when many agents need live ops feedback; source of truth in Postgres/Neon). Not for AG-00–09.
 
 ## Auth
 
-Shared-secret password gate (`wrangler secret put`). Signed `HttpOnly` / `Secure` / `SameSite=Strict` cookie. All data routes gated. Login route public.
+Shared-secret password gate (`wrangler secret put`). Signed `HttpOnly` / `Secure` / `SameSite=Strict` cookie. All `/api` data routes gated. Login route public.
 
 **Rejected for now:** Resend magic-link, Google OAuth.
 
@@ -40,9 +86,9 @@ Routes under e.g. `/opportunity` (exact paths flexible):
 
 Synthesise stays human: paste Copy Top 5 into Claude. No synthesise worker.
 
-## Later — chat section (after AG-00–09)
+## Later — chat section (same month goal)
 
-Same Start app. Own D1 for conversations/memories/decisions. No imports from `workers/opportunity-engine`.
+Same SPA. Own D1 for conversations/memories/decisions. No imports from `workers/opportunity-engine`. Streaming via `/api/chat`.
 
 **Same loop as research-intake in Cursor:** when a decision is made in conversation, it must land in the knowledge system (git docs). When something is only an idea, park it under `docs/ideas/` — do not leave either trapped in chat history.
 
@@ -68,4 +114,4 @@ After **Tanuki Toolbox** has live products + landing pages worth monitoring.
 
 ## Parked (Metal Monkey web)
 
-`apps.metalmonkey.cc` architecture (Start vs many SPAs) — **later**. Tanuki products first.
+`apps.metalmonkey.cc` architecture — **later**. Tanuki products first.

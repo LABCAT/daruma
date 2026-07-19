@@ -1,27 +1,21 @@
 # AG-04 — Orchestrator only
 
-Paste only after AG-03 verified.
-
-## Context
-
-Read: `docs/projects/opportunity-engine/04-PIPELINE.md`
-
-Source of candidate keywords: mirror Phase 0 seed/list approach in `tools/opportunity-engine/` — enqueue only, do not scrape.
+Paste after AG-03. Read `AGENT-RULES.md` + `docs/projects/opportunity-engine/04-PIPELINE.md`.
 
 ## Goal
 
-Implement **orchestrator** Worker only.
+Implement **orchestrator** Worker only (collect/score stay stubs).
 
 ## Build
 
-1. On cron (and a local/dev trigger if useful): load candidate keywords, skip `seen_keywords` within 90 days
-2. Enqueue **one message per keyword** onto `raw-ideas`
-3. Write `pipeline_runs` row (stage=`orchestrator`, ideas_in/out)
-4. No scraping. Collect/score stay stubs.
+1. Cron (+ local/dev trigger): load candidate keywords from Phase 0 seed approach in `tools/opportunity-engine/` — enqueue only
+2. Skip `seen_keywords` within 90 days
+3. One queue message per keyword → `raw-ideas`
+4. Write `pipeline_runs` (stage=`orchestrator`)
+## Tests (fill harness)
 
-## Verification (raw evidence)
+Add orchestrator enqueue / 90-day skip under `pnpm test:oe`. No new workflow.
 
-1. Orchestrator source
-2. Local run output showing N messages enqueued
-3. D1 query of `pipeline_runs`
-4. Queue message shape (paste example payload)
+## Verification
+
+Source + OE tests green in Actions.
