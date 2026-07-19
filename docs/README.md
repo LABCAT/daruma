@@ -4,7 +4,8 @@
 |------|------|------|
 | **Strategy** | this folder | Vision, brands, stack, revenue, current focus |
 | **Daruma AI** | this folder | `DARUMA.md`, model costs, exploration bookmarks |
-| **Projects** | [`projects/`](projects/) | Build specs for active internal products |
+| **Projects** | [`projects/`](projects/) | Build specs + CI plan (`07-CI-AND-REGRESSION.md`) |
+| **Ideas** | [`ideas/`](ideas/) | Parked ideas (not CURRENT focus) |
 | **Research** | [`research/`](research/) | Weekly ideation loop + prompts + queue JSON |
 | **Ops** | [`ops/`](ops/) | Subscriptions tracker + automation JSON |
 
@@ -26,10 +27,12 @@ Project management: [`PROJECTS.md`](PROJECTS.md).
 
 ## Projects
 
-| Project | Docs |
-|---------|------|
-| [Daruma Assistant](projects/daruma-assistant/PLAN.md) | Chat control plane (`daruma.labcat.nz`) |
-| [Opportunity Engine](projects/opportunity-engine/) | ASO pipeline + Workers migration |
+| Doc | Purpose |
+|-----|---------|
+| [`projects/README.md`](projects/README.md) | Numbered order + Antigravity prompts |
+| [`projects/01-ARCHITECTURE.md`](projects/01-ARCHITECTURE.md) | Monorepo layout (locked) |
+| [`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md) | One UI host (`daruma.labcat.nz`) |
+| [`projects/opportunity-engine/`](projects/opportunity-engine/) | OE purpose / pipeline / port / ASO |
 
 ## Config JSON (not mystery files)
 

@@ -11,13 +11,13 @@ The Mon + Thu check-in workflow reads this file and posts to GitHub Issues.
 |---|------------|--------|-------------|
 | 1 | **D01 — Multiplication Dojo** | Ready for Play ship | Complete Play Console steps — closed test → production (see Blockers) |
 | 2 | **Tanuki Toolbox** (`tools.daruma.nz`) — design system | PR awaiting human review | Review + merge `feat/design-system-integration` |
-| 3 | **Opportunity Engine** | Not started | Begin implementation — see [`projects/opportunity-engine/`](projects/opportunity-engine/) |
+| 3 | **Opportunity Engine / Dashboard** | Scaffold (old layout) | **AG-01** path move — then AG-02…08 — [`projects/README.md`](projects/README.md) |
 | 4 | **Tanuki Toolbox — Maestro E2E** | Blocked on #2 | Integrate after design-system PR merges |
 | 5 | **Play Console account** | Decided — see below | D01 on personal now; investigate D-U-N-S for org in parallel |
 
 **Primary focus:** Ship D01 (#1) in parallel with Opportunity Engine kickoff (#3). Toolbox design-system review (#2) is founder-gated.
 
-**Work tracking:** GitHub Issues now; board in Daruma Assistant later — [`PROJECTS.md`](PROJECTS.md). Docs map: [`README.md`](README.md).
+**Work tracking:** GitHub Issues; board in dashboard later — [`PROJECTS.md`](PROJECTS.md). Projects order: [`projects/README.md`](projects/README.md).
 
 ---
 

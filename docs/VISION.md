@@ -77,3 +77,4 @@ Personal AI assistant vision, hardware, and phased infra: [`DARUMA.md`](DARUMA.m
 - Pen plotter physical + webcam + commerce idea — revisit in 12–18 months when space allows
 - SVG pattern generator for plotter community — seed of the bigger idea, could build sooner
 - Dojo: founder-play geometry/GLSL/colour games; NZ/AU curriculum + schools = wild vision after Play pipeline proves out
+- **RN freelance runway** (bridge to resign day job / fund computer — not the business model): [`ideas/FREELANCE_RUNWAY.md`](ideas/FREELANCE_RUNWAY.md)

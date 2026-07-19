@@ -4,16 +4,17 @@
 
 **Rule:** New web product apps → `*.metalmonkey.cc` (custom domain only if earned). Legacy: `web.daruma.nz` until migrated.
 
-**Framework (current):** SvelteKit  
-**Framework (lean, not locked):** TanStack Start + SolidJS for new Daruma internal UIs and Metal Monkey web — decide before next greenfield web app; do not churn live SvelteKit apps until migration is worth it.
+**Framework (current):** SvelteKit (legacy / existing apps)  
+**Daruma command center (`daruma.labcat.nz`):** **TanStack Start + Solid** on Cloudflare Workers — locked ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md))  
+**Metal Monkey web (`apps.metalmonkey.cc`):** decide later (Tanuki first); lean candidate TanStack Start + Solid — do not churn live SvelteKit until migration is worth it
 
 **Monorepo:** pnpm workspaces — `apps/*` + shared packages. Build rules in that repo's `AGENTS.md`.
-**Database:** Neon DB (Postgres serverless)
+**Database:** Neon DB (Postgres serverless) for product web; **D1** for Daruma OE (+ later chat memory)
 **Cache / KV:** Upstash Redis
-**Local-first sync:** ElectricSQL + TanStack DB — **medium-term**, primarily for **Daruma ops** (e.g. live multi-agent dashboards), not required for v1 product micro-apps
-**Hosting:** Cloudflare Pages (current SvelteKit); Workers for TanStack Start / Solid SPAs when adopted
+**Local-first sync:** ElectricSQL + TanStack DB — **later**, for Daruma multi-agent live ops feedback (state in Postgres) — not AG-01–08, not default for product micro-apps
+**Hosting:** Cloudflare Pages (current SvelteKit); Workers for TanStack Start / Daruma dashboard
 **Storage:** Cloudflare R2
-**Auth:** Auth.js v5
+**Auth:** Auth.js v5 (product web); Daruma dashboard = shared-secret cookie for now
 **Payments:** Stripe
 
 **Pattern (current):**

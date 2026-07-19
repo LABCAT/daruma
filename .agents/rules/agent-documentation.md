@@ -39,3 +39,11 @@ Agents load these files into limited context. Longer ≠ smarter.
 - Do not auto-generate bloated AGENTS.md / README “overviews”
 - When a file grows past soft max: split (nested AGENTS.md, `docs/`, or skill `references/`) — do not keep padding the root
 - Match this repo’s style: short, technically specific, no fluff
+
+## No stub / redirect-only docs
+
+**Never** create a markdown file whose only job is “Moved — see other file.”
+
+- On rename/move: **delete** the old path; update inbound links to the new path
+- Folder `README.md` may be a short **index of real docs** (table of contents) — that is content, not a stub
+- Do not leave `# Moved` / “Superseded, go here” placeholders “so old links don’t break” — fix the links instead

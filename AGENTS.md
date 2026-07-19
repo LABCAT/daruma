@@ -17,6 +17,7 @@ Brand hierarchy: [`docs/BRANDS.md`](docs/BRANDS.md).
 ## Documentation Boundaries
 
 - Keep all files in this repo **short and concise**
+- **No stub docs** — never leave a file that only says “Moved / see other path.” Delete the old file and fix links. Rule: [`.agents/rules/agent-documentation.md`](.agents/rules/agent-documentation.md)
 - **This repo:** strategy, stack decisions, prompts, tracker (one row per app in `tracker/APPS.md`). Docs map: [`docs/README.md`](docs/README.md). Work tracking: [`docs/PROJECTS.md`](docs/PROJECTS.md).
 - **App repos** (`web.daruma.nz` legacy, Metal Monkey web, `tools.daruma.nz`, `dojo.daruma.nz`, `tanuki-toolbox-design-system`): product design, screen specs, game mechanics, build/scaffold rules — each has its own `AGENTS.md`
 
@@ -62,7 +63,8 @@ Apply the same tone to docs you write in this repo.
 - **Push the plan forward** — read `docs/CURRENT.md`, execute the next action, update it when done
 - **Propose defaults** — smallest shippable scope; founder redirects if wrong
 - **Escalate only:** spending, public launches, genuine creative/brand forks
-- **Merges** — open PRs by default; founder merges today. Future gated auto-merge only per `docs/DARUMA.md` (CI/E2E/scopes). Never auto: spend, store submit, brand forks, prod secrets
+- **Merges (code)** — coding agents open PRs by default; founder merges today. Future gated auto-merge only per `docs/DARUMA.md` (CI/E2E/scopes). Never auto: spend, store submit, brand forks, prod secrets
+- **Knowledge writes (docs)** — after founder confirms a decision/idea, update git docs in the working tree (local agents) or via GitHub API (dashboard). **PR optional** for solo knowledge updates — see [`docs/projects/02-DASHBOARD.md`](docs/projects/02-DASHBOARD.md)
 - **Never block** on tactical questions answerable from this repo or app `AGENTS.md`
 
 ---

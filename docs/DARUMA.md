@@ -6,7 +6,7 @@ Daruma is the founder’s AI co-founder — the most powerful assistant in the u
 
 **Daruma does not code in chat.** Coding stays in Claude Code (local) and OpenHands (later). Daruma decides, documents, and dispatches.
 
-See also: [`VISION.md`](VISION.md), [`GOALS.md`](GOALS.md), [`MODEL_COSTS.md`](MODEL_COSTS.md), [`projects/daruma-assistant/PLAN.md`](projects/daruma-assistant/PLAN.md).
+See also: [`VISION.md`](VISION.md), [`GOALS.md`](GOALS.md), [`MODEL_COSTS.md`](MODEL_COSTS.md), [`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md).
 
 ---
 
@@ -74,7 +74,7 @@ A private AI orchestrator for the Metal Monkey business: always reachable, resea
 
 **Daruma pushes the plan forward.** Infer scope from docs and tracker; propose sensible defaults; execute tactical work without waiting for the founder.
 
-**Founder approves irreversible actions:** spending, public-facing launches, brand/creative direction changes. **Merges:** today Daruma opens PRs only and founder merges; future gated auto-merge per Stack layers (CI/E2E/scopes) — never auto for store submit / secrets / spend.
+**Founder approves irreversible actions:** spending, public-facing launches, brand/creative direction changes. **Code merges:** today coding agents open PRs; founder merges; future gated auto-merge per Stack layers — never auto for store submit / secrets / spend. **Knowledge/docs:** after founder confirms, write into the repo (working tree or GitHub API); PR optional for solo — same pattern as a research-intake Cursor session.
 
 **Agents must not block on questions the docs already answer.** If ambiguous, pick the smallest shippable option and note it in `CURRENT.md` — founder can redirect.
 
@@ -86,10 +86,10 @@ Daruma is layered tools, not one product. Each layer does one job.
 
 | Layer | Tool (vision default) | When |
 |-------|----------------------|------|
-| **Control plane (day-to-day)** | **Daruma Assistant** — custom Workers + Solid chat, bundled knowledge, `propose_decision` → GitHub PRs ([`projects/daruma-assistant/PLAN.md`](projects/daruma-assistant/PLAN.md)) | Phase 1 — *this* is how the founder talks to Daruma |
+| **Control plane (day-to-day)** | **Dashboard** (`daruma.labcat.nz`) — Solid + Workers; OE section first, chat/decisions later ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md)) | Next: AG-01 layout move |
 | **Coding (local)** | Claude Code + MiniMax PAYG + **Graphify** | Phase 0 |
 | **Coding (remote sandbox)** | **OpenHands** (BYOK, Docker, issues→PR) — capability Daruma *dispatches*, not the chat UI | Phase 2 candidate |
-| **Design-from-prompt** | **Open Design** + `DESIGN.md` — for **product/site repos** (e.g. metalmonkey.cc), not this command-center repo. Daruma Assistant UI follows existing Solid + SCSS/BEM patterns ([`projects/opportunity-engine/PHASE_2_MIGRATION_SPEC.md`](projects/opportunity-engine/PHASE_2_MIGRATION_SPEC.md)). | When building those products |
+| **Design-from-prompt** | **Open Design** + `DESIGN.md` — for **product/site repos** (e.g. metalmonkey.cc), not this command-center repo. Dashboard UI: Solid + SCSS/BEM ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md)). | When building those products |
 | **Schedule / heartbeat** | **Cloudflare Workers** cron / Queues | Phase 0–2 |
 | **Messaging operator** | Skip by default. OpenClaw/Hermes only if Telegram-as-UI is explicitly wanted later | Optional |
 | **Security** | Fine-grained GitHub tokens; sandbox for remote coding; NemoClaw only if a third-party always-on holds creds | When agents get write access |
@@ -114,7 +114,7 @@ Daruma is layered tools, not one product. Each layer does one job.
 
 **Vector DB ≠ chat cache.** Provider KV cache = GPU prefix reuse. App response cache = skip identical LLM calls. Vector/RAG = semantic search over docs/memories for retrieval. Phase 1 = **bundled knowledge** via `KnowledgeProvider` + D1 memories/decisions. Vector/RAG is a **later swap** when the corpus needs it. Prefer **pgvector on Neon** ([`GOALS.md`](GOALS.md)) before dedicated vector SaaS.
 
-**Research before durable writes:** same standard as this command-center chat — read repo docs, verify with live search/primary sources when claims matter, then `propose_decision` → PR. Do not document from model vibes alone.
+**Research before durable writes:** same standard as this command-center chat — read repo docs, verify with live search/primary sources when claims matter, then confirm → update git docs. Do not document from model vibes alone.
 
 **When to move to vector/RAG** — Daruma proposes; founder redirects. Escalate only if it means new paid SaaS (Pinecone etc.) or irreversible data migration. Move when **2+** of these are true:
 
@@ -128,7 +128,7 @@ Daruma is layered tools, not one product. Each layer does one job.
 
 **Not signals:** “industry standard,” wanting a graph UI, or a still-small `docs/` folder that fits cleanly in context.
 
-Public hub: **`metalmonkey.cc`**. Day-to-day Daruma UI: **`daruma.labcat.nz`** ([`projects/daruma-assistant/PLAN.md`](projects/daruma-assistant/PLAN.md)).
+Public hub: **`metalmonkey.cc`**. Day-to-day Daruma UI: **`daruma.labcat.nz`** ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md)).
 
 ### Phased roadmap
 
@@ -192,7 +192,19 @@ Lesson from the first Toolbox app: background agents still needed substantial ma
 - **CI from day one** — agent can run `pnpm test` and self-correct
 - **UI verification** — Playwright (web monorepos), Maestro (mobile monorepos), or MCP; not founder-as-QA by default. Integration status: [`STACK.md`](STACK.md)
 
+### Loops (wording)
+
+| Term | Meaning |
+|------|---------|
+| **Agent loop** | Built-in: model → tools → results → repeat. Always on in Claude Code / Cursor agents — not something you enable |
+| **`/loop` (or similar)** | Session scheduler: re-fire a prompt on an interval. Cron-in-chat — not the “keep coding until green” brain |
+| **Closed-loop completion** | What we want: implement → run Playwright/Maestro/CI → fix → repeat until green → open PR for short review |
+
+Neither Cursor nor Claude Code is a guaranteed infinite self-healing CI robot (budgets, flaky E2E, ambiguous failures). Target: **bounded** 1–N fix cycles with explicit pass criteria — not multi-hour unattended thrash.
+
 Multi-hour autonomous loops are an anti-pattern. Tight loops: read → edit → test → stop or one retry → escalate only if stuck or irreversible.
+
+**Long-term:** Daruma **orchestrates** (dispatch OpenHands / cloud agents, require green CI+E2E before PR-ready). Individual coding tools are interchangeable engines — see Phase 2 in this doc + [`AI_EXPLORATION.md`](AI_EXPLORATION.md).
 
 ---
 
@@ -208,12 +220,12 @@ When DAWs and NLEs expose MCP endpoints (community servers exist for Resolve and
 - RTX Spark vs DGX Spark — evaluate at purchase time (pricing, availability fall 2026+)
 - Phase 2 VPS timing — after agent templates + CI/E2E prove out
 - Phase 2 coding sandbox — OpenHands (default candidate) vs commercial cloud agents
-- Messaging operator — skipped; Daruma Assistant is the control plane ([`projects/daruma-assistant/PLAN.md`](projects/daruma-assistant/PLAN.md))
+- Messaging operator — skipped; dashboard is the control plane ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md))
 - Phase 1 host — `daruma.labcat.nz`
 - freellmapi — optional local Claude Code only; Assistant uses first-party free router
 - MODEL_COSTS.md — monthly refresh (BenchLM / AA); automate later
-- Auto-merge gates — define exact CI/E2E/review checklist before enabling
-- Framework lean — TanStack Start + Solid vs SvelteKit for Metal Monkey web (decide before next greenfield web app)
+- Auto-merge gates — define exact CI/E2E/review checklist before enabling — see [`projects/07-CI-AND-REGRESSION.md`](projects/07-CI-AND-REGRESSION.md)
+- Framework lean — Metal Monkey `apps.*` later (Tanuki first); Daruma dashboard = TanStack Start + Solid (locked)
 - Migrate legacy `web.daruma.nz` apps to `*.metalmonkey.cc` when worth it
-- ElectricSQL + TanStack DB — medium-term for Daruma live agent/ops dashboards, not product v1 default
+- ElectricSQL + TanStack DB — later for Daruma multi-agent live ops (state in Postgres), not AG-01–08 / not product default
 - DeerFlow timing — when long-horizon research deliverables justify the Docker overhead

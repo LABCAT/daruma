@@ -7,6 +7,7 @@ Personal learning goals for the founder. Product and revenue targets live in [`V
 - Master AI-assisted development — background agents, scoped tasks, test-first agent workflows
 - MCP servers — design-to-code, custom agent workflows
 - Build **Daruma** — personal always-on AI co-founder (not a product). Phases, Keima hardware, and infra: [`DARUMA.md`](DARUMA.md)
+- **Personalized AI system** (long game — not “train a frontier model”): agents/tool use ~40%; retrieval/memory/knowledge ~25%; open-weight local inference + later LoRA/QLoRA ~20%; evaluation/benchmarks ~10%; transformer internals ~5%. Layers: prompt → RAG/repo → memory → tools → fine-tune → RL. Detail: [`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md) § chat
 
 ## Design
 

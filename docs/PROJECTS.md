@@ -2,24 +2,20 @@
 
 ## Now — GitHub Issues
 
-Use **GitHub Issues** on this repo as the task board:
+One issue per work item. Labels: `dashboard`, `opportunity-engine`, `dojo`, `toolbox`, `research`, `ops`. Link from [`CURRENT.md`](CURRENT.md) when active.
 
-- One issue per discrete work item (or epic with checklist)
-- Labels suggested: `daruma-assistant`, `opportunity-engine`, `dojo`, `toolbox`, `research`, `ops`
-- Link issues from [`CURRENT.md`](CURRENT.md) when they are the active focus
-- Research / check-in automation already opens issues — keep that pattern
+No second backlog in markdown tables.
 
-Do not invent a second backlog in markdown tables for the same work.
+## Later — board in dashboard
 
-## Later — Daruma Assistant board
+When `daruma.labcat.nz` ships, optional Issues board in-app. Issues remain source of truth until then.
 
-When the Assistant dashboard ships (`daruma.labcat.nz`), add a lightweight **board view** (Trello-like) backed by GitHub Issues (and/or D1), so Daruma can triage without leaving the app. Issues remain source of truth until that proves useful.
+## Internal projects
 
-## Internal projects (docs)
+| Project | Docs | Status |
+|---------|------|--------|
+| Command center | [`projects/README.md`](projects/README.md) | Numbered plan + AG prompts |
+| Dashboard | [`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md) | One UI host |
+| Opportunity Engine | [`projects/opportunity-engine/`](projects/opportunity-engine/) | Scaffold done; next **AG-01** → AG-08 |
 
-| Project | Folder | Status |
-|---------|--------|--------|
-| Daruma Assistant | [`projects/daruma-assistant/`](projects/daruma-assistant/) | Planned |
-| Opportunity Engine | [`projects/opportunity-engine/`](projects/opportunity-engine/) | Phase 0 proven; Phase 2 Workers not started |
-
-Shipped product apps live in other repos — tracked in [`tracker/APPS.md`](../tracker/APPS.md), not here.
+Shipped apps: [`tracker/APPS.md`](../tracker/APPS.md).
