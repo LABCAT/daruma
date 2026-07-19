@@ -23,7 +23,7 @@ packages/db-opportunity-engine/  # schema + migrations
 - Update `pnpm-workspace.yaml`: `apps/*`, `workers/*`, `packages/*`
 - Preserve: shared D1 `database_id`, `raw-ideas` + `collected-ideas` queues, orchestrator cron stub
 - Handlers stay no-op stubs
-- Do **not** create `apps/dashboard` yet (AG-02 — TanStack Start shell)
+- Do **not** create full dashboard UI yet — AG-02 is design system (may scaffold `apps/dashboard` for tokens/preview only); AG-03 is Start shell + auth
 
 ## Verification (raw evidence only)
 

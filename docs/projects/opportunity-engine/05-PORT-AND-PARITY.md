@@ -14,7 +14,7 @@ Only change packaging: npm→pnpm, loop→queue-per-item. **Do not “improve”
 
 ## Parity gate (blocking)
 
-Before OE UI (AG-07): complete **AG-06 parity gate**.
+Before OE UI (AG-08): complete **AG-07 parity gate**.
 
 1. Fixed 5–8 keywords including canaries (`tradie invoice`, `pet business management`) plus score-range spread
 2. Same list through `tools/opportunity-engine/` and new Workers (`wrangler dev` + local D1)

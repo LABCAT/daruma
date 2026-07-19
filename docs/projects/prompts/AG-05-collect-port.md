@@ -1,6 +1,6 @@
-# AG-04 — Collect port only
+# AG-05 — Collect port only
 
-Paste only after AG-03 verified.
+Paste only after AG-04 verified.
 
 ## Context
 
@@ -19,7 +19,7 @@ Implement **collect** Worker: one keyword per `raw-ideas` message.
 3. On **success only**: upsert `seen_keywords`
 4. Publish to `collected-ideas` (payload: enough for score to run — keyword + raw id / signals ref)
 5. `pipeline_runs` stage=`collect`
-6. Score Worker still stub (may no-op consume or leave unconsumed for AG-05)
+6. Score Worker still stub (may no-op consume or leave unconsumed for AG-06)
 
 ## Verification (raw evidence)
 

@@ -1,14 +1,16 @@
-# AG-02 — Dashboard shell + auth (TanStack Start)
+# AG-03 — Dashboard shell + auth (TanStack Start)
 
-Paste only after AG-01 verified.
+Paste only after **AG-02 design system founder-approved**.
 
 ## Context
 
 Read: `docs/projects/02-DASHBOARD.md`, `docs/projects/01-ARCHITECTURE.md`
 
+Reuse tokens/BEM primitives from AG-02. Do not invent a parallel visual language.
+
 ## Goal
 
-Create `apps/dashboard` with **`@tanstack/solid-start`** on Cloudflare Workers. Auth only. **No OE data routes yet.**
+Create / complete `apps/dashboard` with **`@tanstack/solid-start`** on Cloudflare Workers. Auth only. **No OE data routes yet.**
 
 ## Build
 

@@ -16,6 +16,6 @@ When `daruma.labcat.nz` ships, optional Issues board in-app. Issues remain sourc
 |---------|------|--------|
 | Command center | [`projects/README.md`](projects/README.md) | Numbered plan + AG prompts |
 | Dashboard | [`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md) | One UI host |
-| Opportunity Engine | [`projects/opportunity-engine/`](projects/opportunity-engine/) | Scaffold done; next **AG-01** → AG-08 |
+| Opportunity Engine | [`projects/opportunity-engine/`](projects/opportunity-engine/) | Scaffold done; next **AG-00** → AG-09 |
 
 Shipped apps: [`tracker/APPS.md`](../tracker/APPS.md).

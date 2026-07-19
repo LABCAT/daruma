@@ -1,6 +1,6 @@
-# AG-07 — OE pending UI
+# AG-08 — OE pending UI
 
-Paste only after AG-06 parity passes.
+Paste only after AG-07 parity passes.
 
 ## Context
 
@@ -8,7 +8,7 @@ Read: `docs/projects/02-DASHBOARD.md`
 
 ## Goal
 
-Opportunity Engine **routes** inside `apps/dashboard` (TanStack Start shell from AG-02).
+Opportunity Engine **routes** inside `apps/dashboard` (Start shell from AG-03; visual language from AG-02).
 
 ## Build
 

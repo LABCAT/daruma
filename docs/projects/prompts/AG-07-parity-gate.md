@@ -1,6 +1,6 @@
-# AG-06 — Parity gate (no new features)
+# AG-07 — Parity gate (no new features)
 
-Paste only after AG-05 verified. **Feature freeze** — fix mismatches only.
+Paste only after AG-06 verified. **Feature freeze** — fix mismatches only.
 
 ## Context
 
@@ -26,4 +26,4 @@ Side-by-side diff with no material behaviour drift. Paste both full outputs + di
 
 “Looks close” / checklist-only / changed rubric to make tests pass.
 
-**Do not start AG-07 until this passes.**
+**Do not start AG-08 until this passes.**

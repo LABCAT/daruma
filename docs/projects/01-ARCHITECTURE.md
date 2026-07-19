@@ -36,7 +36,7 @@ packages/db-opportunity-engine/ # Drizzle schema + migrations for OE D1
 
 `pnpm-workspace.yaml` must include `apps/*`, `workers/*`, `packages/*`.
 
-Legacy `tools/opportunity-engine/` stays until AG-08 cutover. Do not delete early.
+Legacy `tools/opportunity-engine/` stays until AG-09 cutover. Do not delete early.
 
 ## Current repo state (pre AG-01)
 

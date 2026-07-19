@@ -12,17 +12,17 @@ Opportunity Engine results are **routes/sections** of this app, not a separate d
 
 | Decision | Value |
 |----------|-------|
-| Framework | **TanStack Start + Solid** (`@tanstack/solid-start`) from AG-02 — not a plain Vite SPA |
+| Framework | **TanStack Start + Solid** from **AG-03** (design tokens from **AG-02**) |
 | Why Start now | Chat/agents/many routes are the destination; avoid SPA→Start migration. OE is Workers-only; Start is for the dashboard shell |
 | Hosting | Cloudflare Workers via `@cloudflare/vite-plugin` + Wrangler |
 | Data (OE) | D1 via `packages/db-opportunity-engine` + server functions / API routes |
-| Styles | SCSS + BEM (`import './X.scss'`) — not CSS Modules |
+| Styles | SCSS + BEM — tokens/primitives in **AG-02** (founder-gated). No CSS Modules, no Storybook, no Tailwind |
 | Units | rem for font-size only; px elsewhere; unitless line-height |
 | UI libs | None for v1 |
 
 SSR is optional for this internal app — use Start for **file routes + typed server functions**, not SEO.
 
-**Deferred:** ElectricSQL + TanStack DB (when many agents need live ops feedback; source of truth in Postgres/Neon). Not for AG-01–08.
+**Deferred:** ElectricSQL + TanStack DB (when many agents need live ops feedback; source of truth in Postgres/Neon). Not for AG-00–09.
 
 ## Auth
 
@@ -30,17 +30,17 @@ Shared-secret password gate (`wrangler secret put`). Signed `HttpOnly` / `Secure
 
 **Rejected for now:** Resend magic-link, Google OAuth.
 
-## OE section (AG-07)
+## OE section (AG-08)
 
 Routes under e.g. `/opportunity` (exact paths flexible):
 
 1. Main — top `pending` ideas by score (all-time). Copy Top 5 → `sent_to_synthesis`. Done → `build` / `skip` / `research_more`
-2. Pipeline health — `pipeline_runs` (AG-08)
-3. Seen-keywords (AG-08)
+2. Pipeline health — `pipeline_runs` (AG-09)
+3. Seen-keywords (AG-09)
 
 Synthesise stays human: paste Copy Top 5 into Claude. No synthesise worker.
 
-## Later — chat section (after AG-01–08)
+## Later — chat section (after AG-00–09)
 
 Same Start app. Own D1 for conversations/memories/decisions. No imports from `workers/opportunity-engine`.
 

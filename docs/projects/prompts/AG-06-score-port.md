@@ -1,6 +1,6 @@
-# AG-05 — Score port only
+# AG-06 — Score port only
 
-Paste only after AG-04 verified.
+Paste only after AG-05 verified.
 
 ## Context
 
@@ -26,4 +26,4 @@ Implement **score** Worker consuming `collected-ideas`.
 2. For 2–3 known keywords: `ideas_ranked` rows (SQL or JSON dump)
 3. Confirm status values match expected shortlist behaviour vs Phase 0 notes if available
 
-Parity suite is **AG-06** — do not claim full parity here; this prompt only implements score.
+Parity suite is **AG-07** — do not claim full parity here; this prompt only implements score.

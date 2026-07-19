@@ -1,62 +1,41 @@
 # CI & regression gates (this repo)
 
-*Status: plan only — implement after AG-02+ exist. Not blocking AG-01.*
+*Status: implement starting **AG-00**. Expand checks as AGs land.*
 
-Goal: a merge to `main` must not ship a broken Daruma dashboard or OE Workers. Today this repo is mostly docs + OE stubs; gates grow with code.
+Goal: a merge to `main` must not ship a broken Daruma dashboard or OE Workers.
 
 ## Free stack (preferred)
 
 | Layer | Tool | Cost | Role |
 |-------|------|------|------|
-| CI runner | **GitHub Actions** | Free for public; private = monthly free minutes (enough for solo) | Run tests on PR + protect `main` |
-| Unit / Worker integration | **Vitest** + **`@cloudflare/vitest-pool-workers`** | Free (OSS) | Auth, server fns, D1/queue handlers in real workerd/Miniflare |
-| Browser E2E | **Playwright** | Free (OSS) | Login cookie, OE pending table, Copy Top 5 against `wrangler dev` / preview |
+| CI runner | **GitHub Actions** | Free for public; private = monthly free minutes | Run tests on PR + protect `main` |
+| Unit / Worker integration | **Vitest** + **`@cloudflare/vitest-pool-workers`** | Free (OSS) | Auth, server fns, D1/queue handlers in workerd/Miniflare |
+| Browser E2E | **Playwright** | Free (OSS) | Login + OE UI (after AG-03 / AG-08) |
 | Merge gate | **Branch protection** | Free on GitHub | Require green CI before merge to `main` |
-
-Cloudflare also documents Vitest-in-Workers and `cloudflare/wrangler-action` for deploy — keep **deploy after green CI**, not instead of it.
 
 ## Reject / defer
 
 | Tool | Why |
 |------|-----|
-| **Ghost Inspector** | No lasting free plan (~$109+/mo after trial). Overlap with Playwright for a solo internal app — skip |
-| Hosted no-code runners (BugBug paid tiers, etc.) | Nice UX; not needed when Playwright is free and agent-writable |
-| Maestro | Mobile only — use in Toolbox/Dojo repos, not here |
+| **Ghost Inspector** | No lasting free plan — skip |
+| **Storybook** | Not for v1 internal dash — tokens preview route in AG-02 instead |
+| Maestro | Mobile repos only |
 
-## What each tool covers here
-
-**Vitest (Workers pool)** — best first gate once Workers/dashboard exist:
-
-- Shared-secret auth (401 without cookie; session with cookie)
-- OE server functions / loaders (pending list, status updates) against local D1 + migrations
-- Orchestrator/score pure logic (no live scrape in CI — mock outbound fetch)
-
-**Playwright** — after there is a UI (AG-02 / AG-07):
-
-- Login → see gated home
-- OE: pending list renders; Copy Top 5 / Done mutate status
-- Run against local preview URL in Actions (`wrangler dev` or built Start preview)
-
-**Not a substitute for AG-06 parity** — Playwright/Vitest won’t prove Collect/Score match `tools/opportunity-engine/`. Keep parity as a dedicated gate (manual or scheduled job), not as “CI green = rubric correct.”
-
-## Phased rollout (when to add)
+## Phased rollout
 
 | When | Add |
 |------|-----|
-| Docs-only / AG-01 | Optional: markdown link check. No product CI required |
-| After AG-02 | Vitest: auth + Start server routes; CI workflow on PR |
-| After AG-03–05 | Vitest: worker handlers with mocked scrape/queue where needed |
-| After AG-06 | Optional scheduled/manual parity job — separate from merge CI |
-| After AG-07 | Playwright smoke: login + OE pending happy path |
-| Before trusting auto-merge | Branch protection: require CI; then tighten per [`DARUMA.md`](../DARUMA.md) auto-merge rules |
+| **AG-00** | Vitest smoke + Actions workflow; enable branch protection |
+| AG-03 | Vitest: auth routes |
+| AG-04–06 | Vitest: worker handlers (mock scrape) |
+| AG-07 | Parity job separate from merge CI |
+| AG-08 | Playwright: login + OE pending |
+| Before auto-merge | Required checks only; see [`DARUMA.md`](../DARUMA.md) |
 
-## Merge policy (target)
+## Automation ladder
 
-1. PR required for `main` (already founder-merge habit)
-2. Required checks: `vitest` (+ `playwright` once added)
-3. Deploy Workers only from `main` after green (Wrangler Action or Cloudflare Git integration)
-4. Never treat “agent said it works” as a green check
+1. AG-00 CI green required on PRs  
+2. Agents open PRs; auto-merge when checks green (scoped paths)  
+3. Chain AG-n merge → open AG-n+1 issue  
 
-## Agent-facing DoD (when CI exists)
-
-Prompts / `AGENTS.md` in app packages should say: **DoD includes CI green locally** (`pnpm test`, `pnpm test:e2e` as defined). Closed-loop agents stop when those pass — see [`DARUMA.md`](../DARUMA.md) § Making Agents Actually Work.
+Founder still: Cloudflare secrets, DNS, AG-02 **visual approve**, AG-07 parity skim.

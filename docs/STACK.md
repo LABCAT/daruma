@@ -11,7 +11,7 @@
 **Monorepo:** pnpm workspaces — `apps/*` + shared packages. Build rules in that repo's `AGENTS.md`.
 **Database:** Neon DB (Postgres serverless) for product web; **D1** for Daruma OE (+ later chat memory)
 **Cache / KV:** Upstash Redis
-**Local-first sync:** ElectricSQL + TanStack DB — **later**, for Daruma multi-agent live ops feedback (state in Postgres) — not AG-01–08, not default for product micro-apps
+**Local-first sync:** ElectricSQL + TanStack DB — **later**, for Daruma multi-agent live ops feedback (state in Postgres) — not AG-00–09, not default for product micro-apps
 **Hosting:** Cloudflare Pages (current SvelteKit); Workers for TanStack Start / Daruma dashboard
 **Storage:** Cloudflare R2
 **Auth:** Auth.js v5 (product web); Daruma dashboard = shared-secret cookie for now
