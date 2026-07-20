@@ -2,6 +2,8 @@
 
 Rules for all AI tools working in this repository (Claude, Cursor, Copilot, Gemini).
 
+**Agent rules live in [`.agents/rules/`](.agents/rules/)** — tool-agnostic. Do not use `.cursorrules` or IDE-only rule files.
+
 ---
 
 ## What This Repo Is
@@ -75,7 +77,7 @@ Apply the same tone to docs you write in this repo.
 - When suggesting new app ideas, score them using the rubric in docs/research/PROMPTS.md
 - Always consider Windows dev environment constraints (no local Mac, use Expo EAS for iOS builds)
 - When an app uses a backend, never connect mobile clients directly to the database — always via an API layer
-- **Package versions:** never `"latest"` / `"*"` in `package.json` — resolve current version and pin with semver (`^x.y.z`). See [`.agents/rules/package-versions.md`](.agents/rules/package-versions.md)
+- **Package versions:** never `"latest"` / `"*"` — resolve **current stable** from npm and pin with semver (`^x.y.z`). Do not reuse stale majors. See [`.agents/rules/package-versions.md`](.agents/rules/package-versions.md)
 
 ---
 

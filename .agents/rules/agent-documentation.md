@@ -27,18 +27,20 @@ Agents load these files into limited context. Longer ≠ smarter.
 
 ## What belongs where
 
+- **`.agents/rules/`** — **agent rules** (tool-agnostic). Cursor, Claude, Copilot, etc. all read these. Never put rules in `.cursorrules` / IDE-only files.
 - **README** — what it is, how to run, links to `AGENTS.md` / `docs/`. Humans first.
-- **AGENTS.md** — commands, boundaries, non-obvious gotchas only. Every line costs every session.
-- **docs/** — deep specs; link from AGENTS.md, do not paste in.
+- **AGENTS.md** — short index: pointers to `.agents/rules/`, commands, boundaries. Not the rule dump.
+- **docs/** — deep specs; link from AGENTS.md / rules, do not paste in.
 - **`.agents/skills/`** — invokable workflows (progressive disclosure).
 
 ## Rules
 
-- Prefer pointers (`docs/FOO.md`) over copying content into AGENTS.md / README
+- Prefer pointers (`docs/FOO.md`, `.agents/rules/…`) over copying content into AGENTS.md / README
 - Do not duplicate what the codebase or linter already enforces
 - Do not auto-generate bloated AGENTS.md / README “overviews”
 - When a file grows past soft max: split (nested AGENTS.md, `docs/`, or skill `references/`) — do not keep padding the root
 - Match this repo’s style: short, technically specific, no fluff
+- **Never** invent Cursor-only / IDE-only rule files — use `.agents/rules/`
 
 ## No stub / redirect-only docs
 

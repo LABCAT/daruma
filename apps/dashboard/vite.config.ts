@@ -1,16 +1,22 @@
+import adapter from '@sveltejs/adapter-cloudflare';
+import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-import viteSolid from 'vite-plugin-solid';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      '~': path.resolve(__dirname, './src'),
-    },
-  },
-  plugins: [viteSolid()],
+	plugins: [
+		sveltekit({
+			adapter: adapter(),
+			compilerOptions: {
+				runes: ({ filename }) =>
+					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
+			}
+		})
+	],
+	css: {
+		preprocessorOptions: {
+			scss: {
+				api: 'modern-compiler'
+			}
+		}
+	}
 });

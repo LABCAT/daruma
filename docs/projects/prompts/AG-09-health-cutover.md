@@ -6,12 +6,12 @@ Paste after AG-08. Read `AGENT-RULES.md`.
 
 1. Pipeline health UI/API from `pipeline_runs`
 2. Seen-keywords tab (sort `last_seen_at`)
-3. Dashboard + three OE workers build/deploy configs ready
+3. Dashboard (SvelteKit) + three OE workers build/deploy configs ready
 4. Document prod steps in `apps/dashboard/CUTOVER.md` (or `docs/projects/CUTOVER.md`):
    - `wrangler secret put DASHBOARD_PASSWORD`
    - DNS `daruma.labcat.nz`
    - remote D1 migrate
-   - deploy workers + dashboard
+   - deploy OE workers + SvelteKit dashboard
    - enable cron
 5. Local proof: health payload + seen-keywords query
 

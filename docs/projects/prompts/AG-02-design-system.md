@@ -6,11 +6,11 @@ Paste after **AG-02a**. Read `AGENT-RULES.md`.
 
 ## Goal
 
-On the **Solid 1 SPA**, confirm:
+On the **SvelteKit app**, confirm:
 
 1. `src/styles/` tree + `--dm-*` only in `variables.scss` (no class selectors there)
 2. modern-normalize → variables → mixins → base
-3. Co-located BEM `dm-` components; `/design` preview shows type, colour, space, button/input/table sample
+3. Co-located BEM `dm-` components (`.svelte` + `*.scss`); `/design` preview shows type, colour, space, button/input/table sample
 4. `DESIGN.md` documents tokens + how to add a component
 
 If anything missing vs brief (light/dark, Inter, bold borders, Daruma red `#A32D2D`, etc.), **fix it** — do not ask.

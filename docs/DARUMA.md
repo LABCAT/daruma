@@ -86,10 +86,10 @@ Daruma is layered tools, not one product. Each layer does one job.
 
 | Layer | Tool (vision default) | When |
 |-------|----------------------|------|
-| **Control plane (day-to-day)** | **Dashboard** (`daruma.labcat.nz`) — Solid 1 SPA; OE first ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md)) | Next: **AG-02a** |
+| **Control plane (day-to-day)** | **Dashboard** (`daruma.labcat.nz`) — SvelteKit; OE first ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md)) | Next: **AG-02a** |
 | **Coding (local)** | Claude Code + MiniMax PAYG + **Graphify** | Phase 0 |
 | **Coding (remote sandbox)** | **OpenHands** (BYOK, Docker, issues→PR) — capability Daruma *dispatches*, not the chat UI | Phase 2 candidate |
-| **Design-from-prompt** | **Open Design** + `DESIGN.md` — for **product/site repos** (e.g. metalmonkey.cc), not this command-center repo. Dashboard UI: Solid + SCSS/BEM ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md)). | When building those products |
+| **Design-from-prompt** | **Open Design** + `DESIGN.md` — for **product/site repos** (e.g. metalmonkey.cc), not this command-center repo. Dashboard UI: SvelteKit + SCSS/BEM ([`projects/02-DASHBOARD.md`](projects/02-DASHBOARD.md)). | When building those products |
 | **Schedule / heartbeat** | **Cloudflare Workers** cron / Queues | Phase 0–2 |
 | **Messaging operator** | Skip by default. OpenClaw/Hermes only if Telegram-as-UI is explicitly wanted later | Optional |
 | **Security** | Fine-grained GitHub tokens; sandbox for remote coding; NemoClaw only if a third-party always-on holds creds | When agents get write access |
@@ -188,7 +188,7 @@ Lesson from the first Toolbox app: background agents still needed substantial ma
 
 - **Scoped tasks** — micro-tickets, not "build the feature"
 - **Definition of done** — tests pass, linter clean, specific acceptance criteria
-- **`AGENTS.md` per repo** — stack rules, test commands, boundaries
+- **`AGENTS.md` per repo** — short index; **rules in `.agents/rules/`** (tool-agnostic)
 - **CI from day one** — agent can run `pnpm test` and self-correct
 - **UI verification** — Playwright (web monorepos), Maestro (mobile monorepos), or MCP; not founder-as-QA by default. Integration status: [`STACK.md`](STACK.md)
 
@@ -225,7 +225,7 @@ When DAWs and NLEs expose MCP endpoints (community servers exist for Resolve and
 - freellmapi — optional local Claude Code only; Assistant uses first-party free router
 - MODEL_COSTS.md — monthly refresh (BenchLM / AA); automate later
 - Auto-merge gates — define exact CI/E2E/review checklist before enabling — see [`projects/07-CI-AND-REGRESSION.md`](projects/07-CI-AND-REGRESSION.md)
-- Framework lean — Metal Monkey `apps.*` later (Tanuki first); Daruma dashboard = Solid 1 SPA + Worker API (locked)
+- Framework lean — Metal Monkey `apps.*` later (Tanuki first); Daruma dashboard = SvelteKit + adapter-cloudflare (locked)
 - Migrate legacy `web.daruma.nz` apps to `*.metalmonkey.cc` when worth it
 - ElectricSQL + TanStack DB — later for Daruma multi-agent live ops (state in Postgres), not AG-00–09 / not product default
 - DeerFlow timing — when long-horizon research deliverables justify the Docker overhead

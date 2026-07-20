@@ -7,8 +7,8 @@ Internal command center only (not shipped Metal Monkey apps).
 
 | # | Doc | Status |
 |---|-----|--------|
-| 01 | [`01-ARCHITECTURE.md`](01-ARCHITECTURE.md) | Locked — Solid SPA dashboard |
-| 02 | [`02-DASHBOARD.md`](02-DASHBOARD.md) | Locked — Solid 1 SPA + Worker API; SCSS/BEM |
+| 01 | [`01-ARCHITECTURE.md`](01-ARCHITECTURE.md) | Locked — SvelteKit dashboard |
+| 02 | [`02-DASHBOARD.md`](02-DASHBOARD.md) | Locked — SvelteKit + adapter-cloudflare; SCSS/BEM |
 | 03–06 | [`opportunity-engine/`](opportunity-engine/) | Purpose / pipeline / parity / ASO |
 | 07 | [`07-CI-AND-REGRESSION.md`](07-CI-AND-REGRESSION.md) | CI |
 
@@ -17,7 +17,7 @@ Internal command center only (not shipped Metal Monkey apps).
 | # | Prompt | Notes |
 |---|--------|-------|
 | AG-00b | [`AG-00b-fix-ci.md`](prompts/AG-00b-fix-ci.md) | **Done in-repo** — re-run only if harness broken |
-| AG-02a | [`AG-02a-spa-reset.md`](prompts/AG-02a-spa-reset.md) | Vite SPA; fill `build:dashboard` slot |
+| AG-02a | [`AG-02a-sveltekit-scaffold.md`](prompts/AG-02a-sveltekit-scaffold.md) | **Done** — SvelteKit scaffold |
 | AG-02 | [`AG-02-design-system.md`](prompts/AG-02-design-system.md) | Check vs brief — **no approve wait** |
 | AG-03 | [`AG-03-dashboard-shell-auth.md`](prompts/AG-03-dashboard-shell-auth.md) | Adds Worker + `/api` + auth |
 | AG-04 | [`AG-04-orchestrator.md`](prompts/AG-04-orchestrator.md) | |

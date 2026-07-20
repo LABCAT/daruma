@@ -1,10 +1,10 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect } from 'vitest';
 
 /**
- * Auth API slot — AG-03 replaces with login / me / 401 tests against the Worker.
+ * Auth API slot — AG-03 replaces with login / me / 401 tests against SvelteKit +server.ts routes.
  */
-describe("dashboard auth API (slot)", () => {
-  it("harness placeholder until AG-03", () => {
-    expect(true).toBe(true);
-  });
+describe('dashboard auth API (slot)', () => {
+	it('harness placeholder until AG-03', () => {
+		expect(true).toBe(true);
+	});
 });

@@ -1,6 +1,6 @@
 # 02 — Dashboard (locked)
 
-*Updated: 2026-07-19 — Solid 1 SPA + Worker API*
+*Updated: 2026-07-20 — SvelteKit + Cloudflare adapter (UI + API in one deploy)*
 
 ## What it is
 
@@ -12,20 +12,20 @@ Opportunity Engine results are **routes/sections** of this app, not a separate d
 
 | Decision | Value |
 |----------|-------|
-| Framework | **Solid 1.x SPA** + **`@solidjs/router`** + Vite (design tokens from **AG-02**) |
-| Why SPA | Internal tool; chat streaming wants `/api` anyway; avoid Start/Solid 2 agent tax |
-| Hosting | Vite SPA locally; Cloudflare Workers for prod (static assets + same-origin `/api` from **AG-03**) |
-| Data (OE / chat) | D1 via `packages/db-*` **only on the Worker** — browser calls `/api/*` (plain `fetch` handlers fine; Hono optional) |
+| Framework | **SvelteKit** + `@sveltejs/adapter-cloudflare` (design tokens from **AG-02**) |
+| Why SvelteKit | Same-origin `/api/*` in one deploy — not plain Svelte, not a separate Worker |
+| Hosting | Cloudflare Worker via adapter — SvelteKit serves pages + `src/routes/api/**/+server.ts` |
+| Data (OE / chat) | D1 via `packages/db-*` **only on the server** — browser calls `/api/*` |
 | Styles | SCSS + BEM — conventions below. Tokens/primitives in **AG-02** (founder-gated). No CSS Modules, no Storybook, no Tailwind |
 | Units | rem for font-size only (`to-rem($px)`); px elsewhere; unitless line-height |
 | UI libs | None for v1 |
 | Reset | **[modern-normalize](https://github.com/sindresorhus/modern-normalize)** then thin `common/base.scss` (token-backed body). Not `the-new-css-reset` |
 
-SSR is optional. Chat (near-term) = SPA UI + streaming `/api/chat`. Design: obey [`DESIGN_BRIEF.md`](DESIGN_BRIEF.md); no founder approve gate between AGs.
+SSR is on by default (SvelteKit). Chat (near-term) = UI + streaming `/api/chat`. Design: obey [`DESIGN_BRIEF.md`](DESIGN_BRIEF.md); no founder approve gate between AGs.
 
-## Styles & Solid org (locked)
+## Styles & Svelte org (locked)
 
-Convention source: [LABCAT/rocketship `packages/base/src/styles`](https://github.com/LABCAT/rocketship/tree/main/packages/base/src/styles) + rocketship BEM rules — adapted for Solid (separate SCSS per component; Astro inlines styles, we do not).
+Convention source: [LABCAT/rocketship `packages/base/src/styles`](https://github.com/LABCAT/rocketship/tree/main/packages/base/src/styles) + rocketship BEM rules — adapted for Svelte (separate SCSS per component; no `<style>` blocks for design).
 
 ### Global styles (`apps/dashboard/src/styles/`)
 
@@ -44,29 +44,43 @@ styles/
 - Design tokens = **CSS custom properties** on `:root` in `variables.scss` (public API). Prefix: `--dm-*` (e.g. `--dm-color-bg`, `--dm-font-size-md`, `--dm-space-4`).
 - Organised sections inside `variables.scss`: colour, type, space, radius/border, motion, layout/container, component scales (button, etc.).
 - SCSS `$` vars only for Sass-only needs (e.g. breakpoint maps). Do not put design tokens in `$` vars for theming.
-- Import global entry once from the app root layout.
+- Import global entry once from root `+layout.svelte`.
 
-### Solid components
+### Svelte components
 
 ```
-components/
+lib/components/
   button/
-    Button.tsx
-    button.scss       # BEM block; imported by Button.tsx
+    Button.svelte
+    Button.scss       # BEM block; first import in Button.svelte
   page-shell/
-    PageShell.tsx
-    page-shell.scss
+    PageShell.svelte
+    PageShell.scss
 ```
 
-- One folder per component; **one SCSS file per component**, imported by that Solid file (`import './button.scss'`). No mega `components.scss`.
+- One folder per component under `src/lib/components/`; **one SCSS file per component** (`<Name>.scss`), imported in `<script>` — **always first import**. No mega `components.scss`. **No `<style>` blocks** for design rules.
 - BEM with `dm` prefix: `.dm-button`, `.dm-button__label`, `.dm-button--primary`. Nest `&__` / `&--` under the block.
 - Declaration order per rule: `--dm-*` locals first → reset if needed → other props.
 - No inline `style=` for design. Prefer classes + tokens.
-- Layout primitives (stack, cluster, page-shell) are BEM blocks under `components/` or `styles/common/` — not a component library kit.
+- Layout primitives (stack, cluster, page-shell) are BEM blocks under `src/lib/components/` or `styles/common/` — not a component library kit.
+
+### API routes
+
+```
+src/routes/
+  api/
+    login/+server.ts
+    logout/+server.ts
+    me/+server.ts
+```
+
+- SvelteKit `+server.ts` handlers only — no separate dashboard Worker package.
+- Auth gate: `hooks.server.ts` (session cookie; redirect unauthed UI; 401 unauthed `/api/*` except login).
+- D1 bindings in `wrangler.toml` / `wrangler.jsonc` at app root.
 
 ### Rejected
 
-CSS Modules, Tailwind, Storybook, Bits UI / Kobalte, v0→Solid conversion, TanStack Start, SolidStart, Solid 2 beta, TanStack Router.
+Plain Svelte (no kit), separate dashboard Worker, Solid (all variants), CSS Modules, Tailwind, Storybook, Bits UI / Kobalte, v0 conversion, TanStack Start.
 
 **Deferred:** ElectricSQL + TanStack DB (when many agents need live ops feedback; source of truth in Postgres/Neon). Not for AG-00–09.
 
@@ -88,13 +102,13 @@ Synthesise stays human: paste Copy Top 5 into Claude. No synthesise worker.
 
 ## Later — chat section (same month goal)
 
-Same SPA. Own D1 for conversations/memories/decisions. No imports from `workers/opportunity-engine`. Streaming via `/api/chat`.
+Same app. Own D1 for conversations/memories/decisions. No imports from `workers/opportunity-engine`. Streaming via `/api/chat`.
 
 **Same loop as research-intake in Cursor:** when a decision is made in conversation, it must land in the knowledge system (git docs). When something is only an idea, park it under `docs/ideas/` — do not leave either trapped in chat history.
 
 | Decision | Value |
 |----------|-------|
-| Providers | Thin OpenAI-compatible interface in-Worker. **No freellmapi inside Workers** |
+| Providers | Thin OpenAI-compatible interface in SvelteKit server routes. **No freellmapi inside Workers** |
 | Default model | Paid/trusted for strategy chat; free-tier optional for background only |
 | Knowledge | Git = human truth. Always inject `AGENTS.md`, `CURRENT.md`, `VISION.md`. Full-context Phase 1; later `KnowledgeProvider` → GitHub live / vector. Bundle OK if Action redeploy + “synced at” UI |
 | Decisions | AI drafts `propose_decision` (rationale + source). Founder confirms → **write into git docs** (knowledge system). Local agents: edit working tree. Dashboard: apply via GitHub API (branch and/or direct commit — **PR optional**, not required for solo). On conflict with a prior confirmed decision: ask override. Lifecycle: `proposed` → `confirmed` → `superseded`. Never invent parallel knowledge outside the repo |

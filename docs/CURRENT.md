@@ -34,7 +34,7 @@ The Mon + Thu check-in workflow reads this file and posts to GitHub Issues.
 |---|------------|--------|--------|-------------|
 | 1 | **D01 — Multiplication Dojo** | Founder | Ready for Play ship | Closed test → production |
 | 2 | **Tanuki Toolbox** — design system | Founder | PR awaiting review | Review + merge `feat/design-system-integration` |
-| 3 | **OE + Dashboard** | **Daruma** | AG-01 done; SPA reset next | **AG-02a → AG-09** unattended — [`projects/README.md`](projects/README.md) |
+| 3 | **OE + Dashboard** | **Daruma** | AG-02a done (SvelteKit scaffold) | **AG-02 → AG-09** — [`projects/README.md`](projects/README.md) |
 | 4 | **Toolbox — Maestro E2E** | Daruma (after #2) | Blocked on #2 | Integrate after design-system merges |
 | 5 | **Play Console org** | Founder | Parallel | D-U-N-S when ready |
 
@@ -106,7 +106,7 @@ Org account requires **any owned domain** + DNS TXT verification (Search Console
 
 ## Blocker
 
-None — **CI harness is in the repo** (AG-00b). Next agent: AG-02a polish if needed, then AG-02 → AG-09 filling test slots. You: D01 Play + merge when free.
+None — **AG-02a done** (SvelteKit at `apps/dashboard`). Next agent: AG-02 design check → AG-03 auth. You: D01 Play + merge when free.
 
 D01: Play closed test is the founder gate (#1).
 
@@ -122,4 +122,4 @@ D01: Play closed test is the founder gate (#1).
 
 ## Last updated
 
-2026-07-19
+2026-07-20

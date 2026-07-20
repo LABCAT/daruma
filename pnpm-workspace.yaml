@@ -9,5 +9,4 @@ allowBuilds:
   sharp: true
   workerd: true
 
-minimumReleaseAgeExclude:
-  - vite-plugin-solid@2.11.13
+minimumReleaseAgeExclude: []

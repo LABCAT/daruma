@@ -4,15 +4,15 @@ Paste after AG-07 pass. Read `AGENT-RULES.md`, `02-DASHBOARD.md` § Styles, `app
 
 ## Goal
 
-OE routes in the Solid SPA (auth from AG-03; tokens from AG-02).
+OE routes in the SvelteKit app (auth from AG-03; tokens from AG-02).
 
 ## Build
 
 1. Authenticated `/api` for `ideas_ranked` where `status=pending`, score desc
-2. UI `/opportunity` — Solid + co-located SCSS/BEM `dm-`
+2. UI `/opportunity` — Svelte + co-located SCSS/BEM `dm-`
 3. **Copy Top 5** → clipboard + set `sent_to_synthesis`
 4. **Done** per row → `build` | `skip` | `research_more`
-5. D1 only on Worker; browser → `/api`
+5. D1 only on server (`+server.ts`); browser → `/api`
 6. Seed local D1 with enough `pending` rows to demo if pipeline empty
 
 ## Out of scope

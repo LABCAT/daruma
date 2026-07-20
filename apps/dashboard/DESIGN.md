@@ -28,10 +28,12 @@ All design tokens are defined in `src/styles/variables.scss` as CSS custom prope
 
 ## Component Creation Process (AG-03+)
 
-When creating new UI elements in `apps/dashboard/src/components/`, strictly follow these BEM conventions:
+Agent rule: [`.agents/rules/dashboard-svelte.md`](../../.agents/rules/dashboard-svelte.md).
+
+When creating new UI elements in `apps/dashboard/src/lib/components/`, strictly follow these BEM conventions:
 
 1. **Folder Structure**: One folder per component (e.g. `card/`).
-2. **Files**: Create `Card.tsx` and a co-located `card.scss`.
+2. **Files**: Create `Card.svelte` and a co-located `Card.scss`.
 3. **BEM Prefix**: Use the `.dm-` prefix. (e.g. `.dm-card`, `.dm-card__header`, `.dm-card--active`).
-4. **Importing Styles**: Import the SCSS directly into the TSX file (`import "./card.scss";`).
+4. **Importing Styles**: Co-located SCSS is the **first** import in `<script>` (`import "./Card.scss";`), then types/modules. No `<style>` block for design rules.
 5. **No CSS Modules or Tailwind**: Rely entirely on the global CSS custom properties for styling. Do not use inline styles for design rules.

@@ -1,21 +1,21 @@
 # Dashboard agents
 
-Solid **1.x** SPA + `@solidjs/router` + Worker `/api/*`.
+SvelteKit command center (`daruma.labcat.nz`).
 
-## Must follow
+## Rules
 
-- `docs/projects/02-DASHBOARD.md` — stack + SCSS/BEM
-- `apps/dashboard/DESIGN.md` — tokens + component folder rules
-- Pin package versions (`^x.y.z`) — never `"latest"` / bare beta tags
+- [`.agents/rules/dashboard-svelte.md`](../../.agents/rules/dashboard-svelte.md) ? components, SCSS, stack
+- [`.agents/rules/package-versions.md`](../../.agents/rules/package-versions.md) ? pin current stable
 
-## Do not
+## Specs
 
-- TanStack Start, SolidStart, Solid 2, TanStack Router
-- Tailwind, CSS Modules, Storybook, headless UI kits
-- Call D1 from the browser — only via `/api`
+- `docs/projects/02-DASHBOARD.md`
+- `apps/dashboard/DESIGN.md`
 
-## Patterns
+## Commands
 
-- Routes: `@solidjs/router`
-- Components: `components/<name>/<Name>.tsx` + `<name>.scss`, BEM `dm-`
-- Data: `fetch('/api/...')` with credentials; auth cookie from AG-03+
+```bash
+pnpm --filter dashboard run dev
+pnpm --filter dashboard run build
+pnpm --filter dashboard test
+```

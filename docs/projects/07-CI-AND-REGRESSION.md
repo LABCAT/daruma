@@ -1,6 +1,6 @@
 # CI & regression gates (this repo)
 
-*Locked: 2026-07-19 — harness owned by AG-00; later AGs only add tests into fixed slots.*
+*Locked: 2026-07-20 — harness owned by AG-00; later AGs only add tests into fixed slots.*
 
 ## Principle
 
@@ -35,8 +35,8 @@ package.json                      # root scripts: test, test:oe, test:dashboard,
 | Job / step | From day one | Becomes real when |
 |------------|--------------|-------------------|
 | `pnpm test` (OE workers) | Smoke stub OK | AG-04–06 add cases |
-| `pnpm --filter dashboard build` | Must pass once SPA exists (AG-02a) | AG-02a |
-| `pnpm --filter dashboard test` | Placeholder / skip until AG-03 | AG-03 auth tests |
+| `pnpm --filter dashboard build` | Must pass once SvelteKit app exists (AG-02a) | AG-02a |
+| `pnpm --filter dashboard test` | Placeholder / skip until AG-03 | AG-03 auth API tests (`+server.ts` via vitest-pool-workers) |
 | `pnpm test:e2e` | Playwright installed; one smoke or skip | AG-08 fills |
 | `pnpm test:parity` | Script exists; may skip until AG-07 | AG-07 |
 
