@@ -1,0 +1,1 @@
+import{S as e,b as t}from"../chunks/C4Rcq62L.js";import"../chunks/xihTtKlq.js";import{t as n}from"../chunks/vs1qf66w.js";var r=e(`<p>Welcome to the Daruma command center. <a href="/design">View Design System</a></p>`);function i(e){n(e,{title:`Dashboard`,children:(e,n)=>{t(e,r())},$$slots:{default:!0}})}export{i as component};

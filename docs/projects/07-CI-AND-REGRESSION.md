@@ -39,6 +39,7 @@ package.json                      # root scripts: test, test:oe, test:dashboard,
 | `pnpm --filter dashboard test` | Placeholder / skip until AG-03 | AG-03 auth API tests (`+server.ts` via vitest-pool-workers) |
 | `pnpm test:e2e` | Playwright installed; one smoke or skip | AG-08 fills |
 | `pnpm test:parity` | Script exists; may skip until AG-07 | AG-07 |
+| `pnpm deploy:dashboard` | Automated deployment (on `main` push) | Post-AG-02 override |
 
 Prefer **skip with explicit reason** over missing jobs. Never delete a job to go green.
 
