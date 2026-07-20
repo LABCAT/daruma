@@ -8,7 +8,9 @@
 		error?: string;
 		helperText?: string;
 		icon?: Snippet;
+		suffix?: Snippet;
 		class?: string;
+		value?: string | number | string[];
 	}
 
 	let {
@@ -16,8 +18,10 @@
 		error,
 		helperText,
 		icon,
+		suffix,
 		class: className = '',
 		id,
+		value = $bindable(),
 		...rest
 	}: Props = $props();
 </script>
@@ -32,11 +36,15 @@
 		{/if}
 		<input
 			{id}
-			class="dm-text-input__field {icon ? 'dm-text-input__field--with-icon' : ''} {error
+			class="dm-text-input__field {icon ? 'dm-text-input__field--with-icon' : ''} {suffix ? 'dm-text-input__field--with-suffix' : ''} {error
 				? 'dm-text-input__field--error'
 				: ''} {className}"
+			bind:value
 			{...rest}
 		/>
+		{#if suffix}
+			<div class="dm-text-input__suffix">{@render suffix()}</div>
+		{/if}
 	</div>
 	{#if error || helperText}
 		<span class="dm-text-input__helper {error ? 'dm-text-input__helper--error' : ''}">
