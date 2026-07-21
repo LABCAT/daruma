@@ -1,6 +1,7 @@
 name = "daruma-opportunity-engine-collect"
 main = "src/collect/index.ts"
 compatibility_date = "2024-11-12"
+compatibility_flags = ["nodejs_compat"]
 
 [[d1_databases]]
 binding = "DB"
@@ -14,5 +15,4 @@ max_concurrency = 3
 
 [[queues.producers]]
 queue = "daruma-opportunity-engine-collected-ideas"
-binding = "COLLECTED_IDEAS_QUEUE"
-compatibility_flags = ["nodejs_compat"]
+    binding = "COLLECTED_IDEAS_QUEUE"

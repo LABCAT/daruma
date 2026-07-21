@@ -2,7 +2,7 @@
 
 import { log } from '../utils/logger.js';
 import { randomDelay } from '../utils/delay.js';
-import { SERP_DELAY } from '../config.js';
+import { SERP_DELAY } from '../shared/config.js';
 
 /** Result from a SERP scrape for a single keyword */
 export interface SerpResult {

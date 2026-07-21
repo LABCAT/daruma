@@ -19,8 +19,9 @@ test.describe('Opportunity Engine (AG-08)', () => {
 		await page.waitForURL('**/');
 
 		// 2. Navigate & Verify Seeding (Idempotency of Seeding)
-		await page.goto('/opportunity');
-		await expect(page.locator('h1.dm-opportunity__title')).toHaveText('Opportunity Engine');
+		await page.goto('/opportunity/pending');
+		await expect(page.locator('h1.dm-opportunity__main-title')).toHaveText('Opportunity Engine');
+		await expect(page.locator('h2.dm-opportunity__title')).toHaveText('Pending Opportunities');
 
 		const listItems = page.locator('li.dm-opportunity__item');
 		let count = await listItems.count();
@@ -30,8 +31,8 @@ test.describe('Opportunity Engine (AG-08)', () => {
 		const initialSeedCount = count;
 
 		// Re-visit the page to ensure seeding doesn't double-insert
-		await page.goto('/opportunity');
-		await expect(page.locator('h1.dm-opportunity__title')).toBeVisible();
+		await page.goto('/opportunity/pending');
+		await expect(page.locator('h2.dm-opportunity__title')).toBeVisible();
 		count = await listItems.count();
 		expect(count).toBe(initialSeedCount);
 
@@ -74,5 +75,23 @@ test.describe('Opportunity Engine (AG-08)', () => {
 		});
 		// D1 batch update for missing IDs just affects 0 rows, should return 200 success
 		expect(validPatchIdempotent.status()).toBe(200);
+
+		// 6. Test Pipeline Health Tab
+		await page.getByRole('link', { name: 'Health' }).click();
+		await page.waitForURL('**/opportunity/health');
+		await expect(page.locator('h2.dm-opportunity__title')).toHaveText('Pipeline Health');
+		
+		// Wait for seeding to complete and rows to appear
+		const healthRows = page.locator('tbody tr');
+		await expect(healthRows).not.toHaveCount(0);
+		
+		// 7. Test Seen Keywords Tab
+		await page.getByRole('link', { name: 'Seen Keywords' }).click();
+		await page.waitForURL('**/opportunity/seen');
+		await expect(page.locator('h2.dm-opportunity__title')).toHaveText('Seen Keywords');
+		
+		// Wait for seeding to complete and rows to appear
+		const seenRows = page.locator('tbody tr');
+		await expect(seenRows).not.toHaveCount(0);
 	});
 });

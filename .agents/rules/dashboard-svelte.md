@@ -17,7 +17,8 @@ Stack: SvelteKit + `@sveltejs/adapter-cloudflare` — pages and `/api/*` in one 
 - Components: `src/lib/components/<name>/<Name>.svelte` + co-located `<Name>.scss`
 - **SCSS is always the first import** in a component `<script>` (before types, Svelte, other modules)
 - Svelte 5 Runes mode only: use `$props()`, `$state()`, `$derived()`, etc.
-- BEM `dm-` + `--dm-*` tokens; no inline design styles
+- **Strict Design System**: The design system MUST be strictly followed. **Before creating ANY new styles or UI elements, you MUST read `src/routes/design/+page.svelte` (the `/design` route) to see what components already exist (e.g., `TableRow`, `Badge`, `Alert`).** Do not reinvent existing components or use native HTML tags (like `<table>`) when a design system component exists.
+- **Strict BEM**: `dm-` + `--dm-*` tokens must be used. No inline design styles and no scoped `<style>` blocks in Svelte components. All component CSS must be in `.scss` files.
 - Pin deps at current stable (`pnpm view`); never `"latest"` / stale majors — see `package-versions`
 
 ## Must not

@@ -30,6 +30,8 @@ All design tokens are defined in `src/styles/variables.scss` as CSS custom prope
 
 Agent rule: [`.agents/rules/dashboard-svelte.md`](../../.agents/rules/dashboard-svelte.md).
 
+> **CRITICAL**: Before creating any new UI components, you **must** read `src/routes/design/+page.svelte` (or visit `/design` locally). This file serves as the living catalog of all existing design system components. Do not reinvent components (e.g., using `<table>` instead of `<TableRow>`) if they already exist in the system.
+
 When creating new UI elements in `apps/dashboard/src/lib/components/`, strictly follow these BEM conventions:
 
 1. **Folder Structure**: One folder per component (e.g. `card/`).

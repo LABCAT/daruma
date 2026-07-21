@@ -3,7 +3,7 @@
 import { withRetry } from '../utils/retry.js';
 import { randomDelay } from '../utils/delay.js';
 import { log } from '../utils/logger.js';
-import { AUTOCOMPLETE_SUFFIXES, ALPHABET, AUTOCOMPLETE_DELAY } from '../config.js';
+import { STOP_WORDS, AUTOCOMPLETE_SUFFIXES, ALPHABET, AUTOCOMPLETE_DELAY } from '../shared/config.js';
 
 const SUGGEST_URL = 'https://suggestqueries.google.com/complete/search';
 

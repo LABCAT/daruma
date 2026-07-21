@@ -10,7 +10,7 @@ import {
   REVIEWS_PER_APP,
   TOP_APPS_FOR_REVIEWS,
   PLAY_DELAY,
-} from '../config.js';
+} from '../shared/config.js';
 
 /**
  * Infer monetisation type from Play Store app data.

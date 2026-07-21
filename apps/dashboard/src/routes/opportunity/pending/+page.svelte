@@ -1,5 +1,5 @@
 <script lang="ts">
-	import './Opportunity.scss';
+
 	import type { PageData } from './$types';
 	
 	let { data }: { data: PageData } = $props();
@@ -66,17 +66,16 @@
 	}
 </script>
 
-<div class="dm-opportunity">
-	<header class="dm-opportunity__header">
-		<h1 class="dm-opportunity__title">Opportunity Engine</h1>
-		<button 
-			class="dm-opportunity__btn dm-opportunity__btn--primary" 
-			on:click={copyTop5}
-			disabled={isProcessing || ideas.length === 0}
-		>
-			Copy Top 5
-		</button>
-	</header>
+<header class="dm-opportunity__header">
+	<h2 class="dm-opportunity__title">Pending Opportunities</h2>
+	<button 
+		class="dm-opportunity__btn dm-opportunity__btn--primary" 
+		onclick={copyTop5}
+		disabled={isProcessing || ideas.length === 0}
+	>
+		Copy Top 5
+	</button>
+</header>
 
 	{#if ideas.length === 0}
 		<div class="dm-opportunity__empty">
@@ -93,21 +92,21 @@
 					<div class="dm-opportunity__actions">
 						<button 
 							class="dm-opportunity__btn dm-opportunity__btn--success"
-							on:click={() => updateStatus(idea.id, 'build')}
+							onclick={() => updateStatus(idea.id, 'build')}
 							disabled={isProcessing}
 						>
 							Build
 						</button>
 						<button 
 							class="dm-opportunity__btn dm-opportunity__btn--warning"
-							on:click={() => updateStatus(idea.id, 'research_more')}
+							onclick={() => updateStatus(idea.id, 'research_more')}
 							disabled={isProcessing}
 						>
 							Research
 						</button>
 						<button 
 							class="dm-opportunity__btn dm-opportunity__btn--danger"
-							on:click={() => updateStatus(idea.id, 'skip')}
+							onclick={() => updateStatus(idea.id, 'skip')}
 							disabled={isProcessing}
 						>
 							Skip
@@ -117,4 +116,3 @@
 			{/each}
 		</ul>
 	{/if}
-</div>
