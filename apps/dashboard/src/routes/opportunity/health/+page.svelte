@@ -18,11 +18,11 @@
 <div style="margin-bottom: var(--dm-space-6)">
 	{#if data.status === 'error'}
 		<Alert variant="danger" title="Pipeline Inactive" icon={dangerAlertIcon}>
-			No runs have been recorded recently. The orchestrator may not be deployed or the cron trigger is failing.
+			No recent orchestrator runs detected. The cron trigger may be failing or disabled.
 		</Alert>
 	{:else if data.status === 'warning'}
-		<Alert variant="warning" title="Pipeline Delayed" icon={warningAlertIcon}>
-			The orchestrator hasn't run successfully in the last 48 hours. Check worker logs.
+		<Alert variant="warning" title="Workers Stalled" icon={warningAlertIcon}>
+			The orchestrator ran recently, but the collect or score workers have not processed the queue. Check worker logs for crashes or dead-letter queues.
 		</Alert>
 	{:else}
 		<Alert variant="success" title="System Healthy" icon={checkAlertIcon}>
