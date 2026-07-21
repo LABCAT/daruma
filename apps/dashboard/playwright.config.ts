@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
 
+dotenv.config({ path: '.dev.vars' });
 export default defineConfig({
 	testDir: './e2e',
 	fullyParallel: true,

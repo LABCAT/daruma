@@ -1,16 +1,4 @@
 import { test, expect } from '@playwright/test';
-import fs from 'fs';
-
-// Load .dev.vars for local testing if it exists
-if (fs.existsSync('.dev.vars')) {
-	const devVars = fs.readFileSync('.dev.vars', 'utf-8');
-	for (const line of devVars.split('\n')) {
-		if (line.includes('=')) {
-			const [key, ...rest] = line.split('=');
-			process.env[key.trim()] = rest.join('=').trim();
-		}
-	}
-}
 
 test.describe('Opportunity Engine (AG-08)', () => {
 	test.beforeEach(async ({ context }) => {
