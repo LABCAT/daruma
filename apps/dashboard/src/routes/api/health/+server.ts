@@ -45,6 +45,12 @@ export const GET: RequestHandler = async ({ platform, request }) => {
 		}
 
 		let status = 'error';
+		let stages = {
+			orchestrator: { status: 'unknown', lastRun: null },
+			collect: { status: 'unknown', lastRun: null },
+			score: { status: 'unknown', lastRun: null }
+		};
+
 		if (results.length > 0) {
 			const now = Date.now();
 			const msInHour = 1000 * 60 * 60;
@@ -54,13 +60,28 @@ export const GET: RequestHandler = async ({ platform, request }) => {
 				return (now - time) / msInHour <= 48;
 			};
 
-			const hasRecentOrchestrator = results.some(r => (r as any).stage === 'orchestrator' && isRecent((r as any).created_at));
-			const hasRecentCollect = results.some(r => (r as any).stage === 'collect' && isRecent((r as any).created_at));
-			const hasRecentScore = results.some(r => (r as any).stage === 'score' && isRecent((r as any).created_at));
+			const orchRun = results.find(r => (r as any).stage === 'orchestrator');
+			const collectRun = results.find(r => (r as any).stage === 'collect');
+			const scoreRun = results.find(r => (r as any).stage === 'score');
 
-			if (!hasRecentOrchestrator) {
+			stages.orchestrator = {
+				status: orchRun && isRecent((orchRun as any).created_at) ? 'healthy' : 'error',
+				lastRun: orchRun ? (orchRun as any).created_at : null
+			};
+
+			stages.collect = {
+				status: collectRun && isRecent((collectRun as any).created_at) ? 'healthy' : 'error',
+				lastRun: collectRun ? (collectRun as any).created_at : null
+			};
+
+			stages.score = {
+				status: scoreRun && isRecent((scoreRun as any).created_at) ? 'healthy' : 'error',
+				lastRun: scoreRun ? (scoreRun as any).created_at : null
+			};
+
+			if (stages.orchestrator.status === 'error') {
 				status = 'error'; // Cron is not firing
-			} else if (!hasRecentCollect || !hasRecentScore) {
+			} else if (stages.collect.status === 'error' || stages.score.status === 'error') {
 				status = 'warning'; // Workers are failing or queue is stuck
 			} else {
 				status = 'healthy'; // All stages have completed recently
@@ -69,7 +90,8 @@ export const GET: RequestHandler = async ({ platform, request }) => {
 
 		return json({ 
 			items: results,
-			status 
+			status,
+			stages
 		});
 	} catch (err: any) {
 		console.error('Error in /api/health GET:', err);

@@ -31,6 +31,28 @@
 	{/if}
 </div>
 
+{#if data.stages}
+	<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--dm-space-4); margin-bottom: var(--dm-space-6)">
+		{#each Object.entries(data.stages) as [stageName, stageData]}
+			<div style="padding: var(--dm-space-4); border: var(--dm-border-width-base) solid var(--dm-color-border); border-radius: var(--dm-radius-md); background-color: var(--dm-color-surface);">
+				<div style="font-weight: var(--dm-font-weight-bold); text-transform: capitalize; margin-bottom: var(--dm-space-2);">
+					{stageName}
+				</div>
+				<div style="display: flex; align-items: center; gap: var(--dm-space-2); margin-bottom: var(--dm-space-2)">
+					{#if (stageData as any).status === 'healthy'}
+						<div style="color: var(--dm-color-success); display: flex; align-items: center;"><Check size={16} /> <span style="margin-left: 4px;">Active</span></div>
+					{:else}
+						<div style="color: var(--dm-color-danger); display: flex; align-items: center;"><AlertCircle size={16} /> <span style="margin-left: 4px;">Stalled</span></div>
+					{/if}
+				</div>
+				<div style="font-size: var(--dm-font-size-sm); color: var(--dm-color-muted-foreground)">
+					Last run: {(stageData as any).lastRun ? new Date((stageData as any).lastRun).toLocaleString() : 'Never'}
+				</div>
+			</div>
+		{/each}
+	</div>
+{/if}
+
 {#if data.runs.length > 0}
 	<div style="border: var(--dm-border-width-base) solid var(--dm-color-border); border-radius: var(--dm-radius-md); overflow: hidden">
 		<TableRow isHeader>
