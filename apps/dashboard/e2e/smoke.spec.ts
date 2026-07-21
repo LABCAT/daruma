@@ -1,4 +1,16 @@
 import { test, expect } from '@playwright/test';
+import fs from 'fs';
+
+// Load .dev.vars for local testing if it exists
+if (fs.existsSync('.dev.vars')) {
+	const devVars = fs.readFileSync('.dev.vars', 'utf-8');
+	for (const line of devVars.split('\n')) {
+		if (line.includes('=')) {
+			const [key, ...rest] = line.split('=');
+			process.env[key.trim()] = rest.join('=').trim();
+		}
+	}
+}
 
 test.describe('Opportunity Engine (AG-08)', () => {
 	test.beforeEach(async ({ context }) => {
@@ -7,15 +19,16 @@ test.describe('Opportunity Engine (AG-08)', () => {
 	});
 
 	test('login and comprehensive pending list interactions', async ({ page, request }) => {
-		// 1. Authenticate (idempotent login attempt)
+		// 1. Authenticate
 		await page.goto('/login');
-		await expect(page.locator('body')).toBeVisible();
-
+		
 		const passwordInput = page.getByLabel('Password', { exact: true });
-		if (await passwordInput.isVisible()) {
-			await passwordInput.fill(process.env.DASHBOARD_PASSWORD || '');
-			await page.getByRole('button', { name: 'Login' }).click();
-		}
+		await passwordInput.waitFor({ state: 'visible' });
+		await passwordInput.fill(process.env.DASHBOARD_PASSWORD || '');
+		await page.getByRole('button', { name: 'Login' }).click();
+		
+		// Wait for redirect to dashboard root
+		await page.waitForURL('**/');
 
 		// 2. Navigate & Verify Seeding (Idempotency of Seeding)
 		await page.goto('/opportunity');
@@ -62,13 +75,13 @@ test.describe('Opportunity Engine (AG-08)', () => {
 
 		// 5. Test Error Handling & Idempotency of API directly
 		// What happens if we send invalid status?
-		const invalidPatch = await request.patch('/api/opportunity', {
+		const invalidPatch = await page.request.patch('/api/opportunity', {
 			data: { updates: [{ id: 'non-existent', status: 'invalid_status' }] }
 		});
 		expect(invalidPatch.status()).toBe(400);
 
 		// Valid patch but missing ID
-		const validPatchIdempotent = await request.patch('/api/opportunity', {
+		const validPatchIdempotent = await page.request.patch('/api/opportunity', {
 			data: { updates: [{ id: 'missing-id-1234', status: 'skip' }] }
 		});
 		// D1 batch update for missing IDs just affects 0 rows, should return 200 success

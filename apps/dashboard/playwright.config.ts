@@ -9,12 +9,13 @@ export default defineConfig({
 	reporter: 'list',
 	use: {
 		...devices['Desktop Chrome'],
-		baseURL: process.env.PLAYWRIGHT_BASE_URL ?? 'http://127.0.0.1:4173',
+		baseURL: process.env.PLAYWRIGHT_BASE_URL ?? 'http://127.0.0.1:8789',
 		trace: 'on-first-retry'
 	},
 	webServer: {
-		command: 'pnpm exec wrangler d1 migrations apply daruma-opportunity-engine --local && pnpm exec wrangler pages dev .svelte-kit/cloudflare --port 4173',
-		url: 'http://127.0.0.1:4173',
-		reuseExistingServer: !process.env.CI
+		command: 'pnpm exec wrangler pages dev .svelte-kit/cloudflare --ip 127.0.0.1 --port 8789 --persist-to=.wrangler/state/e2e',
+		url: 'http://127.0.0.1:8789',
+		reuseExistingServer: false,
+		env: { CI: '1' }
 	}
 });

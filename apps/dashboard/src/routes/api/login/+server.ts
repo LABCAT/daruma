@@ -17,7 +17,7 @@ export const POST: RequestHandler = async ({ request, cookies, platform }) => {
 	cookies.set('session', session, {
 		path: '/',
 		httpOnly: true,
-		secure: true,
+		secure: request.url.startsWith('https://'),
 		sameSite: 'strict',
 		maxAge: 60 * 60 * 24 * 7 // 1 week
 	});
