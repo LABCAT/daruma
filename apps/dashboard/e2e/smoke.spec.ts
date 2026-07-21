@@ -11,7 +11,7 @@ test.describe('Opportunity Engine (AG-08)', () => {
 		await page.goto('/login');
 		await expect(page.locator('body')).toBeVisible();
 
-		const passwordInput = page.getByLabel('Password');
+		const passwordInput = page.getByLabel('Password', { exact: true });
 		if (await passwordInput.isVisible()) {
 			await passwordInput.fill(process.env.DASHBOARD_PASSWORD || '');
 			await page.getByRole('button', { name: 'Login' }).click();
