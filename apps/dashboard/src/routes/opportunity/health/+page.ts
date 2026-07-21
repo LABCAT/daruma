@@ -6,8 +6,9 @@ export const load: PageLoad = async ({ fetch }) => {
 		const data = await res.json();
 		return { 
 			runs: data.items || [],
-			status: (data.status as 'healthy' | 'warning' | 'error') || 'error'
+			status: (data.status as 'healthy' | 'warning' | 'error') || 'error',
+			stages: data.stages
 		};
 	}
-	return { runs: [], status: 'error' as const };
+	return { runs: [], status: 'error' as const, stages: null };
 };
