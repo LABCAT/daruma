@@ -82,3 +82,25 @@ index afaae286c011a5e71ae2dd804b209cab6048d31c..4fd353d8efe175c6af827eae39c266fa
      debug('Request finished');
      return response;
    } catch (reason) {
+diff --git a/lib/utils/scriptData.js b/lib/utils/scriptData.js
+index 1d001317d0d12428998984f7de74c4b3166cc06e..f6ff88b01d97b5eb966a0d76a4ba3b9ca06831e3 100644
+--- a/lib/utils/scriptData.js
++++ b/lib/utils/scriptData.js
+@@ -115,9 +115,14 @@ function parseServiceRequests (response) {
+     return {};
+   }
+ 
+-  // eslint-disable-next-line
+-  const value = eval(`(${valueMatch[0]})`);
+-  return value;
++  const str = valueMatch[0];
++  const fullRegex = /'(ds:\d+)'\s*:\s*\{\s*id\s*:\s*['"]([^'"]+)['"]/g;
++  const result = {};
++  let match;
++  while ((match = fullRegex.exec(str)) !== null) {
++    result[match[1]] = { id: match[2] };
++  }
++  return result;
+ }
+ 
+ export default Object.assign({ parse, parseServiceRequests, extractor, extractDataWithServiceRequestId });

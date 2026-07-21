@@ -75,8 +75,26 @@ jobs:
       - name: Build Dashboard
         run: pnpm build:dashboard
 
-      - name: Deploy to Cloudflare Workers
+      - name: Deploy Dashboard to Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: pnpm --filter dashboard exec wrangler deploy
+
+      - name: Deploy Opportunity Engine (Orchestrator)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: pnpm --filter opportunity-engine exec wrangler deploy --config wrangler.orchestrator.toml
+
+      - name: Deploy Opportunity Engine (Collect)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: pnpm --filter opportunity-engine exec wrangler deploy --config wrangler.collect.toml
+
+      - name: Deploy Opportunity Engine (Score)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: pnpm --filter opportunity-engine exec wrangler deploy --config wrangler.score.toml

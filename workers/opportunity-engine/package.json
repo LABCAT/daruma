@@ -13,6 +13,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "cheerio": "^1.2.0",
     "db-opportunity-engine": "workspace:*",
     "google-play-scraper": "^10.1.3"
   },

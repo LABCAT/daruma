@@ -1,8 +1,9 @@
-// ── SERP scraping — People Also Ask + Related Searches via Playwright ──
+// ── SERP scraping — People Also Ask + Related Searches via Fetch/Cheerio ──
 
 import { log } from '../utils/logger.js';
 import { randomDelay } from '../utils/delay.js';
 import { SERP_DELAY } from '../shared/config.js';
+import * as cheerio from 'cheerio';
 
 /** Result from a SERP scrape for a single keyword */
 export interface SerpResult {
@@ -18,48 +19,21 @@ const EMPTY_RESULT: SerpResult = {
 };
 
 /**
- * Manages a Playwright browser instance for SERP scraping.
- * Reuses one browser across all keywords; sequential to avoid detection.
+ * SERP Scraper using lightweight fetch + cheerio.
+ * Fully compatible with Cloudflare Workers (no Chromium dependency).
  */
 export class SerpScraper {
-  private browser: any = null;
-  private page: any = null;
-
-  /** Launch the browser. Call once before scraping. */
+  /** Init is a no-op for fetch-based scraper, kept for compatibility */
   async init(): Promise<void> {
-    try {
-      const { chromium } = await import('playwright');
-      this.browser = await chromium.launch({
-        headless: true,
-        args: ['--disable-blink-features=AutomationControlled'],
-      });
-      const context = await this.browser.newContext({
-        userAgent:
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
-        locale: 'en-US',
-        viewport: { width: 1366, height: 768 },
-      });
-      this.page = await context.newPage();
-      log.success('COLLECT', 'Playwright browser launched for SERP scraping');
-    } catch (err) {
-      log.error('COLLECT', `Playwright init failed — SERP scraping disabled: ${err}`);
-      this.browser = null;
-      this.page = null;
-    }
+    log.success('COLLECT', 'SerpScraper initialized (Fetch/Cheerio mode)');
   }
 
-  /** Close the browser. Call when done scraping. */
-  async close(): Promise<void> {
-    if (this.browser) {
-      await this.browser.close();
-      this.browser = null;
-      this.page = null;
-    }
-  }
+  /** Close is a no-op */
+  async close(): Promise<void> {}
 
-  /** Check if Playwright is available */
+  /** Always available */
   get isAvailable(): boolean {
-    return this.page !== null;
+    return true;
   }
 
   /**
@@ -67,75 +41,81 @@ export class SerpScraper {
    * Extracts PAA questions, related searches, and count of app-related results.
    */
   async scrape(keyword: string): Promise<SerpResult> {
-    if (!this.page) return EMPTY_RESULT;
-
     try {
       await randomDelay(SERP_DELAY.min, SERP_DELAY.max);
 
       const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(keyword + ' app')}&hl=en&gl=us`;
-      await this.page.goto(searchUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
+      
+      const response = await fetch(searchUrl, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+          'Accept-Language': 'en-US,en;q=0.9',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+        }
+      });
 
-      // Wait a bit for dynamic content
-      await this.page.waitForTimeout(2000);
+      if (!response.ok) {
+        log.warn('COLLECT', `SERP fetch failed for "${keyword}": HTTP ${response.status}`);
+        return EMPTY_RESULT;
+      }
 
-      // Check for CAPTCHA / block
-      const pageContent: string = await this.page.content();
+      const html = await response.text();
+
+      // Check for CAPTCHA / unusual traffic
       if (
-        pageContent.includes('unusual traffic') ||
-        pageContent.includes('captcha') ||
-        pageContent.includes('CAPTCHA')
+        html.includes('unusual traffic') ||
+        html.includes('captcha') ||
+        html.includes('CAPTCHA')
       ) {
         log.warn('COLLECT', `CAPTCHA detected for "${keyword}" — skipping SERP`);
         return EMPTY_RESULT;
       }
 
+      const $ = cheerio.load(html);
+      
       // Extract People Also Ask questions
-      const paaQuestions: string[] = await this.page.evaluate(() => {
-        const questions: string[] = [];
-        // PAA container — Google uses various selectors, try common ones
-        const paaElements = document.querySelectorAll(
-          '[data-sgrd] [role="heading"], .related-question-pair [role="heading"], [jsname="Cpkphb"] span',
-        );
-        paaElements.forEach((el) => {
-          const text = el.textContent?.trim();
-          if (text && text.length > 10 && text.length < 200) {
-            questions.push(text);
-          }
-        });
-        // Fallback: look for accordion-style questions
-        if (questions.length === 0) {
-          document
-            .querySelectorAll('[data-lk] span, .ifM9O span, div[data-q] span')
-            .forEach((el) => {
-              const text = el.textContent?.trim();
-              if (text && text.endsWith('?') && text.length > 10) {
-                questions.push(text);
-              }
-            });
+      const paaQuestions: string[] = [];
+      const paaSelectors = [
+        '[data-sgrd] [role="heading"]',
+        '.related-question-pair [role="heading"]',
+        '[jsname="Cpkphb"] span',
+        '[data-lk] span',
+        '.ifM9O span',
+        'div[data-q] span'
+      ];
+      
+      $(paaSelectors.join(', ')).each((_, el) => {
+        const text = $(el).text().trim();
+        // Google often hides the actual question in span elements, 
+        // they usually end with a question mark
+        if (text && text.length > 10 && text.length < 200 && text.endsWith('?')) {
+          paaQuestions.push(text);
         }
-        return questions;
       });
 
       // Extract Related Searches
-      const relatedSearches: string[] = await this.page.evaluate(() => {
-        const related: string[] = [];
-        // Related searches appear at page bottom
-        const relatedElements = document.querySelectorAll(
-          '#brs a, .k8XOCe, [data-se] a, .s75CSd a, .PHmMHe a, .EIaa9b a',
-        );
-        relatedElements.forEach((el) => {
-          const text = el.textContent?.trim();
-          if (text && text.length > 3 && text.length < 100) {
-            related.push(text);
-          }
-        });
-        return related;
+      const relatedSearches: string[] = [];
+      const relatedSelectors = [
+        '#brs a',
+        '.k8XOCe',
+        '[data-se] a',
+        '.s75CSd a',
+        '.PHmMHe a',
+        '.EIaa9b a',
+        '.CSkcDe' // Another common related searches container class
+      ];
+      
+      $(relatedSelectors.join(', ')).each((_, el) => {
+        const text = $(el).text().trim();
+        if (text && text.length > 3 && text.length < 100) {
+          relatedSearches.push(text);
+        }
       });
 
-      // Count app-related results in SERP (Play Store links or app-like results)
-      const appCount: number = await this.page.evaluate(() => {
-        const links = document.querySelectorAll('a[href*="play.google.com/store/apps"]');
-        return links.length;
+      // Count app-related results (Play Store links)
+      let appCount = 0;
+      $('a[href*="play.google.com/store/apps"]').each(() => {
+        appCount++;
       });
 
       const result: SerpResult = {
