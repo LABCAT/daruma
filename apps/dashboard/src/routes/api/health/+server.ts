@@ -82,7 +82,7 @@ export const GET: RequestHandler = async ({ platform, request }) => {
 			if (stages.orchestrator.status === 'error') {
 				status = 'error'; // Cron is not firing
 			} else if (stages.collect.status === 'error' || stages.score.status === 'error') {
-				status = 'warning'; // Workers are failing or queue is stuck
+				status = 'error'; // Pipeline is broken
 			} else {
 				status = 'healthy'; // All stages have completed recently
 			}
