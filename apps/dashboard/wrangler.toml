@@ -17,3 +17,7 @@ binding = "DB"
 database_name = "daruma-opportunity-engine"
 database_id = "d88e075e-97cc-4543-adb5-b279099fe7ef"
 migrations_dir = "../../packages/db-opportunity-engine/migrations"
+
+[[services]]
+binding = "ORCHESTRATOR"
+service = "daruma-opportunity-engine-orchestrator"

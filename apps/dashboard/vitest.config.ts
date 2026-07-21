@@ -6,7 +6,16 @@ export default defineConfig({
 	plugins: [
 		sveltekit(),
 		cloudflareTest({
-			wrangler: { configPath: './wrangler.toml' }
+			wrangler: { configPath: './wrangler.toml' },
+			miniflare: {
+				workers: [
+					{
+						name: 'daruma-opportunity-engine-orchestrator',
+						modules: true,
+						script: 'export default { fetch() { return new Response("mock") } }'
+					}
+				]
+			}
 		})
 	],
 	test: {

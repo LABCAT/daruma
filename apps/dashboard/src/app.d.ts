@@ -12,7 +12,7 @@ declare global {
 			env: {
 				DASHBOARD_PASSWORD?: string;
 				DB: D1Database;
-				ORCHESTRATOR_URL?: string;
+				ORCHESTRATOR: Fetcher;
 				CRON_SECRET?: string;
 			};
 			context: {

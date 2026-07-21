@@ -6,24 +6,26 @@ export const POST: RequestHandler = async ({ locals, platform }) => {
 		return json({ error: 'Unauthorized' }, { status: 401 });
 	}
 
-	const orchestratorUrl = platform?.env?.ORCHESTRATOR_URL;
+	const orchestrator = platform?.env?.ORCHESTRATOR;
 	const cronSecret = platform?.env?.CRON_SECRET;
 
-	if (!orchestratorUrl) {
-		return json({ error: 'ORCHESTRATOR_URL not configured' }, { status: 500 });
+	if (!orchestrator) {
+		return json({ error: 'Orchestrator service binding not found' }, { status: 500 });
 	}
 	if (!cronSecret) {
 		return json({ error: 'CRON_SECRET not configured' }, { status: 500 });
 	}
 
 	try {
-		// Call the orchestrator URL securely
-		const res = await fetch(orchestratorUrl, {
+		// Call the orchestrator service binding securely
+		const req = new Request('http://daruma-opportunity-engine-orchestrator', {
 			method: 'POST',
 			headers: {
 				'Authorization': `Bearer ${cronSecret}`
 			}
 		});
+
+		const res = await orchestrator.fetch(req);
 		
 		if (!res.ok) {
 			const text = await res.text();
