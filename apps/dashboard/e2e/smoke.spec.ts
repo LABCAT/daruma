@@ -82,7 +82,7 @@ test.describe('Opportunity Engine (AG-08)', () => {
 		await expect(page.locator('h2.dm-opportunity__title')).toHaveText('Pipeline Health');
 		
 		// Wait for seeding to complete and rows to appear
-		const healthRows = page.locator('tbody tr');
+		const healthRows = page.locator('.dm-table-row:not(.dm-table-row--header)');
 		await expect(healthRows).not.toHaveCount(0);
 		
 		// 7. Test Seen Keywords Tab
@@ -91,7 +91,7 @@ test.describe('Opportunity Engine (AG-08)', () => {
 		await expect(page.locator('h2.dm-opportunity__title')).toHaveText('Seen Keywords');
 		
 		// Wait for seeding to complete and rows to appear
-		const seenRows = page.locator('tbody tr');
+		const seenRows = page.locator('.dm-table-row:not(.dm-table-row--header)');
 		await expect(seenRows).not.toHaveCount(0);
 	});
 });
