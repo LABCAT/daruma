@@ -3,7 +3,7 @@
 </script>
 
 <PageShell title="Dashboard">
-	<p>Welcome to the Daruma command center. <a href="/design">View Design System</a></p>
+	<p>Welcome to the Daruma command center. <a href="/design">View Design System</a> | <a href="/opportunity">Opportunity Engine</a></p>
 </PageShell>
 
 
