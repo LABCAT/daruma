@@ -25,9 +25,12 @@ describe("Orchestrator Worker", () => {
     await env.DB.prepare("DELETE FROM seen_keywords").run();
     await env.DB.prepare("DELETE FROM pipeline_runs").run();
 
-    const request = new Request("http://example.com");
+    const request = new Request("http://example.com", {
+      headers: { 'Authorization': 'Bearer test-secret' }
+    });
     const ctx = createExecutionContext();
-    const response = await worker.fetch(request, env as any, ctx);
+    const mockEnv = { ...env, CRON_SECRET: 'test-secret' } as any;
+    const response = await worker.fetch(request, mockEnv, ctx);
     
     await waitOnExecutionContext(ctx);
     
@@ -48,9 +51,12 @@ describe("Orchestrator Worker", () => {
       "INSERT INTO seen_keywords (keyword_normalized, last_seen_at) VALUES (?, datetime('now', '-10 days'))"
     ).bind(normalized).run();
 
-    const request = new Request("http://example.com");
+    const request = new Request("http://example.com", {
+      headers: { 'Authorization': 'Bearer test-secret' }
+    });
     const ctx = createExecutionContext();
-    const response = await worker.fetch(request, env as any, ctx);
+    const mockEnv = { ...env, CRON_SECRET: 'test-secret' } as any;
+    const response = await worker.fetch(request, mockEnv, ctx);
     
     await waitOnExecutionContext(ctx);
     
@@ -67,9 +73,12 @@ describe("Orchestrator Worker", () => {
       "INSERT INTO seen_keywords (keyword_normalized, last_seen_at) VALUES (?, datetime('now', '-100 days'))"
     ).bind(normalized).run();
 
-    const request = new Request("http://example.com");
+    const request = new Request("http://example.com", {
+      headers: { 'Authorization': 'Bearer test-secret' }
+    });
     const ctx = createExecutionContext();
-    const response = await worker.fetch(request, env as any, ctx);
+    const mockEnv = { ...env, CRON_SECRET: 'test-secret' } as any;
+    const response = await worker.fetch(request, mockEnv, ctx);
     
     await waitOnExecutionContext(ctx);
     

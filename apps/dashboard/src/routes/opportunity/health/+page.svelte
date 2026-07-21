@@ -4,16 +4,53 @@
 	let { data }: { data: PageData } = $props();
 	import TableRow from '$lib/components/table-row/TableRow.svelte';
 	import Alert from '$lib/components/alert/Alert.svelte';
-	import { Check, AlertTriangle, AlertCircle } from 'lucide-svelte';
+	import Button from '$lib/components/button/Button.svelte';
+	import { Check, AlertTriangle, AlertCircle, Play, Loader2 } from 'lucide-svelte';
+
+	let triggering = $state(false);
+	let triggerMessage = $state<{type: 'success' | 'error', text: string} | null>(null);
+
+	async function runPipeline() {
+		triggering = true;
+		triggerMessage = null;
+		try {
+			const res = await fetch('/api/trigger-pipeline', { method: 'POST' });
+			const result = await res.json();
+			if (res.ok) {
+				triggerMessage = { type: 'success', text: result.message || 'Pipeline triggered successfully!' };
+			} else {
+				triggerMessage = { type: 'error', text: result.error || 'Failed to trigger pipeline' };
+			}
+		} catch (e: any) {
+			triggerMessage = { type: 'error', text: e.message || 'Network error' };
+		} finally {
+			triggering = false;
+		}
+	}
 </script>
 
 {#snippet checkAlertIcon()}<Check />{/snippet}
 {#snippet warningAlertIcon()}<AlertTriangle />{/snippet}
 {#snippet dangerAlertIcon()}<AlertCircle />{/snippet}
 
-<header class="dm-opportunity__header">
+<header class="dm-opportunity__header" style="display: flex; justify-content: space-between; align-items: center;">
 	<h2 class="dm-opportunity__title">Pipeline Health</h2>
+	<Button variant="primary" onclick={runPipeline} disabled={triggering}>
+		{#if triggering}
+			<Loader2 class="animate-spin" style="margin-right: var(--dm-space-2)" size={16} /> Running...
+		{:else}
+			<Play style="margin-right: var(--dm-space-2)" size={16} /> Run Pipeline
+		{/if}
+	</Button>
 </header>
+
+{#if triggerMessage}
+	<div style="margin-bottom: var(--dm-space-6)">
+		<Alert variant={triggerMessage.type === 'success' ? 'success' : 'danger'}>
+			{triggerMessage.text}
+		</Alert>
+	</div>
+{/if}
 
 <div style="margin-bottom: var(--dm-space-6)">
 	{#if data.status === 'error'}

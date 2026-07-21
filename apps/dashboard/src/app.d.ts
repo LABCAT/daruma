@@ -12,6 +12,8 @@ declare global {
 			env: {
 				DASHBOARD_PASSWORD?: string;
 				DB: D1Database;
+				ORCHESTRATOR_URL?: string;
+				CRON_SECRET?: string;
 			};
 			context: {
 				waitUntil(promise: Promise<any>): void;

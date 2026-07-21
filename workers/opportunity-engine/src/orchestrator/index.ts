@@ -3,6 +3,7 @@ import { SEED_CATEGORIES } from "../../../../tools/opportunity-engine/src/config
 interface Env {
   DB: D1Database;
   RAW_IDEAS_QUEUE: Queue;
+  CRON_SECRET: string;
 }
 
 export function normalizeKeyword(keyword: string): string {
@@ -54,6 +55,11 @@ export async function runOrchestrator(env: Env): Promise<{ enqueued: number; ski
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    const authHeader = request.headers.get('Authorization');
+    if (authHeader !== `Bearer ${env.CRON_SECRET}`) {
+      return new Response('Unauthorized', { status: 401 });
+    }
+
     const { enqueued, skipped } = await runOrchestrator(env);
     return new Response(`Orchestrator executed. Enqueued: ${enqueued}, Skipped: ${skipped}`);
   },
