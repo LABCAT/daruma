@@ -1,14 +1,22 @@
-/**
- * Parity gate slot (AG-07 fills real compare).
- * Exit 0 while stubbed so the harness stays green; AG-07 must replace this
- * with a real diff that exits 1 on material drift.
- */
-const STUB = process.env.CI_PARITY_STUB !== "0";
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
 
-if (STUB) {
-  console.log("[parity] STUB — not implemented until AG-07. Slot is wired.");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const rootDir = join(__dirname, '../../');
+
+console.log('[parity] Running parity test (Old Pipeline vs New Pipeline) on fixed keyword set...');
+
+const res = spawnSync('pnpm', ['--filter', 'opportunity-engine', 'test', 'src/parity.test.ts'], {
+  cwd: rootDir,
+  stdio: 'inherit'
+});
+
+if (res.status === 0) {
+  console.log('[parity] SUCCESS: New workers match old tool perfectly (raw signals + subtotals).');
   process.exit(0);
+} else {
+  console.error('[parity] FAILED: Material drift detected between old tool and new pipeline.');
+  process.exit(1);
 }
-
-console.error("[parity] Real parity not implemented yet.");
-process.exit(1);
