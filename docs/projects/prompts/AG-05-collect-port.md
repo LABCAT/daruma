@@ -19,6 +19,8 @@ Port collect from `tools/opportunity-engine/` **unchanged**. Do not â€œimproveâ€
 
 ## Tests (fill harness)
 
+**CRITICAL: Do not write trivial happy-path tests just to make CI pass. You must write robust, production-grade tests covering edge cases, failure states, and idempotency.**
+
 Collect success/failure `seen_keywords` cases under `pnpm test:oe`.
 
 ## Verification

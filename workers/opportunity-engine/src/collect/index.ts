@@ -1,7 +1,7 @@
 import { searchApps, getCompetitorReviews, suggestKeywords } from './play-store.js';
 import { expandKeywordViaGoogle } from './google-autocomplete.js';
 import { SerpScraper } from './serp.js';
-import { normalizeKeyword } from './dedupe.js';
+import { normalizeKeyword } from '../shared/dedupe.js';
 
 interface Env {
   DB: D1Database;

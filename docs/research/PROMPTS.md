@@ -217,6 +217,7 @@ I am starting a new Tanuki Toolbox app. It is a [description] tool for
 [audience]. The stack is SvelteKit + Neon DB + Upstash Redis + Cloudflare Pages
 + Stripe. Start by scaffolding the project from the Toolbox template.
 The app should do one thing: [core function]. Keep it simple and beautiful.
+Write robust tests covering edge cases, failures, and idempotency—not just the happy path.
 ```
 
 ### New Dojo Game
@@ -226,6 +227,7 @@ I am starting a new Daruma Dojo micro game. The concept is [description].
 The stack is React Native + Expo. The primary App Store keyword is [keyword].
 Start by scaffolding from the Dojo template. The game should be completable
 in under 2 minutes per session. Monetisation: ads + remove ads IAP.
+Write robust tests covering edge cases, failures, and idempotency—not just the happy path.
 ```
 
 ---

@@ -30,6 +30,8 @@ Search Console, chat, shared packages for other products.
 
 ## Tests (fill harness)
 
+**CRITICAL: Do not write trivial happy-path tests just to make CI pass. You must write robust, production-grade tests covering edge cases, failure states, and idempotency.**
+
 Extend `pnpm test:e2e` (or dashboard API tests) for health + seen-keywords.
 
 ## Verification

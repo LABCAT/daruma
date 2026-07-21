@@ -15,6 +15,8 @@ Prove new Workers match `tools/opportunity-engine/` on a fixed keyword set. **Yo
 
 ## Tests (fill harness)
 
+**CRITICAL: Do not write trivial happy-path tests just to make CI pass. You must write robust, production-grade tests covering edge cases, failure states, and idempotency.**
+
 Replace `scripts/ci/parity.mjs` stub with real diff; `pnpm test:parity` must fail on drift. Existing CI job only.
 
 ## Pass

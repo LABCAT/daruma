@@ -5,5 +5,5 @@
 3. **Local secrets:** `apps/dashboard/.dev.vars` (gitignored). Prod secrets only AG-09.
 4. **Prod Cloudflare:** AG-09 Part B only; else `CUTOVER.md`.
 5. **Pin versions** (`^x.y.z`). Never `"latest"`.
-6. **CI harness is AG-00/00b only.** Later AGs **fill test slots** under existing scripts/jobs (`07-CI-AND-REGRESSION.md`). Do not add ad-hoc workflows. Do not delete jobs. Turn `skip` → real asserts when the feature lands.
+6. **CI harness is AG-00/00b only.** Later AGs **fill test slots** under existing scripts/jobs (`07-CI-AND-REGRESSION.md`). Do not add ad-hoc workflows. Do not delete jobs. Turn `skip` → real asserts when the feature lands. **CRITICAL: Do not write trivial tests just to make the CI pass.** You must write robust, production-grade tests covering edge cases, failure states, and idempotency.
 7. **Evidence:** PR shows tests added to the harness + Actions green.

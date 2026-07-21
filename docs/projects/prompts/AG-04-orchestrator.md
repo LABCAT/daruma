@@ -14,6 +14,8 @@ Implement **orchestrator** Worker only (collect/score stay stubs).
 4. Write `pipeline_runs` (stage=`orchestrator`)
 ## Tests (fill harness)
 
+**CRITICAL: Do not write trivial happy-path tests just to make CI pass. You must write robust, production-grade tests covering edge cases, failure states, and idempotency.**
+
 Add orchestrator enqueue / 90-day skip under `pnpm test:oe`. No new workflow.
 
 ## Verification

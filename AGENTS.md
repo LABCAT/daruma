@@ -78,6 +78,7 @@ Apply the same tone to docs you write in this repo.
 - Always consider Windows dev environment constraints (no local Mac, use Expo EAS for iOS builds)
 - When an app uses a backend, never connect mobile clients directly to the database — always via an API layer
 - **Package versions:** never `"latest"` / `"*"` — resolve **current stable** from npm and pin with semver (`^x.y.z`). Do not reuse stale majors. See [`.agents/rules/package-versions.md`](.agents/rules/package-versions.md)
+- **Testing:** Never write trivial happy-path tests just to pass CI. You must test edge cases, idempotency, and failure states robustly. See [`.agents/rules/agent-testing.md`](.agents/rules/agent-testing.md)
 
 ---
 

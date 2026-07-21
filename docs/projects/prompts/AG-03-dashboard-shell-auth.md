@@ -20,6 +20,8 @@ SvelteKit app on Cloudflare — **same deploy** serves pages and `/api/*`. Auth 
 
 ## Tests (fill harness)
 
+**CRITICAL: Do not write trivial happy-path tests just to make CI pass. You must write robust, production-grade tests covering edge cases, failure states, and idempotency.**
+
 Add auth cases under `pnpm test:dashboard` using `@cloudflare/vitest-pool-workers` against `+server.ts` routes: login → me 200; no cookie → 401. Replace placeholder in `auth.slot.test.ts`. Do not add a new workflow.
 
 ## Out of scope

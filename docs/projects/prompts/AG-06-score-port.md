@@ -17,6 +17,8 @@ Port score from `tools/opportunity-engine/` **unchanged**.
 
 ## Tests (fill harness)
 
+**CRITICAL: Do not write trivial happy-path tests just to make CI pass. You must write robust, production-grade tests covering edge cases, failure states, and idempotency.**
+
 Score / shortlist cases under `pnpm test:oe`.
 
 ## Verification

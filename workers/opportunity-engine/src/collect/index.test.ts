@@ -2,7 +2,7 @@
 import { env, createExecutionContext, waitOnExecutionContext, applyD1Migrations } from "cloudflare:test";
 import { describe, it, expect, beforeAll, vi } from "vitest";
 import worker from "./index.js";
-import { normalizeKeyword } from "./dedupe.js";
+import { normalizeKeyword } from "../shared/dedupe.js";
 
 // Mock the external scrapers so we don't hit real APIs during test
 vi.mock("./play-store.js", () => ({
