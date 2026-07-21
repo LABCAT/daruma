@@ -3,17 +3,35 @@
 	
 	let { data }: { data: PageData } = $props();
 	import TableRow from '$lib/components/table-row/TableRow.svelte';
+	import Alert from '$lib/components/alert/Alert.svelte';
+	import { Check, AlertTriangle, AlertCircle } from 'lucide-svelte';
 </script>
+
+{#snippet checkAlertIcon()}<Check />{/snippet}
+{#snippet warningAlertIcon()}<AlertTriangle />{/snippet}
+{#snippet dangerAlertIcon()}<AlertCircle />{/snippet}
 
 <header class="dm-opportunity__header">
 	<h2 class="dm-opportunity__title">Pipeline Health</h2>
 </header>
 
-{#if data.runs.length === 0}
-	<div class="dm-opportunity__empty">
-		<p>No pipeline runs recorded.</p>
-	</div>
-{:else}
+<div style="margin-bottom: var(--dm-space-6)">
+	{#if data.status === 'error'}
+		<Alert variant="danger" title="Pipeline Inactive" icon={dangerAlertIcon}>
+			No runs have been recorded recently. The orchestrator may not be deployed or the cron trigger is failing.
+		</Alert>
+	{:else if data.status === 'warning'}
+		<Alert variant="warning" title="Pipeline Delayed" icon={warningAlertIcon}>
+			The orchestrator hasn't run successfully in the last 48 hours. Check worker logs.
+		</Alert>
+	{:else}
+		<Alert variant="success" title="System Healthy" icon={checkAlertIcon}>
+			The Opportunity Engine is actively running on schedule.
+		</Alert>
+	{/if}
+</div>
+
+{#if data.runs.length > 0}
 	<div style="border: var(--dm-border-width-base) solid var(--dm-color-border); border-radius: var(--dm-radius-md); overflow: hidden">
 		<TableRow isHeader>
 			<div style="width: 120px">Run ID</div>

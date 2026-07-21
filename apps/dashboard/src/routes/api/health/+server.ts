@@ -38,10 +38,29 @@ export const GET: RequestHandler = async ({ platform, request }) => {
 				.prepare('SELECT * FROM pipeline_runs ORDER BY created_at DESC LIMIT 100')
 				.all();
 				
-			return json({ items: seededResults });
+			return json({ 
+				items: seededResults,
+				status: 'healthy' // Local seeded data is always considered healthy
+			});
 		}
 
-		return json({ items: results });
+		let status = 'error';
+		if (results.length > 0) {
+			const lastRunTime = new Date((results[0] as any).created_at).getTime();
+			const msSinceLastRun = Date.now() - lastRunTime;
+			const hoursSinceLastRun = msSinceLastRun / (1000 * 60 * 60);
+
+			if (hoursSinceLastRun <= 48) {
+				status = 'healthy';
+			} else {
+				status = 'warning';
+			}
+		}
+
+		return json({ 
+			items: results,
+			status 
+		});
 	} catch (err: any) {
 		console.error('Error in /api/health GET:', err);
 		return json({ error: err.message }, { status: 500 });
