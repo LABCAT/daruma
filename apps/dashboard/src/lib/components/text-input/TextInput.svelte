@@ -20,7 +20,7 @@
 		icon,
 		suffix,
 		class: className = '',
-		id,
+		id = 'text-input-' + Math.random().toString(36).slice(2, 9),
 		value = $bindable(),
 		...rest
 	}: Props = $props();
