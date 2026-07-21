@@ -11,3 +11,6 @@ allowBuilds:
   workerd: true
 
 minimumReleaseAgeExclude: []
+
+patchedDependencies:
+  google-play-scraper: patches/google-play-scraper.patch

@@ -9,6 +9,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		min-height: 60px;
 		margin-bottom: var(--dm-space-6);
 		padding-bottom: var(--dm-space-4);
 		border-bottom: var(--dm-border-width-base) solid var(--dm-color-border);

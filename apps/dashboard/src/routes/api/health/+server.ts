@@ -46,14 +46,24 @@ export const GET: RequestHandler = async ({ platform, request }) => {
 
 		let status = 'error';
 		if (results.length > 0) {
-			const lastRunTime = new Date((results[0] as any).created_at).getTime();
-			const msSinceLastRun = Date.now() - lastRunTime;
-			const hoursSinceLastRun = msSinceLastRun / (1000 * 60 * 60);
+			const now = Date.now();
+			const msInHour = 1000 * 60 * 60;
+			
+			const isRecent = (dateStr: string) => {
+				const time = new Date(dateStr).getTime();
+				return (now - time) / msInHour <= 48;
+			};
 
-			if (hoursSinceLastRun <= 48) {
-				status = 'healthy';
+			const hasRecentOrchestrator = results.some(r => (r as any).stage === 'orchestrator' && isRecent((r as any).created_at));
+			const hasRecentCollect = results.some(r => (r as any).stage === 'collect' && isRecent((r as any).created_at));
+			const hasRecentScore = results.some(r => (r as any).stage === 'score' && isRecent((r as any).created_at));
+
+			if (!hasRecentOrchestrator) {
+				status = 'error'; // Cron is not firing
+			} else if (!hasRecentCollect || !hasRecentScore) {
+				status = 'warning'; // Workers are failing or queue is stuck
 			} else {
-				status = 'warning';
+				status = 'healthy'; // All stages have completed recently
 			}
 		}
 

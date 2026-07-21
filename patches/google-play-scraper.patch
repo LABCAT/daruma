@@ -1,0 +1,84 @@
+diff --git a/lib/utils/request.js b/lib/utils/request.js
+index afaae286c011a5e71ae2dd804b209cab6048d31c..4fd353d8efe175c6af827eae39c266faa4f5ad7e 100644
+--- a/lib/utils/request.js
++++ b/lib/utils/request.js
+@@ -1,39 +1,53 @@
+-import requestLib from 'got';
+-import throttled from './throttle.js';
+-import { CookieJar } from 'tough-cookie';
+ import createDebug from 'debug';
+ 
+-const cookieJar = new CookieJar();
+ const debug = createDebug('google-play-scraper');
+ 
+-function doRequest (opts, limit) {
+-  let req;
+-
+-  // cookies are necessary for pagination to work consistently across requests
+-  opts.cookieJar = cookieJar;
+-
+-  if (limit) {
+-    req = throttled(
+-      requestLib, {
+-        interval: 1000,
+-        limit
+-      }
+-    );
+-  } else {
+-    req = requestLib;
++function buildUrl(opts) {
++  let url = opts.url;
++  if (opts.query) {
++    const qs = new URLSearchParams(opts.query).toString();
++    url += '?' + qs;
++  }
++  return url;
++}
++
++async function doRequest (opts) {
++  const url = buildUrl(opts);
++  
++  const init = {
++    method: opts.method || 'GET',
++    headers: opts.headers || {}
++  };
++
++  if (opts.body) {
++    init.body = opts.body;
++  }
++  if (opts.form) {
++    init.body = new URLSearchParams(opts.form).toString();
++    init.headers['Content-Type'] = 'application/x-www-form-urlencoded';
++  }
++
++  const res = await fetch(url, init);
++  const text = await res.text();
++  
++  if (!res.ok) {
++    const err = new Error('HTTP Error: ' + res.status);
++    err.response = { statusCode: res.status };
++    throw err;
+   }
+ 
+-  return new Promise((resolve, reject) => {
+-    req(opts)
+-      .then((response) => resolve(response.body))
+-      .catch((error) => reject(error));
+-  });
++  // The scraper expects response.body to be parsed if opts.json === true or similar?
++  // Wait, the original just returned `resolve(response.body)`. got handles json natively if responseType is json?
++  // Let's check original. It resolves `response.body`. `got` defaults to string unless configured.
++  // Actually, some places might expect string. Let's just return text, unless json is requested.
++  // Actually, google-play-scraper mostly expects string HTML.
++  return text;
+ }
+ 
+-async function request (opts, limit) {
++async function request (opts) {
+   debug('Making request: %j', opts);
+   try {
+-    const response = await doRequest(opts, limit);
++    const response = await doRequest(opts);
+     debug('Request finished');
+     return response;
+   } catch (reason) {
