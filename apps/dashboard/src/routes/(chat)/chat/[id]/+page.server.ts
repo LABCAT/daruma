@@ -13,7 +13,7 @@ export const load: PageServerLoad = async ({ params, platform }) => {
 		.all();
 
 	// Load settings
-	let enabledModels: string[] = ['gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.6-flash', 'llama-3.3-70b-versatile', 'gpt-oss-120b', 'deepseek-chat'];
+	let enabledModels: string[] = ['gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.6-flash', 'llama-3.3-70b-versatile', 'gpt-oss-120b'];
 	const { results: settings } = await db
 		.prepare('SELECT enabled_models FROM settings WHERE id = ?')
 		.bind('user')

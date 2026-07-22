@@ -86,9 +86,7 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 
 			// 2. Save usage telemetry
 			// Cost calculation is rough or 0 for now. The prompt says "estimated USD".
-			const provider = finalModel.startsWith('gemini') ? 'google' : 
-							 finalModel.startsWith('deepseek') ? 'deepseek' : 
-							 'groq';
+			const provider = finalModel.startsWith('gemini') ? 'google' : 'groq';
 
 			const promptTokens = usage?.prompt_tokens || 0;
 			const completionTokens = usage?.completion_tokens || 0;

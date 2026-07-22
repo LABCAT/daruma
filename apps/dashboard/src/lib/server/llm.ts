@@ -3,14 +3,12 @@ export type Message = {
 	content: string;
 };
 
-export type ModelProvider = 'google' | 'deepseek' | 'groq';
+export type ModelProvider = 'google' | 'groq';
 
 function getProviderUrl(provider: ModelProvider): string {
 	switch (provider) {
 		case 'google':
 			return 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions';
-		case 'deepseek':
-			return 'https://api.deepseek.com/chat/completions';
 		case 'groq':
 			return 'https://api.groq.com/openai/v1/chat/completions';
 	}
@@ -18,7 +16,6 @@ function getProviderUrl(provider: ModelProvider): string {
 
 function getProviderFromModel(modelId: string): ModelProvider {
 	if (modelId.startsWith('gemini')) return 'google';
-	if (modelId.startsWith('deepseek')) return 'deepseek';
 	return 'groq'; // Default to groq for llama/mixtral/gemma
 }
 
@@ -26,8 +23,6 @@ function getProviderKey(provider: ModelProvider, env: Record<string, any>): stri
 	switch (provider) {
 		case 'google':
 			return env.GOOGLE_API_KEY;
-		case 'deepseek':
-			return env.DEEPSEEK_API_KEY;
 		case 'groq':
 			return env.GROQ_API_KEY;
 	}

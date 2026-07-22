@@ -4,7 +4,7 @@ export const load: PageServerLoad = async ({ platform }) => {
 	const db = platform?.env?.DB_CHAT;
 	if (!db) return { enabledModels: [] };
 
-	let enabledModels: string[] = ['gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.6-flash', 'llama-3.3-70b-versatile', 'gpt-oss-120b', 'deepseek-chat'];
+	let enabledModels: string[] = ['gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.6-flash', 'llama-3.3-70b-versatile', 'gpt-oss-120b'];
 	try {
 		const { results: settings } = await db
 			.prepare('SELECT enabled_models FROM settings WHERE id = ?')
