@@ -16,15 +16,9 @@ Internal command center only (not shipped Metal Monkey apps).
 
 | # | Prompt | Notes |
 |---|--------|-------|
-| AG-00b | [`AG-00b-fix-ci.md`](prompts/AG-00b-fix-ci.md) | **Done in-repo** — re-run only if harness broken |
-| AG-02a | [`AG-02a-sveltekit-scaffold.md`](prompts/AG-02a-sveltekit-scaffold.md) | **Done** — SvelteKit scaffold |
-| AG-02 | [`AG-02-design-system.md`](prompts/AG-02-design-system.md) | Check vs brief — **no approve wait** |
-| AG-03 | [`AG-03-dashboard-shell-auth.md`](prompts/AG-03-dashboard-shell-auth.md) | Adds Worker + `/api` + auth |
-| AG-04 | [`AG-04-orchestrator.md`](prompts/AG-04-orchestrator.md) | |
-| AG-05 | [`AG-05-collect-port.md`](prompts/AG-05-collect-port.md) | |
-| AG-06 | [`AG-06-score-port.md`](prompts/AG-06-score-port.md) | |
-| AG-07 | [`AG-07-parity-gate.md`](prompts/AG-07-parity-gate.md) | Agent-owned pass/fail |
-| AG-08 | [`AG-08-oe-pending-ui.md`](prompts/AG-08-oe-pending-ui.md) | |
-| AG-09 | [`AG-09-health-cutover.md`](prompts/AG-09-health-cutover.md) | Code always; prod only if CF access |
+| DD-01 | [`DD-01-chat-foundation.md`](prompts/DD-01-chat-foundation.md) | Chat UI & D1 Database schemas (conversations/messages/usage) |
+| DD-02 | [`DD-02-models-and-memory.md`](prompts/DD-02-models-and-memory.md) | Model configs, context tracking, D1 memory extraction |
+| DD-03 | [`DD-03-opportunity-synthesis.md`](prompts/DD-03-opportunity-synthesis.md) | Hook up the OE 'Synthesize' button |
+| DD-04 | [`DD-04-git-decisions.md`](prompts/DD-04-git-decisions.md) | GitHub API integration for `propose_decision` |
 
 **Founder only if needed:** merge PRs; AG-09 Cloudflare login/DNS/secrets when agent cannot. Not mid-sequence questions or visual approve.
