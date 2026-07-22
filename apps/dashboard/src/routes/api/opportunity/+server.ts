@@ -8,19 +8,21 @@ export const GET: RequestHandler = async ({ platform, request }) => {
 	}
 
 	try {
+		const url = new URL(request.url);
+		const statusQuery = url.searchParams.get('status') || 'pending';
+
 		// Check if we need to seed
 		const { results } = await db
 			.prepare('SELECT * FROM ideas_ranked WHERE status = ? ORDER BY rank_score DESC')
-			.bind('pending')
+			.bind(statusQuery)
 			.all();
 
 		// Seed local D1 if empty
-		const url = new URL(request.url);
 		const isLocal = ['localhost', '127.0.0.1', '[::1]', '::1'].includes(url.hostname) || url.hostname.includes('local');
 		
-		console.log('GET /api/opportunity', { isLocal, hostname: url.hostname, resultsCount: results.length });
+		console.log('GET /api/opportunity', { isLocal, hostname: url.hostname, status: statusQuery, resultsCount: results.length });
 
-		if (results.length === 0 && isLocal) {
+		if (results.length === 0 && isLocal && statusQuery === 'pending') {
 			console.log('Seeding local database...');
 			const seedData = Array.from({ length: 10 }).map((_, i) => ({
 				id: crypto.randomUUID(),

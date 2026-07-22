@@ -9,8 +9,9 @@
 		<h1 class="dm-opportunity__main-title">Opportunity Engine</h1>
 		<nav class="dm-opportunity__tabs">
 			<a href="/opportunity/pending" class="dm-opportunity__tab" class:dm-opportunity__tab--active={$page.url.pathname === '/opportunity/pending'}>Pending</a>
+			<a href="/opportunity/research" class="dm-opportunity__tab" class:dm-opportunity__tab--active={$page.url.pathname === '/opportunity/research'}>Research</a>
 			<a href="/opportunity/health" class="dm-opportunity__tab" class:dm-opportunity__tab--active={$page.url.pathname === '/opportunity/health'}>Health</a>
-			<a href="/opportunity/seen" class="dm-opportunity__tab" class:dm-opportunity__tab--active={$page.url.pathname === '/opportunity/seen'}>Seen Keywords</a>
+			<a href="/opportunity/seen" class="dm-opportunity__tab" class:dm-opportunity__tab--active={$page.url.pathname === '/opportunity/seen'}>Seen</a>
 		</nav>
 	</div>
 

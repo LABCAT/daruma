@@ -75,7 +75,7 @@
 </script>
 
 <header class="dm-opportunity__header">
-	<h2 class="dm-opportunity__title">Pending Opportunities</h2>
+	<h2 class="dm-opportunity__title">Saved for Research</h2>
 	<button 
 		class="dm-opportunity__btn dm-opportunity__btn--primary" 
 		onclick={copyTop5}
@@ -87,7 +87,7 @@
 
 	{#if ideas.length === 0}
 		<div class="dm-opportunity__empty">
-			<p>No pending opportunities.</p>
+			<p>No saved research opportunities.</p>
 		</div>
 	{:else}
 		<ul class="dm-opportunity__list">
@@ -131,11 +131,11 @@
 							Build
 						</button>
 						<button 
-							class="dm-opportunity__btn dm-opportunity__btn--warning"
-							onclick={() => updateStatus(idea.id, 'research_more')}
+							class="dm-opportunity__btn dm-opportunity__btn--primary"
+							onclick={() => updateStatus(idea.id, 'pending')}
 							disabled={isProcessing}
 						>
-							Research
+							Restore
 						</button>
 						<button 
 							class="dm-opportunity__btn dm-opportunity__btn--danger"
