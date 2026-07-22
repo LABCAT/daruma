@@ -10,7 +10,7 @@
     "start": "vite preview",
     "prepare": "svelte-kit sync || echo ''",
     "test": "vitest run",
-    "test:e2e": "CI=1 pnpm exec wrangler d1 migrations apply daruma-opportunity-engine --local --persist-to=.wrangler/state/e2e && pnpm build && playwright test"
+    "test:e2e": "CI=1 pnpm exec wrangler d1 migrations apply daruma-opportunity-engine --local --persist-to=.wrangler/state/e2e && pnpm exec wrangler d1 migrations apply daruma-chat --local --persist-to=.wrangler/state/e2e && pnpm build && playwright test"
   },
   "dependencies": {
     "drizzle-orm": "^0.38.4",

@@ -7,6 +7,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { invalidateAll } from '$app/navigation';
+	import { getModelConfig } from '$lib/config/models';
 
 	let { data } = $props();
 	
@@ -23,6 +24,12 @@
 		}
 	});
 	let isSubmitting = $state(false);
+
+	let activeConfig = $derived(getModelConfig(selectedModel));
+	let maxTokens = $derived(Math.min(activeConfig?.contextWindow || Infinity, activeConfig?.requestCeilingTokens || Infinity));
+	let currentTextLength = $derived(messages.reduce((sum, m) => sum + (m.content?.length || 0), 0) + inputMessage.length + 15000); // 15k char buffer for system prompt
+	let estimatedTokens = $derived(Math.round(currentTextLength / 3.5));
+	let usagePercent = $derived(maxTokens !== Infinity ? Math.min(100, (estimatedTokens / maxTokens) * 100) : 0);
 
 	let transcriptRef: HTMLElement | undefined = $state();
 
@@ -194,6 +201,15 @@
 					<Send size={16} />
 				</Button>
 		</form>
+		<div class="context-bar-container">
+			<div class="context-bar-fill" style="width: {usagePercent}%" class:warning={usagePercent > 80}></div>
+			<div class="context-bar-text">
+				{estimatedTokens} / {maxTokens !== Infinity ? maxTokens : '∞'} tokens
+				{#if activeConfig?.requestCeilingTokens && activeConfig.requestCeilingTokens < activeConfig.contextWindow}
+					<span class="context-bar-hint">(rate ceiling bound)</span>
+				{/if}
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -325,5 +341,45 @@
 	@keyframes typing {
 		0%, 80%, 100% { transform: scale(0); }
 		40% { transform: scale(1); }
+	}
+
+	.context-bar-container {
+		max-width: 800px;
+		margin: var(--dm-space-2) auto 0;
+		height: 14px;
+		background: var(--dm-color-border);
+		border-radius: var(--dm-radius-sm);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.context-bar-fill {
+		height: 100%;
+		background: var(--dm-color-primary);
+		opacity: 0.6;
+		transition: width 0.3s ease;
+		
+		&.warning {
+			background: orange;
+		}
+	}
+
+	.context-bar-text {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 10px;
+		color: var(--dm-color-text);
+		font-weight: 500;
+	}
+
+	.context-bar-hint {
+		margin-left: 4px;
+		opacity: 0.7;
 	}
 </style>

@@ -1,9 +1,11 @@
+import { getModelConfig, type ModelConfig } from '../config/models';
+
 export type Message = {
 	role: 'user' | 'assistant' | 'system' | 'event';
 	content: string;
 };
 
-export type ModelProvider = 'google' | 'groq';
+export type ModelProvider = 'google' | 'groq' | 'deepseek' | 'openrouter';
 
 function getProviderUrl(provider: ModelProvider): string {
 	switch (provider) {
@@ -11,21 +13,66 @@ function getProviderUrl(provider: ModelProvider): string {
 			return 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions';
 		case 'groq':
 			return 'https://api.groq.com/openai/v1/chat/completions';
+		case 'deepseek':
+			return 'https://api.deepseek.com/chat/completions';
+		case 'openrouter':
+			return 'https://openrouter.ai/api/v1/chat/completions';
 	}
 }
 
 function getProviderFromModel(modelId: string): ModelProvider {
+	const config = getModelConfig(modelId);
+	if (config) return config.provider;
+
 	if (modelId.startsWith('gemini')) return 'google';
+	if (modelId.startsWith('deepseek')) return 'deepseek';
 	return 'groq'; // Default to groq for llama/mixtral/gemma
 }
 
 function getProviderKey(provider: ModelProvider, env: Record<string, any>): string | undefined {
 	switch (provider) {
 		case 'google':
-			return env.GOOGLE_API_KEY;
+			return env.GOOGLE_AI_API_KEY || env.GOOGLE_API_KEY;
 		case 'groq':
 			return env.GROQ_API_KEY;
+		case 'deepseek':
+			return env.DEEPSEEK_API_KEY;
+		case 'openrouter':
+			return env.OPENROUTER_API_KEY;
 	}
+}
+
+export function trimHistory(messages: Message[], modelId: string): Message[] {
+	const config = getModelConfig(modelId);
+	if (!config) return messages;
+
+	const maxTokens = Math.min(config.contextWindow, config.requestCeilingTokens || Infinity) * 0.8; // Target ~80% of ceiling
+	const CHARS_PER_TOKEN = 3.5;
+
+	// Always keep system messages
+	const systemMessages = messages.filter((m) => m.role === 'system');
+	const otherMessages = messages.filter((m) => m.role !== 'system' && m.role !== 'event');
+
+	const systemLength = systemMessages.reduce((sum, m) => sum + m.content.length, 0);
+	const maxOtherTokens = maxTokens - (systemLength / CHARS_PER_TOKEN);
+
+	if (maxOtherTokens <= 0) return systemMessages; // Edge case: system prompt too big
+
+	let currentTokens = 0;
+	const retainedOther = [];
+	
+	// Keep latest messages first
+	for (let i = otherMessages.length - 1; i >= 0; i--) {
+		const m = otherMessages[i];
+		const tokens = m.content.length / CHARS_PER_TOKEN;
+		if (currentTokens + tokens > maxOtherTokens) {
+			break;
+		}
+		currentTokens += tokens;
+		retainedOther.unshift(m);
+	}
+
+	return [...systemMessages, ...retainedOther];
 }
 
 export async function createChatStream(
@@ -37,11 +84,16 @@ export async function createChatStream(
 	failoverOrder: string[] = []
 ): Promise<{ stream: ReadableStream; finalModel: string }> {
 	const currentModel = modelId;
-	const provider = getProviderFromModel(currentModel);
+	const config = getModelConfig(currentModel);
+	const provider = config?.provider || getProviderFromModel(currentModel);
 	const url = getProviderUrl(provider);
 	const key = getProviderKey(provider, env);
+	const apiModel = config?.apiModel || currentModel;
 
-	const payloadMessages = messages
+	// Trim history
+	const trimmedMessages = trimHistory(messages, currentModel);
+
+	const payloadMessages = trimmedMessages
 		.filter((m) => m.role !== 'event')
 		.map((m) => ({
 			role: m.role,
@@ -64,7 +116,7 @@ export async function createChatStream(
 			Authorization: `Bearer ${key}`
 		},
 		body: JSON.stringify({
-			model: currentModel,
+			model: apiModel,
 			messages: payloadMessages,
 			stream: true,
 			stream_options: { include_usage: true }

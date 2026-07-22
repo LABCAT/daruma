@@ -35,3 +35,11 @@ export const settings = sqliteTable("settings", {
   enabledModels: text("enabled_models").notNull(), // JSON string array
   failoverOrder: text("failover_order").notNull(), // JSON string array
 });
+
+export const memories = sqliteTable("memories", {
+  id: text("id").primaryKey(),
+  content: text("content").notNull(),
+  sourceConversationId: text("source_conversation_id").notNull(),
+  status: text("status").notNull(), // 'active', 'archived', etc.
+  createdAt: text("created_at").notNull(),
+});

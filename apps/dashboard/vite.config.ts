@@ -34,5 +34,10 @@ export default defineConfig({
 				api: 'modern-compiler'
 			}
 		}
+	},
+	server: {
+		fs: {
+			allow: ['../..']
+		}
 	}
 });

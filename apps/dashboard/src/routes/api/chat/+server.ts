@@ -2,6 +2,10 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { createChatStream } from '$lib/server/llm';
 
+import agentsRaw from '../../../../../../AGENTS.md?raw';
+import currentRaw from '../../../../../../docs/CURRENT.md?raw';
+import visionRaw from '../../../../../../docs/VISION.md?raw';
+
 export const POST: RequestHandler = async ({ request, platform }) => {
 	const db = platform?.env?.DB_CHAT;
 	if (!db) {
@@ -52,6 +56,23 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 			role: row.role,
 			content: row.content
 		}));
+
+		// Fetch active memories
+		const { results: memoryResults } = await db
+			.prepare('SELECT content FROM memories WHERE status = ? ORDER BY created_at ASC')
+			.bind('active')
+			.all();
+		const activeMemories = memoryResults.map((m: any) => m.content);
+
+		const systemPrompt = [
+			`# AGENTS.md\n\n${agentsRaw}`,
+			`# CURRENT.md\n\n${currentRaw}`,
+			`# VISION.md\n\n${visionRaw}`,
+			activeMemories.length > 0 ? `# Memories\n\n${activeMemories.join('\n\n')}` : ''
+		].filter(Boolean).join('\n\n---\n\n');
+
+		// Insert deterministic system prompt as the first message
+		messages.unshift({ role: 'system', content: systemPrompt });
 
 		// Load settings
 		let failoverOrder: string[] = [];
