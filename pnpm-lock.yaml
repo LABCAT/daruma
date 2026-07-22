@@ -13,6 +13,9 @@ importers:
 
   apps/dashboard:
     dependencies:
+      drizzle-orm:
+        specifier: ^0.38.4
+        version: 0.38.4(@cloudflare/workers-types@5.20260719.1)
       lucide-svelte:
         specifier: ^1.0.1
         version: 1.0.1(svelte@5.56.6)
@@ -4071,6 +4074,10 @@ snapshots:
   drizzle-orm@0.38.4(@cloudflare/workers-types@4.20260702.1):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20260702.1
+
+  drizzle-orm@0.38.4(@cloudflare/workers-types@5.20260719.1):
+    optionalDependencies:
+      '@cloudflare/workers-types': 5.20260719.1
 
   encoding-sniffer@0.2.1:
     dependencies:
