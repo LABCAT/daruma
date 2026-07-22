@@ -8,12 +8,12 @@ describe('llm utilities', () => {
 				{ role: 'system', content: 'system prompt' },
 				{ role: 'user', content: 'hello' }
 			];
-			const trimmed = trimHistory(messages, 'gemini-flash');
+			const trimmed = trimHistory(messages, 'gemini-3.5-flash-lite');
 			expect(trimmed.length).toBe(2);
 		});
 
 		it('should drop older messages if over ceiling', () => {
-			const testModel = 'groq-gpt-oss-120b';
+			const testModel = 'gpt-oss-120b';
 			
 			const longText = 'a'.repeat(20000); // ~ 5700 tokens
 			
@@ -37,7 +37,7 @@ describe('llm utilities', () => {
 				{ role: 'system', content: longText }, 
 				{ role: 'user', content: 'hello' } 
 			];
-			const trimmed = trimHistory(messages, 'groq-gpt-oss-120b');
+			const trimmed = trimHistory(messages, 'gpt-oss-120b');
 			expect(trimmed.length).toBe(1); 
 			expect(trimmed[0].role).toBe('system');
 		});
@@ -47,7 +47,7 @@ describe('llm utilities', () => {
 				{ role: 'event', content: 'some error' },
 				{ role: 'user', content: 'hello' }
 			];
-			const trimmed = trimHistory(messages, 'gemini-flash');
+			const trimmed = trimHistory(messages, 'gemini-3.5-flash-lite');
 			expect(trimmed.length).toBe(1);
 			expect(trimmed[0].role).toBe('user');
 		});
