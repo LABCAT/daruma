@@ -79,6 +79,9 @@ Keep the dropdown short via **Settings → enabled models**.
 |-----------------------------|------|
 | Gemini Flash (AI Studio free) | Everyday Daruma chat |
 | DeepSeek V4 Flash (paid or free host) | Cheap escalate / failover |
+| Groq Llama 3.3 70B Versatile | Free technical / architecture |
+| Groq GPT-OSS 120B | Free heavy reasoning (tighter TPM) |
+| OpenRouter `:free` / `openrouter/free` | Free failover capacity |
 | Qwen / Kimi / GLM (best available free→paid) | Research / long context when they win |
 | Grok 4.5 (credits or rare paid) | High-quality judgment |
 | MiniMax M3 | Backup; primary for **coding** tools, not chat default |

@@ -98,7 +98,7 @@ Routes under e.g. `/opportunity` (exact paths flexible):
 2. Pipeline health — `pipeline_runs` (AG-09)
 3. Seen-keywords (AG-09)
 
-Synthesise stays human: paste Copy Top 5 into Claude. No synthesise worker.
+Synthesise: **DD-03** — Synthesize button → Assistant chat (replaces manual Copy Top 5 → Claude). Until DD-03 ships, Copy Top 5 remains.
 
 ## Later — chat section (same month goal)
 
@@ -108,8 +108,8 @@ Same app. Own D1 for conversations/memories/decisions. No imports from `workers/
 
 | Decision | Value |
 |----------|-------|
-| Providers | Thin OpenAI-compatible interface in SvelteKit server routes. **No freellmapi inside Workers** |
-| Default model | Paid/trusted for strategy chat; free-tier optional for background only |
+| Providers | Thin OpenAI-compatible interface in SvelteKit server routes. **No freellmapi inside Workers**. Soft model affinity + auto failover on 429; durable `event` rows in chat (not toast-only) |
+| Default model | Free Gemini Flash first; escalate DeepSeek / Groq 70B / GPT-OSS 120B / OpenRouter free per Settings — see [`DARUMA.md`](../DARUMA.md) + DD prompts |
 | Knowledge | Git = human truth. Always inject `AGENTS.md`, `CURRENT.md`, `VISION.md`. Full-context Phase 1; later `KnowledgeProvider` → GitHub live / vector. Bundle OK if Action redeploy + “synced at” UI |
 | Decisions | AI drafts `propose_decision` (rationale + source). Founder confirms → **write into git docs** (knowledge system). Local agents: edit working tree. Dashboard: apply via GitHub API (branch and/or direct commit — **PR optional**, not required for solo). On conflict with a prior confirmed decision: ask override. Lifecycle: `proposed` → `confirmed` → `superseded`. Never invent parallel knowledge outside the repo |
 | Ideas | Draft → confirm → `docs/ideas/` (same apply paths). Not authoritative strategy |

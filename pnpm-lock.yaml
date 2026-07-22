@@ -66,6 +66,22 @@ importers:
         specifier: ^4.112.0
         version: 4.112.0(@cloudflare/workers-types@5.20260719.1)
 
+  packages/db-chat:
+    dependencies:
+      drizzle-orm:
+        specifier: ^0.38.3
+        version: 0.38.4(@cloudflare/workers-types@4.20260702.1)
+    devDependencies:
+      drizzle-kit:
+        specifier: ^0.30.1
+        version: 0.30.6
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      wrangler:
+        specifier: ^3.101.0
+        version: 3.114.17(@cloudflare/workers-types@4.20260702.1)
+
   packages/db-opportunity-engine:
     dependencies:
       drizzle-orm:
@@ -96,7 +112,7 @@ importers:
     devDependencies:
       '@cloudflare/vitest-pool-workers':
         specifier: ^0.18.6
-        version: 0.18.6(@cloudflare/workers-types@4.20260702.1)(@vitest/runner@4.1.10)(@vitest/snapshot@4.1.10)(vitest@4.1.10(@types/node@26.1.1)(jsdom@28.1.0)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.17.19)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0)))
+        version: 0.18.6(@cloudflare/workers-types@4.20260702.1)(@vitest/runner@4.1.10)(@vitest/snapshot@4.1.10)(vitest@4.1.10(@types/node@26.1.1)(jsdom@28.1.0)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0)))
       '@cloudflare/workers-types':
         specifier: ^4.20241230.0
         version: 4.20260702.1
@@ -105,7 +121,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^4.1.10
-        version: 4.1.10(@types/node@26.1.1)(jsdom@28.1.0)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.17.19)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0))
+        version: 4.1.10(@types/node@26.1.1)(jsdom@28.1.0)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0))
       wrangler:
         specifier: ^3.101.0
         version: 3.114.17(@cloudflare/workers-types@4.20260702.1)
@@ -2883,14 +2899,14 @@ snapshots:
     optionalDependencies:
       workerd: 1.20260714.1
 
-  '@cloudflare/vitest-pool-workers@0.18.6(@cloudflare/workers-types@4.20260702.1)(@vitest/runner@4.1.10)(@vitest/snapshot@4.1.10)(vitest@4.1.10(@types/node@26.1.1)(jsdom@28.1.0)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.17.19)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0)))':
+  '@cloudflare/vitest-pool-workers@0.18.6(@cloudflare/workers-types@4.20260702.1)(@vitest/runner@4.1.10)(@vitest/snapshot@4.1.10)(vitest@4.1.10(@types/node@26.1.1)(jsdom@28.1.0)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0)))':
     dependencies:
       '@vitest/runner': 4.1.10
       '@vitest/snapshot': 4.1.10
       cjs-module-lexer: 1.2.3
       esbuild: 0.28.1
       miniflare: 4.20260714.0
-      vitest: 4.1.10(@types/node@26.1.1)(jsdom@28.1.0)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.17.19)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0))
+      vitest: 4.1.10(@types/node@26.1.1)(jsdom@28.1.0)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0))
       wrangler: 4.112.0(@cloudflare/workers-types@4.20260702.1)
       zod: 3.25.76
     transitivePeerDependencies:
@@ -3811,14 +3827,6 @@ snapshots:
       '@vitest/utils': 4.1.10
       chai: 6.2.2
       tinyrainbow: 3.1.0
-
-  '@vitest/mocker@4.1.10(vite@8.1.5(@types/node@26.1.1)(esbuild@0.17.19)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0))':
-    dependencies:
-      '@vitest/spy': 4.1.10
-      estree-walker: 3.0.3
-      magic-string: 0.30.21
-    optionalDependencies:
-      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.17.19)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0)
 
   '@vitest/mocker@4.1.10(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0))':
     dependencies:
@@ -4960,21 +4968,6 @@ snapshots:
       querystringify: 2.2.0
       requires-port: 1.0.0
 
-  vite@8.1.5(@types/node@26.1.1)(esbuild@0.17.19)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0):
-    dependencies:
-      lightningcss: 1.32.0
-      picomatch: 4.0.5
-      postcss: 8.5.19
-      rolldown: 1.1.5
-      tinyglobby: 0.2.17
-    optionalDependencies:
-      '@types/node': 26.1.1
-      esbuild: 0.17.19
-      fsevents: 2.3.3
-      jiti: 2.7.0
-      sass: 1.101.0
-      terser: 5.49.0
-
   vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0):
     dependencies:
       lightningcss: 1.32.0
@@ -4993,34 +4986,6 @@ snapshots:
   vitefu@1.1.3(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0)):
     optionalDependencies:
       vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0)
-
-  vitest@4.1.10(@types/node@26.1.1)(jsdom@28.1.0)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.17.19)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0)):
-    dependencies:
-      '@vitest/expect': 4.1.10
-      '@vitest/mocker': 4.1.10(vite@8.1.5(@types/node@26.1.1)(esbuild@0.17.19)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0))
-      '@vitest/pretty-format': 4.1.10
-      '@vitest/runner': 4.1.10
-      '@vitest/snapshot': 4.1.10
-      '@vitest/spy': 4.1.10
-      '@vitest/utils': 4.1.10
-      es-module-lexer: 2.3.1
-      expect-type: 1.4.0
-      magic-string: 0.30.21
-      obug: 2.1.4
-      pathe: 2.0.3
-      picomatch: 4.0.5
-      std-env: 4.2.0
-      tinybench: 2.9.0
-      tinyexec: 1.2.4
-      tinyglobby: 0.2.17
-      tinyrainbow: 3.1.0
-      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.17.19)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0)
-      why-is-node-running: 2.3.0
-    optionalDependencies:
-      '@types/node': 26.1.1
-      jsdom: 28.1.0
-    transitivePeerDependencies:
-      - msw
 
   vitest@4.1.10(@types/node@26.1.1)(jsdom@28.1.0)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.101.0)(terser@5.49.0)):
     dependencies:

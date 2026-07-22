@@ -21,3 +21,9 @@ migrations_dir = "../../packages/db-opportunity-engine/migrations"
 [[services]]
 binding = "ORCHESTRATOR"
 service = "daruma-opportunity-engine-orchestrator"
+
+[[d1_databases]]
+binding = "DB_CHAT"
+database_name = "daruma-chat"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "../../packages/db-chat/migrations"

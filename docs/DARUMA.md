@@ -158,7 +158,7 @@ Do not rush Phase 2 before agent templates and test harnesses are solid — infr
 
 **Usage / cost tracking:** Per-turn tokens + estimated USD + context used/max (active model). Roll up to conversation; later tag OpenHands `task_id` for cost-per-task. Usage route/dashboard required. Free “tokens remaining” only when a provider exposes it — else show observed usage + 429/failover.
 
-**UI:** Model dropdown (enabled models only). Settings → enable/disable models + preferred free failover order. No Claude-style effort/thinking toggles in Phase 1 (optional later per provider).
+**UI:** Model dropdown (enabled models only). Settings → enable/disable models + preferred free failover order. No Claude-style effort/thinking toggles in Phase 1 (optional later per provider). **Failover notices stay in chat history** (system/event row, e.g. “Rate limited on X → using Y”) — not toast-only.
 
 **Claude Code + MiniMax:** Point at MiniMax Anthropic-compatible endpoint (`https://api.minimax.io/anthropic`) with a **PAYG** key (not flat Token Plans). Prefer over Cursor renew / Claude Pro for routine coding cost.
 
