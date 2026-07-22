@@ -1,10 +1,11 @@
 import type { PageServerLoad } from './$types';
+import { MODELS_CONFIG } from '$lib/config/models';
 
 export const load: PageServerLoad = async ({ platform }) => {
 	const db = platform?.env?.DB_CHAT;
-	if (!db) return { enabledModels: [] };
+	if (!db) return { enabledModels: MODELS_CONFIG.filter(m => m.defaultEnabled).map(m => m.id) };
 
-	let enabledModels: string[] = ['gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.6-flash', 'llama-3.3-70b-versatile', 'gpt-oss-120b'];
+	let enabledModels: string[] = MODELS_CONFIG.filter(m => m.defaultEnabled).map(m => m.id);
 	try {
 		const { results: settings } = await db
 			.prepare('SELECT enabled_models FROM settings WHERE id = ?')

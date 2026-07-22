@@ -8,18 +8,19 @@
 	import { page } from '$app/stores';
 	import { invalidateAll } from '$app/navigation';
 	import { getModelConfig } from '$lib/config/models';
+	import './_page.scss';
 
 	let { data } = $props();
 	
 	let messages = $state<any[]>([]);
-	let selectedModel = $state('gemini-3.5-flash-lite');
+	let selectedModel = $state(data.enabledModels[0] || 'gemini-flash');
 	let inputMessage = $state('');
 
 	$effect(() => {
 		if (messages.length === 0 && data.messages?.length > 0) {
 			messages = data.messages;
 		}
-		if (selectedModel === 'gemini-3.5-flash-lite' && data.preferredModelId) {
+		if (selectedModel === data.enabledModels[0] && data.preferredModelId && data.enabledModels.includes(data.preferredModelId)) {
 			selectedModel = data.preferredModelId;
 		}
 	});
@@ -210,176 +211,4 @@
 				{/if}
 			</div>
 		</div>
-	</div>
-</div>
 
-<style lang="scss">
-	.chat-workspace {
-		display: flex;
-		flex-direction: column;
-		height: 100vh;
-		background: var(--dm-color-bg);
-	}
-
-	.chat-header {
-		padding: var(--dm-space-4);
-		border-bottom: var(--dm-border-width-base) solid var(--dm-color-border);
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		background: var(--dm-color-surface);
-	}
-
-	.chat-header-left {
-		display: flex;
-		align-items: center;
-		gap: var(--dm-space-3);
-	}
-
-	.chat-back-btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: var(--dm-space-2);
-		color: var(--dm-color-text);
-		text-decoration: none;
-		border-radius: var(--dm-radius-md);
-		transition: background-color 0.2s;
-
-		&:hover {
-			background: var(--dm-color-border);
-		}
-	}
-
-	.chat-title {
-		font-size: var(--dm-font-size-xl);
-		font-weight: var(--dm-font-weight-bold);
-		margin: 0;
-	}
-
-	.model-dropdown {
-		padding: var(--dm-space-2) var(--dm-space-3);
-		border-radius: var(--dm-radius-md);
-		border: var(--dm-border-width-base) solid var(--dm-color-border);
-		background: var(--dm-color-bg);
-		color: var(--dm-color-text);
-		font-size: var(--dm-font-size-sm);
-	}
-
-	.chat-transcript {
-		flex: 1;
-		overflow-y: auto;
-		padding: var(--dm-space-6) var(--dm-space-4);
-	}
-
-	.message-event {
-		text-align: center;
-		font-size: var(--dm-font-size-sm);
-		color: var(--dm-color-muted-foreground, gray);
-		padding: var(--dm-space-2);
-		margin: var(--dm-space-2) 0;
-		background: var(--dm-color-surface);
-		border-radius: var(--dm-radius-sm);
-	}
-
-	.message-bubble {
-		max-width: 80%;
-		padding: var(--dm-space-3) var(--dm-space-4);
-		border-radius: var(--dm-radius-lg);
-	}
-
-	.message-bubble--user {
-		align-self: flex-end;
-		background: var(--dm-color-primary);
-		color: white;
-		border-bottom-right-radius: var(--dm-radius-sm);
-	}
-
-	.message-bubble--assistant {
-		align-self: flex-start;
-		background: var(--dm-color-surface);
-		border: var(--dm-border-width-base) solid var(--dm-color-border);
-		color: var(--dm-color-text);
-		border-bottom-left-radius: var(--dm-radius-sm);
-	}
-
-	.chat-composer {
-		padding: var(--dm-space-4);
-		background: var(--dm-color-surface);
-		border-top: var(--dm-border-width-base) solid var(--dm-color-border);
-	}
-
-	.composer-form {
-		display: flex;
-		gap: var(--dm-space-2);
-		max-width: 800px;
-		margin: 0 auto;
-		align-items: flex-end;
-		
-		:global(.dm-text-area) {
-			flex: 1;
-		}
-	}
-
-	.typing-indicator {
-		display: flex;
-		gap: 4px;
-		padding: var(--dm-space-1) 0;
-
-		span {
-			width: 6px;
-			height: 6px;
-			background-color: var(--dm-color-muted-foreground, gray);
-			border-radius: 50%;
-			animation: typing 1.4s infinite ease-in-out;
-		}
-
-		span:nth-child(1) { animation-delay: -0.32s; }
-		span:nth-child(2) { animation-delay: -0.16s; }
-	}
-
-	@keyframes typing {
-		0%, 80%, 100% { transform: scale(0); }
-		40% { transform: scale(1); }
-	}
-
-	.context-bar-container {
-		max-width: 800px;
-		margin: var(--dm-space-2) auto 0;
-		height: 14px;
-		background: var(--dm-color-border);
-		border-radius: var(--dm-radius-sm);
-		position: relative;
-		overflow: hidden;
-	}
-
-	.context-bar-fill {
-		height: 100%;
-		background: var(--dm-color-primary);
-		opacity: 0.6;
-		transition: width 0.3s ease;
-		
-		&.warning {
-			background: orange;
-		}
-	}
-
-	.context-bar-text {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 10px;
-		color: var(--dm-color-text);
-		font-weight: 500;
-	}
-
-	.context-bar-hint {
-		margin-left: 4px;
-		opacity: 0.7;
-	}
-</style>

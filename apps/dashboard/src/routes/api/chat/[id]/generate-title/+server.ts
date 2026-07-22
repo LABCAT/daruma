@@ -3,7 +3,7 @@ import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ params, platform }) => {
 	const db = platform?.env?.DB_CHAT;
-	const apiKey = platform?.env?.GOOGLE_API_KEY;
+	const apiKey = platform?.env?.GOOGLE_AI_API_KEY || platform?.env?.GOOGLE_API_KEY;
 
 	if (!db) {
 		return json({ error: 'Chat database not available' }, { status: 500 });

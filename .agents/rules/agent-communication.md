@@ -17,3 +17,6 @@ If the user asks a question, your primary and immediate goal is to **answer the 
 
 ## 3. No Unprompted Actions
 If you are unsure whether the user is asking a question or giving a command, err on the side of caution. Stop and answer the question first.
+
+## 4. Diagnostic Questions ("Why?")
+When the user asks a diagnostic question (e.g. "why is this happening?", "why is this class here?"), you MUST answer the question in chat FIRST. Do not run commands, read files, or edit code to investigate or fix the issue until you have responded with your explanation.

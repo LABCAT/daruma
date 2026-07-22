@@ -11,7 +11,7 @@ export interface ModelConfig {
 
 export const MODELS_CONFIG: ModelConfig[] = [
 	{
-		id: 'gemini-flash',
+		id: 'gemini-3.5-flash-lite',
 		provider: 'google',
 		apiModel: 'gemini-3.5-flash-lite',
 		contextWindow: 1000000,
@@ -20,16 +20,25 @@ export const MODELS_CONFIG: ModelConfig[] = [
 		defaultEnabled: true
 	},
 	{
-		id: 'deepseek-v4-flash',
-		provider: 'deepseek',
-		apiModel: 'deepseek-chat',
+		id: 'gemini-3.5-flash',
+		provider: 'google',
+		apiModel: 'gemini-3.5-flash',
 		contextWindow: 1000000,
-		inputPerMTok: 0.14,
-		outputPerMTok: 0.28,
+		inputPerMTok: 0,
+		outputPerMTok: 0,
 		defaultEnabled: true
 	},
 	{
-		id: 'groq-llama-3.3-70b',
+		id: 'gemini-3.6-flash',
+		provider: 'google',
+		apiModel: 'gemini-3.6-flash',
+		contextWindow: 1000000,
+		inputPerMTok: 0,
+		outputPerMTok: 0,
+		defaultEnabled: true
+	},
+	{
+		id: 'llama-3.3-70b-versatile',
 		provider: 'groq',
 		apiModel: 'llama-3.3-70b-versatile',
 		contextWindow: 128000,
@@ -39,19 +48,9 @@ export const MODELS_CONFIG: ModelConfig[] = [
 		defaultEnabled: true
 	},
 	{
-		id: 'groq-gpt-oss-120b',
+		id: 'gpt-oss-120b',
 		provider: 'groq',
 		apiModel: 'openai/gpt-oss-120b',
-		contextWindow: 128000,
-		requestCeilingTokens: 8000,
-		inputPerMTok: 0,
-		outputPerMTok: 0,
-		defaultEnabled: true
-	},
-	{
-		id: 'openrouter-free',
-		provider: 'openrouter',
-		apiModel: 'openrouter/free',
 		contextWindow: 128000,
 		requestCeilingTokens: 8000,
 		inputPerMTok: 0,
