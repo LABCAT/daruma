@@ -16,15 +16,12 @@
 
 		isSubmitting = true;
 		try {
-			const res = await fetch('/api/chat/create', { method: 'POST' });
-			const { id } = await res.json();
-			
-			// Save the preferred model for this new conversation immediately
-			await fetch(`/api/settings`, {
+			const res = await fetch('/api/chat/create', { 
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ conversationId: id, preferredModelId: selectedModel })
+				body: JSON.stringify({ preferredModelId: selectedModel })
 			});
+			const { id } = await res.json();
 
 			goto(`/chat/${id}?q=${encodeURIComponent(inputMessage)}`);
 		} catch (err) {
