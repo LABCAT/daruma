@@ -76,21 +76,25 @@ jobs:
             dashboard:
               - 'apps/dashboard/**'
               - 'packages/**'
+              - 'pnpm-lock.yaml'
             orchestrator:
               - 'workers/opportunity-engine/src/orchestrator/**'
               - 'workers/opportunity-engine/src/shared/**'
               - 'workers/opportunity-engine/wrangler.orchestrator.toml'
               - 'packages/**'
+              - 'pnpm-lock.yaml'
             collect:
               - 'workers/opportunity-engine/src/collect/**'
               - 'workers/opportunity-engine/src/shared/**'
               - 'workers/opportunity-engine/wrangler.collect.toml'
               - 'packages/**'
+              - 'pnpm-lock.yaml'
             score:
               - 'workers/opportunity-engine/src/score/**'
               - 'workers/opportunity-engine/src/shared/**'
               - 'workers/opportunity-engine/wrangler.score.toml'
               - 'packages/**'
+              - 'pnpm-lock.yaml'
 
   deploy-dashboard:
     name: Deploy Dashboard
