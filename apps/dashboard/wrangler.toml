@@ -25,5 +25,5 @@ service = "daruma-opportunity-engine-orchestrator"
 [[d1_databases]]
 binding = "DB_CHAT"
 database_name = "daruma-chat"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "f032405b-2a05-40d9-9324-1bd7ad3e3159"
 migrations_dir = "../../packages/db-chat/migrations"
