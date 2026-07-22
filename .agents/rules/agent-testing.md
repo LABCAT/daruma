@@ -14,6 +14,8 @@ When writing tests in Daruma, **do not just write tests to make the CI pass** (t
 
 ## Must
 
+- **Mandatory Pre-Commit Verification**: You MUST run the full test suite (including `pnpm run test:e2e` if applicable) to verify all code changes BEFORE running any `git commit` or `git push` command, regardless of how simple the change is or how urgent the user's prompt seems.
+
 - **Test Edge Cases**: Always test what happens when data is missing, malformed, below threshold, or out of bounds.
 - **Test Failure States**: Verify how the system handles exceptions, network failures, or API limits. If a scraper fails, assert that the system recovers or retries gracefully.
 - **Test Idempotency**: Verify that running the exact same function, queue message, or DB insertion twice does not corrupt data, throw uncaught errors, or create duplicate records.
