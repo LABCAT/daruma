@@ -85,13 +85,18 @@ test.describe('Opportunity Engine (AG-08)', () => {
 		const healthRows = page.locator('.dm-table-row:not(.dm-table-row--header)');
 		await expect(healthRows).not.toHaveCount(0);
 		
-		// 7. Test Seen Keywords Tab
-		await page.getByRole('link', { name: 'Seen Keywords' }).click();
+		// 7. Test Seen Keywords Tab (label was changed to 'Seen')
+		await page.getByRole('link', { name: 'Seen' }).click();
 		await page.waitForURL('**/opportunity/seen');
 		await expect(page.locator('h2.dm-opportunity__title')).toHaveText('Seen Keywords');
 		
 		// Wait for seeding to complete and rows to appear
 		const seenRows = page.locator('.dm-table-row:not(.dm-table-row--header)');
 		await expect(seenRows).not.toHaveCount(0);
+
+		// 8. Test Research Tab
+		await page.getByRole('link', { name: 'Research' }).click();
+		await page.waitForURL('**/opportunity/research');
+		await expect(page.locator('h2.dm-opportunity__title')).toHaveText('Saved for Research');
 	});
 });
