@@ -30,7 +30,7 @@ One shared DB. Schema package: `packages/db-opportunity-engine`.
 | `seen_keywords` | 90-day dedupe (success only) |
 | `pipeline_runs` | Stage in/out — “is it broken?” |
 
-**Status:** `pending` → `sent_to_synthesis` (Copy Top 5) → optional `build` / `skip` / `research_more`.
+**Status:** `pending` → `research_more` (Research → seeded chat, DD-03) → optional `build` / `skip`. `sent_to_synthesis` legacy (no new writers after DD-03).
 
 No `ideas_final`. No synthesise worker. Clean start — do not import old `seen_keywords.json`.
 

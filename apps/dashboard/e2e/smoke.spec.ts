@@ -2,8 +2,6 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Opportunity Engine (AG-08)', () => {
 	test.beforeEach(async ({ context }) => {
-		// Grant clipboard permissions for testing Copy Top 5
-		await context.grantPermissions(['clipboard-read', 'clipboard-write']);
 	});
 
 	test('login and comprehensive pending list interactions', async ({ page, request }) => {
@@ -36,30 +34,14 @@ test.describe('Opportunity Engine (AG-08)', () => {
 		count = await listItems.count();
 		expect(count).toBe(initialSeedCount);
 
-		// 3. Test Bulk Action ("Copy Top 5") & Failure Recovery Simulation
-		const copyBtn = page.getByRole('button', { name: 'Copy Top 5' });
-		await expect(copyBtn).toBeVisible();
-		await expect(copyBtn).toBeEnabled();
-
-		await copyBtn.click();
-		
-		// Wait for items to be removed (top 5 sent to synthesis)
-		const expectedCountAfterCopy = Math.max(0, initialSeedCount - 5);
-		await expect(listItems).toHaveCount(expectedCountAfterCopy);
-
-		// Verify clipboard content
-		const clipboardText = await page.evaluate(() => navigator.clipboard.readText());
-		expect(clipboardText.split('\n').length).toBeLessThanOrEqual(5);
-		expect(clipboardText.length).toBeGreaterThan(0);
-
-		// 4. Test Per-Row Actions (Build, Research, Skip)
-		if (expectedCountAfterCopy > 0) {
+		// 3. Test Per-Row Actions (Build)
+		if (initialSeedCount > 0) {
 			const firstItem = listItems.first();
 			const buildBtn = firstItem.getByRole('button', { name: 'Build' });
 			await buildBtn.click();
 			
 			// UI optimistic update removes it immediately
-			await expect(listItems).toHaveCount(expectedCountAfterCopy - 1);
+			await expect(listItems).toHaveCount(initialSeedCount - 1);
 		}
 
 		// 5. Test Error Handling & Idempotency of API directly

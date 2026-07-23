@@ -14,6 +14,7 @@ export const ideasRanked = sqliteTable("ideas_ranked", {
   keyword: text("keyword").notNull(),
   rankScore: real("rank_score").notNull(),
   scoreJson: text("score_json").notNull(),
+  conversationId: text("conversation_id"),
   status: text("status").notNull().default("pending"),
   createdAt: text("created_at").notNull(),
 }, (table) => [

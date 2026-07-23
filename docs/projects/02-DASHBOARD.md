@@ -94,11 +94,12 @@ Shared-secret password gate (`wrangler secret put`). Signed `HttpOnly` / `Secure
 
 Routes under e.g. `/opportunity` (exact paths flexible):
 
-1. Main — top `pending` ideas by score (all-time). Copy Top 5 → `sent_to_synthesis`. Done → `build` / `skip` / `research_more`
-2. Pipeline health — `pipeline_runs` (AG-09)
-3. Seen-keywords (AG-09)
+1. Main — top `pending` ideas by score (all-time). **Research** → seeded Assistant chat + `research_more` (DD-03). **Build** / **Skip** as today.
+2. Research — `research_more` cards with link back to their synthesis chat.
+3. Pipeline health — `pipeline_runs` (AG-09)
+4. Seen-keywords (AG-09)
 
-Synthesise: **DD-03** — Synthesize button → Assistant chat (replaces manual Copy Top 5 → Claude). Until DD-03 ships, Copy Top 5 remains.
+Synthesise: **DD-03** — per-idea Research → chat; drop Copy Top 5. Until DD-03 ships, Copy Top 5 remains.
 
 ## Later — chat section (same month goal)
 

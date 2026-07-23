@@ -13,7 +13,7 @@ Each strong candidate yields:
 
 **Not in scope:** multi-tenant platforms, backend-heavy products, consumer-only apps, marketing-dependent launches.
 
-Stages: Collect (code) → Score (code) → Rank (code) → **human** synthesise via dashboard Copy Top 5 → Brainstorm (Passion gate).
+Stages: Collect (code) → Score (code) → Rank (code) → **human** synthesise via dashboard Research → Assistant chat (DD-03) → Brainstorm (Passion gate).
 
 Detail / rubric: [`06-ASO-AGENT-LOOP.md`](06-ASO-AGENT-LOOP.md), [`../../research/PROMPTS.md`](../../research/PROMPTS.md).
 

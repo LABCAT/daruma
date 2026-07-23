@@ -1,0 +1,1 @@
+ALTER TABLE `ideas_ranked` ADD `conversation_id` text;

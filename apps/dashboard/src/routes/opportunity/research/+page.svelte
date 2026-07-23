@@ -1,5 +1,6 @@
 <script lang="ts">
 
+	import { goto } from '$app/navigation';
 	import type { PageData } from './$types';
 	
 	let { data }: { data: PageData } = $props();
@@ -14,39 +15,6 @@
 		return { ...idea, parsedScore };
 	}));
 	let isProcessing = $state(false);
-
-	async function copyTop5() {
-		if (ideas.length === 0 || isProcessing) return;
-		isProcessing = true;
-
-		const top5 = ideas.slice(0, 5);
-		const keywords = top5.map((idea: any) => idea.keyword).join('\n');
-		
-		try {
-			await navigator.clipboard.writeText(keywords);
-			
-			const updates = top5.map((idea: any) => ({
-				id: idea.id,
-				status: 'sent_to_synthesis'
-			}));
-
-			const res = await fetch('/api/opportunity', {
-				method: 'PATCH',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ updates })
-			});
-
-			if (res.ok) {
-				ideas = ideas.slice(5);
-			} else {
-				console.error('Failed to update status');
-			}
-		} catch (err) {
-			console.error('Copy/Update failed', err);
-		} finally {
-			isProcessing = false;
-		}
-	}
 
 	async function updateStatus(id: string, status: string) {
 		if (isProcessing) return;
@@ -72,17 +40,34 @@
 			console.error('Update failed', err);
 		}
 	}
+
+	async function startResearch(id: string) {
+		if (isProcessing) return;
+		isProcessing = true;
+
+		try {
+			const res = await fetch(`/api/opportunity/${id}/research`, {
+				method: 'POST'
+			});
+
+			if (res.ok) {
+				const data = await res.json();
+				if (data.conversationId) {
+					goto(`/chat/${data.conversationId}`);
+					return; // leave isProcessing true during navigation
+				}
+			}
+			console.error('Failed to start research');
+			isProcessing = false;
+		} catch (err) {
+			console.error('Research failed', err);
+			isProcessing = false;
+		}
+	}
 </script>
 
 <header class="dm-opportunity__header">
 	<h2 class="dm-opportunity__title">Saved for Research</h2>
-	<button 
-		class="dm-opportunity__btn dm-opportunity__btn--primary" 
-		onclick={copyTop5}
-		disabled={isProcessing || ideas.length === 0}
-	>
-		Copy Top 5
-	</button>
 </header>
 
 	{#if ideas.length === 0}
@@ -130,6 +115,23 @@
 						>
 							Build
 						</button>
+						{#if idea.conversation_id}
+							<button 
+								class="dm-opportunity__btn dm-opportunity__btn--warning"
+								onclick={() => goto(`/chat/${idea.conversation_id}`)}
+								disabled={isProcessing}
+							>
+								Open Chat
+							</button>
+						{:else}
+							<button 
+								class="dm-opportunity__btn dm-opportunity__btn--warning"
+								onclick={() => startResearch(idea.id)}
+								disabled={isProcessing}
+							>
+								Research
+							</button>
+						{/if}
 						<button 
 							class="dm-opportunity__btn dm-opportunity__btn--primary"
 							onclick={() => updateStatus(idea.id, 'pending')}

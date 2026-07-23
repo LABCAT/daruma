@@ -20,7 +20,7 @@ Run **one DD per PR**. Read `AGENT-RULES.md` + linked strategy docs before codin
 |---|--------|-------|
 | DD-01 | [`DD-01-chat-foundation.md`](prompts/DD-01-chat-foundation.md) | Chat UI, D1, streaming, usage, failover + `event` rows |
 | DD-02 | [`DD-02-models-and-memory.md`](prompts/DD-02-models-and-memory.md) | `MODELS_CONFIG`, dual ceilings, cache-friendly prompts, git+D1 memory |
-| DD-03 | [`DD-03-opportunity-synthesis.md`](prompts/DD-03-opportunity-synthesis.md) | OE Synthesize → seeded chat (token-budgeted) |
+| DD-03 | [`DD-03-opportunity-synthesis.md`](prompts/DD-03-opportunity-synthesis.md) | OE Research → seeded chat + back-link (token-budgeted) |
 | DD-04 | [`DD-04-git-decisions.md`](prompts/DD-04-git-decisions.md) | `propose_decision` → Approve & Commit (PR optional) |
 
 **Founder only if needed:** merge PRs; AG-09 Cloudflare login/DNS/secrets when agent cannot. Not mid-sequence taste gates.
