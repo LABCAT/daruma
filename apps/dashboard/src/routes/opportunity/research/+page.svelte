@@ -83,27 +83,27 @@
 				<li class="dm-opportunity__item">
 					<div class="dm-opportunity__item-content">
 						<h2 class="dm-opportunity__keyword">{idea.keyword}</h2>
-						<span class="dm-opportunity__score">Score: {idea.rank_score.toFixed(2)}</span>
+						<span class="dm-opportunity__score" title="Overall ranking score">Score: {idea.rank_score.toFixed(2)}</span>
 						
 						{#if idea.parsedScore?.scores}
 							<div class="dm-opportunity__breakdown">
-								<div class="dm-opportunity__stat">
+								<div class="dm-opportunity__stat" title="Level of customer pain (1-5, 5 = daily business-stopping)">
 									<span class="dm-opportunity__stat-label">Pain</span>
 									<span class="dm-opportunity__stat-value">{idea.parsedScore.scores.pain}</span>
 								</div>
-								<div class="dm-opportunity__stat">
+								<div class="dm-opportunity__stat" title="Willingness to pay (1-5, 5 = proven paid/sub in niche)">
 									<span class="dm-opportunity__stat-label">WTP</span>
 									<span class="dm-opportunity__stat-value">{idea.parsedScore.scores.wtp}</span>
 								</div>
-								<div class="dm-opportunity__stat">
+								<div class="dm-opportunity__stat" title="Ease of discovery (1-5, 5 = high-volume keyword + beatable competition)">
 									<span class="dm-opportunity__stat-label">Discovery</span>
 									<span class="dm-opportunity__stat-value">{idea.parsedScore.scores.discovery}</span>
 								</div>
-								<div class="dm-opportunity__stat">
+								<div class="dm-opportunity__stat" title="Build speed and ease (1-5, 5 = offline ≤3 screens)">
 									<span class="dm-opportunity__stat-label">Build</span>
 									<span class="dm-opportunity__stat-value">{idea.parsedScore.scores.buildSpeed}</span>
 								</div>
-								<div class="dm-opportunity__stat">
+								<div class="dm-opportunity__stat" title="Relevance confidence to Daruma's capabilities">
 									<span class="dm-opportunity__stat-label">Match</span>
 									<span class="dm-opportunity__stat-value">{Math.round(idea.parsedScore.scores.relevanceConfidence * 100)}%</span>
 								</div>
