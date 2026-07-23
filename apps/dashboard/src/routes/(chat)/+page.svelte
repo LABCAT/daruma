@@ -38,7 +38,7 @@
 			<h1 class="greeting">What can I help you with?</h1>
 			<div class="composer-container">
 				<div class="model-selector-wrapper">
-					<Select bind:value={selectedModel} disabled={isSubmitting}>
+					<Select bind:value={selectedModel} disabled={isSubmitting} wrapperClass="home-model-select">
 						{#each data.enabledModels as model}
 							<option value={model}>{model}</option>
 						{/each}
@@ -98,10 +98,16 @@
 
 
 
+	:global(.home-model-select) {
+		width: auto;
+		min-width: 220px;
+	}
+
 	.composer-form {
 		display: flex;
 		gap: var(--dm-space-2);
 		align-items: flex-end;
+		width: 100%;
 		
 		:global(.dm-text-area) {
 			flex: 1;

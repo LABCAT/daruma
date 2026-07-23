@@ -41,6 +41,11 @@
 	margin: 0;
 }
 
+:global(.chat-model-select) {
+	width: auto;
+	min-width: 200px;
+}
+
 
 
 .chat-transcript {

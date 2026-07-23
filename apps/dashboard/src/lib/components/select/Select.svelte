@@ -8,6 +8,7 @@
 		error?: string;
 		helperText?: string;
 		class?: string;
+		wrapperClass?: string;
 		value?: string | number | string[];
 		children?: Snippet;
 	}
@@ -24,7 +25,7 @@
 	}: Props = $props();
 </script>
 
-<div class="dm-select">
+<div class="dm-select {wrapperClass || ''}">
 	{#if label}
 		<label class="dm-select__label" for={id}>{label}</label>
 	{/if}

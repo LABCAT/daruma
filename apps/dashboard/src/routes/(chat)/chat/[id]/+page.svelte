@@ -159,7 +159,7 @@
 			<h1 class="chat-title">Chat</h1>
 		</div>
 		<div class="model-selector">
-			<Select bind:value={selectedModel}>
+			<Select bind:value={selectedModel} wrapperClass="chat-model-select">
 				{#each data.enabledModels as model}
 					<option value={model}>{model}</option>
 				{/each}
