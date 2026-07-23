@@ -44,7 +44,8 @@
 
 	onMount(() => {
 		const q = $page.url.searchParams.get('q');
-		if (q && messages.length === 0) {
+		const visibleMessages = messages.filter(m => m.role !== 'system');
+		if (q && visibleMessages.length === 0) {
 			inputMessage = q;
 			window.history.replaceState({}, '', `/chat/${data.conversationId}`);
 			handleSubmit(new Event('submit') as any);

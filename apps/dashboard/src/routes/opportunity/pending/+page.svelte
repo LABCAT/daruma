@@ -53,7 +53,10 @@
 			if (res.ok) {
 				const data = await res.json();
 				if (data.conversationId) {
-					goto(`/chat/${data.conversationId}`);
+					const url = data.autoPrompt 
+						? `/chat/${data.conversationId}?q=${encodeURIComponent(data.autoPrompt)}` 
+						: `/chat/${data.conversationId}`;
+					goto(url);
 					return; // leave isProcessing true during navigation
 				}
 			}
