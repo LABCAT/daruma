@@ -12,9 +12,14 @@ export const POST: RequestHandler = async ({ params, platform }) => {
 	const { id } = params;
 
 	try {
-		// 1. Fetch Opportunity
+		// 1. Fetch Opportunity and join raw signals
 		const { results } = await db
-			.prepare('SELECT * FROM ideas_ranked WHERE id = ?')
+			.prepare(`
+				SELECT r.*, w.signals_json 
+				FROM ideas_ranked r 
+				LEFT JOIN ideas_raw w ON r.keyword = w.keyword 
+				WHERE r.id = ?
+			`)
 			.bind(id)
 			.all();
 
@@ -26,7 +31,7 @@ export const POST: RequestHandler = async ({ params, platform }) => {
 
 		// 2. Build Seed Context
 		// Bounded synthesis to fit within token limits
-		let signalsStr = idea.signals_json || '{}';
+		let signalsStr = idea.signals_json && idea.signals_json !== '{}' ? idea.signals_json : 'No scraped signals available. Rely on your general knowledge to synthesize this topic.';
 		if (signalsStr.length > 3000) {
 			signalsStr = signalsStr.substring(0, 3000) + '\n... (truncated to fit budget)';
 		}
