@@ -19,6 +19,22 @@
 		margin-bottom: var(--dm-space-6);
 	}
 
+	&__back-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--dm-space-2);
+		margin-bottom: var(--dm-space-4);
+		color: var(--dm-color-muted-foreground);
+		text-decoration: none;
+		font-size: var(--dm-font-size-sm);
+		font-weight: var(--dm-font-weight-medium);
+		transition: color var(--dm-transition-fast);
+
+		&:hover {
+			color: var(--dm-color-text);
+		}
+	}
+
 	&__main-title {
 		margin: 0 0 var(--dm-space-4) 0;
 		font-size: var(--dm-font-size-2xl);

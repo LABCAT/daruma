@@ -2,15 +2,10 @@
 	display: flex;
 	flex-direction: column;
 	width: 260px;
-	background: var(--dm-color-surface);
+	background-color: var(--dm-color-surface);
 	height: 100vh;
 	overflow: hidden;
-	background-color: #f9f9f9; /* Subtle sidebar background */
 	border-right: 1px solid var(--dm-color-border);
-
-	:global(body.dark) & {
-		background-color: #171717; /* ChatGPT dark mode side-bar color */
-	}
 
 	&__header {
 		padding: var(--dm-space-3);

@@ -6,6 +6,9 @@
 
 <div class="dm-opportunity">
 	<div class="dm-opportunity__top-bar">
+		<a href="/" class="dm-opportunity__back-btn">
+			&larr; Back to Dashboard
+		</a>
 		<h1 class="dm-opportunity__main-title">Opportunity Engine</h1>
 		<nav class="dm-opportunity__tabs">
 			<a href="/opportunity/pending" class="dm-opportunity__tab" class:dm-opportunity__tab--active={$page.url.pathname === '/opportunity/pending'}>Pending</a>
