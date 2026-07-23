@@ -14,6 +14,7 @@ When writing tests in Daruma, **do not just write tests to make the CI pass** (t
 
 ## Must
 
+- **Mandatory Test Coverage**: Agents MUST NEVER write new features, modify existing logic, or fix bugs without simultaneously writing or updating the corresponding automated tests (Unit and/or E2E) to cover that specific code path. If you create a new UI feature, you must write a Playwright E2E test for it.
 - **Mandatory Pre-Commit Verification**: You MUST run the ENTIRE test suite to verify all code changes BEFORE running any `git commit` or `git push` command. This means you must run BOTH `pnpm run test` (unit tests) AND `pnpm run test:e2e` (end-to-end tests) regardless of how simple the change is or how urgent the user's prompt seems.
 
 - **Test Edge Cases**: Always test what happens when data is missing, malformed, below threshold, or out of bounds.
