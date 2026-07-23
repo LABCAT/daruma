@@ -4,6 +4,7 @@
 	import Button from '$lib/components/button/Button.svelte';
 	import TextArea from '$lib/components/text-area/TextArea.svelte';
 	import Select from '$lib/components/select/Select.svelte';
+	import Markdown from '$lib/components/markdown/Markdown.svelte';
 	import { Send, LayoutDashboard } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
@@ -170,10 +171,21 @@
 
 	<div class="chat-transcript" bind:this={transcriptRef}>
 		<Stack space="4">
-			{#each messages.filter(m => m.role !== 'system') as msg}
+			{#each messages as msg}
 				{#if msg.role === 'event'}
 					<div class="message-event">
 						{msg.content}
+					</div>
+				{:else if msg.role === 'system'}
+					<div class="message-bubble message-bubble--system">
+						<div class="message-content">
+							<details class="system-prompt-details">
+								<summary>View System Prompt</summary>
+								<div class="system-prompt-content">
+									<Markdown content={msg.content} />
+								</div>
+							</details>
+						</div>
 					</div>
 				{:else}
 					<div class="message-bubble message-bubble--{msg.role}">
@@ -186,11 +198,10 @@
 										<span></span>
 									</div>
 								{:else}
-									<!-- Markdown rendering would go here, using pre for now -->
-									<pre style="white-space: pre-wrap; font-family: inherit; margin: 0;">{msg.content}</pre>
+									<Markdown content={msg.content} />
 								{/if}
 							{:else}
-								{msg.content}
+								<Markdown content={msg.content} />
 							{/if}
 						</div>
 					</div>

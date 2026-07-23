@@ -85,6 +85,37 @@
 	border-bottom-left-radius: var(--dm-radius-sm);
 }
 
+.message-bubble--system {
+	align-self: center;
+	max-width: 90%;
+	background: var(--dm-color-bg);
+	border: var(--dm-border-width-base) dashed var(--dm-color-border);
+	color: var(--dm-color-text);
+	font-size: var(--dm-font-size-sm);
+}
+
+.system-prompt-details {
+	summary {
+		cursor: pointer;
+		color: var(--dm-color-muted-foreground);
+		user-select: none;
+		outline: none;
+		font-weight: 500;
+		margin-bottom: var(--dm-space-2);
+		
+		&:hover {
+			color: var(--dm-color-text);
+		}
+	}
+	
+	.system-prompt-content {
+		margin-top: var(--dm-space-3);
+		padding-top: var(--dm-space-3);
+		border-top: var(--dm-border-width-base) solid var(--dm-color-border);
+		opacity: 0.8;
+	}
+}
+
 .chat-composer {
 	padding: var(--dm-space-4);
 	background: var(--dm-color-surface);
