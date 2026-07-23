@@ -2,6 +2,7 @@
 	import PageShell from '$lib/components/page-shell/PageShell.svelte';
 	import TextArea from '$lib/components/text-area/TextArea.svelte';
 	import Button from '$lib/components/button/Button.svelte';
+	import Select from '$lib/components/select/Select.svelte';
 	import { Send } from 'lucide-svelte';
 	import { goto } from '$app/navigation';
 
@@ -37,11 +38,11 @@
 			<h1 class="greeting">What can I help you with?</h1>
 			<div class="composer-container">
 				<div class="model-selector-wrapper">
-					<select bind:value={selectedModel} class="dm-select model-selector" disabled={isSubmitting}>
+					<Select bind:value={selectedModel} disabled={isSubmitting}>
 						{#each data.enabledModels as model}
 							<option value={model}>{model}</option>
 						{/each}
-					</select>
+					</Select>
 				</div>
 				<form onsubmit={(e) => { e.preventDefault(); handleSubmit(); }} class="composer-form">
 					<TextArea
@@ -95,15 +96,7 @@
 		justify-content: flex-end;
 	}
 
-	.model-selector {
-		width: auto;
-		padding: var(--dm-space-1) var(--dm-space-2);
-		font-size: var(--dm-font-size-sm);
-		border: 1px solid var(--dm-color-border);
-		border-radius: var(--dm-radius-md);
-		background-color: var(--dm-color-surface);
-		color: var(--dm-color-text);
-	}
+
 
 	.composer-form {
 		display: flex;

@@ -3,6 +3,7 @@
 	import Stack from '$lib/components/stack/Stack.svelte';
 	import Button from '$lib/components/button/Button.svelte';
 	import TextArea from '$lib/components/text-area/TextArea.svelte';
+	import Select from '$lib/components/select/Select.svelte';
 	import { Send, LayoutDashboard } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
@@ -158,11 +159,11 @@
 			<h1 class="chat-title">Chat</h1>
 		</div>
 		<div class="model-selector">
-			<select bind:value={selectedModel} class="model-dropdown">
+			<Select bind:value={selectedModel}>
 				{#each data.enabledModels as model}
 					<option value={model}>{model}</option>
 				{/each}
-			</select>
+			</Select>
 		</div>
 	</div>
 
