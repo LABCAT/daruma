@@ -73,6 +73,7 @@
 				<form class="login-form" onsubmit={handleSubmit}>
 					<Stack space="4">
 						<TextInput
+							id="password"
 							label="Password"
 							type={showPassword ? 'text' : 'password'}
 							placeholder="••••••••"

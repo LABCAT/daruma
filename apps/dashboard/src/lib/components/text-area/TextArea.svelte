@@ -60,7 +60,7 @@
 
 <div class="dm-text-area {className}">
 	{#if label}
-		<label class="dm-text-area__label" for={rest.id}>{label}</label>
+		<label class="dm-text-area__label" for={rest.id || undefined}>{label}</label>
 	{/if}
 	
 	<textarea

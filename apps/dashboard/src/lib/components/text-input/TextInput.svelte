@@ -20,15 +20,15 @@
 		icon,
 		suffix,
 		class: className = '',
-		id = 'text-input-' + Math.random().toString(36).slice(2, 9),
-		value = $bindable(),
+		id,
+		value = $bindable(''),
 		...rest
 	}: Props = $props();
 </script>
 
-<div class="dm-text-input">
+<div class="dm-text-input {className}">
 	{#if label}
-		<label class="dm-text-input__label" for={id}>{label}</label>
+		<label class="dm-text-input__label" for={id || undefined}>{label}</label>
 	{/if}
 	<div class="dm-text-input__wrapper">
 		{#if icon}

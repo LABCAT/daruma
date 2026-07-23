@@ -18,7 +18,8 @@
 		error,
 		helperText,
 		class: className = '',
-		id = 'select-' + Math.random().toString(36).slice(2, 9),
+		wrapperClass,
+		id,
 		value = $bindable(),
 		children,
 		...rest
@@ -27,7 +28,7 @@
 
 <div class="dm-select {wrapperClass || ''}">
 	{#if label}
-		<label class="dm-select__label" for={id}>{label}</label>
+		<label class="dm-select__label" for={id || undefined}>{label}</label>
 	{/if}
 	<div class="dm-select__wrapper">
 		<select

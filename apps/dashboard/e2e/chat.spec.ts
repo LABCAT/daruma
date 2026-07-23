@@ -2,6 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Layout & Chat UI (DD-02)', () => {
 	test('verify global theme toggle and navigation', async ({ page }) => {
+		page.on('console', msg => console.log('BROWSER CONSOLE:', msg.text()));
+		page.on('pageerror', error => console.log('BROWSER ERROR:', error.message));
+		
 		// 1. Authenticate
 		await page.goto('/login');
 		
