@@ -12,14 +12,21 @@
 
 	let { data } = $props();
 	
-	let messages = $state<any[]>([]);
-	let selectedModel = $state(data.enabledModels[0] || 'gemini-flash');
+	let messages = $state<any[]>(data.messages || []);
+	let selectedModel = $state(data.enabledModels[0] || 'gemini-3.5-flash-lite');
 	let inputMessage = $state('');
+	let currentConversationId = $state(data.conversationId);
 
 	$effect(() => {
-		if (messages.length === 0 && data.messages?.length > 0) {
+		// Reset state when navigating between different chats
+		if (currentConversationId !== data.conversationId) {
+			currentConversationId = data.conversationId;
+			messages = data.messages || [];
+			inputMessage = '';
+		} else if (messages.length === 0 && data.messages?.length > 0) {
 			messages = data.messages;
 		}
+
 		if (selectedModel === data.enabledModels[0] && data.preferredModelId && data.enabledModels.includes(data.preferredModelId)) {
 			selectedModel = data.preferredModelId;
 		}
