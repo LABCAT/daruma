@@ -169,7 +169,7 @@
 
 	<div class="chat-transcript" bind:this={transcriptRef}>
 		<Stack space="4">
-			{#each messages as msg}
+			{#each messages.filter(m => m.role !== 'system') as msg}
 				{#if msg.role === 'event'}
 					<div class="message-event">
 						{msg.content}
